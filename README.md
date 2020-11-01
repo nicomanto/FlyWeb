@@ -2,7 +2,7 @@
 
 Progetto di Tecnologie Web A.A. 2020/2021
 
-#Colori Palette
+# Colori Palette
 - arancio #c53020
 - blu     #0a3150
 - verde   #618d34
