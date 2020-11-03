@@ -22,7 +22,8 @@ services:
     networks:
       - flyweb_network
     volumes:
-      - ../pages/:/var/www/html/
+      - ../index.php:/var/www/html/index.php
+      - ../pages/:/var/www/html/pages
       - ../components/:/var/www/html/components
       - ../js/:/var/www/html/js
       - ../img/:/var/www/html/img

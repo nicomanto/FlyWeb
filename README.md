@@ -8,6 +8,8 @@ Per far partire l'ambiente di sviluppo eseguire il comando `make up` dalla root 
 
 Ci si potra' connettere al database all'indirizzo `localhost:3307`, e al webserver all'indirizzo `localhost:8080`.
 
+> Purtoppo la creazione del db non l'ho automatizzata, bisogna aprire dbeaver, aprire una console sql e incollare li il file flyweb.sql e poi eseguirlo per creare le tabelle. (E' sufficiente farlo la prima volta, poi i dati dovrebbero rimanere persistenti)
+
 # Directory structure
 ## Components
 Inserire qui dentro ogni parte di pagina che si crea (componente). Creare una cartella per ogni componente che contiene la struttura html e il codice php per "compilarla".
