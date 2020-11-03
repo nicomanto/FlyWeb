@@ -2,6 +2,23 @@
 
 Progetto di Tecnologie Web A.A. 2020/2021
 
+
+# Directory structure
+## Components
+Inserire qui dentro ogni parte di pagina che si crea (componente). Creare una cartella per ogni componente che contiene la struttura html e il codice php per "compilarla".
+
+> Esempio: per la "componente" login creo i file `loginComponent.html` e `loginComponent.php` dentro alla cartella `components/login`
+
+## Pages
+Inserire qui dentro gli script che creano le pagine finali che poi verranno visualizzate dall'utente
+
+## Js
+Inserire qui dentro il codice JavaScript
+
+## Img
+Inserire qui dentro le immagini
+
+
 # Colori Palette
 - arancio #c53020
 - blu     #0a3150
