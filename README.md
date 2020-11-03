@@ -3,6 +3,11 @@
 Progetto di Tecnologie Web A.A. 2020/2021
 
 
+# How to run
+Per far partire l'ambiente di sviluppo eseguire il comando `make up` dalla root del progetto.
+
+Ci si potra' connettere al database all'indirizzo `localhost:3307`, e al webserver all'indirizzo `localhost:8080`.
+
 # Directory structure
 ## Components
 Inserire qui dentro ogni parte di pagina che si crea (componente). Creare una cartella per ogni componente che contiene la struttura html e il codice php per "compilarla".
