@@ -1,5 +1,14 @@
 <?php  
- $connect = mysqli_connect("localhost", "user", "user", "flyweb");  
+
+ $connect = mysqli_connect("localhost", "user", "user", "flyweb",3307);  
+
+ if($connect){
+     echo "ok";
+ }else{
+     echo "fallito dm";
+ }
+
+ /*
  if(isset($_POST["query"]))  
  {  
       $output = '';  
@@ -19,5 +28,7 @@
       }  
       $output .= '</ul>';  
       echo $output;  
- }  
+ }
+ */
+
  ?> 
