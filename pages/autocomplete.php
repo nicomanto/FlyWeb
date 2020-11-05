@@ -1,5 +1,6 @@
 <?php  
 
+
  $connect = mysqli_connect("localhost", "user", "user", "flyweb",3307);  
 
  if($connect){
@@ -7,6 +8,10 @@
  }else{
      echo "fallito dm";
  }
+
+ echo $mysqli->host_info . "kek";
+ 
+
 
  /*
  if(isset($_POST["query"]))  
