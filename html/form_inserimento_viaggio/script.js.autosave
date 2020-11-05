@@ -4,7 +4,7 @@ $(document).ready(function(){
          if(query != '')  
          {  
               $.ajax({  
-                   url:"../../pages/autocomplete.php",  
+                   url:"search.php",  
                    method:"POST",  
                    data:{query:query},  
                    success:function(data)  
@@ -20,5 +20,4 @@ $(document).ready(function(){
          $('#tag').fadeOut();  
     });  
 });  
-alert("js");
-window.open("../pages/autocomplete.php");
+//alert("debug js");

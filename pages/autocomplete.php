@@ -1,24 +1,24 @@
 <?php  
 
+$link = mysqli_connect("mariadb", "user", "user", "flyweb", 3306);
 
- $connect = mysqli_connect("localhost", "user", "user", "flyweb",3307);  
-
- if($connect){
+/*
+if($link){
      echo "ok";
- }else{
-     echo "fallito dm";
- }
+}else{
+     echo "mannaggia gesi";
+}
 
- echo $mysqli->host_info . "kek";
- 
+ echo $link->host_info . ", kek";
 
+*/
 
- /*
  if(isset($_POST["query"]))  
- {  
+ { 
       $output = '';  
       $query = "SELECT * FROM Tag WHERE Nome LIKE '%".$_POST["query"]."%'";  
       $result = mysqli_query($connect, $query);  
+      echo $result;
       $output = '<ul class="list-unstyled">';  
       if(mysqli_num_rows($result) > 0)  
       {  
@@ -33,7 +33,9 @@
       }  
       $output .= '</ul>';  
       echo $output;  
+ }else{
+      echo "fallito";
  }
- */
+
 
  ?> 
