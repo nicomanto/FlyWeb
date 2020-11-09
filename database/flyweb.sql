@@ -72,6 +72,18 @@ CREATE TABLE `Integrazione` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `IscrittiNewsLetter`
+--
+
+CREATE TABLE `IscrittiNewsLetter` (
+  `ID_IscrittiNewsLetter` int(11) NOT NULL,
+  `Email` varchar(128) NOT NULL,
+  `DataIscrizione` date  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `Ordine`
 --
 
@@ -405,6 +417,12 @@ ALTER TABLE `Integrazione`
   MODIFY `ID_Integrazione` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `IscrittiNewsLetter`
+--
+ALTER TABLE `IscrittiNewsLetter`
+  MODIFY `ID_IscrittiNewsLetter` int(11) NOT NULL AUTO_INCREMENT;
+
+
 -- AUTO_INCREMENT per la tabella `Ordine`
 --
 ALTER TABLE `Ordine`
@@ -550,3 +568,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
