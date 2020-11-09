@@ -21,17 +21,12 @@ function aggiungiTag() {
 
      document.getElementById('tagInseriti').textContent+="#"+s+" ";
      //console.log(document.getElementById('some').value);
-     document.getElementById('daInviare').value+=s+";";
-     //console.log(document.getElementById('daInviare').value);
+     document.getElementById('tagDaInviare').value+=s+";";
+     console.log(document.getElementById('daInviare').value);
      document.getElementById('addTagAutocomplete').value="";
 
      //console.log(s);
 }
 
-
-//funzione per inviare la stringa dei tag
-function inviaTag() {
-     console.log("!");
-}
 
 //console.log servivano per debug

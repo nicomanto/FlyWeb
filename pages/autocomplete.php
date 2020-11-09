@@ -18,7 +18,7 @@ if($link){
       {  
            while($row = mysqli_fetch_array($result))  
            {  
-                $output .= ' <option value='.$row["Nome"].'>'.$row["Nome"].'</option> ';  
+                $output .= ' <option id='.$row["Nome"].'>'.$row["Nome"].'</option> ';  
            }  
       }  
       else  
