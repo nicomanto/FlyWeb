@@ -22,11 +22,12 @@ services:
     networks:
       - flyweb_network
     volumes:
-      - ../index.php:/var/www/html/index.php
-      - ../pages/:/var/www/html/pages
-      - ../components/:/var/www/html/components
-      - ../js/:/var/www/html/js
-      - ../img/:/var/www/html/img
+      - ../flyweb/:/var/www/html/
+    environment:
+      DB_HOST: mariadb
+      DB_DATABASE: flyweb
+      DB_USER: user
+      DB_PASSWORD: user
 
   
   apache:
