@@ -256,7 +256,10 @@ CREATE TABLE `Viaggio` (
   `DataInizio` date DEFAULT NULL,
   `DataFine` date DEFAULT NULL,
   `Prezzo` int(11) DEFAULT 0,
-  `Descrizione` text DEFAULT NULL
+  `Descrizione` text DEFAULT NULL,
+  `Stato` varchar(128) NOT NULL,
+  `Citta` varchar(264),
+  `Localita` varchar(264),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
