@@ -22,7 +22,7 @@
     $_page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
