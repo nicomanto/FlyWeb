@@ -71,6 +71,7 @@ class Database {
         // Running prepare statement
         if (!mysqli_stmt_prepare($stmt, $query)) {
             // Failed
+            echo "error " . mysqli_error($this->db);
             exit();
         }
 
@@ -90,7 +91,8 @@ class Database {
         $results = mysqli_stmt_get_result($stmt);
 
         // Return result as associative array
-        return mysqli_fetch_assoc($results);
+        // return mysqli_fetch_all($results);
+        return $this->fetchAllRows($results);
     }
 
     /**
@@ -116,5 +118,19 @@ class Database {
         }
 
         return $paramsType;
+    }
+
+    /**
+     * Fetch all rows as associative array
+     *
+     * @param [type] $result
+     * @return array
+     */
+    private function fetchAllRows($result): array {
+        $data = [];
+        while($row = mysqli_fetch_assoc($result)){
+            $data[] = $row;
+        }  
+        return $data;
     }
 }

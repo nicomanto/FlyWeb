@@ -72,6 +72,18 @@ CREATE TABLE `Integrazione` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `IscrittiNewsLetter`
+--
+
+CREATE TABLE `IscrittiNewsLetter` (
+  `ID_IscrittiNewsLetter` int(11) NOT NULL,
+  `Email` varchar(128) NOT NULL,
+  `DataIscrizione` date  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `Ordine`
 --
 
@@ -244,7 +256,10 @@ CREATE TABLE `Viaggio` (
   `DataInizio` date DEFAULT NULL,
   `DataFine` date DEFAULT NULL,
   `Prezzo` int(11) DEFAULT 0,
-  `Descrizione` text DEFAULT NULL
+  `Descrizione` text DEFAULT NULL,
+  `Stato` varchar(128) NOT NULL,
+  `Citta` varchar(264),
+  `Localita` varchar(264)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -405,6 +420,12 @@ ALTER TABLE `Integrazione`
   MODIFY `ID_Integrazione` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `IscrittiNewsLetter`
+--
+ALTER TABLE `IscrittiNewsLetter`
+  MODIFY `ID_IscrittiNewsLetter` int(11) NOT NULL AUTO_INCREMENT;
+
+
 -- AUTO_INCREMENT per la tabella `Ordine`
 --
 ALTER TABLE `Ordine`

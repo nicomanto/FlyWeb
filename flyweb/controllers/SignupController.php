@@ -20,7 +20,7 @@ class SignupController extends BaseController {
     public function registerUser(string $username, string $email, string $password, string $name, string $surname, string $birth_date) {
         $user = new User($username, $email, $password, $name, $surname, $birth_date);
 
-        $this->createUser($user);
+        $this->createUserInDB($user);
     }
 
     /**
@@ -28,7 +28,7 @@ class SignupController extends BaseController {
      *
      * @return void
      */
-    private function createUser(User $user): void {
+    private function createUserInDB(User $user): void {
         // TODO: add birth date and registration_date
         $createUserQuery = 'INSERT INTO Utente (Username, Password, Nome, Cognome, Email, DataRegistrazione) VALUES (?, ?, ?, ?, ?, ?);';
         $this->db->runQuery($createUserQuery,
