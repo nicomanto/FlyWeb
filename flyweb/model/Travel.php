@@ -9,6 +9,9 @@ class Travel {
     public $data_fine;
     public $prezzo;
     public $descrizione;
+    public $stato;
+    public $citta;
+    public $localita;
 
     /**
      * Workaround to have multiple constructors
@@ -23,24 +26,20 @@ class Travel {
         }
     }
 
+
     /**
-     * Constructor with all database's informations
-     *
-     * @param integer $id_viaggio
-     * @param string $nome
-     * @param string $data_inizio
-     * @param string $data_fine
-     * @param integer $prezzo
-     * @param string $descrizione
-     * @return void
+     * Maps values from array (used to convert db associative arrays into Travel objects)
      */
-    public function __construct6(int $id_viaggio, string $nome, string $data_inizio, string $data_fine, int $prezzo, string $descrizione) {
-        $this->id_viaggio = $id_viaggio;
-        $this->nome = $nome;
-        $this->data_inizio = $data_inizio;
-        $this->data_fine = $data_fine;
-        $this->prezzo = $prezzo;
-        $this->descrizione = $descrizione;
+    public function __construct1(array $travel) {
+        $this->id_viaggio = $travel['ID_Viaggio'];
+        $this->nome = $travel['Nome'];
+        $this->data_inizio = $travel['DataInizio'];
+        $this->data_fine = $travel['DataFine'];
+        $this->prezzo = $travel['Prezzo'];
+        $this->descrizione = $travel['Descrizione'];
+        $this->stato = $travel['Stato'];
+        $this->citta = $travel['Citta'];
+        $this->localita = $travel['Localita'];
     }
 
     /**
@@ -53,11 +52,14 @@ class Travel {
      * @param string $descrizione
      * @return void
      */
-    public function __construct5(string $nome, string $data_inizio, string $data_fine, int $prezzo, string $descrizione) {
+    public function __construct5(string $nome, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $stato, string $citta, string $localita) {
         $this->nome = $nome;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
         $this->prezzo = $prezzo;
         $this->descrizione = $descrizione;
+        $this->stato = $stato;
+        $this->citta = $citta;
+        $this->localita = $localita;
     }
 }

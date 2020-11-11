@@ -25,12 +25,20 @@ class Paginator {
      * @return array
      */
     public static function paginate(array $list, int $page): array {
+        $totalPages = self::getNumOfPages($list);
+
+        // Check if given page index is acceptable, if not, change it to first or last page
+        if ($page < 1) {
+            $page = 1;
+        } else if ($page > $totalPages) {
+            $page = $totalPages;
+        }
         $pageStart = ($page - 1) * self::$pageSize;
 
         return [
             'elements' => array_slice($list, $pageStart, self::$pageSize),
             'currentPage' => $page,
-            'totalPages' => self::getNumOfPages($list)
+            'totalPages' => $totalPages
         ];
     }
 
