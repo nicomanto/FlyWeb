@@ -74,10 +74,12 @@ class Database {
             exit();
         }
 
-        // Binding actual parameters
-        $paramsType = $this->detectParamsType($params);
-        mysqli_stmt_bind_param($stmt, $paramsType, ...$params);
-
+        // Bind params only if some params are provided
+        if (func_num_args() > 1) {
+            // Binding actual parameters
+            $paramsType = $this->detectParamsType($params);
+            mysqli_stmt_bind_param($stmt, $paramsType, ...$params);
+        }
         // Executing query
         $executed = mysqli_stmt_execute($stmt);
         
