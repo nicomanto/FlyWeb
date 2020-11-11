@@ -8,7 +8,6 @@ class BaseComponent extends Template {
     // Constructor
     public function __construct(string $templateName) {
         parent::__construct($templateName);
-        $this->load();
     }
 
     /**
@@ -18,6 +17,7 @@ class BaseComponent extends Template {
      * @return string
      */
     public function load(): void {
+        
         $filename = $_SERVER['DOCUMENT_ROOT'] . 'html/components/html/' . $this->_templateName . '.html';
         if (file_exists($filename)) {
             $this->_template = file_get_contents($filename);
