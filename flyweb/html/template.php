@@ -50,7 +50,7 @@ class Template {
      * @param string $content
      * @return string
      */
-    public function replaceValue(string $value, string $content): string {
+    public function replaceValue(string $value, string $content=null): string {
         $this->_template = str_replace('%' . $value . '%', $content, $this->_template);
         return $this->_template;
     }

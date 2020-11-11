@@ -4,10 +4,10 @@
     // TODO: This is for debug only
     if ($_SESSION['logged_in']) {
         echo '<p>You\'re logged in!!</p>';
-        echo '<p><a href="./logout.php">Log out</a></p>';
+        $user = "LoggedUser";
     } else {
         echo 'You\'re not logged in';
-        echo '<p><a href="./login.php">Log in</a></p>';
+        $user = "NotLoggedUser";
     }
 
 
@@ -15,6 +15,9 @@
 
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
+
+    // Set nav menu
+    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
     // Set search box form
     $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));

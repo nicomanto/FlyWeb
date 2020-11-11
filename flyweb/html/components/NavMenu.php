@@ -10,13 +10,15 @@ class NavMenu extends BaseComponent {
 
     const _templateName = "navmenu";
 
-    public function __construct(string $user) {
+    public function __construct() {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
-        $this->addMenu($user);
+        $this->addMenu();
     }
 
-    public function addMenu(string $user): void{
+    public function addMenu(): void{
+
+        $user = $this->detectUserType();
 
         $menu=(new Menu())->build_menu($user);
 
@@ -24,13 +26,24 @@ class NavMenu extends BaseComponent {
 
         foreach($menu as $i){
             if($i->get_name()=="Home" || $i->get_name()=="Login" || $i->get_name()=="Sign in" || $i->get_name()=="About us" ||$i->get_name()=="Log out")
-                $li.="<li xml:lang=\"en\"><a href=\"".$i->get_path()."\">".$i->get_name()."</li>";
+                $li.="<li xml:lang=\"en\"><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
             else
-                $li.="<li><a href=\"".$i->get_path()."\">".$i->get_name()."</li>";
+                $li.="<li><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
         }
 
         $this->replaceTag('NAVMENUITEM', $li);
 
+    }
+
+    private function detectUserType(): string {
+        $userType = '';
+        if ($_SESSION['logged_in']) {
+            $userType = 'LoggedUser';
+        } else {
+            $userType = 'NotLoggedUser';
+        }
+
+        return $userType;
     }
 }
 

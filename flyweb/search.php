@@ -30,10 +30,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
             $travels = $searchController->searchByPlace($search_key, $search_start_date, $search_end_date, (int)$search_start_price, (int)$search_end_price, $search_order_by, $search_order_by_mode);
             break;
         case 'Tag':
-            $travels = $searchController->searchByTag($search_key);
+            $travels = $searchController->searchByTag($search_key, $search_start_date, $search_end_date, (int)$search_start_price, (int)$search_end_price, $search_order_by, $search_order_by_mode);
             break;
         default:
-            $travels = $searchController->searchGeneral($search_key);
+            $travels = $searchController->searchGeneral($search_key, $search_start_date, $search_end_date, (int)$search_start_price, (int)$search_end_price, $search_order_by, $search_order_by_mode);
     }
 
     // Paginate travels result
@@ -44,6 +44,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Set page head
     $_page->replaceTag('HEAD', (new \html\components\head));
+
+    // Set nav menu
+    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
     // Set search box
     $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));

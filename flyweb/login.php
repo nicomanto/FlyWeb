@@ -77,6 +77,9 @@
     
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
+
+    // Set nav menu
+    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
     
     // Set login form
     $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));
