@@ -29,7 +29,7 @@ class TravelListItem extends baseComponent {
         $nome = strlen($this->travel->nome) > 30 ? substr($this->travel->nome, 0, 30) . '...' : $this->travel->nome;
         $descrizione = strlen($this->travel->descrizione) > 200 ? substr($this->travel->descrizione, 0, 200) . $continueReading : $this->travel->descrizione;
 
-        $this->replaceValuesInTemplate([
+        $this->replaceValues([
                 'travel_id' => $this->travel->id_viaggio,
                 'travel_name' => $nome,
                 'travel_description' => $descrizione,

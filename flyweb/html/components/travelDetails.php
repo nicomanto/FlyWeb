@@ -3,7 +3,6 @@
 namespace html\components;
 
 use html\components\baseComponent;
-use model\Travel;
 
 class TravelDetails extends baseComponent {
 
@@ -19,7 +18,7 @@ class TravelDetails extends baseComponent {
     }
 
     public function render(): string {
-        $this->replaceValuesInTemplate([
+        $this->replaceValues([
             'name' => $this->travel->nome,
             'description' => $this->travel->descrizione,
             'price' => $this->travel->prezzo,

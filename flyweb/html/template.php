@@ -26,6 +26,8 @@ class Template {
         $filename = $_SERVER['DOCUMENT_ROOT'] . 'html/' . $this->_templateName . '.html';
         if (file_exists($filename)) {
             $this->_template = file_get_contents($filename);
+        } else {
+            $this->_template = '';
         }
     }
 
@@ -53,6 +55,20 @@ class Template {
     public function replaceValue(string $value, string $content=null): string {
         $this->_template = str_replace('%' . $value . '%', $content, $this->_template);
         return $this->_template;
+    }
+
+    /**
+     * Replaces $value=>$key in template with $value foreach $value in $values
+     *
+     * @param array $valuesNames
+     * @param array $values
+     * @return void
+     */
+    public function replaceValues(array $values) {
+        foreach ($values as $key => $value) {
+            $key = strtoupper($key);
+            $this->replaceValue($key, $value);
+        }
     }
 
 

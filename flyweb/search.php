@@ -61,8 +61,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('SEARCH_RESULTS', $searchResults);
 
     // Set pagination indicator
-    // $page->replaceTag('PAGINATION_INDICATOR',);
-    $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
+    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedTravels['currentPage'], $paginatedTravels['totalPages'])));
+    // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
 
     echo $_page;

@@ -18,7 +18,7 @@ class SignupForm extends baseComponent {
         // Eventually load login values from previous request
         $signupValuesKeys = ['name', 'surname', 'birth_date', 'username', 'email', 'password'];
         $signupValues = $this->loadValuesFromRequest($signupValuesKeys);
-        $this->replaceValuesInTemplate($signupValues);
+        $this->replaceValues($signupValues);
 
         return $this;
     }
