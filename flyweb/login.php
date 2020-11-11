@@ -7,16 +7,6 @@
         exit();
     }
 
-    // Loading login template
-    $page = new \html\template('login');
-    
-    // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
-    
-    // Set login form
-    $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));
-
-
     // Check if login is attempted
     if(isset($_POST['login'])) {
         $loginController = new \controllers\LoginController();
@@ -82,6 +72,13 @@
 
     }
 
-
+    // Loading login template
+    $page = new \html\template('login');
+    
+    // Set page head
+    $page->replaceTag('HEAD', (new \html\components\head));
+    
+    // Set login form
+    $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));
 
     echo $page;

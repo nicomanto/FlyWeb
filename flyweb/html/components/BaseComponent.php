@@ -62,13 +62,13 @@ class BaseComponent extends Template {
     }
 
     /**
-     * Replaces $valueName_VALUE in template with $values[$valueName]
+     * Replaces $value=>$key in template with $value foreach $value in $values
      *
      * @param array $valuesNames
      * @param array $values
      * @return void
      */
-    public function replaceValuesInTemplate(array $valuesNames, array $values) {
+    public function replaceValuesInTemplate1(array $valuesNames, array $values) {
         if (count($valuesNames) != count($values)) {
             echo 'Qualcosa non tona...';
             exit();
@@ -78,5 +78,23 @@ class BaseComponent extends Template {
             $key = strtoupper($valueName) . '_VALUE';
             $this->replaceValue($key , $values[$valueName]);            
         }
+    }
+
+    /**
+     * Replaces $value=>$key in template with $value foreach $value in $values
+     *
+     * @param array $valuesNames
+     * @param array $values
+     * @return void
+     */
+    public function replaceValuesInTemplate(array $values) {
+        foreach ($values as $key => $value) {
+            $key = strtoupper($key);
+            $this->replaceValue($key, $value);
+        }
+    }
+
+    public function render(): string {
+        return $this;
     }
 }

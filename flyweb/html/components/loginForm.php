@@ -18,7 +18,7 @@ class LoginForm extends baseComponent {
         // Eventually load login values from cookie
         $loginValues = $this->loadValuesFromRequest(['user', 'password']);
         $loginValues['remember_me'] = $loginValues['user'] != '' ? "checked='checked'" : '';
-        $this->replaceValuesInTemplate(['user', 'password', 'remember_me'], $loginValues);
+        $this->replaceValuesInTemplate($loginValues);
 
         return $this;
     }
