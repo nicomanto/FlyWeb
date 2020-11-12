@@ -19,6 +19,9 @@
     // Set signup form
     $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm));
 
+    // Set footer
+    $page->replaceTag('FOOTER', (new \html\components\footer));
+
     // Check is signup is attempted
     if(isset($_POST['signup'])) {
 

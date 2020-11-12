@@ -17,7 +17,7 @@ class Footer extends BaseComponent {
 
     public function render(): string{
 
-        $this->replaceTag('FOOTERSITEMAP', new FooterSiteMap());
+        $this->replaceTag('FOOTERSITEMAP', new footerSiteMap());
 
         return $this;
     }

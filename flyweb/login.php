@@ -84,4 +84,7 @@
     // Set login form
     $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));
 
+    // Set footer
+    $page->replaceTag('FOOTER', (new \html\components\footer));
+
     echo $page;

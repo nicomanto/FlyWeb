@@ -24,7 +24,11 @@
     // Set nav menu
     $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
+    // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
+
+    // Set footer
+    $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $_page;
 

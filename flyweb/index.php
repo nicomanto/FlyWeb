@@ -24,4 +24,7 @@
     // Set search box form
     $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
 
+    // Set footer
+    $page->replaceTag('FOOTER', (new \html\components\footer));
+
     echo $page;
