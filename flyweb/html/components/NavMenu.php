@@ -16,6 +16,12 @@ class NavMenu extends BaseComponent {
         $this->addMenu();
     }
 
+    public function __construct1(string $templateName) {
+        // Call BaseComponent constructor
+        parent::__construct($templateName);
+        $this->addMenu();
+    }
+
     public function addMenu(): void{
 
         $user = $this->detectUserType();
@@ -35,7 +41,7 @@ class NavMenu extends BaseComponent {
 
     }
 
-    private function detectUserType(): string {
+    protected function detectUserType(): string {
         $userType = '';
         if ($_SESSION['logged_in']) {
             $userType = 'LoggedUser';
