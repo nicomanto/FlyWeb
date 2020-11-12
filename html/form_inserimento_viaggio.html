@@ -16,15 +16,23 @@
 
           <label for="stato">Stato</label><br>
           <input type="country" id="stato" name="stato"><br>
-          <p id="input_error_titolo" class="p_input_error"> testo errore </p>
+          <p id="input_error_stato" class="p_input_error"> testo errore </p>
 
           <label for="citta">Città</label><br>
           <input type="text" id="citta" name="citta"><br>
-          <p id="input_error_titolo" class="p_input_error"> testo errore </p>
+          <p id="input_error_citta" class="p_input_error"> testo errore </p>
 
           <label for="localita">Località</label><br>
           <input type="text" id="localita" name="localita"><br>
-          <p id="input_error_titolo" class="p_input_error"> testo errore </p>
+          <p id="input_error_localita" class="p_input_error"> testo errore </p>
+
+          <label for="descrizione">Descrizione</label><br>
+          <input type="textarea" id="descrizione" name="descrizione" rows='20' cols='50'><br>
+          <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
+
+          <label for="descrizioneBreve">Descrizione breve</label><br>
+          <input type="textarea" id="descrizioneBreve" name="descrizioneBreve" rows='10' cols='50' maxlength="1024"><br>
+          <p id="input_error_breve" class="p_input_error"> testo errore </p>
 
 
           <label for="datainizio">Data di inizio viaggio</label><br>
@@ -39,10 +47,12 @@
 
           <label for="prezzo">Prezzo </label><br>
           <input type="number" id="prezzo" name="prezzo" placeholder="inserisci un prezzo" min="1" max="999999" required="required">
-          <p id="input_error_number" class="p_input_error"> testo errore </p>
+          <p id="input_error_prezzo" class="p_input_error"> testo errore </p>
 
-          <label for="immagine">Inserisci immagine</label>
-          <input type="file" accept="image/*" multiple="multiple" id="immagine" name="immagine" required="required"><br>
+          <label for="immagini">Inserisci immagine</label>
+          <input type="file" id="immagini" accept="image/*" multiple="multiple" name="immagini" required="required"><br>
+          <p id="input_error_immagini" class="p_input_error"> testo errore </p>
+
 
           <label for="tagList">Scegli un tag</label><br>
           <input type="text" list="tagList" placeholder="!" id="addTagAutocomplete">
@@ -50,7 +60,7 @@
           <input class="bottone" type="button" id="addTag" name="addTag" value="inserisci tag" onClick="aggiungiTag()">
           <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
           <p id="tagInseriti">Tag inseriti: </div>
-          <p id="input_error_number" class="p_input_error"> </p>
+          <p id="input_error_tags" class="p_input_error"> </p>
 
           <input class="bottone" type="submit" id="submit">
           <input class="bottone" type="reset" id="reset"><br>

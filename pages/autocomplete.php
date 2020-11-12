@@ -1,19 +1,18 @@
 <?php  
-
-$link = mysqli_connect("mariadb", "user", "user", "flyweb", 3306);
+require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
 /*
-if($link){
-     echo "ok";
-}else{
-     echo "mannaggia gesi";
-}*/
+     script php che restituisce la lista di tag sottoforma di <option> che vanno inseriti dentro <datalist>
+*/
+
+
+     $autocompleteController = new \controllers\FormInserimentoViaggioController();
+
+
+     $result = $autocompleteController->getTags();
 
 
 
-      $output = '';  
-      $query = "SELECT * FROM Tag ";  
-      $result = mysqli_query($link, $query);  
       if(mysqli_num_rows($result) > 0)  
       {  
            while($row = mysqli_fetch_array($result))  
