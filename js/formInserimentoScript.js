@@ -1,6 +1,6 @@
 
 var daInviare = "";
-//invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist
+//invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
 fetch('../../pages/autocomplete.php', { method: 'POST' })
      .then(data => data.text())
      .then(
@@ -22,13 +22,9 @@ function aggiungiTag() {
      document.getElementById(s).remove();
 
      document.getElementById('tagInseriti').textContent+="#"+s+" ";
-     //console.log(document.getElementById('some').value);
      document.getElementById('tagDaInviare').value+=s+";";
      console.log(document.getElementById('daInviare').value);
      document.getElementById('addTagAutocomplete').value="";
 
      //console.log(s);
 }
-
-
-//console.log servivano per debug
