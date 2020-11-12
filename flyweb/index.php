@@ -19,6 +19,8 @@
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
+    $page->replaceTag('SUGGESTIONS', (new \html\components\boxSuggerimenti));
+
     // Set search box form
     $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
 
