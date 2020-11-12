@@ -29,7 +29,7 @@ class SearchBox extends baseComponent {
             $values[$key] = $_GET[$key] ? $_GET[$key] : '';
         }
 
-        $this->replaceValuesInTemplate($values);
+        $this->replaceValues($values);
         return $this;
     }
         
