@@ -4,8 +4,22 @@
 <head>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-     <link rel="stylesheet" href="stile.css">
-     <script src="../../js/formInserimentoScript.js"></script>
+     <!-- da togliere <style>,  utilizzato solo in prototipazione -->
+     <style>
+          body{
+               margin: 10px;
+          }
+          .p_input_error{
+               visibility: hidden;
+               color: red;
+          }
+
+          textarea{
+               resize: none;
+          }
+
+     </style>
+     <script src="../flyweb/js/formInserimentoScript.js" ></script>
 </head>
 
 <body>
@@ -27,11 +41,11 @@
           <p id="input_error_localita" class="p_input_error"> testo errore </p>
 
           <label for="descrizione">Descrizione</label><br>
-          <input type="textarea" id="descrizione" name="descrizione" rows='20' cols='50'><br>
+          <textarea id="descrizione" name="descrizione" rows='10' cols='50' form='form_inserimento_viaggio1's> </textarea> 
           <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
 
           <label for="descrizioneBreve">Descrizione breve</label><br>
-          <input type="textarea" id="descrizioneBreve" name="descrizioneBreve" rows='10' cols='50' maxlength="1024"><br>
+          <textarea id="descrizioneBreve" name="descrizioneBreve" rows='3' cols='50' maxlength="1024" form='form_inserimento_viaggio1'> </textarea> 
           <p id="input_error_breve" class="p_input_error"> testo errore </p>
 
 

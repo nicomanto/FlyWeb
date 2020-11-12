@@ -25,5 +25,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
            $output .= ' nessun tag del genere ';  
       }  
       $output .= '';
-      echo $output;  
+      echo $output;
  ?> 
