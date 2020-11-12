@@ -11,7 +11,9 @@ fetch('../../pages/autocomplete.php', { method: 'POST' })
      )
 
 
-//funzione attivata al click del bottone 'aggiungi tag': aggiunge il tag e rimuove la option dalle disponibili del datalist
+//funzione attivata al click del bottone 'aggiungi tag': 
+//   aggiunge il tag e rimuove la option dalle disponibili del datalist
+//   inoltre aggiunge ad un <input type="hidden"> il tag (cosìcche possa inviaro a php tramite una post)
 function aggiungiTag() { 
 
      var s = document.getElementById("addTagAutocomplete").value;
