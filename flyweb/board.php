@@ -13,13 +13,16 @@
 
     $page = new \html\template('board');
 
-    // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    echo $page;
 
-    // Set nav menu
+    // Set page head
+    //$page->replaceTag('HEAD', (new \html\components\head));
+
+        // Set nav menu
+    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormInserimentoViaggio));
+
     $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
-    // Set search box form
-    $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
+
 
     echo $page;

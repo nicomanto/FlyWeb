@@ -1,27 +1,5 @@
-<head>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-     <!-- da togliere <style>,  utilizzato solo in prototipazione -->
-     <style>
-          body{
-               margin: 10px;
-               background-color:#dea5a4;
-          }
-          .p_input_error{
-               visibility: hidden;
-               color: red;
-          }
-
-          textarea{
-               resize: none;
-          }
-
-     </style>
-     <script src="../flyweb/js/formInserimentoScript.js" ></script>
-</head>
-
 <div id="content">
-     <form action='../../pages/invio_form_inserimento_viaggio.php' method="POST" id="form_inserimento_viaggio1">
+     <form action='./invio_form_inserimento_viaggio.php' method="POST" id="form_inserimento_viaggio1">
           
           <fieldset>
                <legend>Titolo e descrizioni</legend>
@@ -77,15 +55,15 @@
                <label for="immagini">Inserisci immagine</label>
                <input type="file" id="immagini" accept="image/*" multiple="multiple" name="immagini" required="required"><br>
                <p id="input_error_immagini" class="p_input_error"> testo errore </p>
-          </fieldset>
 
-          <label for="tagList">Scegli un tag</label><br>
-          <input type="text" list="tagList" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
-          <datalist id="tagList"></datalist>
-          <input class="bottone" type="button" id="addTag" name="addTag" value="inserisci tag" onClick="aggiungiTag()">
-          <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
-          <p id="tagInseriti">Tag inseriti: </div>
-          <p id="input_error_tags" class="p_input_error"> </p>
+               <label for="tagList">Scegli un tag</label><br>
+               <input type="text" list="tagList" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
+               <datalist id="tagList"></datalist>
+               <input class="bottone" type="button" id="addTag" name="addTag" value="inserisci tag" onClick="aggiungiTag()">
+               <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
+               <p id="tagInseriti">Tag inseriti: </div>
+               <p id="input_error_tags" class="p_input_error"> </p>
+          </fieldset>
 
           <input class="bottone" type="submit" id="submit">
           <input class="bottone" type="reset" id="reset">

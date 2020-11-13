@@ -24,9 +24,10 @@ class FormInserimentoViaggio extends BaseController {
 
     //insert a row in 'Viaggio', citta and localita by def is null bc citta and localita are optional fields in the form (and in the db they can be null)
     public function insertViaggio($titolo, $data_inizio, $data_fine, $prezzo, $descrizione, $descrizione_breve, $stato, $citta=null, $localita=null){
-        $query='INSERT INTO Viaggio(Nome, DataInizio, DataFine, Prezzo, Descrizione, DescrizioneBreve, Stato, Citta, Localita)
-                VALUES (Viaggio(Nome, DataInizio, DataFine, Prezzo, Descrizione, DescrizioneBreve, Stato, Citta, Localita);';
+        $query='INSERT INTO Viaggio( ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (Viaggio(?, ?, ?, ?, ?, ?, ?, ?, ?);';
 
-        return ! empty($this->db->runQuery($titolo, $data_inizio, $data_fine, $prezzo, $descrizione, $descrizione_breve, $stato, $citta=null, $localita=null));
+        return ! empty($this->db->runQuery( $titolo, $data_inizio, $data_fine, $prezzo, $descrizione, $descrizione_breve, $stato, $citta=null, $localita=null,
+                                            $titolo, $data_inizio, $data_fine, $prezzo, $descrizione, $descrizione_breve, $stato, $citta=null, $localita=null));
     }
 }
