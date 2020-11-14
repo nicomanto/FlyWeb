@@ -63,6 +63,25 @@ class User {
         $this->id_preferiti = $id_preferiti;
     }
 
+
+    /**
+     * Maps values from array (used to convert db associative arrays into User objects)
+     */
+    public function __construct1(array $user) {
+        $this->id_utente = $user['ID_Utente'];
+        $this->username = $user['Username'];
+        $this->password = $user['Password'];
+        $this->nome = $user['Nome'];
+        $this->cognome = $user['Cognome'];
+        $this->email = $user['Email'];
+        $this->data_nascita = $user['DataNascita'];
+        $this->data_registrazione = $user['DataRegistrazione'];
+        $this->admin = $user['Admin'];
+        $this->evil_bit = $user['EvilBit'];
+        $this->id_carrello = $user['ID_Carrello'];
+        $this->id_preferiti = $user['ID_Preferiti'];
+    }
+
      /**
       * Constructor with minimal informations to create a new user
       *
