@@ -13,7 +13,7 @@
 
     $id= $_GET['par_id'];
     //echo "! ID |".$id;
-    $travelController = new \controllers\TravelController($id);
+    $travelController = new \controllers\TravelController((int)$id);
     
     //$travelController->deleteTravel();
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio($travelController->travel)));

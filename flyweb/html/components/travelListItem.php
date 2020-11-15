@@ -23,14 +23,14 @@ class TravelListItem extends baseComponent {
 
     public function render(): string {
 
-        echo "!!!". $this->travel->titolo;
+        //echo "!!!". $this->travel->titolo;
 
         $continueReading = '... <a href=travel?id=' . $this->travel->id_viaggio . '>continua a leggere</a>';
 
         // Load travel properties into template
         $titolo = strlen($this->travel->titolo) > 30 ? substr($this->travel->titolo, 0, 30) . '...' : $this->travel->titolo;
         $descrizione = strlen($this->travel->descrizione) > 200 ? substr($this->travel->descrizione, 0, 200) . $continueReading : $this->travel->descrizione;
-        $st = $this->travel->titolo;
+        $st = $this->travel->id_viaggio;
 
         $this->replaceValuesInTemplate([
                 'travel_id' => $this->travel->id_viaggio,

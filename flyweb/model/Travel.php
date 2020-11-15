@@ -38,6 +38,7 @@ class Travel {
         $this->data_fine = $travel['DataFine'];
         $this->prezzo = $travel['Prezzo'];
         $this->descrizione = $travel['Descrizione'];
+        $this->descrizionebreve = $travel['DescrizioneBreve'];
         $this->stato = $travel['Stato'];
         $this->citta = $travel['Citta'];
         $this->localita = $travel['Localita'];
