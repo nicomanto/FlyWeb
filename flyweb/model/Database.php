@@ -66,6 +66,8 @@ class Database {
      */
     public function runQuery(string $query, ...$params) {
 
+        //echo $query;
+
         $stmt = mysqli_stmt_init($this->db);
         
         // Running prepare statement

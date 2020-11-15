@@ -11,7 +11,7 @@
     }
 
 
-    $page = new \html\template('board');
+    $page = new \html\template('index');
 
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));

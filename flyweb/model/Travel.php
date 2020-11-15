@@ -4,7 +4,7 @@ namespace model;
 
 class Travel {
     public $id_viaggio;
-    public $nome;
+    public $titolo;
     public $data_inizio;
     public $data_fine;
     public $prezzo;
@@ -32,7 +32,7 @@ class Travel {
      */
     public function __construct1(array $travel) {
         $this->id_viaggio = $travel['ID_Viaggio'];
-        $this->nome = $travel['Nome'];
+        $this->titolo = $travel['titolo'];
         $this->data_inizio = $travel['DataInizio'];
         $this->data_fine = $travel['DataFine'];
         $this->prezzo = $travel['Prezzo'];
@@ -45,15 +45,15 @@ class Travel {
     /**
      * Constructor with minimal informations to create a new travel
      *
-     * @param string $nome
+     * @param string $titolo
      * @param string $data_inizio
      * @param string $data_fine
      * @param integer $prezzo
      * @param string $descrizione
      * @return void
      */
-    public function __construct5(string $nome, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $stato, string $citta, string $localita) {
-        $this->nome = $nome;
+    public function __construct5(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $stato, string $citta, string $localita) {
+        $this->titolo = $titolo;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
         $this->prezzo = $prezzo;

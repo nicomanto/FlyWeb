@@ -25,6 +25,7 @@ class SearchBox extends baseComponent {
     }
 
     public function render(): string {
+        
         foreach ($this->values as $key => $value) {
             $values[$key] = $_GET[$key] ? $_GET[$key] : '';
         }

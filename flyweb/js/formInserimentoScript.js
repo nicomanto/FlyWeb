@@ -1,6 +1,4 @@
-
 //alert("funziono!");
-
 var daInviare = "";
 //invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
 fetch('/pages/autocomplete.php', { method: 'POST' })
@@ -29,4 +27,9 @@ function aggiungiTag() {
      document.getElementById('addTagAutocomplete').value="";
 
      //console.log(s);
+}
+
+function conferma(){
+     $popup_conferma = confirm("vuoi confermare il form?");
+     return ($popup_conferma)?true:false;
 }
