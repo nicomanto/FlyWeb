@@ -29,6 +29,7 @@
     $t = $viaggio['titolo'];
 
     $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($t,$str)));
+    $page->replaceTag('ADM-DASHBOARD', " ");
 
     echo $page;
 

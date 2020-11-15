@@ -6,10 +6,8 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio));
+    $page->replaceTag('ADM-DASHBOARD', (new \html\components\AdmDashBoard));
 
-    $page->replaceTag('ADM-SUCCESSO-INS', '');
-
-    $page->replaceTag('ADM-SUCCESSO-ELI', '');
+    $page->replaceTag('ADM-SUCCESSO', '');
 
     echo $page;

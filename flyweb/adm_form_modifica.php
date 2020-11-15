@@ -6,7 +6,7 @@
     echo $page;
 
     // Set page head
-    //$page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
     //$page->replaceTag('ADM-NAV-MENU', (new \html\components\NavMenu));
@@ -18,6 +18,6 @@
     //$travelController->deleteTravel();
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio($travelController->travel)));
     $page->replaceTag('ADM-SUCCESSO', " ");
-
+    $page->replaceTag('ADM-DASHBOARD', " ");
 
     echo $page;
