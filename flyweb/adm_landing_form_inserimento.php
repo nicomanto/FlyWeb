@@ -13,17 +13,20 @@
     if(($viaggio['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
         $admController->inserisciViaggio($viaggio);
+        $v_id=$admController->getTravelIdByTitle($viaggio['titolo']);
+        $admController->setTagViaggio($v_id,$viaggio['tag']);
     }else{
         $str= "aggiornamento";
-        $admController->resetTag($viaggio['id']);
+        $admController->resetTagViaggio($viaggio['id']);
         $admController->aggiornaViaggio($viaggio);
+        $admController->setTagViaggio($viaggio['id'],$viaggio['tag']);
     }
 
-    //in ogni caso devo ri-settare i tag
-    $admController->setTag(1,$viaggio['tag']);
 
-    //e le foto
-    //to-do
+
+    //in ogni caso devo ri-settare i tag
+
+    //e le foto... to-do
 
 
     $page->replaceTag('HEAD', (new \html\components\head));
