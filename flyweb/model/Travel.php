@@ -33,7 +33,7 @@ class Travel {
      */
     public function __construct1(array $travel) {
         $this->id_viaggio = $travel['ID_Viaggio'];
-        $this->titolo = $travel['titolo'];
+        $this->titolo = $travel['Titolo'];
         $this->data_inizio = $travel['DataInizio'];
         $this->data_fine = $travel['DataFine'];
         $this->prezzo = $travel['Prezzo'];
