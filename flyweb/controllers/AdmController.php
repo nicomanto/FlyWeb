@@ -73,11 +73,32 @@ class AdmController extends BaseController {
                             $viaggio['id']);
     }
 
-    public function checkTravel(int $id):bool{
+    public function checkTravel(int $idViaggio):bool{
         $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio = ?;';
-        $ris = ($this->db->runQuery($query, $title)[0]);
+        $ris = ($this->db->runQuery($query, $idViaggio)[0]);
 
         print_r($ris);
         return (empty($ris)?false:true);
+    }
+
+
+    //crea relazione tag-viaggio (relazione n-n scomposta in 1-n-n-1)
+    public function setTagViaggio($i_viaggio, $tag){
+        //echo "TAGS".$tags;
+        $listatag = explode(";", $tag);
+        //print_r($listatag);
+
+        foreach($listatag as $v) {
+            $query_id = 'SELECT ID_Viaggio FROM Tag WHERE Nome=? LIMIT 1;';
+            $id_tag = $this->db->runQuery($query_id, $v)[0];
+
+            $query_tag= 'INSERT INTO TagViaggio(ID_Tag,ID_Viaggio) VALUES(?,?);';
+            $this->db->runQuery($query_id, $id_tag, $id_viaggio)[0];
+        }
+    }
+
+    public function resetTag($id){
+        $query = 'DELETE FROM TagViaggio WHERE ID_Viaggio = ?;';
+        $this->db->runQuery($query, $title)[0];
     }
 }
