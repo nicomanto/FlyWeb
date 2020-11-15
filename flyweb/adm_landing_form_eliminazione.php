@@ -3,9 +3,8 @@
 
     $page = new \html\template('board');
 
-    $admController = new \controllers\AdmController();
-    $form = new \html\components\FormViaggio();
-    $datiViaggio = $form->estraiDatiViaggioDaForm();
+    $id= $_GET['par_id'];
+    $travelController = new \controllers\TravelController($id);
 
     /*
     //print debug
@@ -14,16 +13,15 @@
     }
     */
 
-    $admController->inserisciViaggio($datiViaggio);
+    $titolo = $travelController->getTitle($id);
+
+    $travelController->deleteTravel($id);
+
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
 
-    $t = $datiViaggio['titolo'];
-
-    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccessoInserimento($t) ));
+    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
 
     echo $page;
-
-

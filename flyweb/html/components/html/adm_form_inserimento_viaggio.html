@@ -3,7 +3,7 @@
 
 </head>
 <div id="content">
-     <form action='./adm_form_inserimento_viaggio.html' method="POST" id="form_inserimento_viaggio1" onsubmit="return conferma()">
+     <form action='./adm_landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio1" onsubmit="return conferma()">
           
           <fieldset>
                <legend>Titolo e descrizioni</legend>
@@ -68,6 +68,8 @@
                <p id="tagInseriti">Tag inseriti: </div>
                <p id="input_error_tags" class="p_input_error"> </p>
           </fieldset>
+
+          <input type="hidden" name="id" id="id" value="%ID%">
 
           <input class="bottone" type="submit" id="submit" value="invia">
           <input class="bottone" type="reset" id="reset" value="cancella">

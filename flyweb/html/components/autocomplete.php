@@ -6,24 +6,16 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 */
 
 
-     $autocompleteController = new \controllers\FormInserimentoViaggioController();
+     $autocompleteController = new \controllers\AdmController();
 
 
      $result = $autocompleteController->getTags();
 
+     foreach($result as $id=>$nome) { 
+          //echo $id . " => " . $nome . "\n";
+          $output .= ' <option id='.$nome['Nome'].'>'.$nome['Nome'].'</option> ';
+     }
 
-
-      if(mysqli_num_rows($result) > 0)  
-      {  
-           while($row = mysqli_fetch_array($result))  
-           {  
-                $output .= ' <option id='.$row["Nome"].'>'.$row["Nome"].'</option> ';  
-           }  
-      }  
-      else  
-      {  
-           $output .= ' nessun tag del genere ';  
-      }  
       $output .= '';
       echo $output;
  ?> 

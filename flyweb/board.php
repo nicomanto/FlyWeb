@@ -8,6 +8,8 @@
 
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio));
 
-    $page->replaceTag('ADM-SUCCESSO', '');
+    $page->replaceTag('ADM-SUCCESSO-INS', '');
+
+    $page->replaceTag('ADM-SUCCESSO-ELI', '');
 
     echo $page;

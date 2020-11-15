@@ -43,6 +43,10 @@ class TravelListItem extends baseComponent {
                 <form action="./adm_form_modifica.php" method="get">
                     <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
                     <input type="submit" name="modifica" id="modifca" value="MODIFICA"></button>
+                </form>'.'
+                <form action="./adm_landing_form_eliminazione.php" method="get">
+                    <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
+                    <input type="submit" name="modifica" id="modifca" value="ELIMINA"></button>
                 </form>':' '
             ]
          );

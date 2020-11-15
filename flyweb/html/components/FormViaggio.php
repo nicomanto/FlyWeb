@@ -33,14 +33,16 @@ class FormViaggio extends baseComponent {
                     'localita' => ' ',
                     'datainizio' => (empty($this->travel_loc))?' ':$this->travel_loc->data_inizio,
                     'datafine' => (empty($this->travel_loc))?' ':$this->travel_loc->data_fine,
-                    'prezzo' => (empty($this->travel_loc))?' ':$this->travel_loc->prezzo
+                    'prezzo' => (empty($this->travel_loc))?' ':$this->travel_loc->prezzo,
+                    'id' => (empty($this->travel_loc))?' ':$this->travel_loc->id_viaggio
             ]);
             
             return $this;
     }
 
     //estrae i dati inseriti nel form e li mette in un array associativo
-    public function estraiDatiViaggioDaForm(): array{ 
+    public function estraiDatiViaggio(): array{ 
+
         $dati = [
             'titolo' => $_POST['titolo'],
             'descrizione' => $_POST['descrizione'],
@@ -50,7 +52,8 @@ class FormViaggio extends baseComponent {
             'localita' => $_POST['localita'],
             'datainizio' => $_POST['datainizio'],
             'datafine' => $_POST['datafine'],
-            'prezzo' => $_POST['prezzo']
+            'prezzo' => $_POST['prezzo'],
+            'id' => $_POST['id']
         ];
         
         return $dati;
