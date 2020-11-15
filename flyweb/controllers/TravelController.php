@@ -13,7 +13,8 @@ class TravelController extends BaseController {
         $this->getTravelDetail($travelId);
     }
 
-    private function getTravelDetail(int $travelId) {
+    public function getTravelDetail(int $travelId) {
+
         $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio = ?;';
         $this->travel = new Travel($this->db->runQuery($query, $travelId)[0]);
     }

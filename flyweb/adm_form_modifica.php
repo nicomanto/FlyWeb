@@ -11,8 +11,14 @@
     // Set nav menu
     //$page->replaceTag('ADM-NAV-MENU', (new \html\components\NavMenu));
 
+    $id= $_GET['par_id'];
+    echo "! ID |".$id;
+    $travelController = new \controllers\TravelController($id);
+
+
     
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio()));
+    //echo ") ".$travelController->travel->prezzo. "(";
+    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio($travelController->travel)));
     $page->replaceTag('ADM-SUCCESSO', " ");
 
 

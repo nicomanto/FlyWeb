@@ -62,4 +62,5 @@ class Travel {
         $this->citta = $citta;
         $this->localita = $localita;
     }
+
 }
