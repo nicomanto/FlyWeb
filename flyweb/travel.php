@@ -16,7 +16,7 @@
     $_page = new \html\template('travel');
 
     // Replace values in template
-    $_page->replaceValue('TRAVEL_NAME', $travelController->travel->nome);
+    $_page->replaceValue('TRAVEL_NAME', $travelController->travel->titolo);
 
     // Set page head
     $_page->replaceTag('HEAD', (new \html\components\head));
@@ -27,6 +27,7 @@
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
+<<<<<<< HEAD
     // Set travel reviews
     if($travelController->haveReviews()){
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
@@ -42,3 +43,6 @@
     echo $_page;
 
 
+=======
+    echo $_page;
+>>>>>>> master

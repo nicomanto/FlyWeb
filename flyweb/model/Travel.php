@@ -4,11 +4,12 @@ namespace model;
 
 class Travel {
     public $id_viaggio;
-    public $nome;
+    public $titolo;
     public $data_inizio;
     public $data_fine;
     public $prezzo;
     public $descrizione;
+    public $descrizionebreve;
     public $stato;
     public $citta;
     public $localita;
@@ -32,11 +33,12 @@ class Travel {
      */
     public function __construct1(array $travel) {
         $this->id_viaggio = $travel['ID_Viaggio'];
-        $this->nome = $travel['Nome'];
+        $this->titolo = $travel['Titolo'];
         $this->data_inizio = $travel['DataInizio'];
         $this->data_fine = $travel['DataFine'];
         $this->prezzo = $travel['Prezzo'];
         $this->descrizione = $travel['Descrizione'];
+        $this->descrizionebreve = $travel['DescrizioneBreve'];
         $this->stato = $travel['Stato'];
         $this->citta = $travel['Citta'];
         $this->localita = $travel['Localita'];
@@ -45,21 +47,23 @@ class Travel {
     /**
      * Constructor with minimal informations to create a new travel
      *
-     * @param string $nome
+     * @param string $titolo
      * @param string $data_inizio
      * @param string $data_fine
      * @param integer $prezzo
      * @param string $descrizione
      * @return void
      */
-    public function __construct5(string $nome, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $stato, string $citta, string $localita) {
-        $this->nome = $nome;
+    public function __construct5(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizionebreve,string $stato, string $citta, string $localita) {
+        $this->titolo = $titolo;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
         $this->prezzo = $prezzo;
         $this->descrizione = $descrizione;
+        $this->descrizionebreve = $descrizionebreve;
         $this->stato = $stato;
         $this->citta = $citta;
         $this->localita = $localita;
     }
+
 }
