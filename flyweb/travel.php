@@ -27,7 +27,6 @@
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
-<<<<<<< HEAD
     // Set travel reviews
     if($travelController->haveReviews()){
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
@@ -42,7 +41,3 @@
 
     echo $_page;
 
-
-=======
-    echo $_page;
->>>>>>> master

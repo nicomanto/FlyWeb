@@ -1,0 +1,34 @@
+<script>
+    //alert("funziono!");
+var daInviare = "";
+console.log("!!");
+
+//invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
+fetch('/html/components/checkboxIntegrazione.php', { method: 'POST' })
+     .then(data => data.text())
+     .then(
+          function (data) {
+               console.log("PORCAMADONNA");
+               console.log(data);
+               document.getElementById('cb').innerHTML = data;
+          }
+     )
+
+
+//funzione attivata al click del bottone 'aggiungi tag': 
+//   aggiunge il tag e rimuove la option dalle disponibili del datalist
+
+</script>
+<form id="formIntegrazioni" action='.php'> 
+    <fieldset>
+            <legend>Aggiungi al carrello anche le seguenti integrazioni</legend>
+            <div id="cb">
+
+            </div>
+            <!-- input type="submit" value="aggiungi al carrello" -->
+            <!-- input type="submit" value="aggiungi al carrello" -->
+
+    </fieldset>
+    
+    
+</form>
