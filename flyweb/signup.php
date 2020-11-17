@@ -28,13 +28,13 @@
         $signupController = new \controllers\SignupController();
 
         $requiredParams = [
-            'name',
-            'surname',
-            'birth_date',
+            'nome',
+            'cognome',
+            'data_nascita',
             'username',
             'email',
             'password',
-            'password_repeated'
+            'password_ripetuta'
         ];
 
         $missingParam = $signupController->getMissingParams($_POST, $requiredParams);
@@ -51,11 +51,11 @@
 
         // Load hashed passwords
         $password = md5($password);
-        $password_repeated = md5($password_repeated);
+        $password_ripetuta = md5($password_ripetuta);
 
 
         // Check if given passwords correspond
-        if ($password != $password_repeated) {
+        if ($password != $password_ripetuta) {
             echo 'Le password inserite non corrispondono, riprova.';
             // TODO: do something instead of exiting
             exit();
@@ -77,7 +77,7 @@
             exit();
         }
 
-        $signupController->registerUser($username, $email, $password, $name, $surname, $birth_date);
+        $signupController->registerUser($username, $email, $password, $nome, $cognome, $data_nascita);
         
     }
 

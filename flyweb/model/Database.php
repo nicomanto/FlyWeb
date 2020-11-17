@@ -94,7 +94,11 @@ class Database {
 
         // Return result as associative array
         // return mysqli_fetch_all($results);
-        return $this->fetchAllRows($results);
+        if ($results) {
+            return $this->fetchAllRows($results);
+        } else {
+            echo "No results available for this query";
+        }
     }
 
     /**
