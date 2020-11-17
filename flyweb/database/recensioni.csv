@@ -1,5 +1,5 @@
-Titolo,Valutazione,Descrizione,ID_Utente
-Bellissimo,5,Descrizione ole,1
-Insomma,3,Descrizione insomma,1
-Titolone,3,Descrizione titolone,2
-Oh no,1,Descrizione oh no,3
+Titolo,Valutazione,Descrizione,ID_Utente,Data,Mod
+Bellissimo,5,Descrizione ole,1,2023-07-10,1
+Insomma,3,Descrizione insomma,1,2023-06-11,1
+Titolone,3,Descrizione titolone,2,2023-05-12,1
+Oh no,1,Descrizione oh no,3,2023-02-13,1

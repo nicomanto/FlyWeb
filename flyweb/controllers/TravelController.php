@@ -19,12 +19,17 @@ class TravelController extends BaseController {
     }
 
     public function getTravelReviewsList() {
-        $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione;';
+        $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione ORDER BY Recensione.Data DESC;';
         return $this->db->runQuery($query, $this->travel->id_viaggio);
     }
 
     public function haveReviews(){
         $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione;';
+        return ! empty($this->db->runQuery($query, $this->travel->id_viaggio));
+    }
+
+    public function haveModReview(){
+        $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione AND Recensione.Mod=1;';
         return ! empty($this->db->runQuery($query, $this->travel->id_viaggio));
     }
 }
