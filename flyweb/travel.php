@@ -28,7 +28,6 @@
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
     // Set travel reviews
-<<<<<<< flyweb/travel.php
     if($travelController->haveReviews() && $travelController->haveModReview()){
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
     }
