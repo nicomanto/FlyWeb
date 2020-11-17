@@ -29,8 +29,7 @@ class TravelReviewItem extends baseComponent {
         for($i=$this->review->valutazione;$i<5;$i++){
             $li.=new StellaItem();
         }
-
-
+        
         $this->replaceValue("N_STAR",$this->review->valutazione);
         $this->replaceValue("TITOLO",$this->review->titolo);
         $this->replaceTag('STELLE_REVIEW', $li);

@@ -49,7 +49,7 @@ class Review {
      * @param string %data
      * @return void
      */
-    public function __construct4(string $titolo, int $valutazione, string $descrizione, int $id_utente, bool $mod, string $data) {
+    public function __construct6(string $titolo, int $valutazione, string $descrizione, int $id_utente, bool $mod, string $data) {
         $this->titolo = $titolo;
         $this->valutazione = $valutazione;
         $this->descrizione = $descrizione;
