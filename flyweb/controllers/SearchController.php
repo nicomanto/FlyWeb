@@ -34,7 +34,7 @@ class SearchController extends BaseController {
 
     public function searchGeneral(string $general, string $start_date=null, string $end_date=null, int $start_price=null, int $end_price=null, string $order_by=null, string $order_by_mode= null): array {
         // Returns all records that have $general in their name
-        $query = 'SELECT * FROM Viaggio WHERE (Nome LIKE ?)';
+        $query = 'SELECT * FROM Viaggio WHERE (Titolo LIKE ?)';
         $queryGeneral = $this->buildQuery($query, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode);
 
         // Include all records that have $general on their name
