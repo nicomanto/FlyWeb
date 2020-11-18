@@ -26,7 +26,7 @@ class TravelController extends BaseController {
     }
 
     public function getTravelReviewsList() {
-        $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione;';
+        $query = 'SELECT Recensione.* FROM Recensione,RecensioneViaggio WHERE RecensioneViaggio.ID_Viaggio = ? AND Recensione.ID_Recensione= RecensioneViaggio.ID_Recensione AND Recensione.Mod=1;';
         return $this->db->runQuery($query, $this->travel->id_viaggio);
     }
 

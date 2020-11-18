@@ -23,6 +23,7 @@
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
 
     $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
-    $page->replaceTag('ADM-DASHBOARD', " ");
+    $page->replaceTag('ADM-DASHBOARD', '');
+    $page->replaceTag('ADM-REVIEWS', '');
 
     echo $page;
