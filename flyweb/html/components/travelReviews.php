@@ -15,8 +15,6 @@ class TravelReviews extends baseComponent {
 
     public function __construct(array $list_review) {
         // Call BaseComponent constructor
-        echo "   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   ";
-
         parent::__construct(self::_templateName);
         $this->list_review=$list_review;
         $this->render();
@@ -31,7 +29,7 @@ class TravelReviews extends baseComponent {
             $li.= new TravelReviewItem($review);
         }
 
-        print_r($li);
+        //print_r($li);
 
         $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);
         return $this;
