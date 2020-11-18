@@ -19,7 +19,7 @@
         $page->replaceTag('ADM-REVIEWS', (new \html\components\travelReviews($admController->getUnapprovedReviewsList())));
     }
     else{
-        $page->replaceTag('ADM_REVIEWS', '');
+        $page->replaceTag('ADM-REVIEWS', '');
     }
 
 

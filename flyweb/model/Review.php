@@ -9,7 +9,6 @@ class Review {
     public $descrizione;
     public $mod;
     public $id_utente;
-    public $mod;
     public $data;
 
     /**
@@ -36,7 +35,6 @@ class Review {
         $this->descrizione = $review['Descrizione'];
         $this->mod = $review['Mod'];
         $this->id_utente = $review['ID_Utente'];
-        $this->mod= $review['Mod'];
         $this->data=$review['Data'];
     }
 

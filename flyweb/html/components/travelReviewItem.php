@@ -41,13 +41,13 @@ class TravelReviewItem extends baseComponent {
         $this->replaceValue("DATA",$this->review->data);
 
         if($_COOKIE['flw_user'] == 'admin'){
-            $this->replaceValue("approva",'
+            $this->replaceValue("APPROVA",'
                 <input type="hidden" name="par_id_approva" id="par_id_approva" value="'.$this->review->id_recensione.'"> 
                 <input type="button" name="btn_approva" id="btn_approva" value="APPROVA" onclick="approva()"> 
                 <p id="p_approvata"> </p>');
 
         }else{
-            $this->replaceValue("approva",'');
+            $this->replaceValue("APPROVA",'');
         }
 
         return $this;

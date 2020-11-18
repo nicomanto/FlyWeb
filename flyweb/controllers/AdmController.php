@@ -111,7 +111,7 @@ class AdmController extends BaseController {
     }
 
     public function getUnapprovedReviewsList() {
-        $query = 'SELECT * FROM Recensione as R WHERE R.Mod=0;';
+        $query = 'SELECT R.* FROM Recensione as R WHERE R.Mod=0;';
         return $this->db->runQuery($query);
     }
 
