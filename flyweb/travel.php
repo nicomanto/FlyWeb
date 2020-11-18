@@ -29,7 +29,7 @@
 
 <<<<<<< HEAD
     // Set travel reviews
-    if($travelController->haveReviews()){
+    if($travelController->haveReviews() && $travelController->haveModReview()){
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
     }
     else{

@@ -18,7 +18,10 @@ class TravelDetails extends baseComponent {
     }
 
     public function render(): string {
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3cdba6ae7874e9eae4850ed798ace821a868b69
         $this->replaceValuesInTemplate([
             'name' => $this->travel->titolo,
             'description' => $this->travel->descrizione,
