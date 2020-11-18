@@ -11,7 +11,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
      extract($_GET, EXTR_SKIP);
 
-     $result = $autocompleteController->getIntegrazioni((int)$_GET['id']);
+     //$result = $autocompleteController->getIntegrazioni((int)$_GET['id']);
+
+     $result = $autocompleteController->getIntegrazioni(1);
+
 
      //print_r($result);
 
