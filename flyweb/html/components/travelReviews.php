@@ -23,15 +23,14 @@ class TravelReviews extends baseComponent {
     public function render(): string {
 
         $li="";
+
         foreach($this->list_review as $i){
             $review= new Review($i);
             
             $li.= new TravelReviewItem($review);
         }
-
-        //print_r($li);
-
         $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);
+
         return $this;
 
     }

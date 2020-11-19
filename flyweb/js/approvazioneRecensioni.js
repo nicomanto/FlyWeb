@@ -1,15 +1,25 @@
-function approva(){
+function approva(id){
 
-    alert("debug");
-    var id =document.getElementById('par_id_approva').value;
+    alert(id);
+
+    const data = { id_recensione: id };
 
     fetch('/html/components/AdmApprovaReview.php', {
-        method: 'post',
-        body: id
-    }).then(data => console.log("LOG -> "+data));
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
 
-
-    document.getElementById("p_approvata"+id).textContent+= "RECENSIONE APPROVATA";
-    document.getElementById('btn_approva'+id).disabled = true;
+    }).then(data => data.text())
+    .then(
+         function (data) {
+              //console.log(data);
+              document.getElementById(id).disabled= true;
+              data = data.replace('No results available for this query','');
+              console.log(data);
+              document.getElementById('p_'+id).textContent+=data;
+         }
+    )
 
 }

@@ -1,8 +1,8 @@
 //alert("funziono!");
 var daInviare = "";
 //invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
-fetch('/html/components/autocomplete.php', { method: 'POST' 
-})
+fetch('/html/components/autocomplete.php', { method: 'POST' })
+     .then(data => data.text())
      .then(
           function (data) {
                //console.log(data);
