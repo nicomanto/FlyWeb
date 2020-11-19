@@ -9,6 +9,7 @@
 
     $str=" ";
 
+    echo "!!!!!! ".$viaggio['id'];
 
     if(($viaggio['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";

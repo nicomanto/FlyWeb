@@ -77,7 +77,7 @@ class AdmController extends BaseController {
         $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio = ?;';
         $ris = ($this->db->runQuery($query, $idViaggio)[0]);
 
-        print_r($ris);
+        //print_r($ris);
         return (empty($ris)?false:true);
     }
 

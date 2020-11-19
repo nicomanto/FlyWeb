@@ -29,7 +29,7 @@ create or replace table CarrelloIntegrazione
 	constraint CarrelloIntegrazione_ibfk_1
 		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
 	constraint CarrelloIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE,
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
 );
 
 
@@ -46,7 +46,7 @@ create or replace table Ordine
 	MetodoPagamento ENUM('Paypal','CartaDiCredito','CardaDiDebito') not null,
 	Totale int not null,
 	constraint Ordine_ibfk_1
-		foreign key (ID_Utente) references Ordine (ID_Ordine) ON DELETE CASCADE,
+		foreign key (ID_Utente) references Ordine (ID_Ordine) ON DELETE CASCADE
 );
 
 create or replace table OrdineIntegrazione
@@ -55,9 +55,9 @@ create or replace table OrdineIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Ordine, ID_Integrazione),
 	constraint OrdineIntegrazione_ibfk_1
-		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE CASCADE, 
+		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE CASCADE,
 	constraint OrdineIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE,
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
 );
 
 create or replace table Preferiti
@@ -77,7 +77,7 @@ create or replace table PreferitiIntegrazione
 	constraint PreferitiIntegrazione_ibfk_1
 		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE,
 	constraint PreferitiIntegrazione_ibfk_2
-		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE,
+		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
 );
 
 create or replace table Tag
@@ -142,8 +142,8 @@ create or replace table Recensione
 	Valutazione int default 0 null,
 	Descrizione text null,
 	ID_Utente int null,
+	`Mod` TINYINT(1) default 0 null,
 	Data date,
-	Mod TINYINT(1) default 0 null,
 	constraint Recensione_ibfk_1
 		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE
 );
@@ -183,6 +183,7 @@ create or replace table CarrelloViaggio
 		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
 	constraint CarrelloViaggio_ibfk_2
 		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE
+);
 
 create or replace table OrdineViaggio
 (
@@ -216,6 +217,7 @@ create or replace table RecensioneViaggio
 		foreign key (ID_Recensione) references Recensione (ID_Recensione) ON DELETE CASCADE,
 	constraint RecensioneViaggio_ibfk_2
 		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE
+);
 
 
 create or replace table TagViaggio

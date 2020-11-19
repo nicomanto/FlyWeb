@@ -4,7 +4,9 @@
     $page = new \html\template('board');
 
     $id= $_GET['par_id'];
+
     $travelController = new \controllers\TravelController($id);
+    $admController    = new \controllers\AdmController;
 
     /*
     //print debug
@@ -13,10 +15,7 @@
     }
     */
 
-    $titolo = $travelController->getTitle($id);
-
     $travelController->deleteTravel($id);
-
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
