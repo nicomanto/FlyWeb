@@ -24,7 +24,7 @@ class FormViaggio extends baseComponent {
         //echo "debug";
             $values = ['titolo','descrizione','descrizionebreve','stato','citta','localita','datainizio','datafine','prezzo'];
 
-            $this->replaceValues([
+            $this->replaceValuesInTemplate([
                     'titolo' => (empty($this->travel_loc))?' ':$this->travel_loc->titolo,
                     'descrizione' => (empty($this->travel_loc))?' ':$this->travel_loc->descrizione,
                     'descrizionebreve' => (empty($this->travel_loc))?' ':$this->travel_loc->descrizionebreve,

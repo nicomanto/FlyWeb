@@ -30,7 +30,7 @@ class AdmSuccesso extends BaseComponent {
         
         echo $tipoOperazione. " - ". $titoloViaggio;
 
-        $this->replaceValues([
+        $this->replaceValuesInTemplate([
             'op' => $this->tipoOperazione,
             'titolo' => $this->titoloViaggio
         ]);

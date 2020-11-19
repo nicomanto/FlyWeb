@@ -1,3 +1,7 @@
+<head>
+     <script type="text/javascript" src="/flyweb/js/formInserimentoScript.js"></script>
+
+</head>
 <div id="content">
      <form action='./adm_landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio1" onsubmit="return conferma()">
           
@@ -58,7 +62,7 @@
 
                <label for="tagList">Scegli un tag</label><br>
                <input type="text" list="tagList" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
-               <datalist id="tagList"> </datalist>
+               <datalist id="tagList"></datalist>
                <input class="bottone" type="button" id="addTag" name="addTag" value="inserisci tag" onClick="aggiungiTag()">
                <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
                <p id="tagInseriti">Tag inseriti: </div>

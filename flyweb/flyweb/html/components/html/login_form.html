@@ -1,0 +1,28 @@
+<div id="content">
+    <h1>Accedi</h1>
+    <INFO_BOX />
+    <form action="./login.php" method="post" class="form form_verticale">
+        <fieldset>
+            <legend class="aiuti_alla_navigazione">Modulo di accesso</legend>
+            <div>
+                <label for="user"><span lang="en">E-mail o Username</span></label>
+                <input type="text" name="user" id="user" value="%USER%" />
+            </div>
+            <div>
+                <label for="password" lang="en">Password</label>
+                <input type="password" name="password" id="password" value="%PASSWORD%" />
+            </div>
+            <div>
+                <label for="remember_me" lang="en">Ricordami</label>
+                <input type="checkbox" name="remember_me" id="remember_me" %REMEMBER_ME% />
+            </div>
+            <div>
+                <label class="aiuti_alla_navigazione" for="login">Accedi</label>
+                <input type="submit" id="login" name="login" value="login" />
+            </div>
+        </fieldset>
+    </form>
+    <p>
+        <a href="./signup.php">Registrati</a>
+    </p>
+</div>

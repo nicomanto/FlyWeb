@@ -1,11 +1,10 @@
-alert("dioc!");
+//alert("funziono!");
 var daInviare = "";
 //invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
 fetch('/html/components/autocomplete.php', { method: 'POST' })
      .then(data => data.text())
      .then(
           function (data) {
-               console.log("prova");
                //console.log(data);
                document.getElementById('tagList').innerHTML = data;
           }
@@ -18,9 +17,7 @@ fetch('/html/components/autocomplete.php', { method: 'POST' })
 function aggiungiTag() { 
 
      var s = document.getElementById("addTagAutocomplete").value;
-     //console.log(s);
      var pos = document.getElementById("addTagAutocomplete").selectedIndex;
-     //console.log(pos);
 
      document.getElementById(s).remove();
 
@@ -36,5 +33,3 @@ function conferma(){
      $popup_conferma = confirm("vuoi confermare il form?");
      return ($popup_conferma)?true:false;
 }
-
-     
