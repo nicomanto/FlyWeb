@@ -9,7 +9,6 @@
 
     $str=" ";
 
-    echo "!!!!!! ".$viaggio['id'];
 
     if(($viaggio['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
@@ -37,9 +36,7 @@
     $t = $viaggio['titolo'];
 
     $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($t,$str)));
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
-
+    $page->replaceTag('ADM-DASHBOARD', " ");
 
     echo $page;
 

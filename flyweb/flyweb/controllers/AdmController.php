@@ -77,7 +77,7 @@ class AdmController extends BaseController {
         $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio = ?;';
         $ris = ($this->db->runQuery($query, $idViaggio)[0]);
 
-        //print_r($ris);
+        print_r($ris);
         return (empty($ris)?false:true);
     }
 
@@ -109,20 +109,4 @@ class AdmController extends BaseController {
         $query = 'DELETE FROM TagViaggio WHERE ID_Viaggio = ?;';
         $this->db->runQuery($query, $id)[0];
     }
-
-    public function getUnapprovedReviewsList() {
-        $query = 'SELECT R.* FROM Recensione as R WHERE R.Mod=0;';
-        return $this->db->runQuery($query);
-    }
-
-    public function haveUnapprovedReviews(){
-        $query = 'SELECT * FROM Recensione as R WHERE R.Mod=0;';
-        return ! empty($this->db->runQuery($query));
-    }
-
-    public function approveReview($id){
-        $query = 'UPDATE Recensione as R SET R.Mod=1 WHERE R.ID_Recensione=?;';
-        $this->db->runQuery($query,$id);
-    }
-
 }

@@ -1,0 +1,45 @@
+<div id="content">
+    <h1>Registrati</h1>
+    <INFO_BOX />
+    <form action="./signup.php" method="post" class="form form_verticale">
+        <fieldset>
+            <legend class="aiuti_alla_navigazione">Modulo di registrazione</legend>
+            
+            <div>
+                <label for="nome" lang="en">Nome</label>
+                <input type="text" name="nome" id="nome" value="%NOME%" />
+            </div>
+            <div>
+                <label for="cognome" lang="en">Cognome</label>
+                <input type="text" name="cognome" id="cognome" value="%COGNOME%" />
+            </div>
+            <div>
+                <label for="birt_date" lang="en">Dta di nascita</label>
+                <input type="text" name="data_nascita" id="data_nascita" value="%DATA_NASCITA%" />
+            </div>
+            <div>
+                <label for="username"><span lang="en">Username</span></label>
+                <input type="text" name="username" id="username" value="%USERNAME%" />
+            </div>
+            <div>
+                <label for="email"><span lang="en">E-mail</span></label>
+                <input type="text" name="email" id="email" value="%EMAIL%" />
+            </div>
+            <div>
+                <label for="password" lang="en">Password</label>
+                <input type="password" name="password" id="password" value="%PASSWORD%" />
+            </div>
+            <div>
+                <label for="password_repeated" lang="en">Ripeti Password</label>
+                <input type="password" name="password_ripetuta" id="password_ripetuta"/>
+            </div>
+            <div>
+                <label class="aiuti_alla_navigazione" for="signup">Registrati</label>
+                <input type="submit" id="signup" name="signup" value="signup" />
+            </div>
+        </fieldset>
+    </form>
+    <p>
+        <a href="./login.php">Accedi</a>
+    </p>
+</div>
