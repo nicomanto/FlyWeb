@@ -23,11 +23,11 @@ class TravelReviewItem extends baseComponent {
         $li="";
 
         for($i=0;$i<$this->review->valutazione;$i++){
-            $li.=new StellaItem("yellow");
+            $li.=new stellaItem("yellow");
         }
 
         for($i=$this->review->valutazione;$i<5;$i++){
-            $li.=new StellaItem();
+            $li.=new stellaItem();
         }
 
         $this->replaceValue("N_STAR",$this->review->valutazione);

@@ -4,7 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 
-use html\components\TravelReviewItem;
+use html\components\travelReviewItem;
 
 use model\Review;
 
@@ -24,7 +24,7 @@ class TravelReviews extends baseComponent {
 
         $li="";
         foreach($this->list_review as $i){
-            $li.= new TravelReviewItem(new Review($i));
+            $li.= new travelReviewItem(new Review($i));
         }
 
         $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);
