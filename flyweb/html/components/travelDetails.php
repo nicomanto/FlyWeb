@@ -18,7 +18,8 @@ class TravelDetails extends baseComponent {
     }
 
     public function render(): string {
-        $this->replaceValuesInTemplate([
+
+        $this->replaceValues([
             'name' => $this->travel->titolo,
             'description' => $this->travel->descrizione,
             'price' => $this->travel->prezzo,

@@ -24,10 +24,7 @@ class TravelReviews extends baseComponent {
 
         $li="";
         foreach($this->list_review as $i){
-            $review= new Review($i);
-            
-            if($review->mod) //check if Mod is true
-                $li.= new TravelReviewItem($review);
+            $li.= new TravelReviewItem(new Review($i));
         }
 
         $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);

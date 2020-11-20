@@ -27,6 +27,8 @@
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
+    $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\Integrazione((int)$id)));
+
     // Set travel reviews
     if($travelController->haveReviews() && $travelController->haveModReview()){
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
@@ -40,5 +42,4 @@
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $_page;
-
 
