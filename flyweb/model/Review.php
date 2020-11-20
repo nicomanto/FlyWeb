@@ -8,6 +8,8 @@ class Review {
     public $valuatzione;
     public $descrizione;
     public $id_utente;
+    public $mod;
+    public $data;
 
     /**
      * Workaround to have multiple constructors
@@ -32,6 +34,8 @@ class Review {
         $this->valutazione = $review['Valutazione'];
         $this->descrizione = $review['Descrizione'];
         $this->id_utente = $review['ID_Utente'];
+        $this->mod= $review['Mod'];
+        $this->data=$review['Data'];
     }
 
     /**
@@ -41,12 +45,16 @@ class Review {
      * @param integer $valutazione
      * @param string $descrizione
      * @param int %id_utente
+     * @param boolean %mod
+     * @param string %data
      * @return void
      */
-    public function __construct4(string $titolo, int $valutazione, string $descrizione, int $id_utente) {
+    public function __construct6(string $titolo, int $valutazione, string $descrizione, int $id_utente, bool $mod, string $data) {
         $this->titolo = $titolo;
         $this->valutazione = $valutazione;
         $this->descrizione = $descrizione;
         $this->id_utente = $id_utente;
+        $this->mod= $mod;
+        $this->data=$data;
     }
 }
