@@ -2,7 +2,7 @@
 
 namespace html\components;
 
-use \html\components\baseComponent;
+use \html\components\BaseComponent;
 use model\Travel;
 
 class FormViaggio extends baseComponent
@@ -26,7 +26,7 @@ class FormViaggio extends baseComponent
     {
         //echo "debug";
 
-        $this->replaceValuesInTemplate([
+        $this->replaceValues([
             'titolo' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->titolo,
             'descrizione' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizione,
             'descrizionebreve' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizionebreve,

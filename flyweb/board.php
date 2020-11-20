@@ -6,7 +6,7 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-DASHBOARD', (new \html\components\AdmDashBoard));
+    $page->replaceTag('ADM-DASHBOARD', (new \html\components\AdmDashboard));
 
     $page->replaceTag('ADM-SUCCESSO', '');
 
