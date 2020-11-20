@@ -29,7 +29,7 @@ class TravelReviewItem extends baseComponent {
         for($i=$this->review->valutazione;$i<5;$i++){
             $li.=new StellaItem();
         }
-
+        
         $this->replaceValue("N_STAR",$this->review->valutazione);
         $this->replaceValue("TITOLO",$this->review->titolo);
         $this->replaceTag('STELLE_REVIEW', $li);
@@ -38,6 +38,7 @@ class TravelReviewItem extends baseComponent {
         $user= new UserController($this->review->id_utente);
         $this->replaceValue("NOME_UTENTE",$user->user->nome);
         $this->replaceValue("COGNOME_UTENTE",$user->user->cognome);
+        $this->replaceValue("DATA",$this->review->data);
 
         return $this;
     }
