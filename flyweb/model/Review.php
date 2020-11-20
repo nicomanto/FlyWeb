@@ -33,6 +33,7 @@ class Review {
         $this->titolo = $review['Titolo'];
         $this->valutazione = $review['Valutazione'];
         $this->descrizione = $review['Descrizione'];
+        $this->mod = $review['Mod'];
         $this->id_utente = $review['ID_Utente'];
         $this->mod= $review['Mod'];
         $this->data=$review['Data'];
