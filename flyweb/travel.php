@@ -34,7 +34,7 @@
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
     }
     else{
-        $_page->replaceTag('TRAVEL_REVIEWS', '');
+        $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\noReviews()));
     }
     
 
