@@ -11,7 +11,7 @@
     $str=" ";
 
 
-    if(($integrazione['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
+    if(($integrazione['id_integrazione'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
         //echo "sksk";
         $integrazioneController->inserisciIntegrazione($integrazione);

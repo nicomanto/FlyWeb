@@ -14,10 +14,14 @@ class IntegrazioneController extends BaseController {
         }
     }
 
-    public function getIntegrazione(int $integrazioneID) {
+    public function getAllIntegrazioni(){
+        $query = 'SELECT * FROM Integrazione';
+        return $this->integrazione = ($this->db->runQuery($query));
+    }
 
+    public function getIntegrazione(int $integrazioneID) {
         $query = 'SELECT * FROM Integrazione WHERE ID_Integrazione = ?;';
-        print_r($this->db->runQuery($query, $integrazioneID)[0]);
+        //print_r($this->db->runQuery($query, $integrazioneID)[0]);
         $this->integrazione = new Integrazione($this->db->runQuery($query, $integrazioneID)[0]);
     } 
 
@@ -39,12 +43,13 @@ class IntegrazioneController extends BaseController {
                             $integrazione['prezzo']);
     }
 
-    public function deleteIntegrazione() {
+    public function deleteIntegrazione(){
         $query = 'DELETE FROM Integrazione WHERE ID_Integrazione = ?;';
         ($this->db->runQuery($query, $this->integrazione->id_integrazione)[0]);
     }
 
     public function aggiornaIntegrazione($integrazione){
+        print_r($integrazione);
         $query='UPDATE Integrazione
                 SET
                 Nome = ?,
@@ -53,11 +58,11 @@ class IntegrazioneController extends BaseController {
                 Prezzo = ?
                 WHERE ID_Integrazione=?';
         $this->db->runQuery($query,
-                            $viaggio['nome'], 
-                            $viaggio['descrizione'], 
-                            $viaggio['durata'], 
-                            $viaggio['prezzo'],
-                            $viaggio['id']);
+                            $integrazione['nome'], 
+                            $integrazione['descrizione'], 
+                            $integrazione['durata'], 
+                            $integrazione['prezzo'],
+                            $integrazione['id']);
     }
 
     public function addToCart($idIntegrazione): bool{

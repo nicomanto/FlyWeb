@@ -30,7 +30,7 @@ class AdmFormIntegrazione extends baseComponent
             'descrizione' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->descrizione,
             'durata' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->durata,
             'prezzo' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->prezzo,
-            'id' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->id_viaggio
+            'id' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->id_integrazione
         ]);
         return $this;
     }
@@ -38,8 +38,6 @@ class AdmFormIntegrazione extends baseComponent
     //estrae i dati inseriti nel form e li mette in un array associativo
     public function estraiDatiIntegrazione(): array
     {
-        echo "porcodio";
-
         $dati = [
             'nome' => $_POST['titolo_integrazione'],
             'descrizione' => $_POST['descrizione_integrazione'],

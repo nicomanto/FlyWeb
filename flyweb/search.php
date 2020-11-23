@@ -25,7 +25,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
 
     // TODO: generalize this switch???
-    switch ($search_by_option) {
+    switch ($search_by_option){
         case 'Citta':
             $travels = $searchController->searchByPlace($search_key, $search_start_date, $search_end_date, (int)$search_start_price, (int)$search_end_price, $search_order_by, $search_order_by_mode);
             break;

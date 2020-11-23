@@ -5,9 +5,10 @@
 
     $id= $_GET['par_id'];
 
-    $integrazioneController = new \controllers\Integrazione($id);
+    $integrazioneController = new \controllers\IntegrazioneController($id);
 
-    $titolo = $integrazioneController->integrazione['nome'];
+    $integrazione = ($integrazioneController->integrazione);
+    $t = $integrazione->nome;
 
     $integrazioneController->deleteIntegrazione($id);
 
@@ -15,7 +16,7 @@
 
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
 
-    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
+    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
     $page->replaceTag('ADM-DASHBOARD', '');
     $page->replaceTag('ADM-REVIEWS', '');
     $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', '');

@@ -52,6 +52,5 @@ class TravelListItem extends baseComponent {
         // $this->replaceTag('REVIEWS_INDICATOR', (new \html\components\reviewsIndicator($this->travel)));
         
         return $this;
-    }
-        
+    }       
 }
