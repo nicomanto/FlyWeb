@@ -5,17 +5,11 @@
 
     $id= $_GET['par_id'];
 
-    $travelController = new \controllers\TravelController($id);
-    $admController    = new \controllers\AdmController;
+    $integrazioneController = new \controllers\Integrazione($id);
 
-    /*
-    //print debug
-    foreach ($datiViaggio as $key => $value) {
-        echo "Key: $key; Value: $value\n";
-    }
-    */
+    $titolo = $integrazioneController->integrazione['nome'];
 
-    $travelController->deleteTravel($id);
+    $integrazioneController->deleteIntegrazione($id);
 
     $page->replaceTag('HEAD', (new \html\components\head));
 

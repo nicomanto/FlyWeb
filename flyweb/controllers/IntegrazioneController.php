@@ -1,26 +1,63 @@
 <?php
 
 namespace controllers;
-use model\Travel;
+use model\Integrazione;
 
 class IntegrazioneController extends BaseController {
 
-    public function __construct() {
+    public $integrazione;
+
+    public function __construct(int $integrazioneID=null) {
         parent::__construct();
+        if($integrazioneID){
+            $this->getIntegrazione($integrazioneID);
+        }
     }
 
+    public function getIntegrazione(int $integrazioneID) {
 
-    public function getIntegrazioni($idViaggio) {
-        $query ='   SELECT I.ID_Integrazione, I.Nome, I.Prezzo
-                    FROM    Integrazione as I, ViaggioIntegrazione as VI
-                    WHERE   I.ID_Integrazione = VI.ID_Integrazione AND
-                            VI.ID_Viaggio = ?;
-                ';
-        return ($this->db->runQuery($query, $idViaggio));
+        $query = 'SELECT * FROM Integrazione WHERE ID_Integrazione = ?;';
+        print_r($this->db->runQuery($query, $integrazioneID)[0]);
+        $this->integrazione = new Integrazione($this->db->runQuery($query, $integrazioneID)[0]);
+    } 
+
+    public function getIntegrazioneIdByNome($nome){
+        $query = 'SELECT ID_Integrazione FROM Integrazione WHERE Nome=?';
+        $r =$this->db->runQuery($query, $nome)[0];
+        return $r['ID_Integrazione'];
     }
 
-    public function setInegrazione($integrazione, $idViaggio){
-        //to-do
+    public function inserisciIntegrazione($integrazione): void{
+        $query='INSERT INTO Integrazione (Nome, Descrizione, Durata, Prezzo) VALUES (?, ?, ?, ?);';
+        
+        //print_r($integrazione);
+
+        $this->db->runQuery($query, 
+                            $integrazione['nome'], 
+                            $integrazione['descrizione'], 
+                            $integrazione['durata'], 
+                            $integrazione['prezzo']);
+    }
+
+    public function deleteIntegrazione() {
+        $query = 'DELETE FROM Integrazione WHERE ID_Integrazione = ?;';
+        ($this->db->runQuery($query, $this->integrazione->id_integrazione)[0]);
+    }
+
+    public function aggiornaIntegrazione($integrazione){
+        $query='UPDATE Integrazione
+                SET
+                Nome = ?,
+                Descrizione = ?,
+                Durata = ?,
+                Prezzo = ?
+                WHERE ID_Integrazione=?';
+        $this->db->runQuery($query,
+                            $viaggio['nome'], 
+                            $viaggio['descrizione'], 
+                            $viaggio['durata'], 
+                            $viaggio['prezzo'],
+                            $viaggio['id']);
     }
 
     public function addToCart($idIntegrazione): bool{

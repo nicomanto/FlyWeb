@@ -5,13 +5,12 @@
     $admController = new \controllers\AdmController;
 
 
-
-
     $page->replaceTag('HEAD', (new \html\components\head));
 
     $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
     $page->replaceTag('ADM-SUCCESSO', '');
     $page->replaceTag('ADM-DASHBOARD', '');
+    $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', '');
 
     if($admController->haveUnapprovedReviews()){
         //print_r($admController->getUnapprovedReviewsList());
