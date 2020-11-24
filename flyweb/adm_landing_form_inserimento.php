@@ -7,20 +7,29 @@
     $form = new \html\components\FormViaggio();
     $viaggio = $form->estraiDatiViaggio();
 
-    $str=" ";
+    $str="";
 
     //echo "!!!!!! ".$viaggio['id'];
+    // print_r($viaggio['integrazioni']);
 
     if(($viaggio['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
         $admController->inserisciViaggio($viaggio);
         $v_id=$admController->getTravelIdByTitle($viaggio['titolo']);
-        $admController->setTagViaggio($v_id,$viaggio['tag']);
+        if(! empty($viaggio['tag'])){
+            $admController->setTagViaggio($v_id,$viaggio['tag']);
+        }
+        $admController->setIntegrazioniViaggio($v_id,$viaggio['integrazioni']);
+
     }else{
         $str= "aggiornamento";
         $admController->resetTagViaggio($viaggio['id']);
+        $admController->resetIntegrazioneViaggio($viaggio['id']);
         $admController->aggiornaViaggio($viaggio);
-        $admController->setTagViaggio($viaggio['id'],$viaggio['tag']);
+        if(! empty($viaggio['tag'])){
+            $admController->setTagViaggio($viaggio['id'],$viaggio['tag']);
+        }
+        $admController->setIntegrazioniViaggio($viaggio['id'],$viaggio['integrazioni']);
     }
 
 

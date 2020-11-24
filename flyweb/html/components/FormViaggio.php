@@ -57,7 +57,8 @@ class FormViaggio extends baseComponent
             'datafine' => $_POST['datafine'],
             'prezzo' => $_POST['prezzo'],
             'id' => $_POST['id'],
-            'tag' => $_POST['tagDaInviare']
+            'tag' => $_POST['tagDaInviare'],
+            'integrazioni' => $_POST['integrazioni']
         ];
 
         return $dati;

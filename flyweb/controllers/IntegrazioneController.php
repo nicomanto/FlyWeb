@@ -106,4 +106,12 @@ class IntegrazioneController extends BaseController {
         return empty($this->db->runQuery($query, $user, $idIntegrazione));
     }
 
+    public function getAll() {
+        $query ='   SELECT *
+                    FROM    Integrazione;
+                ';
+        return ($this->db->runQuery($query));
+    }
+    
+
 }

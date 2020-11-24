@@ -1,3 +1,14 @@
+<script>
+     fetch('/html/components/checkboxIntegrazioniFormViaggio.php', { method: 'POST' })
+     .then(data => data.text())
+     .then(
+          function (data) {
+               //console.log(data);
+               document.getElementById('checkboxIntegrazioniFormViaggio').innerHTML = data;
+          }
+     )
+
+</script>
 <div id="content">
      <form action='./adm_landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio1"
           onsubmit="return conferma()">
@@ -53,7 +64,7 @@
           </fieldset>
 
           <fieldset>
-               <legend>Prezzo, immagini da allegare, tags da aggiungere</legend>
+               <legend>Prezzo, immagini da allegare, tags da aggiungere, integrazioni</legend>
                <label for="prezzo">Prezzo </label><br>
                <input type="number" id="prezzo" name="prezzo" placeholder="inserisci un prezzo" min="1"
                     required="required" value="%PREZZO%">
@@ -70,12 +81,17 @@
                <input class="bottone" type="button" id="addTag" name="addTag" value="inserisci tag"
                     onClick="aggiungiTag()">
                <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
-               <p id="tagInseriti">Tag inseriti:
+               <p id="tagInseriti">Tag inseriti: </p>
                <p id="input_error_tags" class="p_input_error"> </p>
+
+               <label for="integrazioni">Scegli le integrazioni che saranno disponibili per questo viaggio</label>
+               <div id="checkboxIntegrazioniFormViaggio">
+
+               </div>
+               
           </fieldset>
 
           <input type="hidden" name="id" id="id" value="%ID%">
-
           <input class="bottone" type="submit" id="submit" value="invia">
           <input class="bottone" type="reset" id="reset" value="cancella">
      </form>
