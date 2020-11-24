@@ -14,8 +14,9 @@
         echo "Key: $key; Value: $value\n";
     }
     */
-
+    $titolo = $travelController->getTitle($id);
     $travelController->deleteTravel($id);
+
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
