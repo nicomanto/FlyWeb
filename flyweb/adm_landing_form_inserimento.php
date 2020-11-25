@@ -38,18 +38,17 @@
 
     //e le foto... to-do
 
+    $t = $viaggio['titolo'];
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
-    $t = $viaggio['titolo'];
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
+    
+    $page->replaceTag('ADM-LIST','');
 
-    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($t,$str)));
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
-    $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', '');
-
+    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;
 

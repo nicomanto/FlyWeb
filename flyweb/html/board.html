@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+        <title>Home | FlyWeb</title>
+        <meta name="description" content="Home" />
+        <meta name="keywords" content="FlyWeb, home, ricerca, cerca, viaggi, prenota" />
+        <HEAD/>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: stretch;
+            background-color:goldenrod;
+            width: 100%;
+            padding: 0px px 0px 0px;
+        }
 
-<head>
-    <title>Home | FlyWeb</title>
-    <meta name="description" content="Home" />
-    <meta name="keywords" content="FlyWeb, home, ricerca, cerca, viaggi, prenota" />
+        #board_menu{
+            width: 20%;
+            order: 1;
+        }
 
-    <HEAD />
-</head>
+        #board_contenuto{
+            width: 80%;
+            order: 2;
+        }
 
-<body>
-    <ADM-DASHBOARD />
+        #board_footer{
+            width: 100%;
+            order: 3;
+            margin-top: 2em;
+        }
+        
+    </style>
 
-    <ADM-FORM-INSERIMENTO-INTEGRAZIONE/>
+    </head>
 
-    <ADM-FORM-INSERIMENTO-VIAGGIO />
+    <body class ="flex-container">
+        <div class="item" id="board_menu">
+            <ADM-MENU/>
+        </div>
+        
+        <div class="item" id="board_contenuto">
+            <ADM-CONTENUTO/>
+            <ADM-LIST/>
+        </div>
 
-    <ADM-SUCCESSO />
-
-    <ADM-REVIEWS />
-</body>
-
+        <div class="item" id="board_footer">
+            <FOOTER/>
+        </div>
+    </body>
 </html>

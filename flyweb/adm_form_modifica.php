@@ -3,23 +3,18 @@
 
     $page = new \html\template('board');
 
-    echo $page;
+    $id= $_GET['par_id'];
+    $travelController = new \controllers\TravelController((int)$id);
 
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
-
-    // Set nav menu
-    //$page->replaceTag('ADM-NAV-MENU', (new \html\components\NavMenu));
-
-    $id= $_GET['par_id'];
-    //echo "! ID |".$id;
-    $travelController = new \controllers\TravelController((int)$id);
     
-    //$travelController->deleteTravel();
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', (new \html\components\FormViaggio($travelController->travel)));
-    $page->replaceTag('ADM-SUCCESSO', '');
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
-    $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', '');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($travelController->travel)));
+
+    $page->replaceTag('ADM-LIST','');
+
+    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

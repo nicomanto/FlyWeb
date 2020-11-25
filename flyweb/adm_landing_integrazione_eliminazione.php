@@ -14,11 +14,12 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
-    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
-    $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', '');
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
+
+    $page->replaceTag('ADM-LIST','');
+
+    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

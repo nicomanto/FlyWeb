@@ -2,15 +2,19 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
 
-    $page = new \html\template('index');
+    $page = new \html\template('board');
 
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', ' ');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
     // Set search box form
-    $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox));
+
+    $page->replaceTag('ADM-LIST','');
+
+    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

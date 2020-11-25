@@ -21,19 +21,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-SUCCESSO', '');
-    $page->replaceTag('ADM-DASHBOARD', '');
-    //$page->replaceTag('ADM-REVIEWS', '');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+
 
     foreach ($paginatedIntegrazioni['elements'] as $i) {
         $sr .= new \html\components\IntegrazioneListItem($i);
     }
         
     // Set search result travels
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', $sr);
+    $page->replaceTag('ADM-CONTENUTO', $sr);
 
     // Set pagination indicator
-    $page->replaceTag('ADM-REVIEWS', (new \html\components\pageSelector($paginatedIntegrazioni['currentPage'], $paginatedIntegrazioni['totalPages'])));
+    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedIntegrazioni['currentPage'], $paginatedIntegrazioni['totalPages'])));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
     $page->replaceTag('FOOTER', (new \html\components\footer));

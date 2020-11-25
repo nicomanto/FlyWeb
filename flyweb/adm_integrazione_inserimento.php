@@ -5,11 +5,13 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-FORM-INSERIMENTO-INTEGRAZIONE', (new \html\components\AdmFormIntegrazione()));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
-    $page->replaceTag('ADM-SUCCESSO', '');
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione()));
+
+    $page->replaceTag('ADM-LIST','');
+
+    $page->replaceTag('FOOTER', (new \html\components\footer));
+
 
     echo $page;
