@@ -12,7 +12,7 @@
     //echo "!!!!!! ".$viaggio['id'];
     // print_r($viaggio['integrazioni']);
 
-    if(($viaggio['id'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
+    if(($viaggio['id'] == '')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
         $admController->inserisciViaggio($viaggio);
         $v_id=$admController->getTravelIdByTitle($viaggio['titolo']);
@@ -42,7 +42,7 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
     

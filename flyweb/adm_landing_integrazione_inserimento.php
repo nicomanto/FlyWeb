@@ -11,7 +11,7 @@
     $str=" ";
 
 
-    if(($integrazione['id_integrazione'] == ' ')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
+    if(($integrazione['id_integrazione'] == '')){        //se non c'è parametro id allora viaggio dev'essere inserito ex novo
         $str= "inserimento";
         //echo "sksk";
         $integrazioneController->inserisciIntegrazione($integrazione);
@@ -24,7 +24,7 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
 

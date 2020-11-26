@@ -27,16 +27,16 @@ class FormViaggio extends baseComponent
         //echo "debug";
 
         $this->replaceValues([
-            'titolo' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->titolo,
-            'descrizione' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizione,
-            'descrizioneBreve' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizioneBreve,
-            'stato' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->stato,
-            'citta' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->citta,
-            'localita' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->localita,
-            'datainizio' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->data_inizio,
-            'datafine' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->data_fine,
-            'prezzo' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->prezzo,
-            'id' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->id_viaggio
+            'titolo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->titolo,
+            'descrizione' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizione,
+            'descrizioneBreve' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizioneBreve,
+            'stato' => (empty($this->travel_loc)) ? '' : $this->travel_loc->stato,
+            'citta' => (empty($this->travel_loc)) ? '' : $this->travel_loc->citta,
+            'localita' => (empty($this->travel_loc)) ? '' : $this->travel_loc->localita,
+            'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
+            'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
+            'prezzo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->prezzo,
+            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio
         ]);
 
         return $this;

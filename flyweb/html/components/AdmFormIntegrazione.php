@@ -26,11 +26,11 @@ class AdmFormIntegrazione extends baseComponent
     {
         //echo "debug";
         $this->replaceValues([
-            'titolo' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->nome,
-            'descrizione' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->descrizione,
-            'durata' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->durata,
-            'prezzo' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->prezzo,
-            'id' => (empty($this->integrazione_loc)) ? ' ' : $this->integrazione_loc->id_integrazione
+            'titolo' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->nome,
+            'descrizione' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->descrizione,
+            'durata' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->durata,
+            'prezzo' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->prezzo,
+            'id' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->id_integrazione
         ]);
         return $this;
     }

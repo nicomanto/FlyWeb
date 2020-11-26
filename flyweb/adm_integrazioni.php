@@ -21,8 +21,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_integrazioni")));
 
+    $sr='<h1 class="adm-titolo"><strong>LISTA INTEGRAZIONI</strong></h1>';
 
     foreach ($paginatedIntegrazioni['elements'] as $i) {
         $sr .= new \html\components\IntegrazioneListItem($i);

@@ -40,19 +40,6 @@ class TravelReviewItem extends baseComponent {
         $this->replaceValue("COGNOME_UTENTE",$user->user->cognome);
         $this->replaceValue("DATA",$this->review->data);
 
-        $idp = "p_".$this->review->id_recensione;
-
-
-        if($_COOKIE['flw_user'] == 'admin'){
-            $this->replaceValue("APPROVA",'
-                    <input type="button" name="btn_approva" id="'.$this->review->id_recensione.'" value="APPORVA" onclick="approva(this.id)"> 
-                    <p id="'.$idp.'"> </p>');
-
-        }else{
-            $this->replaceValue("APPROVA",'');
-        }
-
         return $this;
-    }
-        
+    }   
 }

@@ -7,7 +7,7 @@ use model\Integrazione;
 
 class IntegrazioneListItem extends baseComponent {
 
-    const _templateName = 'integrazione_list_item';
+    const _templateName = 'adm_integrazione_list_item';
     public $integrazione;
 
     public function __construct(array $integrazione) {
@@ -27,19 +27,19 @@ class IntegrazioneListItem extends baseComponent {
         $id = $this->integrazione->id_integrazione;
 
         $this->replaceValues([
-                'integrazione_id' => $this->integrazione->id_integrazione,
+                'id' => $this->integrazione->id_integrazione,
                 'nome' => $this->integrazione->nome,
                 'descrizione' => $this->integrazione->descrizione,
                 'prezzo' => $this->integrazione->prezzo,
                 'durata' => $this->integrazione->durata,
                 'modifica' => ($_COOKIE['flw_user'] == 'admin') ? '
-                <form action="./adm_integrazione_modifica.php" method="get">
+                <form action="./adm_integrazione_modifica.php" method="get" class="adm-form-card">
                     <input type="hidden" name="par_id" id="par_id" value="'.$id.'"> 
-                    <input type="submit" name="modifica" id="modifca" value="MODIFICA"></button>
+                    <input type="submit" class="adm-bottone-modifica-card" name="modifica" id="modifca" value="MODIFICA"></button>
                 </form>'.'
-                <form action="./adm_landing_integrazione_eliminazione.php" method="get">
+                <form action="./adm_landing_integrazione_eliminazione.php" method="get" class="adm-form-card">
                     <input type="hidden" name="par_id" id="par_id" value="'.$id.'"> 
-                    <input type="submit" name="modifica" id="modifca" value="ELIMINA"></button>
+                    <input type="submit" class="adm-bottone-elimina-card" name="modifica" id="modifca" value="ELIMINA"></button>
                 </form>':' '
             ]
          );

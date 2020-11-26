@@ -5,9 +5,9 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserimento_integrazione")));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione()));
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione("inserimento_integrazione")));
 
     $page->replaceTag('ADM-LIST','');
 

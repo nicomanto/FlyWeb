@@ -48,6 +48,7 @@ class AdmController extends BaseController {
     //aggiorna un viaggio già esistente
     public function aggiornaViaggio($viaggio){
         $old_titolo = $viaggio['titolo'];
+
         $query='UPDATE Viaggio
                 SET
                 Titolo = ?,
@@ -140,5 +141,4 @@ class AdmController extends BaseController {
         $query = 'UPDATE Recensione as R SET R.Mod=1 WHERE R.ID_Recensione=?;';
         $this->db->runQuery($query,$id);
     }
-
 }

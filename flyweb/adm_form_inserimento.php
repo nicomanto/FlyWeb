@@ -5,10 +5,12 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio));
 
+    $page->replaceTag('ADM-LIST','');
+    
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

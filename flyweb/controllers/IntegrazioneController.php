@@ -49,7 +49,7 @@ class IntegrazioneController extends BaseController {
     }
 
     public function aggiornaIntegrazione($integrazione){
-        print_r($integrazione);
+        //print_r($integrazione);
         $query='UPDATE Integrazione
                 SET
                 Nome = ?,

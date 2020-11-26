@@ -9,7 +9,7 @@
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("integrazione_modifica")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione($integrazioneContorller->integrazione)));
 
