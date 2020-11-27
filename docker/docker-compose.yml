@@ -40,7 +40,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ../:/var/www/html/
+      - ../flyweb/css:/var/www/html/css
+      - ../flyweb/js:/var/www/htmljs
 
 volumes:
   flyweb-volume:
