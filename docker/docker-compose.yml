@@ -41,7 +41,8 @@ services:
       - "8080:80"
     volumes:
       - ../flyweb/css:/var/www/html/css
-      - ../flyweb/js:/var/www/htmljs
+      - ../flyweb/js:/var/www/html/js
+      - ../flyweb/img:/var/www/html/img
 
 volumes:
   flyweb-volume:
