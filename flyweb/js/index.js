@@ -114,6 +114,7 @@ function conferma(){
 }
 
 function admlogout(){
+    console.log("ciao");
     document.cookie = "flw_user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
 }
 
