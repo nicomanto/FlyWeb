@@ -19,7 +19,7 @@ class SearchController extends BaseController {
     }
 
     public function searchByTag(string $tag, string $start_date=null, string $end_date=null, int $start_price=null, int $end_price=null, string $order_by=null, string $order_by_mode= null): array {
-        $query = 'SELECT * FROM Viaggio WHERE (Tag LIKE ?)';
+        $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio IN (SELECT ID_Viaggio FROM TagViaggio WHERE ID_Tag IN (SELECT ID_Tag FROM Tag WHERE Nome LIKE ?))';
         $queryByTag = $this->buildQuery($query, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode);
 
         $tag = '%' . $tag . '%';
