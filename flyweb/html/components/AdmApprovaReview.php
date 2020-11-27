@@ -8,14 +8,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
      $tipo_richiesta = $post['tipo_richiesta'];
      
      if($tipo_richiesta === "approvazione"){
-          echo "AA";
-
           $admController->approveReview($id_review);
-
      }else{
-          echo "BBB";
           $admController->deleteReview($id_review);
      }
-
-
 ?> 

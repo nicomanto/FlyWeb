@@ -1,4 +1,4 @@
-//#region APPROVA RECENSIONE
+//#region SCRIPT MODERAZIONE RECENSIONI
 function approva(id){
     const data =    {  
                         id_recensione: id,
@@ -45,7 +45,7 @@ function elimina(id){
 //#endregion 
 
 
-//#region CHECKBOX FORM VIAGGIO
+//#region SCRIPT CHECKBOX FORM VIAGGIO
 
 function checkboxformviaggio(){
     //invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
@@ -62,7 +62,7 @@ function checkboxformviaggio(){
 //#endregion
 
 
-//#region CHECK BOX INTEGRAZIONE
+//#region SCRIPT CHECK BOX INTEGRAZIONE
 
 function checkboxintegrazione(){
         console.log("check box integrazione");
@@ -79,7 +79,7 @@ function checkboxintegrazione(){
 //#endregion
 
 
-//#region FORM INSERIMENTO VIAGGIO
+//#region SCRIPT TAG FORM INSERIMENTO VIAGGIO
 
 function forminserimento() {
     fetch('/html/components/autocomplete.php', { method: 'POST' })
@@ -111,6 +111,10 @@ function aggiungiTag() {
 function conferma(){
     $popup_conferma = confirm("vuoi confermare il form?");
     return ($popup_conferma)?true:false;
+}
+
+function admlogout(){
+    document.cookie = "flw_user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
 }
 
 checkboxformviaggio();
