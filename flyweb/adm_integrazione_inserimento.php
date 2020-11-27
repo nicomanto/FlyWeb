@@ -13,5 +13,4 @@
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
-
     echo $page;

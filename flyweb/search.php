@@ -49,7 +49,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
 
     // Set search box
-    $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
+    $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox("searchbox")));
 
     // Build list of travels;
     $searchResults = '';
