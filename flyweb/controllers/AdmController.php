@@ -141,4 +141,9 @@ class AdmController extends BaseController {
         $query = 'UPDATE Recensione as R SET R.Mod=1 WHERE R.ID_Recensione=?;';
         $this->db->runQuery($query,$id);
     }
+
+    public function deleteReview($id){
+        $query = 'DELETE FROM Recensione WHERE ID_Recensione=?;';
+        $this->db->runQuery($query,$id);
+    }
 }

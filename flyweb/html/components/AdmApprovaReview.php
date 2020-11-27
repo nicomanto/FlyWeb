@@ -1,18 +1,21 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
-/*
-     script php che restituisce la lista di tag sottoforma di <option> che vanno inseriti dentro <datalist>
-*/
+     $admController = new \controllers\AdmController();
 
      $post = json_decode(file_get_contents('php://input'), true);   
      $id_review = $post['id_recensione'];  
+     $tipo_richiesta = $post['tipo_richiesta'];
+     
+     if($tipo_richiesta === "approvazione"){
+          echo "AA";
+
+          $admController->approveReview($id_review);
+
+     }else{
+          echo "BBB";
+          $admController->deleteReview($id_review);
+     }
 
 
-
-     $admController = new \controllers\AdmController();
-
-     $admController->approveReview($id_review);
-
-     echo "Recensione approvata";  
- ?> 
+?> 

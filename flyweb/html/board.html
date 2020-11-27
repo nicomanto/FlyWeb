@@ -79,7 +79,7 @@
             cursor: pointer;
         }
 
-        .adm-bottone-elimina-card{
+        .adm-bottone-elimina-card, .adm-bottone-elimina-recensione{
             border-radius: 5px;
             color:#fff;
             background-color: #FA3E37;
@@ -92,12 +92,38 @@
             margin: 0.5em;
         }
 
-        .adm-bottone-elimina-card:hover{
+        .adm-bottone-elimina-card:hover, .adm-bottone-elimina-recensione:hover{
             background-color: #A21E1B;
             border: 3px solid #A21E1B;
             border-radius: 5px;
             color: #fff;
             cursor: pointer;
+        }
+
+        .adm-bottone-approva-recensione{
+            border-radius: 5px;
+            color:#fff;
+            background-color: #4caf50;
+            border: 3px solid #4caf50;
+            outline: none;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            padding: 10px;
+            width: 40%;
+            margin:auto;
+            margin: 0.5em;
+        }
+
+        .adm-bottone-approva-recensione:hover{
+            border-radius: 5px;
+            color:#fff;
+            background-color: #087f23;
+            border: 3px solid #087f23;
+            outline: none;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            padding: 10px;
+            width: 40%;
+            margin:auto;
+            margin: 0.5em;
         }
 
         .adm-form-card{
@@ -178,6 +204,7 @@
         }
 
     </style>
+
     <body class ="board-flex-container">
         <div class="board-item" id="board_menu">
             <ADM-MENU/>

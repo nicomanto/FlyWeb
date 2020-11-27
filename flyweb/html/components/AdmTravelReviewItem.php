@@ -37,14 +37,12 @@ class AdmTravelReviewItem extends baseComponent {
         if($_COOKIE['flw_user'] == 'admin'){
             $this->replaceValue("APPROVA",'
                 <div class="adm-card-rev">
-                    <input type="button" class="adm-bottone-modifica-card" name="btn_approva" id="'.$this->review->id_recensione.'" value="APPORVA" onclick="approva(this.id)"> 
-                    <p id="'.$idp.'"> </p>
-                </div>
-            ');
+                    <input type="button" class="adm-bottone-approva-recensione" name="btn_approva" id="'.$this->review->id_recensione.'i" value="APPORVA" onclick="approva(this.id)"> 
+                    <input type="button" class="adm-bottone-elimina-recensione" name="btn_approva" id="'.$this->review->id_recensione.'e" value="ELIMINA" onclick="elimina(this.id)"> 
+                </div> ');
         }else{
             $this->replaceValue("APPROVA",'');
         }
-
         return $this;
     }   
 }

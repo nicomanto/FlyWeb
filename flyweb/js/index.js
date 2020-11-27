@@ -1,6 +1,9 @@
 //#region APPROVA RECENSIONE
 function approva(id){
-    const data = { id_recensione: id };
+    const data =    {  
+                        id_recensione: id,
+                        tipo_richiesta: "approvazione"
+                    };
 
     fetch('/html/components/AdmApprovaReview.php', {
         method: 'POST',
@@ -16,6 +19,29 @@ function approva(id){
         }
     )
 }
+
+function elimina(id){
+    const data =    {  
+                        id_recensione: id,
+                        tipo_richiesta: "eliminazione"
+                    };
+
+    fetch('/html/components/AdmApprovaReview.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+
+    }).then(data => data.text())
+    .then(
+        function (data) {
+            console.log(id);
+            document.getElementById(id).parentElement.parentElement.parentElement.remove();
+        }
+    )
+}
+
 //#endregion 
 
 
