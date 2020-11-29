@@ -31,8 +31,10 @@ class NavMenu extends BaseComponent {
         $li="";
 
         foreach($menu as $i){
-            if($i->get_name()=="Home" || $i->get_name()=="Login" || $i->get_name()=="Sign in" || $i->get_name()=="About us" ||$i->get_name()=="Log out")
-                $li.="<li xml:lang=\"en\"><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
+            if($i->get_name()=="Home" || $i->get_name()=="About us")
+                $li.="<li xml:lang=\"en\"><a class=\"menuPage\"href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
+            else if($i->get_name()=="Accedi" || $i->get_name()=="Esci" || $i->get_name()=="Registrati")
+                $li.="<li><a class=\"signVoice\" href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
             else
                 $li.="<li><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
         }
