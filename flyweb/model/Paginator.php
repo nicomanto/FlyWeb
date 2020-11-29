@@ -1,6 +1,6 @@
 <?php
 
-namespace shared;
+namespace model;
 
 class Paginator {
     
