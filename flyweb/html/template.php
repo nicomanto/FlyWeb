@@ -41,6 +41,7 @@ class Template {
      */
     public function replaceTag(string $tag, string $content): string {
         $this->_template = str_replace('<' . $tag . '/>', $content, $this->_template);
+        $this->_template = str_replace('<' . $tag . ' />', $content, $this->_template);
         return $this->_template;
     }
 
