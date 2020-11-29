@@ -27,7 +27,10 @@
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
+    // Set travel configurator
     $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\Integrazione((int)$id)));
+
+    $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
 
     // Set travel reviews
     if($travelController->haveReviews() && $travelController->haveModReview()){

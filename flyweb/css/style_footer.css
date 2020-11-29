@@ -1,89 +1,90 @@
 /*FOOTER*/
 
-footer{
-    display: grid;
-    margin-top: 2em;
+footer {
+    display         : grid;
+    margin-top      : 2em;
     background-color: whitesmoke;
 }
 
-footer h1{
-    font-size:1.2em;
+footer h1 {
+    font-size    : 1.2em;
     margin-bottom: 1em;
 }
 
-#footerSiteMap{
-    grid-row: 1;
+#footerSiteMap {
+    grid-row   : 1;
     grid-column: 1/3;
-    text-align: center;
+    text-align : center;
 }
 
-#footerSiteMap ul{
-    display:inline-flex;
-}
-
-#footerSiteMap ul li{
-    list-style: none;
-    margin: 2em;
-}
-
-#footerSiteMap ul li a{
-    text-decoration: none;
-}
-
-#footerSiteMap ul li a:hover{
-    color: #e49d44;
-}
-
-#footerSiteMap ul li a:visited{
-    color: purple;
-}
-
-#footerSiteMap ul li a:visited:hover{
-    color: #e49d44;
-}
-
-#Contatti{
-    grid-row: 2;
-    text-align: center;
-    max-width: 50%;
-}
-
-#Contatti dl dt,dd{
-    float :left;
-    width: 50%;
-}
-
-#Social{
-    grid-row: 2;
-    text-align: center;
-}
-
-#Social ul{
+#footerSiteMap ul {
     display: inline-flex;
 }
 
-#Social ul li{
-    list-style-type: none;
-    display: flex;
-    margin: 0em 1em 0em 1em;
+#footerSiteMap ul li {
+    list-style: none;
+    margin    : 2em;
 }
 
-#Social h2{
-    font-size: 0.8em;
-    font-weight:normal;
-}
-
-#Social ul li a{
+#footerSiteMap ul li a {
     text-decoration: none;
 }
 
-#Social ul li a:visited{
-    color:purple;
+#footerSiteMap ul li a:hover {
+    color: #e49d44;
 }
 
-#NoteLegali{
-    margin-top: 2em;
-    grid-row: 3;
-    grid-column: 1/3;
+#footerSiteMap ul li a:visited {
+    color: purple;
+}
+
+#footerSiteMap ul li a:visited:hover {
+    color: #e49d44;
+}
+
+#Contatti {
+    grid-row  : 2;
     text-align: center;
+    max-width : 50%;
+}
+
+#Contatti dl dt,
+dd {
+    float: left;
+    width: 50%;
+}
+
+#Social {
+    grid-row  : 2;
+    text-align: center;
+}
+
+#Social ul {
+    display: inline-flex;
+}
+
+#Social ul li {
+    list-style-type: none;
+    display        : flex;
+    margin         : 0em 1em 0em 1em;
+}
+
+#Social h2 {
+    font-size  : 0.8em;
+    font-weight: normal;
+}
+
+#Social ul li a {
+    text-decoration: none;
+}
+
+#Social ul li a:visited {
+    color: purple;
+}
+
+#NoteLegali {
+    margin-top : 2em;
+    grid-row   : 3;
+    grid-column: 1/3;
+    text-align : center;
 }

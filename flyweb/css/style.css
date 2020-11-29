@@ -1,15 +1,99 @@
 /*GENERAL CSS*/
-*{
-    padding:0em;
-    margin:0em;
+:root {
+    --primary  : #0a3150;
+    --secondary: #c53020;
+    --white    : #ffffff;
 }
 
-body{
-    font-family: 'Baloo Thambi 2', sans-serif;
-    max-width: 1024px;
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    color:#0a3150;
+* {
+    padding: 0em;
+    margin : 0em;
+}
+
+body {
+    /* font-family: 'Lato'; */
+    font-family        : 'Baloo Thambi 2', sans-serif;
+    /* max-width       : 70rem; */
+    max-width          : 1024px;
+    margin             : auto;
+    height             : 100%;
+    width              : 100%;
+    background-color   : white;
+    color              : #0a3150;
+
+}
+
+button {
+    background-color: var(--secondary);
+    color           : var(--white);
+}
+
+.travel_details {
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: space-around;
+}
+
+.travel_details .row {
+    width : 100%;
+    margin: auto 0;
+}
+
+.travel_details .elevator_pitch {
+    display       : flex;
+    flex-direction: row;
+    margin        : 3vh 0;
+}
+
+.travel_details .elevator_pitch .main_img {
+    height      : 50vh;
+    width       : auto;
+    margin-right: 4vw;
+}
+
+.travel_details .elevator_pitch .main_infos {
+    display       : flex;
+    flex-direction: column;
+    margin        : 0 !important;
+}
+
+.travel_details .elevator_pitch .main_infos img {
+    margin-right: 0.5vw;
+}
+
+.travel_details .elevator_pitch .main_infos dt {
+    margin   : 0.5vw 0;
+    max-width: 20vw;
+}
+
+.travel_details .elevator_pitch .main_infos .title {
+    color      : var(--primary);
+    font-weight: bold;
+    font-size  : 2em;
+}
+
+.travel_details .elevator_pitch .main_infos .price {
+    font-size: 1.5em;
+    color    : red;
+}
+
+.travel_details .elevator_pitch .main_infos .cart {
+    min-width : 100%;
+    padding   : 1em;
+    margin-top: 1em;
+}
+
+.travel_details .complete_informations {
+    margin: 2vh 0;
+}
+
+.travel_details .cart {
+    min-width: 80%;
+    padding  : 1em;
+    margin   : 1vh 0;
+}
+
+.form_integrazioni {
+    padding: 1vh 0;
 }

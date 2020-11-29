@@ -1,27 +1,30 @@
 <div class="travel_details">
-    <div class="elevator_pitch" style="display: flex; flex-direction: row;">
-        
-        <img src="https://cdn-static.dagospia.com/img/patch/12-2017/gianni-morandi-con-la-zizzona-di-battipaglia-970741.jpg" alt="Italian Trulli" style="padding: 20px">
-        
-        <div class="main_infos">
-            <h1>%NAME%</h1>
-            <ul>
-                <li><h2>%PRICE%</h2></li>
-                <li>Breve riassunto del viaggio: Hic dolorem temporibus voluptas id voluptatibus vitae. Dignissimos omnis voluptas neque veritatis. Vero aut corrupti non unde sapiente autem.</li>
-                <li>Dove: %COUNTRY%, %CITY% - %LOCATION%</li>
-                <li>Data partenza: %START_DATE%</li>
-                <li>Data ritorno: %END_DATE%</li>
-            </ul>
+    <div class="elevator_pitch row" style="display: flex; flex-direction: row;">
 
-            <button>Aggiungi al carrello</button>
+        <img class="main_img"
+            src="https://cdn-static.dagospia.com/img/patch/12-2017/gianni-morandi-con-la-zizzona-di-battipaglia-970741.jpg"
+            alt="Italian Trulli">
+
+        <div>
+            <dl class="main_infos">
+                <dt><span class="title">%NAME%</span></dt>
+                <dt><span class="price">%PRICE%</span></dt>
+                <dt><img src="/img/shopping_bag.svg" /><span class="description">Breve riassunto del viaggio: Hic
+                        dolorem temporibus voluptas id voluptatibus vitae. Dignissimos omnis voluptas neque veritatis.
+                        Vero aut corrupti non unde sapiente autem.</span></dt>
+                <dt><img src="/img/place.svg" /><span class="place">%COUNTRY%, %CITY% - %LOCATION%</span></dt>
+                <dt><img src="/img/clock.svg" /><span class="start_date">Data partenza: %START_DATE%</span></dt>
+                <dt><img src="/img/clock.svg" /><span class="end_date">Data ritorno: %END_DATE%</span></dt>
+                <dt><button class="cart"><img src="/img/shipping.svg" />Aggiungi al carrello</button></dt>
+            </dl>
         </div>
 
     </div>
 
     <div class="complete_informations">
-        <span class="descrizione">
+        <span class="description">
             %DESCRIPTION%
         </span>
-        <button>Aggiungi al carrello</button>
     </div>
+
 </div>
