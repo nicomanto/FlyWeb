@@ -110,7 +110,7 @@ create or replace table Utente
 	Propic TEXT null,
 	Email varchar(256) not null,
 	DataNascita date not null,
-	DataRegistrazione date not null,
+	DataRegistrazione timestamp not null default current_timestamp(),
 	Admin TINYINT(1) default 0 null,
 	EvilBit TINYINT(1) default 0 null,
 	ID_Carrello int null,
