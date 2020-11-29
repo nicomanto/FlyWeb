@@ -29,7 +29,7 @@ class FormViaggio extends baseComponent
         $this->replaceValues([
             'titolo' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->titolo,
             'descrizione' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizione,
-            'descrizionebreve' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizionebreve,
+            'descrizioneBreve' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->descrizioneBreve,
             'stato' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->stato,
             'citta' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->citta,
             'localita' => (empty($this->travel_loc)) ? ' ' : $this->travel_loc->localita,
@@ -49,7 +49,7 @@ class FormViaggio extends baseComponent
         $dati = [
             'titolo' => $_POST['titolo'],
             'descrizione' => $_POST['descrizione'],
-            'descrizionebreve' => $_POST['descrizionebreve'],
+            'descrizioneBreve' => $_POST['descrizioneBreve'],
             'stato' => $_POST['stato'],
             'citta' => $_POST['citta'],
             'localita' => $_POST['localita'],

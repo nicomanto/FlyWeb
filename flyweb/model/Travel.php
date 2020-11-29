@@ -9,7 +9,7 @@ class Travel {
     public $data_fine;
     public $prezzo;
     public $descrizione;
-    public $descrizionebreve;
+    public $descrizioneBreve;
     public $stato;
     public $citta;
     public $localita;
@@ -38,7 +38,7 @@ class Travel {
         $this->data_fine = $travel['DataFine'];
         $this->prezzo = $travel['Prezzo'];
         $this->descrizione = $travel['Descrizione'];
-        $this->descrizionebreve = $travel['DescrizioneBreve'];
+        $this->descrizioneBreve = $travel['DescrizioneBreve'];
         $this->stato = $travel['Stato'];
         $this->citta = $travel['Citta'];
         $this->localita = $travel['Localita'];
@@ -54,13 +54,13 @@ class Travel {
      * @param string $descrizione
      * @return void
      */
-    public function __construct5(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizionebreve,string $stato, string $citta, string $localita) {
+    public function __construct5(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizioneBreve,string $stato, string $citta, string $localita) {
         $this->titolo = $titolo;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
         $this->prezzo = $prezzo;
         $this->descrizione = $descrizione;
-        $this->descrizionebreve = $descrizionebreve;
+        $this->descrizioneBreve = $descrizioneBreve;
         $this->stato = $stato;
         $this->citta = $citta;
         $this->localita = $localita;
