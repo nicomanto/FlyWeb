@@ -1,0 +1,41 @@
+/* Travel list */
+
+.travel_list_item {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+
+    margin : 2vh 0;
+    border : 1px solid #b9bcb7;
+    padding: 1em;
+}
+
+.travel_list_item .travel_image img {
+    padding: 0 !important;
+    height : 15em;
+}
+
+.travel_list_item .travel_infos {
+    padding-left: 2em;
+    flex-grow   : 2;
+}
+
+.travel_list_item .travel_reviews_and_price {
+    display       : flex;
+    flex-direction: column;
+    align-items   : flex-end;
+    width         : 8em;
+}
+
+.travel_list_item .travel_reviews_and_price .price {
+    margin-top  : 1em;
+    margin-right: 1vw;
+}
+
+.travel_list_item .travel_infos .dates {
+    margin: 0.5em 0;
+}
+
+.travel_list_item .travel_infos .description {
+    margin: 1em 0;
+}

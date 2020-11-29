@@ -1,8 +1,28 @@
-<div style="border:1px solid;">
-    <h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2>
-    <h3>%TRAVEL_PRICE% £</h3>
-    <p>%TRAVEL_START_DATE% - %TRAVEL_END_DATE%</p>
-    <p>%TRAVEL_DESCRIPTION%</p>
-    
-    %MODIFICA%
+<div class="travel_list_item">
+
+    <div class="travel_image">
+        <img src="https://cdn-static.dagospia.com/img/patch/12-2017/gianni-morandi-con-la-zizzona-di-battipaglia-970741.jpg"
+            alt="Italian Trulli" style="padding: 20px">
+    </div>
+
+    <div class="travel_infos">
+
+        <div class="title"><h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2></div>
+        <div class="dates">%TRAVEL_START_DATE% - %TRAVEL_END_DATE%</div>
+        <div class="description">%TRAVEL_DESCRIPTION%</div>
+
+        %MODIFICA%
+
+    </div>
+
+    <div class="travel_reviews_and_price">
+
+        <div class="reviews">
+            <REVIEWS_INDICATOR />
+        </div>
+
+        <div class="price">
+            <h3>%TRAVEL_PRICE% £</h3>
+        </div>
+    </div>
 </div>
