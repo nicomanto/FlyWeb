@@ -1,6 +1,6 @@
 <?php
 
-use shared\Paginator;
+use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -61,7 +61,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('SEARCH_RESULTS', $searchResults);
 
     // Set pagination indicator
-    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedTravels['currentPage'], $paginatedTravels['totalPages'])));
+    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedTravels)));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
