@@ -4,6 +4,8 @@ namespace controllers;
 
 use model\Travel;
 
+use model\Review;
+
 class TravelController extends BaseController {
 
     public $travel;
@@ -45,6 +47,39 @@ class TravelController extends BaseController {
         $s = ($this->db->runQuery($query, $id));
         //echo $s[0]['Titolo'];
         return($s[0]['Titolo']);
+    }
+
+    public function getAverageReviews(){
+        $list_review=$this->getTravelReviewsList();
+        $average_reviews=0;
+
+        foreach($list_review as $i){
+            $review= new Review($i);
+            
+            if($review->mod!=0) //controllo se la review è stata moderata
+                $average_reviews+=$review->valutazione;
+            
+        }
+
+
+        return $average_reviews/$this->getNumberOfReviews();
+
+    }
+
+    public function getNumberOfReviews(){
+
+        $list_review=$this->getTravelReviewsList();
+        $n_reviews=0;
+
+        foreach($list_review as $i){
+            $review= new Review($i);
+            
+            if($review->mod!=0) //controllo se la review è stata moderata
+                $n_reviews++;
+            
+        }
+
+        return $n_reviews;
     }
 
 }

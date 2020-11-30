@@ -34,7 +34,7 @@
 
     // Set travel reviews
     if($travelController->haveReviews() && $travelController->haveModReview()){
-        $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController->getTravelReviewsList())));
+        $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\travelReviews($travelController)));
     }
     else{
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\noReviews()));
