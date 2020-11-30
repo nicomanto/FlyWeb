@@ -24,7 +24,6 @@ class Review {
         }
     }
 
-
     /**
      * Maps values from array (used to convert db associative arrays into Review objects)
      */
@@ -57,5 +56,16 @@ class Review {
         $this->id_utente = $id_utente;
         $this->mod= $mod;
         $this->data=$data;
+    }
+
+    /**
+     * Constructor with minimal informations to create a new Review (used with form information)
+     */
+    public function __construct4(string $titolo, int $valutazione, string $descrizione, int $id_utente) {
+        $this->titolo = $titolo;
+        $this->valutazione = $valutazione;
+        $this->descrizione = $descrizione;
+        $this->id_utente = $id_utente;
+        $this->mod= 0;
     }
 }

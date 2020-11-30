@@ -1,0 +1,33 @@
+<div id="content">
+    <form action='./response.php' method="POST" id="form_insert_review">
+        <fieldset>
+            <legend>Inserisce una recensione per %TITOLO_VIAGGIO%</legend>
+
+            <div>
+            <label for="titolo">Titolo: </label>
+            <input type="text" name="titolo" id="titolo" placeholder="Inserisci qua il titolo" required="required" autocomplete="off"/><br/>
+            </div>
+
+            <div>
+            <label for="descrizione">Commento: </label>
+            <textarea name="descrizione" placeholder="Inserisci qua la tua recensione" id="descrizione" rows='7' cols='100' maxlength="1024" required="required" autocomplete="off"></textarea>
+            </div>
+            
+            <div>
+            <label for="valutazione">Valutazione (da 0 a 5):</label>
+            <input type="number" id="valutazione" name="valutazione" min="0" max="5" required="required">
+            </div>
+
+            <input type="hidden" name="id_utente" id="id_utente" value="%ID_UTENTE%">
+
+            <input type="hidden" name="id_viaggio" id="id_viaggio" value="%ID_VIAGGIO%">
+
+            <input type="hidden" name="type" id="type" value="%TYPE%">
+
+            <div>    
+            <input class="bottone" type="submit" id="submit" value="invia">
+            </div>
+
+        </fieldset>
+    </form>
+</div>
