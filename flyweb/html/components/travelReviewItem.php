@@ -6,6 +6,8 @@ use html\components\baseComponent;
 
 use controllers\UserController;
 
+use \html\components\SingleBadgeVoteReview;
+
 class TravelReviewItem extends baseComponent {
 
     const _templateName = 'travel_review_item';
@@ -30,7 +32,7 @@ class TravelReviewItem extends baseComponent {
             $li.=new stellaItem();
         }
         
-        $this->replaceValue("N_STAR",$this->review->valutazione);
+        $this->replaceTag('BADGE_VOTO', new \html\components\SingleBadgeVoteReview($this->review->valutazione));
         $this->replaceValue("TITOLO",$this->review->titolo);
         $this->replaceTag('STELLE_REVIEW', $li);
         $this->replaceValue("CONTENUTO",$this->review->descrizione);
