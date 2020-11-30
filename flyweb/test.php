@@ -6,9 +6,9 @@
     $page = new \html\template('board');
 
 
-    $page->replaceTag('HEAD', new \html\components\Head);
+    $page->replaceTag('HEAD', new \html\components\head);
 
-    $page->replaceTag('ADM-DASHBOARD', (new \html\components\Integrazione("133")));
+    $page->replaceTag('ADM-DASHBOARD', (new \html\components\integrazione("133")));
 
     $page->replaceTag('ADM-SUCCESSO', '');
 

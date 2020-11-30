@@ -1,7 +1,7 @@
 <?php
 namespace html\components;
 
-use html\Template;
+use html\template;
 
 class BaseComponent extends Template {
     

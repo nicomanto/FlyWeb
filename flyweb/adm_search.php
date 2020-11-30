@@ -11,7 +11,7 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_viaggi")));
 
     // Set search box form
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\SearchBox("adm-searchbox")));
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));
 
     $page->replaceTag('ADM-LIST','');
 

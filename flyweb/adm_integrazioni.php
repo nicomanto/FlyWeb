@@ -1,6 +1,6 @@
 <?php
 
-use shared\Paginator;
+use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -26,14 +26,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $sr='<h1 class="adm-titolo"><strong>LISTA INTEGRAZIONI</strong></h1>';
 
     foreach ($paginatedIntegrazioni['elements'] as $i) {
-        $sr .= new \html\components\IntegrazioneListItem($i);
+        $sr .= new \html\components\integrazioneListItem($i);
     }
         
     // Set search result travels
     $page->replaceTag('ADM-CONTENUTO', $sr);
 
     // Set pagination indicator
-    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedIntegrazioni['currentPage'], $paginatedIntegrazioni['totalPages'])));
+    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedIntegrazioni)));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
     $page->replaceTag('FOOTER', (new \html\components\footer));

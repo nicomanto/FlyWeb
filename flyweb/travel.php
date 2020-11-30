@@ -28,7 +28,7 @@
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
 
     // Set travel configurator
-    $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\Integrazione((int)$id)));
+    $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\integrazione((int)$id)));
 
     $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
 

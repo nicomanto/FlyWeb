@@ -2,11 +2,11 @@
 
 namespace html\components;
 
-use \html\components\baseComponent;
+use \html\components\BaseComponent;
 
 use \controllers\TravelController;
 
-class FormInsertReview extends baseComponent {
+class FormInsertReview extends BaseComponent {
 
     const _templateName = 'form_insert_review';
     private $id_viaggio;

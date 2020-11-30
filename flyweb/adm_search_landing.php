@@ -1,6 +1,6 @@
 <?php
 
-use shared\Paginator;
+use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -58,7 +58,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $page->replaceTag('ADM-CONTENUTO', $searchResults);
 
     // Set pagination indicator
-    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedTravels['currentPage'], $paginatedTravels['totalPages'])));
+    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedTravels)));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
