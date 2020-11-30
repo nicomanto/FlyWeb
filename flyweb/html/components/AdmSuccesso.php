@@ -28,7 +28,7 @@ class AdmSuccesso extends BaseComponent {
 
     public function render(): string {
         
-        echo $tipoOperazione. " - ". $titoloViaggio;
+        //echo $tipoOperazione. " - ". $titoloViaggio;
 
         $this->replaceValues([
             'op' => $this->tipoOperazione,

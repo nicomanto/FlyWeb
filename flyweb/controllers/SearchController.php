@@ -41,7 +41,7 @@ class SearchController extends BaseController {
         $general = '%' . $general . '%';
 
         // TODO: Remove this line: debug only
-        echo $queryGeneral['query'];
+        //echo $queryGeneral['query'];
 
         $travels = $this->db->runQuery($queryGeneral['query'], $general, ...$queryGeneral['params']);
 

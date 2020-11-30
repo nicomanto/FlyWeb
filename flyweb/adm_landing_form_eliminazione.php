@@ -14,15 +14,19 @@
         echo "Key: $key; Value: $value\n";
     }
     */
-
+    $titolo = $travelController->getTitle($id);
     $travelController->deleteTravel($id);
+
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
-    $page->replaceTag('ADM-FORM-INSERIMENTO-VIAGGIO', '');
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
-    $page->replaceTag('ADM-SUCCESSO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
-    $page->replaceTag('ADM-DASHBOARD', '');
-    $page->replaceTag('ADM-REVIEWS', '');
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
+    
+    $page->replaceTag('ADM-LIST','');
+
+    $page->replaceTag('FOOTER', (new \html\components\footer));
+
 
     echo $page;

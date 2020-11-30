@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+        <title>Home | FlyWeb</title>
+        <meta name="description" content="Home" />
+        <meta name="keywords" content="FlyWeb, home, ricerca, cerca, viaggi, prenota" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-<head>
-    <title>Home | FlyWeb</title>
-    <meta name="description" content="Home" />
-    <meta name="keywords" content="FlyWeb, home, ricerca, cerca, viaggi, prenota" />
+        <HEAD/>
+    </head>
+    <body class ="board-flex-container">
+        <div class="board-item" id="board_menu">
+            <ADM-MENU/>
+        </div>
+        
+        <div class="borad-item" id="board_contenuto">
+            <ADM-CONTENUTO/>
+            <ADM-LIST/>
+        </div>
 
-    <HEAD />
-</head>
-
-<body>
-    <ADM-DASHBOARD />
-
-    <ADM-FORM-INSERIMENTO-VIAGGIO />
-
-    <ADM-SUCCESSO />
-
-    <ADM-REVIEWS />
-</body>
-
+        <div class="item" id="board_footer">
+            <FOOTER/>
+        </div>
+    </body>
 </html>

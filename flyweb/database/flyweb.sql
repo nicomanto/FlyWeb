@@ -169,7 +169,7 @@ create or replace table Viaggio
 	DataFine date null,
 	Prezzo int default 0 null,
 	Descrizione text null,
-	DescrizioneBreve varchar(128) null,
+	DescrizioneBreve varchar(512) null,
 	Stato varchar(256) null,
 	Localita varchar(256) null,
 	Citta varchar(256) null

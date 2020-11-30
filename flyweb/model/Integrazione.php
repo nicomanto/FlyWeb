@@ -12,23 +12,13 @@ class Integrazione {
     /**
      * Workaround to have multiple constructors
      */
-    public function __construct()
+    public function __construct(array $integrazione)
     {
-        $arguments = func_get_args();
-        $numberOfArguments = func_num_args();
-
-        if (method_exists($this, $function = '__construct'.$numberOfArguments)) {
-            call_user_func_array(array($this, $function), $arguments);
-        }
-    }
-
-
-    public function __construct1(array $integrazione) {
-        $this->id_integrazione = $review['ID_Integrazione'];
-        $this->nome = $review['Nome'];
-        $this->descrizione = $review['Descrizione'];
-        $this->durata = $review['Durata'];
-        $this->prezzo = $review['Prezzo'];
+        $this->id_integrazione = $integrazione['ID_Integrazione'];
+        $this->nome = $integrazione['Nome'];
+        $this->descrizione = $integrazione['Descrizione'];
+        $this->durata = $integrazione['Durata'];
+        $this->prezzo = $integrazione['Prezzo'];
 
     }
 

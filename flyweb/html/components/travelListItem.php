@@ -36,22 +36,12 @@ class TravelListItem extends baseComponent {
                 'travel_end_date' => $this->travel->data_fine,
                 'travel_country' => $this->travel->stato,
                 'travel_city' => $this->travel->city,
-                'travel_location' => $this->travel->location,
-                'modifica' => ($_COOKIE['flw_user'] == 'admin') ? '
-                <form action="./adm_form_modifica.php" method="get">
-                    <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
-                    <input type="submit" name="modifica" id="modifca" value="MODIFICA"></button>
-                </form>'.'
-                <form action="./adm_landing_form_eliminazione.php" method="get">
-                    <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
-                    <input type="submit" name="modifica" id="modifca" value="ELIMINA"></button>
-                </form>':' '
+                'travel_location' => $this->travel->location
             ]
         );
 
         // $this->replaceTag('REVIEWS_INDICATOR', (new \html\components\reviewsIndicator($this->travel)));
         
         return $this;
-    }
-        
+    }       
 }

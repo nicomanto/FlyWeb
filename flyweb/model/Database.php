@@ -97,7 +97,7 @@ class Database {
         if ($results) {
             return $this->fetchAllRows($results);
         } else {
-            echo "No results available for this query";
+            //echo "No results available for this query";
         }
     }
 

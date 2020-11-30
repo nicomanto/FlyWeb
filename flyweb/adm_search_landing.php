@@ -1,6 +1,6 @@
 <?php
 
-use model\Paginator;
+use shared\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -40,30 +40,27 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $paginatedTravels = Paginator::paginate($travels, $page);
 
     // Loading search result template
-    $_page= new \html\template('search');
+    $page= new \html\template('board');
 
     // Set page head
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
-
-    // Set search box
-    $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox("searchbox")));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     // Build list of travels;
-    $searchResults = '';
+    $searchResults='<h1 class="adm-titolo"><strong>LISTA VIAGGI</strong></h1>';
     foreach ($paginatedTravels['elements'] as $travel) {
-        $searchResults .= new \html\components\travelListItem($travel);
+        $searchResults .= new \html\components\AdmTravelListItem($travel);
     }
     
     // Set search result travels
-    $_page->replaceTag('SEARCH_RESULTS', $searchResults);
+    $page->replaceTag('ADM-CONTENUTO', $searchResults);
 
     // Set pagination indicator
-    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedTravels)));
+    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedTravels['currentPage'], $paginatedTravels['totalPages'])));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new \html\components\footer));
 
-    echo $_page;
+    echo $page;
