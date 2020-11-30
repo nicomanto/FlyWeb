@@ -35,11 +35,11 @@ class IntegrazioneListItem extends baseComponent {
                 'modifica' => ($_COOKIE['flw_user'] == 'admin') ? '
                 <form action="./adm_integrazione_modifica.php" method="get" class="adm-form-card">
                     <input type="hidden" name="par_id" id="par_id" value="'.$id.'"> 
-                    <input type="submit" class="adm-bottone-modifica-card" name="modifica" id="modifca" value="MODIFICA"></button>
+                    <input type="submit" class="adm-bottone-modifica-card" name="modifica"  value="MODIFICA"></button>
                 </form>'.'
-                <form action="./adm_landing_integrazione_eliminazione.php" method="get" class="adm-form-card">
+                <form action="./adm_landing_integrazione_eliminazione.php" method="get" class="adm-form-card" onsubmit="return confermaEliminazione()">
                     <input type="hidden" name="par_id" id="par_id" value="'.$id.'"> 
-                    <input type="submit" class="adm-bottone-elimina-card" name="modifica" id="modifca" value="ELIMINA"></button>
+                    <input type="submit" class="adm-bottone-elimina-card" name="modifica" value="ELIMINA"></button>
                 </form>':' '
             ]
          );

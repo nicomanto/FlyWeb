@@ -142,11 +142,14 @@ input[type="file"]{
     width: 100%;
 }
 #submitForm{
-    width: 80%;
+    width: 100%;
     text-align: center;
+    margin-bottom: 5px;
 }
 #resetForm{
-    width: 19%;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
 }
 
 input[type=checkbox]{
@@ -179,6 +182,10 @@ input[type=checkbox]{
     cursor: pointer;
 }
 
+input[type="button"],input[type="date"], input[type="file"]{
+    cursor:pointer;
+}
+
 </style>
 <div id="content">
      <h1 class="adm-titolo"><strong>INSERISCI VIAGGIO</strong></h1>
@@ -191,27 +198,27 @@ input[type=checkbox]{
                <p id="input_error_titolo" class="p_input_error"> testo errore </p>
 
                <label for="descrizione"><strong>DESCRIZIONE DETTAGLIATA</strong></label><br>
-               <textarea id="descrizione" name="descrizione" placeholder="inerisci descrizone dettagliata" rows='10' cols='50' form='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
+               <textarea id="descrizione" name="descrizione" placeholder="inerisci descrizone dettagliata" rows='10' cols='50' maxlength="2048"dform='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
                <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
 
-               <label for="descrizioneBreve"><strong>DESCRIZIONE BREVE</strong></label><br>
-               <textarea id="descrizioneBreve" name="descrizioneBreve" placeholder="inerisci descrizone breve" rows='3' cols='50' maxlength="1024" form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
-               <p id="input_error_breve" class="p_input_error"> testo errore </p>
+               <label for="descrizionebreve"><strong>DESCRIZIONE BREVE</strong></label><br>
+               <textarea id="descrizionebreve" name="descrizionebreve" placeholder="inerisci descrizone breve" rows='3' cols='50' maxlength="512" form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
+               <p id="input_error_descrizione_breve" class="p_input_error"> testo errore </p>
           </fieldset>
 
           
           <fieldset id="fieldInfoGeografiche">
                <legend>Informazioni geografiche del viaggio</legend>
                <label for="stato"><strong>STATO</strong></label><br>
-               <input type="text" id="stato" name="stato"  placeholder="inerisci stato" autocomplete="off" value="%STATO%"><br>
+               <input type="text" id="stato" name="stato"  placeholder="inerisci stato" maxlength="256" autocomplete="off" value="%STATO%"><br>
                <p id="input_error_stato" class="p_input_error"> testo errore </p>
      
                <label for="citta"><strong>CITTA</strong></label><br>
-               <input type="text" id="citta" name="citta" placeholder="inerisci citta" autocomplete="off" value="%CITTA%"><br>
+               <input type="text" id="citta" name="citta" placeholder="inerisci citta" maxlength="256" autocomplete="off" value="%CITTA%"><br>
                <p id="input_error_citta" class="p_input_error"> testo errore </p>
      
                <label for="localita"><strong>LOCALITA</strong></label><br>
-               <input type="text" id="localita" name="localita" placeholder="inerisci localita" autocomplete="off" value="%LOCALITA%"></label><br>
+               <input type="text" id="localita" name="localita" placeholder="inerisci localita" maxlength="256x" autocomplete="off" value="%LOCALITA%"></label><br>
                <p id="input_error_localita" class="p_input_error"> testo errore </p>
           </fieldset>
 
@@ -220,12 +227,12 @@ input[type=checkbox]{
                <legend>Date temporali del viaggio</legend>
                <div class="date" id="divDataInizio">
                     <label for="datainizio"><strong>DATA INIZIO VIAGGIO</strong></label><br>
-                    <input type="date" id="datainizio" name="datainizio" required="required" value="%DATAINIZIO%"><br> 
+                    <input type="date" id="datainizio" name="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%"><br> 
                </div>    
                
                <div class="date" id="divDataFine">
                     <label for="datafine"><strong>DATA FINE VIAGGIO</strong></label><br>
-                    <input type="date" id="datafine" name="datafine" required="required" value="%DATAFINE%"><br>
+                    <input type="date" id="datafine" name="datafine" onblur="validationData()" required="required" value="%DATAFINE%"><br>
                </div>
                <p id="input_error_datafine" class="p_input_error"> testo errore </p>
 
@@ -236,7 +243,7 @@ input[type=checkbox]{
 
                     <div class="miscellanea">
                         <label for="prezzo"><strong>PREZZO</strong></label><br>
-                        <input type="number" id="prezzo" name="prezzo" placeholder="inserisci un prezzo" min="0" required="required" value="%PREZZO%">
+                        <input type="number" id="prezzo" name="prezzo" placeholder="inserisci un prezzo"  onblur="validationPrz()" min="0" required="required" value="%PREZZO%">
                         <p id="input_error_prezzo" class="p_input_error"> testo errore </p>
                     </div>
 

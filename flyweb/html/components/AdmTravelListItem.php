@@ -47,9 +47,9 @@ class AdmTravelListItem extends baseComponent {
                     <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
                     <input type="submit" class="adm-bottone-modifica-card" name="modifica" id="modifca" value="MODIFICA"></button>
                 </form>'.'
-                <form action="./adm_landing_form_eliminazione.php" method="get" class="adm-form-card">
+                <form action="./adm_landing_form_eliminazione.php" method="get" class="adm-form-card" onsubmit="return confermaEliminazione()">
                     <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
-                    <input type="submit" class="adm-bottone-elimina-card" name="modifica" id="modifca" value="ELIMINA"></button>
+                    <input type="submit" class="adm-bottone-elimina-card" name="elimina" id="elimina" value="ELIMINA";></button>
                 </form>':' '
             ]);
         return $this;

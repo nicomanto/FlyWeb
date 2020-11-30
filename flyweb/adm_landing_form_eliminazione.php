@@ -5,7 +5,7 @@
 
     $id= $_GET['par_id'];
 
-    $integrazioneController = new \controllers\TravelController($id);
+    $travelController = new \controllers\TravelController($id);
     $admController    = new \controllers\AdmController;
 
     /*
