@@ -13,13 +13,4 @@ class LoginForm extends baseComponent {
         parent::__construct(self::_templateName);
         $this->render();
     }
-
-    public function render(): string {
-        // Eventually load login values from cookie
-        $loginValues = $this->loadValuesFromRequest(['user', 'password']);
-        $loginValues['remember_me'] = $loginValues['user'] != '' ? "checked='checked'" : '';
-        $this->replaceValues($loginValues);
-
-        return $this;
-    }
 }

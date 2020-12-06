@@ -17,7 +17,7 @@ class LoginController extends BaseController {
      */
     public function checkUserAuth($user, $password) {
         $query = 'SELECT * FROM Utente WHERE (Username = ? OR Email = ?) AND Password = ?;';
-        return ! empty($this->db->runQuery($query, $user, $user, $password));
+        return $this->db->runQuery($query, $user, $user, $password)[0];
     }
 
 }
