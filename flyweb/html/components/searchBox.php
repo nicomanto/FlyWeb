@@ -6,22 +6,28 @@ use html\components\baseComponent;
 
 class SearchBox extends baseComponent {
     const _templateName = 'search_box';
-    private $values = [
-        'search_by_option' => '',
-        'search_key' => '',
-        'search_start_date' => '',
-        'search_end_date' => '',
-        'search_start_price' => '',
-        'search_end_price' => '',
-        'search_order_by' => '',
-        'search_order_by_mode' => ''
-    ];
+    private $values;
 
     private $tipo;
 
-    public function __construct($tipo=null) {
+    public function __construct($tipo=null,$_option_search=array()) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
+
+        // Load request's data
+        extract($_option_search, EXTR_SKIP);
+
+        $this->values=[
+            'search_by_option' => $search_by_option,
+            'search_key' => $search_key,
+            'search_start_date' => $search_start_date,
+            'search_end_date' => $search_end_date,
+            'search_start_price' => (int)$search_start_price,
+            'search_end_price' => (int)$search_end_price,
+            'search_order_by' =>  $search_order_by,
+            'search_order_by_mode' => $search_order_by_mode
+        ];
+
         $this->tipo = $tipo;
         $this->render();
     }
