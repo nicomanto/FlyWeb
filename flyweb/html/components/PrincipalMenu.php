@@ -23,7 +23,7 @@ class PrincipalMenu extends NavMenu {
 
         $li="";
         foreach($this->menuItem as $i){
-            $li.=new \html\components\PrincipalMenuItem($i);
+            $li.=new \html\components\principalMenuItem($i);
         }
 
         return $li;
