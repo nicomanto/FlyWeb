@@ -8,7 +8,7 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_viaggi")));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
     // Set search box form
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));

@@ -2,9 +2,13 @@
 
 namespace html\components;
 
+use \html\components\BaseComponent;
+
+use \html\components\AdmMenuComponent;
+
 class AdmDashBoard extends BaseComponent {
 
-    const _templateName = 'adm_dashboard';
+    const _templateName = "adm_dashboard";
 
     private $menu =
     [   'generale'              => '<a href="/adm_form_inserimento.php"><li class="menu_dash_element">INSERISCI VIAGGIO</li></a><a href="/adm_search.php"><li class="menu_dash_element">GESTISCI VIAGGI</li></a><a href="/adm_integrazione_inserimento.php"><li class="menu_dash_element">INSERISCI INTEGRAZIONI</li></a><a href="/adm_integrazioni.php"><li class="menu_dash_element">GESTISCI INTEGRAZIONI</li></a><a href="/adm_moderazione_recensioni.php"><li class="menu_dash_element">MODERA RECENSIONI</li></a><a href="/index.php" onclick="admlogout()"><li class="menu_dash_element">LOGOUT</li></a>',
@@ -19,45 +23,12 @@ class AdmDashBoard extends BaseComponent {
     public function __construct($tipo=null) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
-        $this->tipo = $tipo;
         $this->render();
     }
 
-    
-    public function render(): string {
-        $r = "";
+    public function render(): string{
 
-        switch ($this->tipo) {
-            case    "generale":
-                    $r = $this->menu['generale'];
-                    break;
-
-            case    "inserisci_viaggio":
-                    $r = $this->menu['inserisci_viaggio'];
-                    break;
-
-            case    "gestisci_viaggi":
-                    $r = $this->menu['gestisci_viaggi'];
-                    break;
-
-            case    "inserisci_integrazione":
-                    $r = $this->menu['inserisci_integrazione'];
-                    break;
-            
-            case    "gestisci_integrazioni":
-                    $r = $this->menu['gestisci_integrazioni'];
-                    break;
-
-            case    "modera_recensioni":
-                    $r = $this->menu['modera_recensioni'];
-                    break;
-
-            default:
-                    $r = $this->menu['generale'];
-                    break;
-        }
-
-        $this->replaceValues(['admmenu' => $r]);
+        $this->replaceTag('MENUADM', new \html\components\AdmMenuComponent());
 
         return $this;
     }

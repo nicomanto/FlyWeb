@@ -4,25 +4,24 @@ namespace html\components;
 
 use \html\components\NavMenu;
 
-use \model\UserMenu;
+use \model\AdmMenu;
 
-use \html\components\FooterSiteMapItem;
+class AdmMenuComponent extends NavMenu {
 
-class FooterSiteMap extends NavMenu {
+    const _templateName = "adm_menu";
 
     public function __construct() {
-        parent::__construct("footerSiteMap");
+        parent::__construct(self::_templateName);
     }
 
     public function BuildMenuItem(){
-        return (new \model\UserMenu())->build_menu($this->user);
+        return (new AdmMenu())->build_menu($this->user);
     }
 
     public function TemplateMenuItem(): string{
-
         $li="";
         foreach($this->menuItem as $i){
-            $li.=new \html\components\FooterSiteMapItem($i);
+            $li.=new \html\components\AdmMenuItem($i);
         }
 
         return $li;

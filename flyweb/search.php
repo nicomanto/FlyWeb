@@ -46,7 +46,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     // Set search box
     $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox("searchbox")));
