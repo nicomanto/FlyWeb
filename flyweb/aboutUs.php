@@ -17,7 +17,7 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     // Set footer
     $page->replaceTag('FOOTER', (new \html\components\footer));
