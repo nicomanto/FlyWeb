@@ -1,6 +1,6 @@
 /*PRINCIPAL MENU*/
 
-.menu ul {
+.PrincipalMenu ul {
     display        : inline-flex;
     justify-content: flex-end;
     width          : 100%;
@@ -8,7 +8,7 @@
     border-bottom  : 3px solid #0a3150;
 }
 
-.menu ul li {
+.PrincipalMenu ul li {
     list-style-type: none;
     margin         : 1.5em;
 }

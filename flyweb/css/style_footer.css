@@ -11,34 +11,34 @@ footer h1 {
     margin-bottom: 1em;
 }
 
-#footerSiteMap {
+.footerSiteMap {
     grid-row   : 1;
     grid-column: 1/3;
     text-align : center;
 }
 
-#footerSiteMap ul {
+.footerSiteMap ul {
     display: inline-flex;
 }
 
-#footerSiteMap ul li {
+.footerSiteMap ul li {
     list-style: none;
     margin    : 2em;
 }
 
-#footerSiteMap ul li a {
+.footerSiteMap ul li a {
     text-decoration: none;
 }
 
-#footerSiteMap ul li a:hover {
+.footerSiteMap ul li a:hover {
     color: #e49d44;
 }
 
-#footerSiteMap ul li a:visited {
+.footerSiteMap ul li a:visited {
     color: purple;
 }
 
-#footerSiteMap ul li a:visited:hover {
+.footerSiteMap ul li a:visited:hover {
     color: #e49d44;
 }
 

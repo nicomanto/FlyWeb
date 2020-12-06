@@ -14,7 +14,7 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     // Set signup form
     $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm));

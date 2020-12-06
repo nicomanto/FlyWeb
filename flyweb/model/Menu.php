@@ -1,7 +1,7 @@
 <?php
     namespace model;
 
-    class Menu{
+    abstract class Menu{
 
         private $MenuItem;
         
@@ -17,6 +17,7 @@
             );    
         }
 
+       
         function build_menu(string $user){
             $final_menu=[];
             
@@ -33,5 +34,3 @@
         }
 
     }
-
-    ?>

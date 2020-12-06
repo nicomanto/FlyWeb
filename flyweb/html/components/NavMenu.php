@@ -4,42 +4,40 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 
-use \model\Menu;
-
-class NavMenu extends BaseComponent {
+abstract class NavMenu extends BaseComponent {
 
     const _templateName = "navmenu";
 
-    public function __construct() {
-        // Call BaseComponent constructor
+    protected $user;
+    protected $menuItem;
+    protected $typeMenu;
+
+    public function __construct($type){
+
         parent::__construct(self::_templateName);
-        $this->addMenu();
+
+        $this->typeMenu=$type;
+
+        $this->user =$this->detectUserType();
+        
+        $this->menuItem=$this->BuildMenuItem();
+
+        $this->render();
     }
 
-    public function __construct1(string $templateName) {
-        // Call BaseComponent constructor
-        parent::__construct($templateName);
-        $this->addMenu();
-    }
+    abstract public function BuildMenuItem();
 
-    public function addMenu(): void{
+    abstract public function TemplateMenuItem(): string;
 
-        $user = $this->detectUserType();
+    public function render(): string{
 
-        $menu=(new Menu())->build_menu($user);
+        $li=$this->TemplateMenuItem();
 
-        $li="";
-
-        foreach($menu as $i){
-            if($i->get_name()=="Home" || $i->get_name()=="About us")
-                $li.="<li xml:lang=\"en\"><a class=\"menuPage\"href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
-            else if($i->get_name()=="Accedi" || $i->get_name()=="Esci" || $i->get_name()=="Registrati")
-                $li.="<li><a class=\"signVoice\" href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
-            else
-                $li.="<li><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
-        }
+        $this->replaceValue("CLASS",$this->typeMenu);
 
         $this->replaceTag('NAVMENUITEM', $li);
+
+        return $this;
 
     }
 
@@ -54,5 +52,3 @@ class NavMenu extends BaseComponent {
         return $userType;
     }
 }
-
-?>
