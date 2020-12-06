@@ -3,7 +3,7 @@
 
     abstract class Menu{
 
-        private $MenuItem;
+        protected $MenuItem;
         
         function __construct() {
             $this->MenuItem= array (
