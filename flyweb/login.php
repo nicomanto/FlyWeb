@@ -49,18 +49,21 @@
         }
 
         $loggedIn = $loginController->checkUserAuth($user, $password);
-        if ($loggedIn) {
+
+        if (! empty($loggedIn)) {
             // Persist login on this session
             $_SESSION['logged_in'] = true;
 
-            // Set cookie for future sessions
-            // TODO: Check if users agreed for cookies
-            setcookie('flw_user', $user);
-            // TODO: Set to a temp hashed random string stored in db?
-            setcookie('flw_password', $password, time() + 60 * 60 * 24 * 30);
+            if ($loggedIn['Admin']) {
+                // Redirect to Administration page
+                $_SESSION['admin'] = true;
+                header('location:board.php');
+            } else {
+                // Redirect to home page
+                $_SESSION['admin'] = false;
+                header('location:index.php');
+            }
 
-            // Redirect to home page
-            header('location:index.php');
             exit();
         } else {
             echo 'Wrong credentials';
