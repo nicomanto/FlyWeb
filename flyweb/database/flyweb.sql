@@ -1,7 +1,6 @@
 
-drop database if exists flyweb;
-create or replace schema flyweb collate utf8mb4_general_ci;
-use flyweb;
+create or replace schema fipinton collate utf8mb4_general_ci;
+use fipinton;
 
 create or replace table Carrello
 (

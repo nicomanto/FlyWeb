@@ -17,7 +17,7 @@ class BaseController {
      */
     public function __construct() {
         // TODO: Manage onConnect errors
-        $this->db = new Database();
+        $this->db = new Database('localhost', 'fipinton', 'ooquoox0Cha8eiHa', 'fipinton');
         $this->db->connect();
     }
 
