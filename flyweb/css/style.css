@@ -452,3 +452,106 @@ button {
 .adm-card-rev{
     text-align: center;
 }
+
+/* === SEARCH BOX === */
+
+.form-search{
+    background-color: #0a3150;
+    color:white;
+    margin:auto;
+    width: 75%;
+    border-radius: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+
+.search-box-input{
+    background-color: #c53020;
+    border-radius: 2em;
+    width: 95%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.form-search input{
+    border-radius: 2em;
+    border: 0;
+}
+
+.search-box-date{
+    display: inline-block;
+    background-color: #c53020;
+    border-radius: 2em;
+    border: 0;
+    width: 95%;
+    vertical-align: middle;
+    padding: 0.5em;
+    background-image: url();
+}
+
+.search-box-input .search-key{
+    width: 60%;
+}
+
+.search-box-input .search-box-submit{
+    width: 25%;
+    display: inline;
+    cursor:pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+    border: 0;
+}
+
+.form-search .search-key:hover, .form-search .search-box-submit:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.form-search .search-box-submit:hover{
+    color: #c53020;
+
+}
+
+.search-box-date1{
+    display: inline-block;
+    margin-left : 1em;
+    margin-right: 1em;
+    padding-left: 1em;
+}
+
+.search-box-date1:hover{
+    border-radius: 20px;
+    background-color: #A21E1B;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.form-search input{
+    padding:1em;
+}
+
+#fieldset_search{
+    border: 0;
+}
+
+.aiuti-alla-navigazione{
+    visibility: hidden;
+}
+
+.search-box-div-filtri{
+    display: none;
+
+}
+.form-search input[type="date"]{
+    cursor: text;
+}
+
+.form-search ::-webkit-calendar-picker-indicator:hover{
+    cursor: pointer;
+}
+
+.form-search input:focus{
+    outline: none;
+    box-shadow: none;
+}
