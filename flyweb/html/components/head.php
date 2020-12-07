@@ -9,10 +9,11 @@ class Head extends BaseComponent {
     public function __construct() {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
+        $this->render();
     }
 
     public function render(): string {
-        $this->replaceValue('base', 'fipinton');
+        $this->replaceValue('BASE', 'fipinton');
         return $this;
     }
 
