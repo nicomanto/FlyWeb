@@ -2,7 +2,7 @@
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     if (empty($_POST)) {
-      header('location:/index.php');
+      header('location:index.php');
       exit();
     }
 

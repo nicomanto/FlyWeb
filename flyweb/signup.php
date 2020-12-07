@@ -8,7 +8,7 @@
 
     // Redirect to home if user's already logged in
     if ($_SESSION['logged'] == true) {
-        header('location:/index.php');
+        header('location:index.php');
         exit();
     }
 

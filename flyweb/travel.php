@@ -10,7 +10,7 @@
     extract($_GET, EXTR_SKIP);
 
     if (empty($id)) {
-        header('location:/search.php');
+        header('location:search.php');
         exit();
     }
 

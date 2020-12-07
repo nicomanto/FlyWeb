@@ -11,4 +11,9 @@ class Head extends BaseComponent {
         parent::__construct(self::_templateName);
     }
 
+    public function render(): string {
+        $this->replaceValue('base', 'fipinton');
+        return $this;
+    }
+
 }
