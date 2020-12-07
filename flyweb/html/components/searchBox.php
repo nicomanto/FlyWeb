@@ -29,13 +29,13 @@ class SearchBox extends baseComponent {
     public function render(): string {
     
         if($this->tipo == "adm-searchbox"){
-            $values['url'] = '/admin/search_landing.php';
+            $values['url'] = 'admin/search_landing.php';
             $values['titolo'] = '<h1 class="adm-titolo">CERCA I VIAGGI DA MODIFICARE O ELIMINARE</h1>';
         }else if($this->tipo == "searchbox"){
-            $values['url'] = '/search.php';
+            $values['url'] = 'search.php';
             $values['titolo'] = '<h1>CERCA VIAGGI</h1>';
         }else{
-            $values['url'] = '/search.php';
+            $values['url'] = 'search.php';
             $values['titolo'] = '';
         }
 
