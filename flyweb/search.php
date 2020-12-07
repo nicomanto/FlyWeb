@@ -1,8 +1,11 @@
 <?php
 
-use model\Paginator;
+    use controllers\RouteController;
+    use model\Paginator;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+    RouteController::unprotectedRoute();
 
     // Load request's data
     extract($_GET, EXTR_SKIP);

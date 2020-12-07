@@ -1,6 +1,10 @@
 <?php
 
+    use controllers\RouteController;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+    RouteController::unprotectedRoute();
 
     // Load request's data
     extract($_GET, EXTR_SKIP);

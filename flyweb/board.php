@@ -1,8 +1,10 @@
 <?php
+    use controllers\RouteController;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // This route can be accessed only by admins
-    (new \controllers\RouteController)->protectRoute();
+    RouteController::protectedRoute();
 
 
     $page = new \html\template('board');

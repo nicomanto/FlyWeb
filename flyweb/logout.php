@@ -1,5 +1,10 @@
 <?php
+
+    use controllers\RouteController;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+    RouteController::loggedRoute();
 
     // Unset session
     session_unset();

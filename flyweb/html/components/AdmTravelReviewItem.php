@@ -34,7 +34,7 @@ class AdmTravelReviewItem extends baseComponent {
         $this->replaceValue("COGNOME_UTENTE",$user->user->nome);
         $this->replaceValue("DATA",$this->review->data);
 
-        if($_COOKIE['flw_user'] == 'admin'){
+        if($_SESSION['admin']){
             $this->replaceValue("APPROVA",'
                 <div class="adm-card-rev">
                     <input type="button" class="adm-bottone-approva-recensione" name="btn_approva" id="'.$this->review->id_recensione.'i" value="APPORVA" onclick="approva(this.id)"> 

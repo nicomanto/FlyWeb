@@ -45,7 +45,13 @@ abstract class NavMenu extends BaseComponent {
         $userType = '';
         if ($_SESSION['logged_in']) {
             $userType = 'LoggedUser';
-        } else {
+        }
+        
+        if ($_SESSION['admin']) {
+            $userType = 'LoggedAdmin';
+        }
+        
+        if ($userType == '') {
             $userType = 'NotLoggedUser';
         }
 

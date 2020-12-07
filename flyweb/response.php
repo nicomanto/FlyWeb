@@ -1,6 +1,11 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
+    if (empty($_POST)) {
+      header('location:index.php');
+      exit();
+    }
+
 
     $page = new \html\template('response');
 

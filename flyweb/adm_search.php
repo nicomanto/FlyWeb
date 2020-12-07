@@ -1,5 +1,9 @@
 <?php
+    use controllers\RouteController;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+    RouteController::protectedRoute();
 
 
     $page = new \html\template('board');

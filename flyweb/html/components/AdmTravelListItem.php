@@ -42,15 +42,7 @@ class AdmTravelListItem extends baseComponent {
                 'travel_country' => $this->travel->stato,
                 'travel_city' => $this->travel->city,
                 'travel_location' => $this->travel->location,
-                'modifica' => ($_COOKIE['flw_user'] == 'admin') ? '
-                <form action="./adm_form_modifica.php" method="get" class="adm-form-card">
-                    <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
-                    <input type="submit" class="adm-bottone-modifica-card" name="modifica" id="modifca" value="MODIFICA"></button>
-                </form>'.'
-                <form action="./adm_landing_form_eliminazione.php" method="get" class="adm-form-card" onsubmit="return confermaEliminazione()">
-                    <input type="hidden" name="par_id" id="par_id" value="'.$st.'"> 
-                    <input type="submit" class="adm-bottone-elimina-card" name="elimina" id="elimina" value="ELIMINA";></button>
-                </form>':' '
+                'st' => $st
             ]);
         return $this;
     }       

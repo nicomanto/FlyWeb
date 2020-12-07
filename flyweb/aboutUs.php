@@ -1,5 +1,10 @@
 <?php
+
+    use controllers\RouteController;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+    RouteController::unprotectedRoute();
 
     // TODO: This is for debug only
     if ($_SESSION['logged_in']) {
