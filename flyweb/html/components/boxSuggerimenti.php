@@ -22,7 +22,7 @@ class BoxSuggerimenti extends baseComponent {
     public function addTag(): void{
         $lista_sugg="";
         foreach ($this->controller->get_suggerimenti() as $i){
-            $lista_sugg.=new suggerimentoItem($i['Nome'], $this->type);
+            $lista_sugg.=new suggerimentoItem($i['Nome'], $this->type, $i['Immagine']);
         }
 
         $this->replaceTag('SUGGERIMENTO', $lista_sugg);

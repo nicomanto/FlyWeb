@@ -85,7 +85,8 @@ create or replace table Tag
 (
 	ID_Tag int auto_increment
 		primary key,
-	Nome varchar(64) not null
+	Nome varchar(64) not null,
+	Immagine text
 );
 
 create or replace table TagIntegrazioni
