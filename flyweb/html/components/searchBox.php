@@ -33,7 +33,7 @@ class SearchBox extends baseComponent {
         $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
     
         if($this->tipo == "adm-searchbox"){
-            $values['url'] = 'admin/search_landing.php';
+            $values['url'] = RouteController::ADMIN_BASE_ROUTE . '/search_landing.php';
             $values['titolo'] = '<h1 class="adm-titolo">CERCA I VIAGGI DA MODIFICARE O ELIMINARE</h1>';
         }else if($this->tipo == "searchbox"){
             $values['url'] = 'search.php';

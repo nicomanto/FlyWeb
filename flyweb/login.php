@@ -62,7 +62,7 @@
             if ($loggedIn['Admin']) {
                 // Redirect to Administration page
                 $_SESSION['admin'] = true;
-                header('location:admin/index.php');
+                header('location:' . RouteController::ADMIN_BASE_ROUTE .'/index.php');
             } else {
                 // Redirect to home page
                 $_SESSION['admin'] = false;
