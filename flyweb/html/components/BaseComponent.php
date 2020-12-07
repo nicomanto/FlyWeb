@@ -18,7 +18,7 @@ class BaseComponent extends Template {
      */
     public function load(): void {
         
-        $filename = $_SERVER['DOCUMENT_ROOT'] . 'html/components/html/' . $this->_templateName . '.html';
+        $filename = $_SERVER['CONTEXT_DOCUMENT_ROOT'] . 'html/components/html/' . $this->_templateName . '.html';
         if (file_exists($filename)) {
             $this->_template = file_get_contents($filename);
         }
