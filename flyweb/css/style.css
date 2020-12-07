@@ -98,6 +98,35 @@ button {
     padding: 1vh 0;
 }
 
+/* === LAYOUT index.html ===*/
+.contenuto-home{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.contenuto-home .nav-menu{
+    order: 1;
+}
+
+.contenuto-home .content-search-box{
+    order: 2;
+    padding-top: 7em;
+    padding-bottom: 7em;
+    background-color: pink;
+}
+
+.contenuto-home .boxSuggerimenti{
+    order: 3;
+    background-color: gold;
+}
+
+.contenuto-home .footer{
+    order: 4;
+}
+
 /* === DASHBOARD === */
 .board-flex-container{
     display: flex;

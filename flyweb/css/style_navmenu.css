@@ -1,21 +1,20 @@
 /*PRINCIPAL MENU*/
 
-.menu ul {
+.nav-menu ul {
     display        : inline-flex;
     justify-content: flex-end;
     width          : 100%;
     font-size      : 1em;
     background-color: #c53020;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0;
-    margin-bottom: 1em;
 }
 
-.menu ul li {
+.nav-menu ul li {
     list-style-type: none;
     margin         : 1em;
 }
 
-.menuPage {
+.nav-menu .menuPage{
     padding         : 0.2em;
     padding-left    : 0.5em;
     padding-right   : 0.5em;
@@ -23,7 +22,7 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0), 0 1px 3px rgba(0,0,0,0.24);
 }
 
-.menuPage:hover {
+.nav-menu .menuPage:hover {
     border-bottom: 3px solid #0a3150;
     box-shadow: 0 3px 10px rgba(0,0,0,0), 0 3px 10px rgba(0,0,0,0.23);
 }
