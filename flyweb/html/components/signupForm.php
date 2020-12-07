@@ -3,6 +3,7 @@
 namespace html\components;
 
 use \html\components\baseComponent;
+use controllers\RouteController;
 
 class SignupForm extends baseComponent {
 
@@ -15,6 +16,10 @@ class SignupForm extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
+        
         // Eventually load login values from previous request
         $signupValuesKeys = ['nome', 'cognome', 'data_nascita', 'username', 'email', 'password'];
         $signupValues = $this->loadValuesFromRequest($signupValuesKeys);

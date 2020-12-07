@@ -3,6 +3,7 @@
 namespace html\components;
 
 use html\components\baseComponent;
+use controllers\RouteController;
 
 class StellaItem extends baseComponent {
 
@@ -25,6 +26,9 @@ class StellaItem extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         $this->replaceValue("TYPE_ALT_STAR",$this->alt_star);
         $this->replaceValue("TYPE_STAR",$this->type_star);

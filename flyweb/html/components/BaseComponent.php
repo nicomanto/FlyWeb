@@ -2,6 +2,7 @@
 namespace html\components;
 
 use html\template;
+use controllers\RouteController;
 
 class BaseComponent extends Template {
     
@@ -62,6 +63,9 @@ class BaseComponent extends Template {
     }    
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
         return $this;
     }
 }

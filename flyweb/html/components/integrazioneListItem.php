@@ -4,6 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 use model\Integrazione;
+use controllers\RouteController;
 
 class IntegrazioneListItem extends baseComponent {
 
@@ -22,6 +23,9 @@ class IntegrazioneListItem extends baseComponent {
     }
 
     public function render(): string {
+        
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         // Load travel properties into template
         $id = $this->integrazione->id_integrazione;

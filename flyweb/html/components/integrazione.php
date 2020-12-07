@@ -3,7 +3,7 @@
 namespace html\components;
 
 use \html\components\baseComponent;
-
+use controllers\RouteController;
 class Integrazione extends baseComponent {
 
     public $idViaggio;
@@ -17,7 +17,9 @@ class Integrazione extends baseComponent {
     }
 
     public function render(): string {
-        //echo "glo ".$this->idViaggio;
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
         $arr = ["idviaggio" => $this->idViaggio];
         $this->replaceValues($arr);
         return $this;

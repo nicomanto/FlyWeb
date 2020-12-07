@@ -3,6 +3,7 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
+use controllers\RouteController;
 
 class PrincipalMenuItem extends BaseComponent {
 
@@ -18,6 +19,9 @@ class PrincipalMenuItem extends BaseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         if($this->itemMenu->get_lang()!="it")
             $this->replaceValue('LANG', "xml:lang=\"".$this->itemMenu->get_lang()."\"");

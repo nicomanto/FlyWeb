@@ -15,6 +15,9 @@ class Head extends BaseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
         $this->replaceValue('BASE', RouteController::BASE_ROUTE);
         return $this;
     }

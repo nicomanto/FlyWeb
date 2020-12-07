@@ -3,9 +3,8 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
-
 use \controllers\TravelController;
-
+use controllers\RouteController;
 class FormInsertReview extends BaseComponent {
 
     const _templateName = 'form_insert_review';
@@ -21,6 +20,9 @@ class FormInsertReview extends BaseComponent {
     }
 
     public function render(): string{
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
         $this->replaceValue("TITOLO_VIAGGIO",(new TravelController($this->id_viaggio))->getTitle($this->id_viaggio));
         $this->replaceValue("TYPE","inserimentoRecensioneUser");
         $this->replaceValue("ID_UTENTE",$this->id_utente);

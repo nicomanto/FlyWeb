@@ -3,6 +3,7 @@
 namespace html\components;
 
 use html\components\baseComponent;
+use controllers\RouteController;
 
 class SearchBox extends baseComponent {
     const _templateName = 'search_box';
@@ -27,6 +28,9 @@ class SearchBox extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
     
         if($this->tipo == "adm-searchbox"){
             $values['url'] = 'admin/search_landing.php';

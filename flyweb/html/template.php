@@ -2,6 +2,8 @@
 
 namespace html;
 
+use controllers\RouteController;
+
 require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
 
@@ -83,6 +85,8 @@ class Template {
     }
 
     public function render(): string {
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
         return $this->_template;
     }
 

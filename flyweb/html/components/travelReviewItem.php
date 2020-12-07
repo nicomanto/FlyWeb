@@ -5,8 +5,7 @@ namespace html\components;
 use html\components\baseComponent;
 
 use controllers\UserController;
-
-use \html\components\SingleBadgeVoteReview;
+use controllers\RouteController;
 
 class TravelReviewItem extends baseComponent {
 
@@ -21,6 +20,9 @@ class TravelReviewItem extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         $li="";
 

@@ -4,6 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 use model\Travel;
+use controllers\RouteController;
 
 class TravelListItem extends baseComponent {
 
@@ -23,8 +24,8 @@ class TravelListItem extends baseComponent {
 
     public function render(): string {
 
-        // Load travel properties into template
-        $st = $this->travel->id_viaggio;
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         // TODO: modificare il modifica
         $this->replaceValues([

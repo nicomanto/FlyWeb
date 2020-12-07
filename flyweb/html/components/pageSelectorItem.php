@@ -3,6 +3,7 @@
 namespace html\components;
 
 use html\components\baseComponent;
+use controllers\RouteController;
 
 class PageSelectorItem extends baseComponent {
 
@@ -20,6 +21,10 @@ class PageSelectorItem extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
+        
         // Select class based on if the page is the current page or not
         if ($this->isCurrentPage) {
             $class = 'active';

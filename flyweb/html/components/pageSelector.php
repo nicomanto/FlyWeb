@@ -4,6 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 use html\components\pageSelectorItem;
+use controllers\RouteController;
 
 class PageSelector extends baseComponent {
 
@@ -22,20 +23,16 @@ class PageSelector extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
+
+
         $pages_list = '';
         $end_counter = $this->currentPage + 1;
         $start_counter = $this->currentPage - 1;
         $show_first = $this->currentPage != 1;
         $show_last = $this->currentPage != $this->totalPages;
-
-        // print_r($this->currentPage);
-        // print_r(', ');
-        // print_r($this->totalPages);
-        // print_r(', ');
-        // print_r($show_first);
-        // print_r(', ');
-        // print_r($show_last);
-
 
         // If there is only one page 
         if ($this->totalPages == 1) {

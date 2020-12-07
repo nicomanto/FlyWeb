@@ -3,6 +3,7 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
+use controllers\RouteController;
 
 
 class Footer extends BaseComponent {
@@ -16,6 +17,9 @@ class Footer extends BaseComponent {
     }
 
     public function render(): string{
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         $this->replaceTag('FOOTERSITEMAP', new footerSiteMap());
 

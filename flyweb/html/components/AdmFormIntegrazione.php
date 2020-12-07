@@ -3,7 +3,7 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
-use model\Integrazione;
+use \controllers\RouteController;
 
 class AdmFormIntegrazione extends baseComponent
 {
@@ -24,7 +24,10 @@ class AdmFormIntegrazione extends baseComponent
 
     public function render(): string
     {
-        //echo "debug";
+        
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
+
         $this->replaceValues([
             'type' => (empty($this->integrazione_loc)) ? 'INSERISCI' : 'MODIFICA',
             'titolo' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->nome,

@@ -3,8 +3,8 @@
 namespace html\components;
 
 use html\components\baseComponent;
-
 use controllers\UserController;
+use controllers\RouteController;
 
 class AdmTravelReviewItem extends baseComponent {
 
@@ -19,6 +19,9 @@ class AdmTravelReviewItem extends baseComponent {
     }
 
     public function render(): string {
+
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
 
         $user= new UserController($this->review->id_utente);
 

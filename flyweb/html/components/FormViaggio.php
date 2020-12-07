@@ -3,8 +3,7 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
-use model\Travel;
-
+use controllers\RouteController;
 class FormViaggio extends baseComponent
 {
 
@@ -24,8 +23,9 @@ class FormViaggio extends baseComponent
 
     public function render(): string
     {
-        //echo "debug";
-
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
+        $this->replaceValue('BASE_ADMIN', RouteController::ADMIN_BASE_ROUTE);
+        
         $this->replaceValues([
             'type' => (empty($this->travel_loc)) ? 'INSERISCI' : 'MODIFICA',
             'titolo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->titolo,
