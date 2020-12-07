@@ -2,6 +2,8 @@
 
 namespace html\components;
 
+use controllers\RouteController;
+
 class Head extends BaseComponent {
 
     const _templateName = 'head';
@@ -13,7 +15,7 @@ class Head extends BaseComponent {
     }
 
     public function render(): string {
-        $this->replaceValue('BASE', 'fipinton');
+        $this->replaceValue('BASE', RouteController::BASE_ROUTE);
         return $this;
     }
 
