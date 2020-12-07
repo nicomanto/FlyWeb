@@ -1,10 +1,15 @@
-<div class= "adm-card">
-    <h2>Recensione  #%ID% : %TITOLO%</h2>
+<div class="adm-card">
+    <h2>Recensione #%ID% : %TITOLO%</h2>
     <h3>Data rilascio:</h3><span>%DATA% </span><br>
     <h3>Valutazione: </h3> <span>%VALUTAZIONE% su 5 </span><br>
     <h3>Generalità scrittore:</h3> <span>%NOME_UTENTE%</span> <span>%COGNOME_UTENTE%</span><br>
-    <h3>Contenuto :</h3>  <span>%DESCRIZIONE%</span><br>
+    <h3>Contenuto :</h3> <span>%DESCRIZIONE%</span><br>
     <div class="adm-bottoni-recensione">
-        %APPROVA%
+        <div class="adm-card-rev">
+            <input type="button" class="adm-bottone-approva-recensione" name="btn_approva"
+                id="%ID%" value="APPROVA" onclick="approva(this.id)">
+            <input type="button" class="adm-bottone-elimina-recensione" name="btn_approva"
+                id="%ID%" value="ELIMINA" onclick="elimina(this.id)">
+        </div>
     </div>
 </div>

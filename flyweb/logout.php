@@ -10,5 +10,5 @@
     session_unset();
 
     // Redirect to home page
-    header('location:index.php');
+    header('location:/index.php');
     exit();

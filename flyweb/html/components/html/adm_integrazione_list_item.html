@@ -4,11 +4,11 @@
     <h3>Prezzo:</h3> <span>%PREZZO% Euro</span>    <br>
     <h3>Durata in minuti:</h3> <span>%DURATA%</span><br>
     <div class="adm-bottoni-gestione">
-        <form action="./adm_integrazione_modifica.php" method="get" class="adm-form-card">
+        <form action="/admin/integrazione_modifica.php" method="get" class="adm-form-card">
             <input type="hidden" name="par_id" id="par_id" value="%ID%"> 
             <input type="submit" class="adm-bottone-modifica-card" name="modifica"  value="MODIFICA"></button>
         </form>
-        <form action="./adm_landing_integrazione_eliminazione.php" method="get" class="adm-form-card" onsubmit="return confermaEliminazione()">
+        <form action="/admin/landing_integrazione_eliminazione.php" method="get" class="adm-form-card" onsubmit="return confermaEliminazione()">
             <input type="hidden" name="par_id" id="par_id" value="%ID%"> 
             <input type="submit" class="adm-bottone-elimina-card" name="modifica" value="ELIMINA"></button>
         </form>

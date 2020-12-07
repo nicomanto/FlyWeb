@@ -20,7 +20,7 @@ class ResponseMessage extends baseComponent {
      * @param name_page_to_return nome della pagina da visualizzare (settato ad home di default)
      * @param span_en identifica se c'è da aggiungere uno span en (settato a true di default)
      */
-    public function __construct(string $message,string $link_page_return="index.php",string $name_page_to_return="Home",bool $span_en=true) {
+    public function __construct(string $message,string $link_page_return="/index.php",string $name_page_to_return="Home",bool $span_en=true) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->message=$message;

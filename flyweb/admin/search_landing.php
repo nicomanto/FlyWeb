@@ -16,7 +16,7 @@
 
     if (!isset($search)) {
         // TODO: manage this situation
-        header('location:index.php');
+        header('location:/index.php');
         exit();
     }
 

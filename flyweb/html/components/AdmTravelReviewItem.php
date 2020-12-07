@@ -22,27 +22,19 @@ class AdmTravelReviewItem extends baseComponent {
 
         $user= new UserController($this->review->id_utente);
 
-        $this->replaceValue("ID",$this->review->id_recensione);
-        $this->replaceValue("TITOLO",$this->review->titolo);
-        $this->replaceValue("DATA",$this->review->data);
-        $this->replaceValue("VALUTAZIONE",$this->review->valutazione);
-        $this->replaceValue("NOME_UTENTE",$user->user->nome);
-        $this->replaceValue("COGNOME_UTENTE",$user->user->nome);
-        $this->replaceValue("DESCRIZIONE",$this->review->descrizione);
-
-        $this->replaceValue("NOME_UTENTE",$user->user->nome);
-        $this->replaceValue("COGNOME_UTENTE",$user->user->nome);
-        $this->replaceValue("DATA",$this->review->data);
-
-        if($_SESSION['admin']){
-            $this->replaceValue("APPROVA",'
-                <div class="adm-card-rev">
-                    <input type="button" class="adm-bottone-approva-recensione" name="btn_approva" id="'.$this->review->id_recensione.'i" value="APPORVA" onclick="approva(this.id)"> 
-                    <input type="button" class="adm-bottone-elimina-recensione" name="btn_approva" id="'.$this->review->id_recensione.'e" value="ELIMINA" onclick="elimina(this.id)"> 
-                </div> ');
-        }else{
-            $this->replaceValue("APPROVA",'');
-        }
+        $this->replaceValues([
+            "ID" => $this->review->id_recensione,
+            "TITOLO" => $this->review->titolo,
+            "DATA" => $this->review->data,
+            "VALUTAZIONE" => $this->review->valutazione,
+            "NOME_UTENTE" => $user->user->nome,
+            "COGNOME_UTENTE" => $user->user->nome,
+            "DESCRIZIONE" => $this->review->descrizione,
+            "NOME_UTENTE" => $user->user->nome,
+            "COGNOME_UTENTE" => $user->user->nome,
+            "DATA" => $this->review->data,
+            "ID" => $this->review->id
+        ]);
         return $this;
     }   
 }
