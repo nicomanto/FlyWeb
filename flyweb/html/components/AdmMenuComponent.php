@@ -8,10 +8,8 @@ use \model\AdmMenu;
 
 class AdmMenuComponent extends NavMenu {
 
-    const _templateName = "adm_menu";
-
     public function __construct() {
-        parent::__construct(self::_templateName);
+        parent::__construct("AdmMenu");
     }
 
     public function BuildMenuItem(){
