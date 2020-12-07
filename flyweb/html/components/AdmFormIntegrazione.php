@@ -26,6 +26,7 @@ class AdmFormIntegrazione extends baseComponent
     {
         //echo "debug";
         $this->replaceValues([
+            'type' => (empty($this->integrazione_loc)) ? 'INSERISCI' : 'MODIFICA',
             'titolo' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->nome,
             'descrizione' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->descrizione,
             'durata' => (empty($this->integrazione_loc)) ? '' : $this->integrazione_loc->durata,
