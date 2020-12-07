@@ -11,7 +11,7 @@
                 "inserisci_integrazione" => new MenuItem("adm_integrazione_inserimento.php","Inserisci integrazione",array("LoggedAdmin")),
                 "gestisci_integrazioni" => new MenuItem("adm_integrazioni.php","Gestisci integrazioni",array("LoggedAdmin")),
                 "modera_recensioni" => new MenuItem("adm_moderazione_recensioni.php","Modera recensioni",array("LoggedAdmin")),
-                "logout" => new MenuItem("index.php","Logout",array("LoggedAdmin"))
+                "logout" => new MenuItem("logout.php","Logout",array("LoggedAdmin"))
             );    
         }
 
