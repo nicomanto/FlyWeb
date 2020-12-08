@@ -49,7 +49,7 @@ class FormViaggio extends baseComponent
         $dati = [
             'titolo' => $_POST['titolo'],
             'descrizione' => $_POST['descrizione'],
-            'descrizioneBreve' => $_POST['descrizioneBreve'],
+            'descrizioneBreve' => $_POST['descrizionebreve'],
             'stato' => $_POST['stato'],
             'citta' => $_POST['citta'],
             'localita' => $_POST['localita'],

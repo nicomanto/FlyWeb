@@ -1,41 +1,68 @@
 /* Travel list */
 
-.travel_list_item {
-    display        : flex;
-    flex-direction : row;
-    justify-content: space-between;
-
-    margin : 2vh 0;
-    border : 1px solid #b9bcb7;
-    padding: 1em;
+.travels-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.travel-list-item {
+    flex: 0 0 300px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    width: 10em;
+    background-color: whitesmoke;
+    margin: 1em;
 }
 
-.travel_list_item .travel_image img {
-    padding: 0 !important;
-    height : 15em;
+.travel-list-item .form{
+    padding:0;
+    border:0;
+    text-align: center;
 }
 
-.travel_list_item .travel_infos {
-    padding-left: 2em;
-    flex-grow   : 2;
+.travel-info{
+    padding: 0.5em;
 }
 
-.travel_list_item .travel_reviews_and_price {
-    display       : flex;
-    flex-direction: column;
-    align-items   : flex-end;
-    width         : 8em;
+.travel-info h2{
+    text-align: center;
 }
 
-.travel_list_item .travel_reviews_and_price .price {
-    margin-top  : 1em;
-    margin-right: 1vw;
+.travel-info p{
+    word-break: break-all;
 }
 
-.travel_list_item .travel_infos .dates {
-    margin: 0.5em 0;
+.travel-info h3{
+    display: inline;
+}
+.travel-image{
+    width: 100%;
+    background-color: #c53020;
 }
 
-.travel_list_item .travel_infos .description {
-    margin: 1em 0;
+.travel-list-item .travel-goto{
+    padding:0.5em;
+    background-color: #c53020;
+    color: white;
+    border: 0;
+    font-size: large;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 1em; 
+    display:block;
+    text-align: center;
+    width: 90%;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+.travel-list-item .travel-goto:hover{
+    background-color: #eb5443;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.travel-list-item .travel-goto:focus{
+    outline: none;
+    box-shadow: none;
 }

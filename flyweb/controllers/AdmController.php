@@ -108,9 +108,11 @@ class AdmController extends BaseController {
 
     //crea relazione integrazione-viaggio (relazione n-n scomposta in 1-n-n-1)
     public function setIntegrazioniViaggio($id_viaggio, $integrazioni){
-        foreach(($integrazioni) as $i) {
-            $query_tag= 'INSERT INTO ViaggioIntegrazione(ID_Integrazione,ID_Viaggio) VALUES(?,?);';
-            $this->db->runQuery($query_tag, (int)$i, (int)$id_viaggio);
+        if(! empty($integrazioni)){
+            foreach(($integrazioni) as $i) {
+                $query_tag= 'INSERT INTO ViaggioIntegrazione(ID_Integrazione,ID_Viaggio) VALUES(?,?);';
+                $this->db->runQuery($query_tag, (int)$i, (int)$id_viaggio);
+            }
         }
     }
 
