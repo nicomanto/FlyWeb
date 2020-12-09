@@ -13,10 +13,12 @@
         <p> <h3>Prezzo  :</h3> <strong> %TRAVEL_PRICE%  &euro; </strong> </p> 
 
     </div>
+    <input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Viaggia con noi!">
 
-    <form action="travel.php?id=%TRAVEL_ID%">
-        <input type="sumbit" class="travel-goto" value="Scopri di più!" />
-    </form>
-
+    <!--  TO DO 
+        <form action="travel.php?id=%TRAVEL_ID%" method="get">
+            <input class="travel-goto" type="submit" value="viaggia con noi">
+        </form>
+    -->
 
 </div>
