@@ -11,6 +11,7 @@
     cursor: pointer;
     background-color: #fff;
     margin: 0.2em;
+    vertical-align: middle;
 }
 
 
@@ -35,5 +36,4 @@
     justify-content: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    vertical-align: middle;
 }
