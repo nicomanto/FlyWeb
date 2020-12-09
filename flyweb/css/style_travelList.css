@@ -3,7 +3,16 @@
 .travels-list{
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: gold;
+}
+
+.travels-title{
+    text-align: center;
+    margin-top: 1em;
 }
 .travel-list-item {
     flex: 0 0 300px;
@@ -11,7 +20,7 @@
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
     width: 10em;
     background-color: whitesmoke;
-    margin: 1em;
+    margin: 1em ;
 }
 
 .travel-list-item .form{
