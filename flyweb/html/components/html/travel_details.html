@@ -1,30 +1,21 @@
-<div class="travel_details">
-    <div class="elevator_pitch row" style="display: flex; flex-direction: row;">
+<div class="travel-details-container">
 
-        <img class="main_img"
+        <img class="main-img"
             src="https://cdn-static.dagospia.com/img/patch/12-2017/gianni-morandi-con-la-zizzona-di-battipaglia-970741.jpg"
             alt="Italian Trulli">
 
-        <div>
-            <dl class="main_infos">
-                <dt><span class="title">%NAME%</span></dt>
-                <dt><span class="price">%PRICE%</span></dt>
-                <dt><img src="/img/shopping_bag.svg" /><span class="description">Breve riassunto del viaggio: Hic
-                        dolorem temporibus voluptas id voluptatibus vitae. Dignissimos omnis voluptas neque veritatis.
-                        Vero aut corrupti non unde sapiente autem.</span></dt>
-                <dt><img src="/img/place.svg" /><span class="place">%COUNTRY%, %CITY% - %LOCATION%</span></dt>
-                <dt><img src="/img/clock.svg" /><span class="start_date">Data partenza: %START_DATE%</span></dt>
-                <dt><img src="/img/clock.svg" /><span class="end_date">Data ritorno: %END_DATE%</span></dt>
-                <dt><button class="cart"><img src="/img/shipping.svg" />Aggiungi al carrello</button></dt>
-            </dl>
+        <div class="travel-details-info">
+                <h1>%NAME%</h1>
+                <p><img src="/img/place.svg" /><span class="travel-details-icon"><strong>%COUNTRY%, %CITY% - %LOCATION%</strong></span> </p>
+                <p><img src="/img/clock.svg" /><span class="travel-details-icon">Data partenza: <strong>%START_DATE%</strong></span></p>
+                <p><img src="/img/clock.svg" /><span class="travel-details-icon">Data ritorno: <strong>%END_DATE%</strong></span></p>
+                <p class="price"><strong>%PRICE% &euro; </strong> </p>
+                <input type="button" id="aggiungi-al-carrello" class="travel-goto" value="Aggiugni al carrello">
         </div>
-
+    <div class="complete-desc">
+        <h2>Descrizione dettagliata del viaggio: </h2>
+        <p>
+            %LONG_DESC%
+        </p>
     </div>
-
-    <div class="complete_informations">
-        <span class="description">
-            %DESCRIPTION%
-        </span>
-    </div>
-
 </div>

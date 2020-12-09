@@ -28,76 +28,6 @@ button {
     color           : var(--white);
 }
 
-.travel_details {
-    display        : flex;
-    flex-direction : column;
-    align-items    : center;
-    justify-content: space-around;
-}
-
-.travel_details .row {
-    width : 100%;
-    margin: auto 0;
-}
-
-.travel_details .elevator_pitch {
-    display       : flex;
-    flex-direction: row;
-    margin        : 3vh 0;
-}
-
-.travel_details .elevator_pitch .main_img {
-    height      : 50vh;
-    width       : auto;
-    margin-right: 4vw;
-}
-
-.travel_details .elevator_pitch .main_infos {
-    display       : flex;
-    flex-direction: column;
-    margin        : 0 !important;
-}
-
-.travel_details .elevator_pitch .main_infos img {
-    margin-right: 0.5vw;
-}
-
-.travel_details .elevator_pitch .main_infos dt {
-    margin   : 0.5vw 0;
-    max-width: 20vw;
-}
-
-.travel_details .elevator_pitch .main_infos .title {
-    color      : var(--primary);
-    font-weight: bold;
-    font-size  : 2em;
-}
-
-.travel_details .elevator_pitch .main_infos .price {
-    font-size: 1.5em;
-    color    : red;
-}
-
-.travel_details .elevator_pitch .main_infos .cart {
-    min-width : 100%;
-    padding   : 1em;
-    margin-top: 1em;
-}
-
-.travel_details .complete_informations {
-    margin: 2vh 0;
-}
-
-.travel_details .cart {
-    min-width: 80%;
-    padding  : 1em;
-    margin   : 1vh 0;
-}
-
-.form_integrazioni {
-    padding: 1vh 0;
-}
-
 /* === LAYOUT index.html ===*/
 .contenuto-home{
     display: flex;
@@ -582,4 +512,60 @@ button {
 .form-search input:focus{
     outline: none;
     box-shadow: none;
+}
+
+
+/* === TRAVEL DETAILS === */
+
+.travel-details-container {
+    display         : inline-flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;    
+    justify-content: space-between;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    height: 50%;
+    background-color: burlywood;
+}
+
+
+.travel-details-container .main-img{
+    order: 1;
+    width: 50%;
+    background-color: #9C2619;
+}
+.travel-details-info{
+    background-color: gold;
+}
+.travel-details-container .travel-details-info {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    order: 2;
+    width: 45%;
+    padding-bottom: 0;
+    margin: 0 auto;
+}
+
+.travel-details-info h1{
+    margin-bottom: 0.5em;
+}
+
+.travel-details-container .complete-desc{
+    order: 3;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.travel-details-container .travel-goto{
+    font-size: large;
+    width: 100%;
+    padding: 1em;
+    margin: 0;
+}
+
+.travel-details-container .price{
+    text-align: center;
+    font-size: x-large;
 }
