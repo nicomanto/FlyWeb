@@ -72,12 +72,12 @@ function checkboxformviaggio(){
 
 function checkboxintegrazione(){
         console.log("check box integrazione");
-        //invia una richiesta POST ad autocomplete.php: riceve la lista dei tag e la inserisce della datalist come <option>
-        fetch('/html/components/checkboxIntegrazione.php', { method: 'POST' })
+        //invia una richiesta POST ad autocomplete.php:
+        fetch('/html/components/checkboxIntegrazione.php', { method: 'POST' , id:'49'})
             .then(data => data.text())
             .then(
                 function (data) {
-                    //console.log(data);
+                    console.log(data);
                     document.getElementById('cb').innerHTML = data;
                 }
             )
@@ -196,6 +196,7 @@ function confermaEliminazione(){
 
 //#endregion
 
+checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();
 aggiungiTag();

@@ -521,51 +521,94 @@ button {
     display         : inline-flex;
     flex-direction  : row;
     flex-wrap       : wrap;    
-    justify-content: space-between;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    width: 100%;
-    height: 50%;
-    background-color: burlywood;
+    justify-content : space-between;
+    align-items     : stretch;
+    margin-top      : 1em;
+    width           : 100%;
+    height          : 50%;
 }
-
 
 .travel-details-container .main-img{
-    order: 1;
-    width: 50%;
+    order           : 1;
+    width           : 50%;
     background-color: #9C2619;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 8px;
+
 }
-.travel-details-info{
-    background-color: gold;
-}
+
 .travel-details-container .travel-details-info {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    order: 2;
-    width: 45%;
-    padding-bottom: 0;
-    margin: 0 auto;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    order           : 2;
+    width           : 48%;
+    margin          : 0 auto;
 }
 
 .travel-details-info h1{
-    margin-bottom: 0.5em;
+    margin-bottom   : 0.5em;
 }
 
 .travel-details-container .complete-desc{
-    order: 3;
-    width: 100%;
-    margin-top: 1em;
+    order           : 3;
+    width           : 100%;
+    margin-top      : 1em;
 }
 
 .travel-details-container .travel-goto{
-    font-size: large;
-    width: 100%;
-    padding: 1em;
-    margin: 0;
+    font-size       : large;
+    text-align      : center;
+    width           : 100%;
+    padding         : 1em;
+    margin          : 0;
 }
 
 .travel-details-container .price{
-    text-align: center;
-    font-size: x-large;
+    text-align      : center;
+    font-size       : x-large;
+}
+
+/* === TRAVEL DETAILS INTEGRAZIONI === */
+.form-integrazioni{
+    width           : 100%;
+    display         : inline-flex;
+    justify-content : flex-start;
+    order           : 4;
+}
+
+.form-integrazioni fieldset{
+    border          : 2px solid #c53020;
+    box-shadow      : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align      : center;
+    width           : 100%;
+    margin-top      : 2em;
+    margin-bottom   : 2em;
+    border-radius   : 10px;
+}
+
+.form-integrazioni legend{
+    color           : #0a3150;
+    font-size       : large;
+    font-weight     : bold;
+}
+
+.checkboxes-integrazioni{
+    text-align: left;
+    padding: 0 0 0 25%;
+}
+
+.checkboxes-integrazioni input[type=checkbox]{
+    height          : 2em;
+    width           : 2em;
+    vertical-align  : middle;
+    margin: 0.3em;
+}
+
+.form-integrazioni input[type="submit"]{
+    width           : 50%;
+}
+
+.checkbox-integrazioni{
+    margin-bottom   : 1em;
 }
