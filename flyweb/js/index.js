@@ -139,11 +139,16 @@ function validationData(){
     if(dataInizio && dataFine){
         if(dataInizio > dataFine){
             //document.getElementById("input_error_datafine").textContent = "";
+            document.getElementById("datainizio").style.border = "2px solid red";
+            document.getElementById("datafine").style.border = "2px solid red";
+
             document.getElementById("input_error_datafine").style.color = 'red';
             document.getElementById("input_error_datafine").style.visibility = 'visible';
             document.getElementById("input_error_datafine").innerHTML = "errore: data di inizio dev'essere antecedente alla data di fine";
             return false;
         }else{
+            document.getElementById("datainizio").style.border = "2px solid #0a3150";
+            document.getElementById("datafine").style.border = "2px solid #0a3150";
             document.getElementById("input_error_datafine").style.visibility = 'hidden';
             return true;
         }
@@ -157,11 +162,14 @@ function validationPrz(){
     console.log("pez");
 
     if(prz!=null && prz < 0){
+        document.getElementById("prezzo").style.border = "2px solid red";
+
         document.getElementById("input_error_prezzo").style.color = 'red';
             document.getElementById("input_error_prezzo").style.visibility = 'visible';
             document.getElementById("input_error_prezzo").innerHTML = "errore: prezzo dev'essere maggiore o ugale a zero";
             return false;
         }else{
+            document.getElementById("prezzo").style.border = "2px solid #0a3150";
             document.getElementById("input_error_prezzo").style.visibility = 'hidden';
             return true;
         }
@@ -173,11 +181,15 @@ function validationDurata(){
 
 
     if(d!=null && d < 0){
+        document.getElementById("durata_integrazione").style.border = "2px solid red";
+
+    
         document.getElementById("input_error_durata").style.color = 'red';
             document.getElementById("input_error_durata").style.visibility = 'visible';
             document.getElementById("input_error_durata").innerHTML = "errore: durata dev'essere maggiore o uguale a zero";
             return false;
         }else{
+            document.getElementById("durata_integrazione").style.border = "2px solid #0a3150";
             document.getElementById("input_error_durata").style.visibility = 'hidden';
             return true;
         }

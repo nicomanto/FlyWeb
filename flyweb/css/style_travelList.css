@@ -36,15 +36,17 @@
 
 .travel-info h2{
     text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.travel-info h2, .travel-info h3{
+    margin-left: 0.5em;
 }
 
 .travel-info p{
     word-break: break-all;
 }
 
-.travel-info h3{
-    display: inline;
-}
 .travel-image{
     width: 100%;
     background-color: #c53020;
