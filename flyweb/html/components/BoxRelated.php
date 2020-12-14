@@ -26,7 +26,7 @@ class BoxRelated extends baseComponent {
     public function addTag(): void{
         $lista_sugg="";
         foreach ($this->controller->get_related() as $i){
-            $lista_sugg.=new RelatedItem($i['ID_Viaggio'],$i['Titolo'], substr($i['Descrizione'],0,150)."...continua");
+            $lista_sugg.=new relatedItem($i['ID_Viaggio'],$i['Titolo'], substr($i['Descrizione'],0,150)."...continua");
         }
 
         $this->replaceTag('SUGGERIMENTO', $lista_sugg);

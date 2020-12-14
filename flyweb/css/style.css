@@ -428,7 +428,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === DASHBOARD MENU === */
-.menu_dashboard{
+/* .menu_dashboard{
     background-color: #c53020;
     height: 100%;
     text-align: center;
@@ -465,11 +465,11 @@ input[type=number]::-webkit-outer-spin-button {
 .menu_logo{
     width: 150px;
     height: 150px;
-}
+} */
 
 
 /* === DASHBOARD FORM === */
-.dash-form{
+/* .dash-form{
     border-color: #c53020;
     background-color:#fff;
     color: #c53020;
@@ -522,7 +522,7 @@ input[type=number]::-webkit-outer-spin-button {
 .dash-form input[type=text]:focus, input[type=number]:focus, textarea:focus{
     outline: none;
     box-shadow: none;
-}
+} */
 
 /* === SEARCH BOX === */
 

@@ -19,15 +19,13 @@ class PrincipalMenuItem extends BaseComponent {
 
     public function render(): string {
 
-        if($this->itemMenu->get_lang()!="it")
+        if($this->itemMenu->get_lang()!="it") {
             $this->replaceValue('LANG', "xml:lang=\"".$this->itemMenu->get_lang()."\"");
-        else
+        } else {
             $this->replaceValue('LANG', "");
-        
-        if($this->itemMenu->get_name()=="Accedi" || $this->itemMenu->get_name()=="Esci" || $this->itemMenu->get_name()=="Registrati")
-            $this->replaceValue('CLASS', "signVoice");
-        else
-            $this->replaceValue('CLASS', "menuPage");
+        }
+
+        $this->replaceValue('CLASS', "menuPage");
 
         $this->replaceValue('PAGE', $this->itemMenu->get_name());
 

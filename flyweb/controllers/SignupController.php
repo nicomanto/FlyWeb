@@ -30,7 +30,7 @@ class SignupController extends BaseController {
      */
     private function createUserInDB(User $user): void {
         // TODO: add birth date and registration_date
-        $createUserQuery = 'INSERT INTO Utente (Username, Password, Nome, Cognome, Email, DataRegistrazione) VALUES (?, ?, ?, ?, ?, ?);';
+        $createUserQuery = 'INSERT INTO Utente (Username, Password, Nome, Cognome, Email, DataNascita) VALUES (?, ?, ?, ?, ?, ?);';
         
         $this->db->runQuery($createUserQuery,
             $user->username, 
@@ -38,7 +38,7 @@ class SignupController extends BaseController {
             $user->nome,
             $user->cognome,
             $user->email,
-            $user->data_registrazione
+            $user->data_nascita
         );
     }
 }
