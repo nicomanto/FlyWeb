@@ -238,6 +238,23 @@ function confermaEliminazione(){
 }
 
 
+function checkCartaCredito(){
+    var creditNumber  = document.forms["form_carta_credito"]["codiceCarta"];
+    
+    if(creditNumber.value.length <13 || creditNumber.value.length>16){
+
+        var erroreMessage = document.createElement('P');
+        erroreMessage.innerText = "Carta di credito non valida";  
+        erroreMessage.setAttribute("id", "errorMessage");
+
+        if(!document.getElementById("errorMessage"))
+            document.getElementById("containerCarta").appendChild(erroreMessage);
+
+        return false;
+    }
+}
+
+
 //#endregion
 
 checkboxformviaggio();
