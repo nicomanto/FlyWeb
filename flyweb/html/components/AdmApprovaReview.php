@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
      $admController = new \controllers\AdmController();
 

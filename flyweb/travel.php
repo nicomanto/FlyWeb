@@ -2,7 +2,7 @@
 
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::unprotectedRoute();
 
@@ -34,7 +34,13 @@
     // Set travel configurator
     $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\integrazione((int)$id)));
 
-    $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
+
+    if($travelController->haveRelatedTravel()){
+        $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxRelated($travelController->getIdTag(),(int)$id)));
+    }
+    else{
+        $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
+    }
 
     // Set travel reviews
     if($travelController->haveReviews() && $travelController->haveModReview()){

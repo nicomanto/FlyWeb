@@ -5,7 +5,7 @@ namespace model;
 use mysqli;
 use \Exception;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
 class Database {
     private $host_name;

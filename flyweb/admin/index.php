@@ -1,7 +1,7 @@
 <?php
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     // This route can be accessed only by admins
     RouteController::protectedRoute();
