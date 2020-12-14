@@ -4,15 +4,13 @@
     // Load request's data
     extract($_GET, EXTR_SKIP);
     $admController = new \controllers\AdmController();
-    $nome = $_COOKIE['flw_user'];
-    $id=$admController->getIDFromUsername($nome);
-    $userController= new \controllers\UserController($id['ID_Utente']);
+    $userController= new \controllers\UserController();
 
     $page = new \html\template('profilo');
 
     $page->replaceTag('HEAD', (new \html\components\head));
     
-    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
   

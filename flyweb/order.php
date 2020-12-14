@@ -14,7 +14,7 @@
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($orderController->order)));
 

@@ -2,7 +2,7 @@
 
 namespace html\components;
 
-use \html\components\NavMenu;
+use \html\components\PrincipalMenu;
 
 use \model\AdmMenu;
 

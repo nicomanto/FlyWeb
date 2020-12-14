@@ -1,21 +1,19 @@
 <?php
 
-use shared\Paginator;
+use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
     $admController = new \controllers\AdmController();
-    $nome = $_COOKIE['flw_user'];
-    $id=$admController->getIDFromUsername($nome);
-    $userController= new \controllers\UserController($id['ID_Utente']);
+    $userController= new \controllers\UserController();
 
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
     
-    $ordini = $userController->getOrderList($id['ID_Utente']);
+    $ordini = $userController->getOrderList();
 
     $paginatedOrders = Paginator::paginate($ordini, $page);
 
@@ -23,7 +21,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 

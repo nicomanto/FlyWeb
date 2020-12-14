@@ -5,10 +5,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
  
 
     $admController = new \controllers\AdmController();
-    $nome = $_COOKIE['flw_user'];
-    $id=$admController->getIDFromUsername($nome);
-    $userController= new \controllers\UserController($id['ID_Utente']);
-    $reviews = $userController->getReviewUtente($id['ID_Utente']);
+    $userController= new \controllers\UserController();
+    $reviews = $userController->getReviewUtente();
 
     $_page= new \html\template('profilo');
 
@@ -16,7 +14,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('HEAD', (new \html\components\head));
 
     
-    $_page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
 
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));

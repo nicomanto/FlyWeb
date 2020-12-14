@@ -1,24 +1,37 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
+use controllers\UserController;
+
+require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
     $admController = new \controllers\AdmController();
-    $nome = $_COOKIE['flw_user'];
-    $id=$admController->getIDFromUsername($nome);
-    $userController= new \controllers\UserController($id['ID_Utente']);
+    $userController= new \controllers\UserController();
+    
+    if ($email) {
+        $userController->user->email = $email;
+    }
 
-    $form = new \html\components\modificainfoprofilo($id['ID_Utente']);
-    $user = $form->estraiDatiUtente($id['ID_Utente']);
+    if ($nome) {
+        $userController->user->nome = $nome;
+    }
 
-    $user['id_utente'] = $id['ID_Utente'];
+    if ($cognome) {
+        $userController->user->cognome = $cognome;
+    }
 
-    $userController->aggiornaUtente($user);
+    if ($data_nascita) {
+        $userController->user->data_nascita = $data_nascita;
+    }
+
+
+    $userController->aggiornaUtente();
 
     $page = new \html\template('modifica_info_profilo');
 
     $page->replaceTag('HEAD', (new \html\components\head));
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\NavMenu));
+    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
