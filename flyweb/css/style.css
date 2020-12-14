@@ -123,6 +123,120 @@ button {
     margin-top: 0;
 }
 
+.adm-card{
+    border: 0px solid #c53020;
+    padding: 1em 1em 1em 1em;
+    margin-bottom: 1em;
+    background-color: #E9EBEE;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.adm-card input[type="button"]{
+    text-align: center;
+}
+
+.adm-card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.adm-bottone-modifica-card{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #1B88E0;
+    border: 3px solid #1B88E0;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    width: 40%;
+    margin: 0.5em;
+}
+.adm-bottone-modifica-card:hover{
+    background-color:#1463A3;
+    border: 3px solid#1463A3;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.adm-bottone-elimina-card, .adm-bottone-elimina-recensione{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #FA3E37;
+    border: 3px solid #FA3E37;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    width: 40%;
+    margin:auto;
+    margin: 0.5em;
+}
+
+.adm-bottone-elimina-card:hover, .adm-bottone-elimina-recensione:hover{
+    background-color: #A21E1B;
+    border: 3px solid #A21E1B;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.adm-bottone-approva-recensione{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #4caf50;
+    border: 3px solid #4caf50;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    width: 40%;
+    margin:auto;
+    margin: 0.5em;
+}
+
+.adm-bottone-approva-recensione:hover{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #087f23;
+    border: 3px solid #087f23;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    width: 40%;
+    margin:auto;
+    margin: 0.5em;
+}
+
+.adm-form-card{
+    display: inline;
+} 
+
+.adm-bottoni-gestione{
+    margin-right: 0 auto; 
+    margin-left: 0 auto;
+    text-align: center;
+}
+
+.adm-card h3{
+    display: inline;
+}
+
+.adm-card h2{
+    text-align: center;
+    font-weight:bold;
+}
+
+.adm-titolo{
+    width: 100%;
+    background-color: #E9EBEE;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: #c53020;
+    text-align: center;
+}
+
+.adm-card-rev{
+    text-align: center;
+}
+
+/*  MENU */
 #board_footer{
     width: 100%;
     order: 3;
@@ -134,6 +248,8 @@ button {
     background-color: #c53020;
     height: 100%;
     text-align: center;
+	width: 25%;
+    order: 1;
 }
 
 .menu_dash_element{

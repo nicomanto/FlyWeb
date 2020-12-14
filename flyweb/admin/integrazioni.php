@@ -3,7 +3,7 @@
     use model\Paginator;
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::protectedRoute();
 
@@ -26,19 +26,11 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_integrazioni")));
 
-    $sr='<h1 class="adm-titolo"><strong>LISTA INTEGRAZIONI</strong></h1>';
-
-    foreach ($paginatedIntegrazioni['elements'] as $i) {
-        $sr .= new \html\components\integrazioneListItem($i);
-    }
+    
         
-    // Set search result travels
-    $page->replaceTag('ADM-CONTENUTO', $sr);
-
-    // Set pagination indicator
-    $page->replaceTag('ADM-LIST', (new \html\components\pageSelector($paginatedIntegrazioni)));
-    // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    // Set search result travels 
+    //DOPO aggiunta d'integrazioni (VEDERE LISTA VIAGGI)
+    //$page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmContainerList($paginatedIntegrazioni,"LISTA INTEGRAZIONI")));
+    $page->replaceTag('ADM-CONTENUTO', '<h1 class="adm-titolo">CERCA INTEGRAZIONI DA MODIFICARE O ELIMINARE</h1>');
 
     echo $page;

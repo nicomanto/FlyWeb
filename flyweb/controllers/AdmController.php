@@ -2,7 +2,7 @@
 
 namespace controllers;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
 
 class AdmController extends BaseController {
@@ -87,7 +87,7 @@ class AdmController extends BaseController {
     public function setTagViaggio($id_viaggio, $tag){
         //echo "TAGS".$tags;
         $listatag = explode(";", $tag);
-        //print_r($listatag);
+        array_pop($listatag);
 
         foreach($listatag as $v) {
             $query_id = 'SELECT ID_Tag FROM Tag WHERE Nome=? LIMIT 1;';
@@ -95,6 +95,14 @@ class AdmController extends BaseController {
 
             echo "(".$id_tag['ID_Tag'].",".$id_viaggio.")";
 
+            if(empty($id_tag)){
+                $query_id = 'INSERT INTO Tag(Nome) VALUES(?);';
+                $this->db->runQuery($query_id,$v);
+            }
+
+            $query_id = 'SELECT ID_Tag FROM Tag WHERE Nome=? LIMIT 1;';
+            $id_tag = $this->db->runQuery($query_id, $v)[0];
+            
             $query_tag= 'INSERT INTO TagViaggio(ID_Tag,ID_Viaggio) VALUES(?,?);';
             $this->db->runQuery($query_tag, (int)$id_tag['ID_Tag'], (int)$id_viaggio)[0];
         }

@@ -1,7 +1,7 @@
 <?php
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::protectedRoute();
 
@@ -21,9 +21,5 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
-
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;
