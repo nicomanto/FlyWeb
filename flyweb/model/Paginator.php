@@ -4,7 +4,7 @@ namespace model;
 
 class Paginator {
     
-    public static $pageSize = 10;
+    public static $pageSize = 9;
 
 
     /**
