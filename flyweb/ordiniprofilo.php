@@ -40,7 +40,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
         $_page->replaceTag('ORDINI-PROFILO', $searchResults);
     }
 
-    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedOrders['currentPage'], $paginatedOrders['totalPages'])));
+    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedOrders)));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
