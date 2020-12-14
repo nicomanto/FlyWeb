@@ -97,6 +97,8 @@ button {
 .form_integrazioni {
     padding: 1vh 0;
 }
+
+/* === DASHBOARD === */
 .board-flex-container{
     display: flex;
     flex-flow: row wrap;
@@ -109,7 +111,7 @@ button {
 }
 
 #board_menu{
-    width: 25%;
+    width: 30%;
     order: 1;
 }
 
@@ -127,6 +129,215 @@ button {
     margin-top: 2em;
 }
 
+/* === DASHBOARD MENU === */
+.menu_dashboard{
+    background-color: #c53020;
+    height: 100%;
+    text-align: center;
+}
+
+.menu_dash_element{
+    margin-left: -2em;
+    background-color: #fff;
+    border: 3px solid #fff;
+    list-style-type: none;
+    margin-bottom: 3em;
+    padding:0.5em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.menu_dash_element:hover{
+    border: 3px solid #0a3150;
+    margin-bottom: 3em;
+    padding:0.5em;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.menu_dash_element_selected{
+    background-color: #fff;
+    border: 3px solid #fff;
+    list-style-type: none;
+    margin-bottom: 3em;
+    padding:0.5em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.menu_logo{
+    width: 150px;
+    height: 150px;
+}
+
+
+/* === DASHBOARD FORM === */
+.dash-form{
+    border-color: #c53020;
+    background-color:#fff;
+    color: #c53020;
+    font-family: 'Roboto', sans-serif;
+    width: 70%;
+    margin:auto;
+    margin-top: 1em;
+}
+
+.dash-form input[type=text], input[type=number], textarea{
+    background-color:#E9EBEE;
+    width: 90%;
+    padding: 12px 20px 10px 10px;
+    margin: 5px 0;
+    border: 0px;
+    border-bottom: 1px solid #c53020;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.dash-form input[type=number]{
+    -moz-appearance: none;
+}
+
+.dash-form input[type=number]::-webkit-inner-spin-button, 
+.dash-form input[type=number]::-webkit-outer-spin-button {  
+    opacity: 0;
+}
+
+.dash-form input[type=date]::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: 2px solid #c53020;
+    background-color: #E9EBEE;
+}
+.dash-form input[type=date]::-webkit-calendar-picker-indicator:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+  
+.dash-form input[type=text]:hover, input[type=number]:hover, textarea:hover{
+    border-bottom: 2px solid #c53020;
+}
+
+.dash-form input[type=text]:active, input[type=number]:active, textarea:active{
+    outline: none;
+    box-shadow: none;
+}
+
+.dash-form input[type=text]:focus, input[type=number]:focus, textarea:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.dash-form .p_input_error{
+    visibility: hidden;
+}
+
+.dash-form .bottoneform{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #c53020;
+    border: 3px solid #c53020;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align: center;
+    padding: 30px;
+    cursor:pointer;
+}
+ 
+.dash-form .bottoneform:hover{
+    background-color: #9C2619;
+    border: 3px solid #9C2619;
+    border-radius: 5px;
+    color: #fff
+}
+
+.dash-form .bottoneform:active, .dash-form .bottoneform:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.dash-form #fieldDate{
+    text-align: center;
+}
+
+.dash-form .date{
+    display: block;
+    width: 60%;
+}
+
+.dash-form fieldset
+{
+    border-color: #c53020;
+    width: 100%;
+    margin:auto;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.dash-form legend{
+    text-align: center;
+    font-size: larger;
+}
+
+.dash-form .fieldDate{
+    text-align: center;
+}
+
+.dash-form input[type=date]{
+    border-color: #c53020;
+    border: 2px solid #c53020;
+    padding: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: text;
+    display: inline-block;
+    background-color: #E9EBEE;
+}
+
+.dash-form input[type="file"]{
+    border: 2px solid #c53020;
+    border-radius: 5px;
+    color:#c53020;
+    background-color: #fff;
+    padding: 30px;
+    cursor:pointer;
+    margin: auto;
+}
+
+.dash-form .btn-submit, .dash-form .btn-reset{
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+    margin: 5px 0px 10px 10px;
+}
+
+.dash-form .btn-reset{
+    padding: 1em;
+}
+
+.dash-form input[type=checkbox]{
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+}
+
+.dash-form .checkbox-integrazioni{
+    margin-bottom: 1em;
+}
+
+.dash-form .add-tag{
+    padding: 1em;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.dash-form .tag-inseriti{
+    display: inline-block;
+    margin-bottom: 1em;
+
+}
+
+.dash-form .miscellanea .checkbox-integrazioni{
+    margin-top: 5px;
+}
+
+/* === DASHBOARD CARD, TITOLI === */
 .adm-card{
     border: 0px solid #c53020;
     padding: 1em 1em 1em 1em;
@@ -214,8 +425,6 @@ button {
 } 
 
 .adm-bottoni-gestione{
-    margin-right: 0 auto; 
-    margin-left: 0 auto;
     text-align: center;
 }
 
@@ -234,226 +443,9 @@ button {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     color: #c53020;
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 .adm-card-rev{
     text-align: center;
-}
-
-/*  MENU */
-#menu_dashboard{
-    background-color: #c53020;
-    height: 100%;
-    padding: 1em;
-    text-align: center;
-}
-
-.menu_dash_element{
-    margin-left: -2em;
-    background-color: #fff;
-    border: 3px solid #fff;
-    list-style-type: none;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.menu_dash_element:hover{
-    border: 3px solid #0a3150;
-    margin-left: 0em;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.menu_dash_element_selected{
-    background-color: #fff;
-    border: 3px solid #fff;
-    list-style-type: none;
-    margin-left: 0em;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-
-.menu_logo{
-    width: 150px;
-    height: 150px;
-}
-
-form{
-    border-color: #c53020;
-    background-color:#fff;
-    color: #c53020;
-    font-family: 'Roboto', sans-serif;
-    width: 65%;
-    margin:auto;
-}
-
-input[type=text], input[type=number], textarea{
-    background-color:#E9EBEE;
-    width: 95%;
-    padding: 12px 20px 10px 10px;
-    margin: 5px 0;
-    border: 0px;
-    border-bottom: 1px solid #c53020;
-    font-family: 'Roboto', sans-serif;
-    resize: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-input[type=number]{
-    -moz-appearance: none;
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
-
-    opacity: 0;
-}
-
-  
-input[type=text]:hover, input[type=number]:hover, textarea:hover{
-    border-bottom: 2px solid #c53020;
-}
-
-input[type=text]:active, input[type=number]:active, textarea:active{
-    outline: none;
-    box-shadow: none;
-}
-
-input[type=text]:focus, input[type=number]:focus, textarea:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.p_input_error{
-    visibility: hidden;
-}
-
-.bottoneform{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #c53020;
-    border: 3px solid #c53020;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    text-align: center;
-    padding: 30px;
-}
- 
-.bottoneform:hover{
-    background-color: #9C2619;
-    border: 3px solid #9C2619;
-    border-radius: 5px;
-    color: #fff
-}
-
-.bottoneform:active{
-    outline: none;
-    box-shadow: none;
-}
-
-.bottoneform:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-
-#bottoniSubmitReset{
-    width: 75%;
-    text-align: center;
-}
-
-.date{
-    display: inline-block;
-    text-align: center;
-    width: 40%;
-}
-
-fieldset
-{
-    padding-top: 10px;
-    border-color: #c53020;
-    margin-bottom: 20px;
-    width: 95%;
-    margin:auto;
-    margin-bottom: 1em;
-    padding: auto;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-}
-
-#fieldDate{
-    text-align: center;
-}
-
-legend{
-    text-align: center;
-}
-
-
-input[type=date]{
-    border-color: #c53020;
-    border: 2px solid #c53020;
-    padding: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-input[type="file"]{
-    border: 2px solid #c53020;
-    border-radius: 5px;
-    color:#c53020;
-    background-color: #fff;
-    padding: 30px;
-}
-
-#bottoniSubmitReset{
-    text-align: center;
-    width: 100%;
-}
-#submitForm{
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
-}
-#resetForm{
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-}
-
-input[type=checkbox]{
-    height: 25px;
-    width: 25px;
-    vertical-align: middle;
-}
-
-#addTag{
-    padding: 10px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-#tagInseriti{
-    display: inline-block;
-}
-
-#checkboxIntegrazioniFormViaggio{
-    margin-top: 5px;
-}
-
-#submitForm{
-    font-size: medium;
-    cursor: pointer;
-}
-
-#resetForm{
-    font-size: medium;
-    cursor: pointer;
-}
-
-input[type="button"],input[type="date"], input[type="file"]{
-    cursor:pointer;
 }
