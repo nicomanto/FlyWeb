@@ -34,7 +34,13 @@
     // Set travel configurator
     $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new \html\components\integrazione((int)$id)));
 
-    $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
+
+    if($travelController->haveRelatedTravel()){
+        $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxRelated($travelController->getIdTag(),(int)$id)));
+    }
+    else{
+        $_page->replaceTag('RELATED_TRAVELS', (new \html\components\boxSuggerimenti));
+    }
 
     // Set travel reviews
     if($travelController->haveReviews() && $travelController->haveModReview()){
