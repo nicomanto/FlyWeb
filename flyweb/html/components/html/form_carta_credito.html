@@ -1,0 +1,22 @@
+<div id="content">
+    <form  method="POST" name="form_carta_credito" id="form_carta_credito" onsubmit="return checkCartaCredito()">
+        <fieldset>
+            <legend>Inserire il metodo di pagamento</legend>
+
+            <div>
+            <label for="titolareCarta">Titolare carta: </label>
+            <input type="text" name="titolareCarta" id="titolareCarta" placeholder="es. Mario Rossi" required="required" autocomplete="off"/><br/>
+            </div>
+
+            <div id="containerCarta">
+                <label for="codiceCarta">Codice carta: </label>
+                <input type="text" name="codiceCarta" id="codiceCarta"  required="required" autocomplete="off"/><br/>
+            </div>
+
+            <div>    
+            <input class="bottone" type="submit" id="submit" value="invia">
+            </div>
+
+        </fieldset>
+    </form>
+</div>

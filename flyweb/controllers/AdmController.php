@@ -2,7 +2,7 @@
 
 namespace controllers;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
 
 class AdmController extends BaseController {
