@@ -9,7 +9,7 @@ class Integrazione extends baseComponent {
     public $idViaggio;
     const _templateName = 'integrazione';
 
-    public function __construct($idViaggio) {
+    public function __construct($idViaggio=null) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->idViaggio=$idViaggio;

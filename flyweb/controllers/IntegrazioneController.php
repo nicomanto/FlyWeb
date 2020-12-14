@@ -25,6 +25,15 @@ class IntegrazioneController extends BaseController {
         $this->integrazione = new Integrazione($this->db->runQuery($query, $integrazioneID)[0]);
     } 
 
+
+    public function getIntegrazioniFromTravelId(int $idTravel){
+        $query =   'SELECT * FROM Integrazione as I, ViaggioIntegrazione as VI 
+                    WHERE VI.ID_Viaggio = ?
+                    AND I.ID_Integrazione=VI.ID_Integrazione;';
+
+        return ($this->db->runQuery($query, $idTravel));
+    }
+
     public function getIntegrazioneIdByNome($nome){
         $query = 'SELECT ID_Integrazione FROM Integrazione WHERE Nome=?';
         $r =$this->db->runQuery($query, $nome)[0];

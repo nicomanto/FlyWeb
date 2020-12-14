@@ -1,45 +1,36 @@
 <div id="content">
-    <h1>Registrati</h1>
+    <h1  class="titolo-pagina">REGISTRATI</h1>
     <INFO_BOX />
-    <form action="./signup.php" method="post" class="form form_verticale">
+    <form action="./signup.php" method="post" class="form-registrazione">
         <fieldset>
-            <legend class="aiuti_alla_navigazione">Modulo di registrazione</legend>
+            <legend class="aiuti_alla_navigazione"> &nbsp; Modulo di registrazione &nbsp; </legend>
 
-            <div>
                 <label for="nome" lang="en">Nome</label>
-                <input type="text" name="nome" id="nome" value="%NOME%" />
-            </div>
-            <div>
+                <input type="text" name="nome" class="input" id="nome" value="%NOME%" /><br>
+
                 <label for="cognome" lang="en">Cognome</label>
-                <input type="text" name="cognome" id="cognome" value="%COGNOME%" />
-            </div>
-            <div>
+                <input type="text" name="cognome" class="input" id="cognome" value="%COGNOME%" /><br>
+
                 <label for="birt_date" lang="en">Data di nascita</label>
-                <input type="date" name="data_nascita" id="data_nascita" value="%DATA_NASCITA%" />
-            </div>
-            <div>
+                <input type="date" name="data_nascita" class="input input-date" id="data_nascita" value="%DATA_NASCITA%" /><br>
+
                 <label for="username"><span lang="en">Username</span></label>
-                <input type="text" name="username" id="username" value="%USERNAME%" />
-            </div>
-            <div>
+                <input type="text" name="username" class="input" id="username" value="%USERNAME%" /><br>
+
                 <label for="email"><span lang="en">E-mail</span></label>
-                <input type="text" name="email" id="email" value="%EMAIL%" />
-            </div>
-            <div>
+                <input type="text" name="email" class="input" id="email" value="%EMAIL%" /><br>
+
                 <label for="password" lang="en">Password</label>
-                <input type="password" name="password" id="password" value="%PASSWORD%" />
-            </div>
-            <div>
+                <input type="password" name="password" id="password" class="input" value="%PASSWORD%" /><br>
+
                 <label for="password_repeated" lang="en">Ripeti Password</label>
-                <input type="password" name="password_ripetuta" id="password_ripetuta" />
-            </div>
-            <div>
-                <label class="aiuti_alla_navigazione" for="signup">Registrati</label>
-                <input type="submit" id="signup" name="signup" value="signup" />
-            </div>
+                <input type="password" name="password_ripetuta" class="input" id="password_ripetuta" /><br>
+                <input type="submit" id="signup" name="signup" class="btn-submit bottoneform" value="Registrati" />
+
         </fieldset>
+
     </form>
-    <p>
-        <a href="./login.php">Accedi</a>
-    </p>
+    <div class="sotto-form-reg-acc"> 
+        <p>...oppure <a href="./login.php">Accedi</a></p>
+    </div>
 </div>

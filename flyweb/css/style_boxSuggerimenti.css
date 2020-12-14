@@ -1,59 +1,43 @@
-/*BOX SUGGERIMENTI*/
+/* === SUGGERIMENTI ===*/
 
 .boxSuggerimenti {
     text-align: center;
+    padding-bottom: 2em;
+    padding-top: 1em;
 }
 
 .boxSuggerimenti li {
-    list-style-type: none;
-    display        : inline-flex;
+    list-style-type : none;
+    display         : inline-flex;
+    vertical-align  : bottom;
+    height: 11em;
+    width: 10em;
+    margin: 1em;
 }
 
 .boxSuggerimenti a {
-    height         : 10em;
-    width          : 10em;
-    margin         : 1em;
-    text-decoration: none;
-    border-radius  : 3%;
+    height         : 100%;
+    width          : 100%;
 }
 
-.boxSuggerimenti h2 {
+.boxSuggerimenti h3 {
     text-transform  : uppercase;
     font-size       : 100%;
-    margin-top      : 7em;
-    color           : #0a3150;
-    background-color: white;
-}
-
-.boxSuggerimenti a:hover {
-    opacity: 0.5;
-}
-
-.boxSuggerimenti a:visited h2 {
-    color: purple;
 }
 
 .generalBackground {
     background-size: 10em 10em;
-    border         : 1px solid #0a3150;
+
 }
 
-#Perlei {
-    background-image: url("../img/tag_background/perLei.jpg");
+.img-suggerimenti{
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-#Anniversario {
-    background-image: url("../img/tag_background/anniversario.jpg");
-}
-
-#Perlui {
-    background-image: url("../img/tag_background/perLui.jpg");
-}
-
-#Coppia {
-    background-image: url("../img/tag_background/coppia.jpg");
-}
-
-#Famiglia {
-    background-image: url("../img/tag_background/famiglia.jpg");
+.img-suggerimenti:hover{
+    opacity: 0.8;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }

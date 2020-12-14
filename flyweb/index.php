@@ -7,10 +7,10 @@
 
     // TODO: This is for debug only
     if ($_SESSION['logged_in']) {
-        echo '<p>You\'re logged in!!</p>';
+        //echo '<p>You\'re logged in!!</p>';
         $user = "LoggedUser";
     } else {
-        echo 'You\'re not logged in';
+        //echo 'You\'re not logged in';
         $user = "NotLoggedUser";
     }
 

@@ -1,24 +1,22 @@
 <div id="content">
-    <h1>Accedi</h1>
+    <h1 class="titolo-pagina">ACCEDI</h1>
     <INFO_BOX />
-    <form action="./login.php" method="post" class="form form_verticale">
+    <form action="./login.php" method="post" class="form-registrazione">
         <fieldset>
-            <legend class="aiuti_alla_navigazione">Modulo di accesso</legend>
-            <div>
+            <legend class="aiuti_alla_navigazione">&nbsp;Modulo di accesso&nbsp; </legend>
                 <label for="user"><span lang="en">E-mail o Username</span></label>
-                <input type="text" name="user" id="user" />
-            </div>
-            <div>
+                <input type="text" name="user" class="input" id="user" /><br>
                 <label for="password" lang="en">Password</label>
-                <input type="password" name="password" id="password" />
-            </div>
-            <div>
-                <label class="aiuti_alla_navigazione" for="login">Accedi</label>
-                <input type="submit" id="login" name="login" value="login" />
-            </div>
+                <input type="password" name="password" class="input" id="password" /><br>
+
+                <input type="submit" id="login" name="login" class="btn-submit bottoneform" value="LOGIN" />
+
+
         </fieldset>
+
     </form>
-    <p>
-        <a href="./signup.php">Registrati</a>
-    </p>
+
+    <div class="sotto-form-reg-acc"> 
+        <p>...oppure <a href="./signup.php">Registrati</a></p>
+    </div>
 </div>

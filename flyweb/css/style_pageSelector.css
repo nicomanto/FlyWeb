@@ -1,7 +1,39 @@
-/* Page selector */
+/* === Page selector ===*/
+.button-selector-page{
+    font-size: large;
+    font-weight: 700;
+    width: 2em;
+    height: 2em;
+    border: 2px solid #c53020;
+    color: #c53020;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    background-color: #fff;
+    margin: 0.2em;
+    vertical-align: middle;
+}
+
+
+.button-selector-page:hover, .button-selector-page:disabled{
+    border: 2px solid #eb5443;
+    background-color: #eb5443;
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button-selector-page:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.button-selector-page:disabled{
+    cursor: auto;
+}
 
 .pageSelector {
     display: flex;
     justify-content: center;
-    margin-top: 3vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }

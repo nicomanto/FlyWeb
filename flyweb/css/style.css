@@ -5,14 +5,32 @@
     --white    : #ffffff;
 }
 
+p{
+    font-size: 16px;
+}
+
+strong{
+    font-weight: 900;
+}
+
+label, legend{
+    font-weight: bolder;
+    font-size: 18px;
+}
+input, textarea{
+    font-size: 16px;
+}
+
 * {
     padding: 0em;
     margin : 0em;
+    line-height: 1.5em;
+    font-family: 'Roboto', sans-serif;
 }
+
 
 body {
     /* font-family: 'Lato'; */
-    font-family        : 'Baloo Thambi 2', sans-serif;
     /* max-width       : 70rem; */
     max-width          : 1024px;
     margin             : auto;
@@ -23,79 +41,33 @@ body {
 
 }
 
-button {
-    background-color: var(--secondary);
-    color           : var(--white);
-}
-
-.travel_details {
-    display        : flex;
-    flex-direction : column;
-    align-items    : center;
-    justify-content: space-around;
-}
-
-.travel_details .row {
-    width : 100%;
-    margin: auto 0;
-}
-
-.travel_details .elevator_pitch {
-    display       : flex;
-    flex-direction: row;
-    margin        : 3vh 0;
-}
-
-.travel_details .elevator_pitch .main_img {
-    height      : 50vh;
-    width       : auto;
-    margin-right: 4vw;
-}
-
-.travel_details .elevator_pitch .main_infos {
-    display       : flex;
+/* === LAYOUT index.html ===*/
+.contenuto-home{
+    display: flex;
     flex-direction: column;
-    margin        : 0 !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1;
 }
 
-.travel_details .elevator_pitch .main_infos img {
-    margin-right: 0.5vw;
+.contenuto-home .nav-menu{
+    order: 1;
 }
 
-.travel_details .elevator_pitch .main_infos dt {
-    margin   : 0.5vw 0;
-    max-width: 20vw;
+.contenuto-home .content-search-box{
+    order: 2;
+    padding-top: 7em;
+    padding-bottom: 7em;
+    background-color: blanchedalmond;
 }
 
-.travel_details .elevator_pitch .main_infos .title {
-    color      : var(--primary);
-    font-weight: bold;
-    font-size  : 2em;
+.contenuto-home .boxSuggerimenti{
+    order: 3;
+    background-color: aliceblue;
 }
 
-.travel_details .elevator_pitch .main_infos .price {
-    font-size: 1.5em;
-    color    : red;
-}
-
-.travel_details .elevator_pitch .main_infos .cart {
-    min-width : 100%;
-    padding   : 1em;
-    margin-top: 1em;
-}
-
-.travel_details .complete_informations {
-    margin: 2vh 0;
-}
-
-.travel_details .cart {
-    min-width: 80%;
-    padding  : 1em;
-    margin   : 1vh 0;
-}
-
-.form_integrazioni {
-    padding: 1vh 0;
+.contenuto-home .footer{
+    order: 4;
 }
 
 /* === DASHBOARD === */
@@ -106,7 +78,6 @@ button {
     background-color:#fff;
     width: 100%;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
     vertical-align: top;
 }
 
@@ -123,6 +94,228 @@ button {
     margin-top: 0;
 }
 
+#board_footer{
+    width: 100%;
+    order: 3;
+    margin-top: 2em;
+}
+
+/* === DASHBOARD MENU === */
+.menu_dashboard{
+    background-color: #0a3150;
+    height: 100%;
+    text-align: center;
+}
+
+.lista_menu{
+    margin: 1em;
+}
+
+.menu_dash_element{
+    background-color: #fff;
+    border: 3px solid #fff;
+    list-style-type: none;
+    margin-bottom: 3em;
+    padding:0.5em;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.menu_dash_element:hover{
+    background-color: #e49d44;
+    border: 3px solid #e49d44;
+    margin-bottom: 3em;
+    padding:0.5em;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.menu_dash_element_selected{
+    background-color: #fff;
+    border: 3px solid #fff;
+    opacity: 0.2;
+    border-radius: 5px;
+    list-style-type: none;
+    margin-bottom: 3em;
+    padding:0.5em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.menu_logo{
+    width: 150px;
+    height: 150px;
+}
+
+
+/* === DASHBOARD FORM === */
+.dash-form{
+    border-color: #0a3150;
+    background-color:#fff;
+    color: #0a3150;
+    width: 70%;
+    margin:auto;
+    margin-top: 1em;
+}
+
+.dash-form fieldset{
+    display: block;
+    margin: 1.0em auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.dash-form fieldset{
+    padding: 0;
+    text-align: left;
+}
+
+.input{
+    width: 90%;
+    padding: 12px 20px 10px 10px;
+    margin: 5px 0;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 1.5em;
+    color: #0a3150;
+}
+
+.dash-form .input{
+    width: 90%;
+}
+
+.input:hover{
+    border: 2px solid #0a3150;
+    background-color: #E9EBEE;
+}
+
+.dash-form .input-date{
+    cursor: text;
+    text-align: center;
+}
+
+.input:focus, .input:active{
+    border: 2px solid #0a3150;
+    background-color: #E9EBEE;
+    outline: none;
+    box-shadow: none;
+}
+
+input[type=number]{
+    -moz-appearance: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+    opacity: 0;
+}
+
+.input-date::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: 2px solid darkgray;
+    border-radius: 5px;
+}
+.input-date::-webkit-calendar-picker-indicator:hover{
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: 2px solid #0a3150;
+    border-radius: 5px;
+}
+
+.dash-form .p_input_error{
+    visibility: hidden;
+}
+
+.bottoneform{
+    border-radius: 5px;
+    color:#fff;
+    background-color: #0a3150;
+    border: 3px solid #0a3150;
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align: center;
+    padding: 30px;
+    cursor:pointer;
+}
+ 
+.bottoneform:hover{
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.bottoneform:active, .dash-form .bottoneform:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+.dash-form fieldset
+{
+    border-color: #0a3150;
+    width: 100%;
+    margin:auto;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+    padding-top: 1em;
+    border-radius: 10px;
+}
+
+.dash-form legend{
+    text-align: center;
+    font-size: larger;
+}
+
+.dash-form .input-file{
+    cursor:pointer;
+}
+
+.btn-submit, .dash-form .btn-reset{
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+    margin: 5px 0px 10px 10px;
+}
+
+.dash-form .btn-reset{
+    padding: 1em;
+}
+
+.dash-form input[type=checkbox]{
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+    margin:  0.2em 0.5em 0.2em 0;
+}
+
+.dash-form .checkbox-integrazioni{
+    margin-bottom: 1em;
+}
+
+.dash-form .add-tag{
+    padding: 1em;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.dash-form .tag-inseriti{
+    display: inline-block;
+    margin-bottom: 1em;
+
+}
+
+.dash-form .miscellanea .checkbox-integrazioni{
+    margin-top: 5px;
+}
+
+.landing{
+    text-align: center;
+}
+
+.landing strong{
+    background-color: #e49d44;
+}
+
+/* === DASHBOARD CARD, TITOLI === */
 .adm-card{
     border: 0px solid #c53020;
     padding: 1em 1em 1em 1em;
@@ -144,15 +337,15 @@ button {
     color:#fff;
     background-color: #1B88E0;
     border: 3px solid #1B88E0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding: 10px;
     width: 40%;
     margin: 0.5em;
 }
 .adm-bottone-modifica-card:hover{
-    background-color:#1463A3;
-    border: 3px solid#1463A3;
+    filter: brightness(1.5);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -161,10 +354,10 @@ button {
 .adm-bottone-elimina-card, .adm-bottone-elimina-recensione{
     border-radius: 5px;
     color:#fff;
-    background-color: #FA3E37;
-    border: 3px solid #FA3E37;
+    background-color: rgb(206, 0, 0);
+    border: 3px solid rgb(206, 0, 0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding: 10px;
     width: 40%;
     margin:auto;
@@ -172,8 +365,8 @@ button {
 }
 
 .adm-bottone-elimina-card:hover, .adm-bottone-elimina-recensione:hover{
-    background-color: #A21E1B;
-    border: 3px solid #A21E1B;
+    filter: brightness(1.5);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -185,7 +378,7 @@ button {
     background-color: #4caf50;
     border: 3px solid #4caf50;
     outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     padding: 10px;
     width: 40%;
     margin:auto;
@@ -193,16 +386,10 @@ button {
 }
 
 .adm-bottone-approva-recensione:hover{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #087f23;
-    border: 3px solid #087f23;
-    outline: none;
+    filter: brightness(1.5);
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 10px;
-    width: 40%;
-    margin:auto;
-    margin: 0.5em;
+    color: #fff;
+    cursor: pointer;
 }
 
 .adm-form-card{
@@ -210,8 +397,6 @@ button {
 } 
 
 .adm-bottoni-gestione{
-    margin-right: 0 auto; 
-    margin-left: 0 auto;
     text-align: center;
 }
 
@@ -226,10 +411,9 @@ button {
 
 .adm-titolo{
     width: 100%;
-    background-color: #E9EBEE;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    color: #c53020;
+    color:  #0a3150;
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 .adm-card-rev{
@@ -340,6 +524,107 @@ button {
     box-shadow: none;
 }
 
+/* === SEARCH BOX === */
+
+.form-search{
+    background-color: #0a3150;
+    color:white;
+    margin:auto;
+    width: 75%;
+    border-radius: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.search-box-input{
+    background-color: #c53020;
+    border-radius: 2em;
+    width: 95%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.form-search input{
+    border-radius: 2em;
+    border: 0;
+}
+
+.search-box-date{
+    display: inline-block;
+    background-color: #c53020;
+    border-radius: 2em;
+    border: 0;
+    width: 95%;
+    vertical-align: middle;
+    padding: 0.5em;
+    background-image: url();
+}
+
+.search-box-input .search-key{
+    width: 60%;
+}
+
+.search-box-input .search-box-submit{
+    width: 25%;
+    display: inline;
+    cursor:pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+    border: 0;
+}
+
+.form-search .search-key:hover, .form-search .search-box-submit:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.form-search .search-box-submit:hover{
+    color: #c53020;
+
+}
+
+.search-box-date1{
+    background-color:#c53020;
+    padding: 0.5em;
+    border-radius: 2em;
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.search-box-date1:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.form-search input{
+    padding:1em;
+}
+
+#fieldset_search{
+    border: 0;
+}
+
+.aiuti-alla-navigazione{
+    visibility: hidden;
+}
+
+.search-box-div-filtri{
+    display: none;
+
+}
+.form-search input[type="date"]{
+    cursor: text;
+}
+
+.form-search ::-webkit-calendar-picker-indicator:hover{
+    cursor: pointer;
+}
+
+.form-search input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
 .dash-form .p_input_error{
     visibility: hidden;
 }
@@ -358,9 +643,26 @@ button {
  
 .dash-form .bottoneform:hover{
     background-color: #9C2619;
-    border: 3px solid #9C2619;
-    border-radius: 5px;
-    color: #fff
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 8px;
+}
+
+/* === TRAVEL DETAILS === */
+
+.travel-details-container {
+    display         : inline-flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;    
+    justify-content : space-between;
+    align-items     : stretch;
+    margin-top      : 1em;
+    width           : 100%;
+    height          : 50%;
+}
+
+.travel-details-container .main-img{
+    order           : 1;
+    width           : 50%;
 }
 
 .dash-form .bottoneform:active, .dash-form .bottoneform:focus{
@@ -564,4 +866,141 @@ button {
 
 .adm-card-rev{
     text-align: center;
+}
+.travel-details-container .travel-details-info {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    order           : 2;
+    width           : 48%;
+    margin          : 0 auto;
+}
+
+.travel-details-info h1{
+    margin-bottom   : 0.5em;
+}
+
+.travel-details-container .complete-desc{
+    order           : 3;
+    width           : 100%;
+    margin-top      : 1em;
+}
+
+.travel-details-container .travel-goto{
+    font-size       : large;
+    text-align      : center;
+    width           : 100%;
+    padding         : 1em;
+    margin          : 0;
+}
+
+.travel-details-container .price{
+    text-align      : center;
+    font-size       : x-large;
+}
+
+/* === TRAVEL DETAILS INTEGRAZIONI === */
+.form-integrazioni{
+    width           : 100%;
+    display         : inline-flex;
+    justify-content : flex-start;
+    order           : 4;
+}
+
+.form-integrazioni fieldset{
+    border          : 2px solid #c53020;
+    box-shadow      : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align      : center;
+    width           : 100%;
+    margin-top      : 2em;
+    margin-bottom   : 2em;
+    border-radius   : 10px;
+}
+
+.form-integrazioni legend{
+    color           : #0a3150;
+    font-size       : large;
+    font-weight     : bold;
+}
+
+.checkboxes-integrazioni{
+    text-align: left;
+    padding: 0 0 0 25%;
+}
+
+.checkboxes-integrazioni input[type=checkbox]{
+    height          : 2em;
+    width           : 2em;
+    vertical-align  : middle;
+    margin: 0.3em;
+}
+
+.form-integrazioni input[type="submit"]{
+    width           : 50%;
+}
+
+.checkbox-integrazioni{
+    margin-bottom   : 1em;
+}
+
+
+/* === REGISTRATI === */
+.form-registrazione{
+    border-color: #0a3150;
+    background-color:#fff;
+    color: #0a3150;
+    font-family: 'Roboto', sans-serif;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.form-registrazione fieldset{   
+    border-color: #0a3150;
+    display: block;
+    margin: 1.0em auto;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+
+.form-registrazione legend{
+    text-align: center;
+}
+
+.form-registrazione .input-date{
+    text-align: center;
+    width: 90%;
+    margin-left: 0.5em;
+}
+
+.form-registrazione .btn-submit{
+    text-align: center;
+    display: block;
+    width: 95%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.sotto-form-reg-acc p{
+    text-align: center;
+    font-size: 1.4em;
+    margin: 1em;
+}
+
+.cb-login{
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.titolo-pagina{
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    letter-spacing: 2px;
 }
