@@ -1,7 +1,7 @@
 <?php
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     // This route can be accessed only by admins
     RouteController::protectedRoute();
@@ -15,9 +15,5 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
     $page->replaceTag('ADM-CONTENUTO', '');
-
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

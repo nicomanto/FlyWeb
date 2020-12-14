@@ -62,7 +62,7 @@ class TravelController extends BaseController {
         }
 
 
-        return $average_reviews/$this->getNumberOfReviews();
+        return round($average_reviews/$this->getNumberOfReviews(),1);
 
     }
 

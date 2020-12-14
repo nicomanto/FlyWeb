@@ -1,7 +1,7 @@
 <?php
     use controllers\RouteController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::protectedRoute();
 
@@ -16,9 +16,5 @@
 
     // Set search box form
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));
-
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

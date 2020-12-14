@@ -1,6 +1,6 @@
-<div id="content">
+<div id="board_contenuto">
      <h1 class="adm-titolo"><strong>%TYPE% VIAGGIO</strong></h1>
-     <form action='/admin/landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio" onsubmit="return conferma()">
+     <form action='/admin/landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
           
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
@@ -71,9 +71,14 @@
                 <label for="tagList"><strong>SCEGLI TAG</strong></label><br>
                 <input type="text" list="tagList" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
                     <datalist id="tagList"></datalist>
-                <input class="bottoneform add-tag" type="button" id="addTag" name="addTag" value="INSERISCI TAG" onClick="aggiungiTag()">
-                <p class="tag-inseriti" id="tagInseriti">Tag inseriti: </div>
-                <input type="hidden" value="" class="tag-da-inviare" name="tagDaInviare" id="tagDaInviare" />
+                <input class="bottoneform" type="button" id="addTag" name="addTag" value="INSERISCI TAG" onclick="aggiungiTag()">
+                <div id="tagInseriti">
+                    <p>Tag inseriti:</p> 
+
+                    <ul id="listTagInseriti"></ul>
+
+                </div>
+                <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
                 <p id="input_error_tags" class="p_input_error"> </p>
 
                 <label for="integrazioni"><strong>SEGLI INTEGRAZIONI</strong></label>

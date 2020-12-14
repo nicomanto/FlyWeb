@@ -101,16 +101,60 @@ function forminserimento() {
 
 function aggiungiTag() { 
 
-    var s = document.getElementById("addTagAutocomplete").value;
-    //console.log(s);
-    var pos = document.getElementById("addTagAutocomplete").selectedIndex;
-    //console.log(pos);
-    document.getElementById(s).remove();
+    var tag = document.getElementById("addTagAutocomplete").value;
 
-    document.getElementById('tagInseriti').textContent+="#"+s+" ";
-    document.getElementById('tagDaInviare').value+=s+";";
-    console.log(document.getElementById('daInviare').value);
+    document.getElementById("addTagAutocomplete").value="";
     //console.log(s);
+
+    if(document.getElementById(tag))
+        document.getElementById(tag).remove();
+
+
+    if(!document.getElementById("element"+tag) && tag!=""){
+
+
+        //creo bottone eliminizaione tag inserito
+        var button = document.createElement("button");
+        button.innerHTML = "X";
+        button.type="button";
+
+        button.onclick = function(){
+            rimuoviTag("element"+tag);
+        };
+
+        //creo tag inserito
+        var message = document.createElement("P");
+        message.innerText = "#"+tag; 
+
+        var tagInseriti = document.getElementById('listTagInseriti');
+
+        var li = document.createElement("li");
+        li.id="element"+tag;
+        li.appendChild(button);
+        li.appendChild(message);
+        tagInseriti.appendChild(li);
+
+        document.getElementById('tagDaInviare').value+=tag+";";
+        console.log(document.getElementById('daInviare').value);
+    }
+    //console.log(s);
+}
+
+function rimuoviTag(id_element) {
+
+    var tag=id_element.replace("element","");
+    
+    var lista = document.getElementById("tagList");
+    var newOptionElement = document.createElement("option");
+    newOptionElement.innerHTML = tag;
+    newOptionElement.id=tag;
+
+    lista.appendChild(newOptionElement);
+
+    document.getElementById("element"+tag).remove();
+
+
+    document.getElementById('tagDaInviare').value=document.getElementById('tagDaInviare').value.replace(tag+";","");
 }
 
 function conferma(){
