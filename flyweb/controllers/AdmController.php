@@ -154,4 +154,10 @@ class AdmController extends BaseController {
         $query = 'DELETE FROM Recensione WHERE ID_Recensione=?;';
         $this->db->runQuery($query,$id);
     }
+
+    public function getIDFromUsername ($user){
+        $query = ' SELECT ID_Utente FROM Utente WHERE Username = ?';
+        return ($this->db->runQuery($query, $user))[0];
+
+    }
 }

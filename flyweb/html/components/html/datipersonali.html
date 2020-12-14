@@ -1,0 +1,24 @@
+<head>
+    <script type="text/javascript" src="/flyweb/js/formUtenteScript.js"> </script>
+</head>
+<div id="content">
+    <form action='./eliminazione_profilo.php' onsubmit="return clicked()">
+    <h1>Dati Personali</h1>
+    <INFO_BOX />
+        <fieldset>
+            <legend class="aiuti_alla_navigazione">Dati personali utente</legend>
+            <div>
+                <p>Username : %USERNAME% <br>
+                   Email : %EMAIL% <br>
+                   Nome : %NOME% <br>
+                   Cognome : %COGNOME% <br>
+                   Data di nascita : %DATA_NASCITA% <br>
+                   Password : %PASSWORD% <br> </p> <!--la password andrebbe nascosta sotto asterischi-->
+            </div>
+                <div>
+                <input type="button" onclick="location.href='/modifica_info_profilo.php';" value="Modifica Dati" />
+                <input class="bottone" type="submit" id="submit" value="Elimina Profilo :(">
+            </div>            
+        </fieldset>
+    </form>    
+</div>
