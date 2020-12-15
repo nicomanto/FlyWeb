@@ -1,6 +1,5 @@
-<div id="content-dash">  <!--TODO: se non funziona cambiare classe a 'board_contenuto' -->
      <h1 class="adm-titolo"><strong>%TYPE% VIAGGIO</strong></h1>
-     <form action='/admin/landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
+     <form action='/admin/landing_form_inserimento.php' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
           
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
@@ -48,7 +47,7 @@
           </fieldset>
 
           <fieldset id="fieldPrezzo">
-               <legend>Prezzo e Immagini da allegare</legend>
+               <legend>Prezzo e immagini da allegare</legend>
 
                <div class="miscellanea">
                     <label for="prezzo"><strong>PREZZO</strong></label><br>
@@ -63,7 +62,7 @@
                </div>
           </fieldset>
 
-
+     <!--
         <fieldset>
           <legend>Tag e integrazioni</legend>
 
@@ -80,6 +79,7 @@
                 <div class="checkbox-integrazioni" id="checkboxIntegrazioniFormViaggio">
           </div>
         </fieldset>
+     -->
 
      <input type="hidden" name="id" id="id" value="%ID%">
 
@@ -87,4 +87,3 @@
      <input class="btn-reset bottoneform" type="reset" id="resetForm" value="RESET">
 
      </form>
-</div>
