@@ -27,10 +27,6 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
-    
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
 
 
     echo $page;

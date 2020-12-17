@@ -40,8 +40,8 @@ class AdmTravelListItem extends baseComponent {
                 'travel_start_date' => $this->travel->data_inizio,
                 'travel_end_date' => $this->travel->data_fine,
                 'travel_country' => $this->travel->stato,
-                'travel_city' => $this->travel->city,
-                'travel_location' => $this->travel->location,
+                //'travel_city' => $this->travel->city,
+                //'travel_location' => $this->travel->location,
                 'st' => $st
             ]);
         return $this;

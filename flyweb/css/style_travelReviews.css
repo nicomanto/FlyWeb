@@ -1,53 +1,64 @@
 /*TRAVEL REVIEWS*/
-
-.travel_reviews {
-    margin: 2vh 0;
+.travel-reviews{
+    border-top : 2px solid #0a3150;
+    border-bottom: 2px solid #0a3150;
+    box-shadow: 
+    inset 0px 11px 8px -10px rgba(0,0,0,0.23),
+    inset 0px -11px 8px -10px rgba(0,0,0,0.23); 
+    
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
-.travel_reviews h1 {
-    font-size: 1.5em;
+.media-voti {
+    font-size: 1.1em;
+    padding: 0;
+    margin: 0;
 }
 
-.travel_reviews ul li:nth-child(odd) {
-    background-color: white;
+.reviews-list{
+    list-style-type: none;    
 }
 
-.travel_reviews ul li:nth-child(even) {
-    background-color: whitesmoke;
+
+.header-review{
+    display: inline-flex;
+    align-items: baseline;
+    padding: 0.5em 0.5em 0 0.5em;
 }
 
-.travel_reviews ul li {
+/* ul li*/
+.reviews-list .item-review{
     list-style   : none;
     margin-bottom: 1em;
-    border       : 1px solid grey;
-    padding      : 0.7em;
+    border       : 0;
+    padding      : 0.5em;
     margin-top   : 1em;
-    border-radius: 15px 50px 30px 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border : 1px solid lightgray;
 }
 
-.travel_reviews h2 {
+.travel-reviews h3 {
     font-size: 1.2em;
     display  : inline-flex;
+    margin-left: 1em;
 }
 
-.descrizione_item {
-    border-top : 1px solid grey;
+.content-review {
+    border-top : 2px solid #0a3150;
     padding-top: 1em;
     margin     : 1em 0em 1em 0em;
 }
 
-.descrizione_item emph {
-    color: grey;
+.stelle-text {
+    background-color:  #0a3150;
+    color: #fff;
+    padding: 0.2em;
+    border-radius: 40%;
+    margin-right: 0.5em;
 }
 
-.stelle_text {
-    color           : white;
-    background-color: #0a3150;
-    font-size       : 1.2em;
-    padding         : 0.3em;
-    border-radius   : 10px;
-}
-
-.media_voti {
-    font-size: 1.1em;
+.star{
+    margin-left: 0.2em;
+    width: 1.2em;
 }

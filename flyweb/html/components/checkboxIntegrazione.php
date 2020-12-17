@@ -13,7 +13,7 @@ require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
      //$result = $autocompleteController->getIntegrazioni((int)$_GET['id']);
 
-     $result = $autocompleteController->getIntegrazioni(1);
+     $result = $autocompleteController->getAllIntegrazioni();
 
 
      //print_r($result);

@@ -18,8 +18,4 @@
     
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($travelController->travel)));
 
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
-
     echo $page;

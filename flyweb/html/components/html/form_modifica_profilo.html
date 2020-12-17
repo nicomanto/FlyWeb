@@ -1,0 +1,40 @@
+<head>
+    <script type="text/javascript" src="/flyweb/js/formUtenteScript.js"> </script>
+</head>
+<div id="content">
+    <h1>Modifica Dati Personali</h1>
+    <INFO_BOX />
+    <form action="./modifica_dati.php" method="post" class="form form_verticale">
+        <fieldset>
+            <legend class="aiuti_alla_navigazione">Modifica dati personali utente</legend>
+            <div>
+                <label for="email" lang="en">E-mail:</label>
+                <input type="text" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%"><br>
+            </div>
+            <div>
+                <label for="nome"><span lang="en">Nome:</span></label>
+                <input type="text" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%"><br>
+            </div>
+            <div>
+                <label for="cognome" lang="en">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%"><br>
+            </div>
+            <div>
+                <label for="data_nascita"><span lang="en">Data Nascita:</span></label>
+                <input type="date" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%"><br>
+            </div>
+            <div>
+                <label for="password" lang="en">Password:</label>
+                <input type="password" id="password" name="password" required="required" placeholder="inserisci password" value="%PASSWORD%">
+                <input type="button" onclick="showPwd()" value="Mostra/Nascondi "> <br>
+    
+            </div>
+            <div>
+                <input class="bottone" type="submit" id="submit" value="Salva">
+                <input class="bottone" type="reset" onclick="location.href='/datipersonali.php';" id="reset" value="Cancella"> 
+            </div>
+            
+        </fieldset>
+    </form>
+    
+</div>

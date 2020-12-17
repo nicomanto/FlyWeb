@@ -58,6 +58,7 @@
         if (! empty($loggedIn)) {
             // Persist login on this session
             $_SESSION['logged_in'] = true;
+            $_SESSION['ID_Utente'] = $loggedIn['ID_Utente'];
 
             if ($loggedIn['Admin']) {
                 // Redirect to Administration page

@@ -8,6 +8,8 @@ class PageSelectorItem extends baseComponent {
 
     public $pageNumber;
     public $isCurrentPage;
+    public $url;
+    public $isDisabled;
 
     const _templateName = 'page_selector_item';
 
@@ -22,20 +24,19 @@ class PageSelectorItem extends baseComponent {
     public function render(): string {
         // Select class based on if the page is the current page or not
         if ($this->isCurrentPage) {
-            $class = 'active';
-            $url = '';
+            $this->isDisabled = 'disabled="disabled"';
+            $this->url = '';
         } else {
-            $class = '';
-            $url = $this->buildPageUrl($this->pageNumber);
+            $this->isDisabled  = '';
+            $this->url = $this->buildPageUrl($this->pageNumber);
         }
         
 
         $this->replaceValues([
             'PAGE_NUMBER' => $this->pageNumber,
-            'IS_PAGE_SELECTED' => $class,
-            'PAGE_URL' => $url
+            'IS_PAGE_SELECTED' => $this->isDisabled ,
+            'PAGE_URL' => $this->url
         ]);
-
         return $this;
     }
 

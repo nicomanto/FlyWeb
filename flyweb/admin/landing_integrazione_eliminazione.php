@@ -22,8 +22,4 @@
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
 
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
-
     echo $page;

@@ -1,19 +1,19 @@
-<div id="content">
+<div id="content-dash">  <!--TODO: se non funziona cambiare classe a 'board_contenuto' -->
      <h1 class="adm-titolo"><strong>%TYPE% VIAGGIO</strong></h1>
-     <form action='/admin/landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio" onsubmit="return conferma()">
+     <form action='/admin/landing_form_inserimento.php' method="POST" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
           
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
                <label for="titolo"><strong>TITOLO DEL VIAGGIO</strong></label><br>
-               <input type="text" id="titolo" name="titolo" required="required" placeholder="inerisci titolo" value="%TITOLO%" autocomplete="off"><br>
+               <input type="text" class="input" id="titolo" name="titolo" required="required" placeholder="inerisci titolo" value="%TITOLO%" autocomplete="off"><br>
                <p id="input_error_titolo" class="p_input_error"> testo errore </p>
 
                <label for="descrizione"><strong>DESCRIZIONE DETTAGLIATA</strong></label><br>
-               <textarea id="descrizione" name="descrizione" placeholder="inerisci descrizone dettagliata" rows='10' cols='50' maxlength="2048"dform='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
+               <textarea class="input" id="descrizione" name="descrizione" placeholder="inerisci descrizone dettagliata" rows='10' cols='50' maxlength="2048"dform='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
                <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
 
                <label for="descrizionebreve"><strong>DESCRIZIONE BREVE</strong></label><br>
-               <textarea id="descrizionebreve" name="descrizionebreve" placeholder="inerisci descrizone breve" rows='3' cols='50' maxlength="512" form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
+               <textarea class="input" id="descrizionebreve" name="descrizionebreve" placeholder="inerisci descrizone breve" rows='3' cols='50' maxlength="512" form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
                <p id="input_error_descrizione_breve" class="p_input_error"> testo errore </p>
           </fieldset>
 
@@ -21,78 +21,70 @@
           <fieldset id="fieldInfoGeografiche">
                <legend>Informazioni geografiche del viaggio</legend>
                <label for="stato"><strong>STATO</strong></label><br>
-               <input type="text" id="stato" name="stato"  placeholder="inerisci stato" maxlength="256" autocomplete="off" value="%STATO%"><br>
+               <input type="text" class="input" id="stato" name="stato"  placeholder="inerisci stato" maxlength="256" autocomplete="off" value="%STATO%"><br>
                <p id="input_error_stato" class="p_input_error"> testo errore </p>
      
                <label for="citta"><strong>CITTA</strong></label><br>
-               <input type="text" id="citta" name="citta" placeholder="inerisci citta" maxlength="256" autocomplete="off" value="%CITTA%"><br>
+               <input type="text" class="input" id="citta" name="citta" placeholder="inerisci citta" maxlength="256" autocomplete="off" value="%CITTA%"><br>
                <p id="input_error_citta" class="p_input_error"> testo errore </p>
      
                <label for="localita"><strong>LOCALITA</strong></label><br>
-               <input type="text" id="localita" name="localita" placeholder="inerisci localita" maxlength="256x" autocomplete="off" value="%LOCALITA%"></label><br>
+               <input type="text" class="input" id="localita" name="localita" placeholder="inerisci localita" maxlength="256x" autocomplete="off" value="%LOCALITA%"></label><br>
                <p id="input_error_localita" class="p_input_error"> testo errore </p>
           </fieldset>
 
 
-          <fieldset id="fieldDate">
+          <fieldset class="fieldDate">
                <legend>Date temporali del viaggio</legend>
-               <div class="date" id="divDataInizio">
-                    <label for="datainizio"><strong>DATA INIZIO VIAGGIO</strong></label><br>
-                    <input type="date" id="datainizio" name="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%"><br> 
-               </div>    
-               
-               <div class="date" id="divDataFine">
-                    <label for="datafine"><strong>DATA FINE VIAGGIO</strong></label><br>
-                    <input type="date" id="datafine" name="datafine" onblur="validationData()" required="required" value="%DATAFINE%"><br>
-               </div>
+
+               <label for="datainizio"><strong>DATA INIZIO VIAGGIO</strong></label><br>
+               <input type="date" class="input input-date" name="datainizio" id="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%"><br> 
+               <br>
+               <label for="datafine"><strong>DATA FINE VIAGGIO</strong></label><br>
+               <input type="date" class="input input-date" name="datafine" id="datafine" onblur="validationData()" required="required" value="%DATAFINE%"><br>
+
                <p id="input_error_datafine" class="p_input_error"> testo errore </p>
 
           </fieldset>
 
-                <fieldset id="fieldPrezzo">
-                    <legend>Prezzo e Immagini da allegare</legend>
+          <fieldset id="fieldPrezzo">
+               <legend>Prezzo e Immagini da allegare</legend>
 
-                    <div class="miscellanea">
-                        <label for="prezzo"><strong>PREZZO</strong></label><br>
-                        <input type="number" id="prezzo" name="prezzo" placeholder="inserisci un prezzo"  onblur="validationPrz()" min="0" required="required" value="%PREZZO%">
-                        <p id="input_error_prezzo" class="p_input_error"> testo errore </p>
-                    </div>
-
-
-                        <div class="miscellanea">
-                        <label for="immagini"><strong>INSERISCI IMMAGINI</strong></label><br>
-                        <input type="file" class="bottoneform" id="immagini" accept="image/*" multiple="multiple" name="immagini" required="required"><br>
-                        <p id="input_error_immagini" class="p_input_error"> testo errore </p>
-                    </div>
-                </fieldset>
+               <div class="miscellanea">
+                    <label for="prezzo"><strong>PREZZO</strong></label><br>
+                    <input type="number" class="input" id="prezzo" name="prezzo" placeholder="inserisci un prezzo"  onblur="validationPrz()" min="0" required="required" value="%PREZZO%">
+                    <p id="input_error_prezzo" class="p_input_error"> testo errore </p>
+               </div>
+               
+               <div class="miscellanea">
+                    <label for="immagini"><strong>INSERISCI IMMAGINI</strong></label><br>
+                    <input type="file" class="input input-file" class="bottoneform" id="immagini" accept="image/*" multiple="multiple" name="immagini" required="required"><br>
+                    <p id="input_error_immagini" class="p_input_error"> testo errore </p>
+               </div>
+          </fieldset>
 
 
         <fieldset>
-            <legend>Tag e integrazioni</legend>
+          <legend>Tag e integrazioni</legend>
 
-            <div class="miscellanea">
+          <div class="miscellanea">
                 <label for="tagList"><strong>SCEGLI TAG</strong></label><br>
-                <input type="text" list="tagList" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
+                <input type="text" list="tagList" class="input" placeholder="scegli un tag dalla lista" id="addTagAutocomplete">
                     <datalist id="tagList"></datalist>
-                <input class="bottoneform" type="button" id="addTag" name="addTag" value="INSERISCI TAG" onClick="aggiungiTag()">
-                <p id="tagInseriti">Tag inseriti: </div>
-                <input type="hidden" value="" name="tagDaInviare" id="tagDaInviare" />
+                <input class="bottoneform add-tag" type="button" id="addTag" name="addTag" value="INSERISCI TAG" onClick="aggiungiTag()">
+                <p class="tag-inseriti" id="tagInseriti">Tag inseriti: </div>
+                <input type="hidden" value="" class="tag-da-inviare" name="tagDaInviare" id="tagDaInviare" />
                 <p id="input_error_tags" class="p_input_error"> </p>
 
                 <label for="integrazioni"><strong>SEGLI INTEGRAZIONI</strong></label>
-                <div id="checkboxIntegrazioniFormViaggio">
-                </div>
+                <div class="checkbox-integrazioni" id="checkboxIntegrazioniFormViaggio">
+          </div>
         </fieldset>
 
-        <input type="hidden" name="id" id="id" value="%ID%">
+     <input type="hidden" name="id" id="id" value="%ID%">
 
-        <fieldset>
-            <legend>Invio form, reset campi form</legend>
-            <input class="bottoneform" type="submit" id="submitForm" value="INVIA">
-            <input class="bottoneform" type="reset" id="resetForm" value="RESET">
-        </fieldset>
+     <input class="btn-submit bottoneform" type="submit" id="submitForm" value="INVIA">
+     <input class="btn-reset bottoneform" type="reset" id="resetForm" value="RESET">
 
      </form>
-
-
 </div>

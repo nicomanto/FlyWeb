@@ -14,8 +14,4 @@
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione()));
 
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
-
     echo $page;

@@ -62,7 +62,7 @@ class TravelController extends BaseController {
         }
 
 
-        return $average_reviews/$this->getNumberOfReviews();
+        return round($average_reviews/$this->getNumberOfReviews(),1);
 
     }
 
@@ -80,6 +80,24 @@ class TravelController extends BaseController {
         }
 
         return $n_reviews;
+    }
+
+
+    public function getIdTag(){
+        $query = 'SELECT ID_Tag FROM TagViaggio WHERE ID_Viaggio = ?;';
+
+        $id_tag=array();
+        foreach(($this->db->runQuery($query, $this->travel->id_viaggio)) as $element){
+            array_push($id_tag,$element["ID_Tag"]);
+        }
+
+        return $id_tag;
+    }
+
+    public function haveRelatedTravel(){
+        $query = 'SELECT ID_Viaggio FROM TagViaggio WHERE ID_Viaggio!= ? AND ID_Tag IN (SELECT ID_Tag FROM TagViaggio WHERE ID_Viaggio = ?);';
+
+        return ! empty($this->db->runQuery($query, $this->travel->id_viaggio, $this->travel->id_viaggio));
     }
 
 }

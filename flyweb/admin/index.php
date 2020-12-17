@@ -16,8 +16,4 @@
 
     $page->replaceTag('ADM-CONTENUTO', '');
 
-    $page->replaceTag('ADM-LIST','');
-
-    $page->replaceTag('FOOTER', (new \html\components\footer));
-
     echo $page;
