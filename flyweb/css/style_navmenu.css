@@ -1,6 +1,6 @@
-/*PRINCIPAL MENU*/
+/* === MAIN MENU === */
 
-.PrincipalMenu ul {
+.main-menu ul {
     display        : inline-flex;
     justify-content: flex-end;
     width          : 100%;
@@ -9,12 +9,12 @@
     box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
 }
 
-.PrincipalMenu ul li {
+.main-menu  ul li {
     list-style-type: none;
     margin         : 1em;
 }
 
-.PrincipalMenu .menuPage{
+.main-menu  .menuPage{
     padding         : 0.3em;
     padding-left    : 1em;
     padding-right   : 1em;
@@ -23,7 +23,7 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0), 0 1px 3px rgba(0,0,0,0.24);
 }
 
-.PrincipalMenu .menuPage:hover {
+.main-menu  .menuPage:hover {
     border-bottom: 3px solid #0a3150;
-    box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
+    box-shadow: 0 6px 10px rnavgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }

@@ -81,12 +81,13 @@ body {
     vertical-align: top;
 }
 
-#board_menu{
+.board-menu{
     width: 30%;
     order: 1;
+    min-height: 100%;
 }
 
-#board_contenuto{
+.board-contenuto{
     width: 70%;
     order: 2;
     margin:auto;
@@ -94,34 +95,27 @@ body {
     margin-top: 0;
 }
 
-#board_footer{
-    width: 100%;
-    order: 3;
-    margin-top: 2em;
-}
-
 /* === DASHBOARD MENU === */
-.menu_dashboard{
+.menu-dashboard{
     background-color: #0a3150;
-    height: 100%;
     text-align: center;
+    min-height: 100%;
 }
 
-.lista_menu{
-    margin: 1em;
-}
-
-.menu_dash_element{
+.menu-dash-element{
     background-color: #fff;
     border: 3px solid #fff;
     list-style-type: none;
-    margin-bottom: 3em;
     padding:0.5em;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 3em;
+    cursor: pointer;
 }
 
-.menu_dash_element:hover{
+.menu-dash-element:hover{
     background-color: #e49d44;
     border: 3px solid #e49d44;
     margin-bottom: 3em;
@@ -129,7 +123,7 @@ body {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.menu_dash_element_selected{
+.menu-dash-element-selected{
     background-color: #fff;
     border: 3px solid #fff;
     opacity: 0.2;
@@ -140,7 +134,7 @@ body {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.menu_logo{
+.menu-logo{
     width: 150px;
     height: 150px;
 }
@@ -149,11 +143,11 @@ body {
 /* === DASHBOARD FORM === */
 .dash-form{
     border-color: #0a3150;
-    background-color:#fff;
     color: #0a3150;
-    width: 70%;
+    width: 75%;
     margin:auto;
     margin-top: 1em;
+    margin-bottom: 3em;
 }
 
 .dash-form fieldset{
@@ -184,8 +178,8 @@ body {
 }
 
 .input:hover{
+    background-color: #f5f9ff;
     border: 2px solid #0a3150;
-    background-color: #E9EBEE;
 }
 
 .dash-form .input-date{
@@ -249,8 +243,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.dash-form fieldset
-{
+.dash-form fieldset{
     border-color: #0a3150;
     width: 100%;
     margin:auto;
@@ -316,12 +309,17 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === DASHBOARD CARD, TITOLI === */
+.board-contenuto ul{
+    list-style: none;
+}
 .adm-card{
     border: 0px solid #c53020;
     padding: 1em 1em 1em 1em;
+    margin: 0 auto;
     margin-bottom: 1em;
     background-color: #E9EBEE;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 80%;
 }
 
 .adm-card input[type="button"]{
@@ -414,6 +412,7 @@ input[type=number]::-webkit-outer-spin-button {
     color:  #0a3150;
     text-align: center;
     margin-bottom: 0.5em;
+    background-color: #E9EBEE;
 }
 
 .adm-card-rev{
@@ -427,102 +426,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 2em;
 }
 
-/* === DASHBOARD MENU === */
-/* .menu_dashboard{
-    background-color: #c53020;
-    height: 100%;
-    text-align: center;
-	width: 25%;
-    order: 1;
-}
-
-.menu_dash_element{
-    margin-left: -2em;
-    background-color: #fff;
-    border: 3px solid #fff;
-    list-style-type: none;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.menu_dash_element:hover{
-    border: 3px solid #0a3150;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.menu_dash_element_selected{
-    background-color: #fff;
-    border: 3px solid #fff;
-    list-style-type: none;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.menu_logo{
-    width: 150px;
-    height: 150px;
-} */
-
-
-/* === DASHBOARD FORM === */
-/* .dash-form{
-    border-color: #c53020;
-    background-color:#fff;
-    color: #c53020;
-    font-family: 'Roboto', sans-serif;
-    width: 70%;
-    margin:auto;
-    margin-top: 1em;
-}
-
-.dash-form input[type=text], input[type=number], textarea{
-    background-color:#E9EBEE;
-    width: 90%;
-    padding: 12px 20px 10px 10px;
-    margin: 5px 0;
-    border: 0px;
-    border-bottom: 1px solid #c53020;
-    font-family: 'Roboto', sans-serif;
-    resize: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.dash-form input[type=number]{
-    -moz-appearance: none;
-}
-
-.dash-form input[type=number]::-webkit-inner-spin-button, 
-.dash-form input[type=number]::-webkit-outer-spin-button {  
-    opacity: 0;
-}
-
-.dash-form input[type=date]::-webkit-calendar-picker-indicator{
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid #c53020;
-    background-color: #E9EBEE;
-}
-.dash-form input[type=date]::-webkit-calendar-picker-indicator:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-  
-.dash-form input[type=text]:hover, input[type=number]:hover, textarea:hover{
-    border-bottom: 2px solid #c53020;
-}
-
-.dash-form input[type=text]:active, input[type=number]:active, textarea:active{
-    outline: none;
-    box-shadow: none;
-}
-
-.dash-form input[type=text]:focus, input[type=number]:focus, textarea:focus{
-    outline: none;
-    box-shadow: none;
-} */
 
 /* === SEARCH BOX === */
 
@@ -625,28 +528,6 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none;
 }
 
-.dash-form .p_input_error{
-    visibility: hidden;
-}
-
-.dash-form .bottoneform{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #c53020;
-    border: 3px solid #c53020;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    text-align: center;
-    padding: 30px;
-    cursor:pointer;
-}
- 
-.dash-form .bottoneform:hover{
-    background-color: #9C2619;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border-radius: 8px;
-}
-
 /* === TRAVEL DETAILS === */
 
 .travel-details-container {
@@ -665,239 +546,6 @@ input[type=number]::-webkit-outer-spin-button {
     width           : 50%;
 }
 
-.dash-form .bottoneform:active, .dash-form .bottoneform:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.dash-form #fieldDate{
-    text-align: center;
-}
-
-.dash-form .date{
-    display: block;
-    width: 60%;
-}
-
-.dash-form fieldset
-{
-    border-color: #c53020;
-    width: 100%;
-    margin:auto;
-    margin-bottom: 1.5em;
-    padding-left: 1em;
-    padding-top: 1em;
-}
-
-.dash-form legend{
-    text-align: center;
-    font-size: larger;
-}
-
-.dash-form .fieldDate{
-    text-align: center;
-}
-
-.dash-form input[type=date]{
-    border-color: #c53020;
-    border: 2px solid #c53020;
-    padding: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    cursor: text;
-    display: inline-block;
-    background-color: #E9EBEE;
-}
-
-.dash-form input[type="file"]{
-    border: 2px solid #c53020;
-    border-radius: 5px;
-    color:#c53020;
-    background-color: #fff;
-    padding: 30px;
-    cursor:pointer;
-    margin: auto;
-}
-
-.dash-form .btn-submit, .dash-form .btn-reset{
-    width: 100%;
-    text-align: center;
-    font-size: medium;
-    margin: 5px 0px 10px 10px;
-}
-
-.dash-form .btn-reset{
-    padding: 1em;
-}
-
-.dash-form input[type=checkbox]{
-    height: 2em;
-    width: 2em;
-    vertical-align: middle;
-}
-
-.dash-form .checkbox-integrazioni{
-    margin-bottom: 1em;
-}
-
-.dash-form .add-tag{
-    padding: 1em;
-    display: inline-block;
-    margin-bottom: 1em;
-}
-
-.dash-form .tag-inseriti{
-    display: inline-block;
-    margin-bottom: 1em;
-
-}
-
-.dash-form .miscellanea .checkbox-integrazioni{
-    margin-top: 5px;
-}
-
-/* === DASHBOARD CARD, TITOLI === */
-.adm-card{
-    border: 0px solid #c53020;
-    padding: 1em 1em 1em 1em;
-    margin-bottom: 1em;
-    background-color: #E9EBEE;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.adm-card input[type="button"]{
-    text-align: center;
-}
-
-.adm-card:hover{
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.adm-bottone-modifica-card{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #1B88E0;
-    border: 3px solid #1B88E0;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 10px;
-    width: 40%;
-    margin: 0.5em;
-}
-.adm-bottone-modifica-card:hover{
-    background-color:#1463A3;
-    border: 3px solid#1463A3;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.adm-bottone-elimina-card, .adm-bottone-elimina-recensione{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #FA3E37;
-    border: 3px solid #FA3E37;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 10px;
-    width: 40%;
-    margin:auto;
-    margin: 0.5em;
-}
-
-.adm-bottone-elimina-card:hover, .adm-bottone-elimina-recensione:hover{
-    background-color: #A21E1B;
-    border: 3px solid #A21E1B;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.adm-bottone-approva-recensione{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #4caf50;
-    border: 3px solid #4caf50;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 10px;
-    width: 40%;
-    margin:auto;
-    margin: 0.5em;
-}
-
-.adm-bottone-approva-recensione:hover{
-    border-radius: 5px;
-    color:#fff;
-    background-color: #087f23;
-    border: 3px solid #087f23;
-    outline: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 10px;
-    width: 40%;
-    margin:auto;
-    margin: 0.5em;
-}
-
-.adm-form-card{
-    display: inline;
-} 
-
-.adm-bottoni-gestione{
-    text-align: center;
-}
-
-.adm-card h3{
-    display: inline;
-}
-
-.adm-card h2{
-    text-align: center;
-    font-weight:bold;
-}
-
-.adm-titolo{
-    width: 100%;
-    background-color: #E9EBEE;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    color: #c53020;
-    text-align: center;
-    margin-bottom: 0.5em;
-}
-
-.adm-card-rev{
-    text-align: center;
-}
-.travel-details-container .travel-details-info {
-    display         : flex;
-    flex-direction  : column;
-    justify-content : space-between;
-    order           : 2;
-    width           : 48%;
-    margin          : 0 auto;
-}
-
-.travel-details-info h1{
-    margin-bottom   : 0.5em;
-}
-
-.travel-details-container .complete-desc{
-    order           : 3;
-    width           : 100%;
-    margin-top      : 1em;
-}
-
-.travel-details-container .travel-goto{
-    font-size       : large;
-    text-align      : center;
-    width           : 100%;
-    padding         : 1em;
-    margin          : 0;
-}
-
-.travel-details-container .price{
-    text-align      : center;
-    font-size       : x-large;
-}
 
 /* === TRAVEL DETAILS INTEGRAZIONI === */
 .form-integrazioni{

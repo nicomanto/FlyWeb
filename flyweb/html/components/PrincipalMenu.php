@@ -11,7 +11,7 @@ use \model\UserMenu;
 class PrincipalMenu extends NavMenu {
 
     public function __construct() {
-        parent::__construct("PrincipalMenu");
+        parent::__construct("main-menu");
     }
 
     
