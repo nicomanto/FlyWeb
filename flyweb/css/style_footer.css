@@ -12,20 +12,20 @@
     margin-bottom: 0.5em;
 }
 
-.navbar-footer{
+.footer-menu{
     text-align: center;
     width: 100%;
 }
 
-.navbar-footer ul {
+.footer-menu ul {
     display: inline-flex;
 }
 
-.navbar-footer ul li {
+.footer-menu ul li {
     list-style: none;
     margin    : 1em;
 }
-.footer-div ul li{
+.footer-menu ul li{
     list-style: none;
 }
 .navbar-social-icon{
@@ -33,16 +33,14 @@
     width: 20px;
 }
 
-.footer .footer-div{
+.footer .footer-col{
     width: 45%;
     margin: 1em;
     display: inline-block;
     vertical-align: top;
 }
 
-.footer-div a, p{
-    margin: 0.5em;
-}
-.footer-div img{
+.footer-col img{
     display: inline-block;
+    vertical-align: middle;
 }

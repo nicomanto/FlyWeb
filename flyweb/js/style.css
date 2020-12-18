@@ -14,7 +14,7 @@
     order: 1;
 }
 
-#board_contenuto{
+#board-contenuto{
     width: 70%;
     order: 2;
     margin:auto;
@@ -149,11 +149,11 @@
     text-align: center;
 }
 
-#lista_menu{
+#lista-menu{
     margin-left: -2em;
 }
 
-.menu_dash_element{
+.menu-dash-element{
     background-color: #fff;
     border: 3px solid #fff;
     list-style-type: none;
@@ -163,7 +163,7 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.menu_dash_element:hover{
+.menu-dash-element:hover{
     border: 3px solid #0a3150;
     margin-left: 0em;
     margin-bottom: 3em;
@@ -171,7 +171,7 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.menu_dash_element_selected{
+.menu-dash-element-selected{
     background-color: #fff;
     border: 3px solid #fff;
     list-style-type: none;
