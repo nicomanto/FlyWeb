@@ -84,6 +84,8 @@ body {
 .board-menu{
     width: 30%;
     order: 1;
+    background-color: #0a3150;
+    text-align: center;
     min-height: 100%;
 }
 

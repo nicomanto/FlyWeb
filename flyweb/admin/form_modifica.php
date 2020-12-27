@@ -15,7 +15,9 @@
     $page->replaceTag('HEAD', (new \html\components\head));
     
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modifica_viaggio")));
+
+    $page->replaceValue('TITOLO', "MODIFICA IL VIAGGIO");
     
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($travelController->travel)));
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($travelController->travel,$travelController->getIdTag())));
 
     echo $page;

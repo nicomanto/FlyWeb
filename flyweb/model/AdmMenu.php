@@ -5,8 +5,8 @@
         
         function __construct() {
             $this->MenuItem= array (
-
-                "inserisci_viaggio" => new MenuItem("/admin/form_inserimento.php","Iserisci viaggio",array("LoggedAdmin")),
+                "home" => new MenuItem("/admin/index.php","Home",array("LoggedAdmin"),"en"),
+                "inserisci_viaggio" => new MenuItem("/admin/form_inserimento.php","Inserisci viaggio",array("LoggedAdmin")),
                 "gestisci_viaggi"   => new MenuItem("/admin/search.php","Gestisci viaggi",array("LoggedAdmin")),
                 "inserisci_integrazione" => new MenuItem("/admin/integrazione_inserimento.php","Inserisci integrazione",array("LoggedAdmin")),
                 "gestisci_integrazioni" => new MenuItem("/admin/integrazioni.php","Gestisci integrazioni",array("LoggedAdmin")),
