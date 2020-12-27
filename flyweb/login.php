@@ -13,6 +13,8 @@
         exit();
     }
 
+    $error=array();
+
     // Check if login is attempted
     if(isset($_POST['login'])) {
         $loginController = new \controllers\LoginController();
@@ -40,43 +42,44 @@
 
         if (!$userExists) {
             // TODO: For debug only
-            echo 'L\'utente ' . $user . ' non esiste nel database';
+            //echo 'L\'utente ' . $user . ' non esiste nel database';
             // TODO: do something instead of exiting
-            exit();
+            //exit();
+
+            array_push ( $error , "L'utente " . $user . " non esiste nel database");
         }
+        else{
 
-        $passwordIsCorrect = $loginController->checkUserAuth($user, $password);
+            $loggedIn = $loginController->checkUserAuth($user, $password);
 
-        if (!$passwordIsCorrect) {
-            // TODO: For debug only
-            echo 'La password ' . $password . ' non e\' corretta per l\'utente ' . $user;
-            // TODO: do something instead of exiting
-            exit();
-        }
+            if (!$loggedIn) {
+                // TODO: For debug only
+                //echo 'La password ' . $password . ' non e\' corretta per l\'utente ' . $user;
+                // TODO: do something instead of exiting
+                //exit();
 
-        $loggedIn = $loginController->checkUserAuth($user, $password);
-
-        if (! empty($loggedIn)) {
-            // Persist login on this session
-            $_SESSION['logged_in'] = true;
-            $_SESSION['ID_Utente'] = $loggedIn['ID_Utente'];
-
-            if ($loggedIn['Admin']) {
-                // Redirect to Administration page
-                $_SESSION['admin'] = true;
-                header('location:/admin/index.php');
-            } else {
-                // Redirect to home page
-                $_SESSION['admin'] = false;
-                header('location:/index.php');
+                array_push ( $error , "La password " . $user . " non è corretta per l'utente ". $user);
+            }
+            else{
+                $_SESSION['logged_in'] = true;
+                $_SESSION['ID_Utente'] = $loggedIn['ID_Utente'];
+    
+                if ($loggedIn['Admin']) {
+                    // Redirect to Administration page
+                    $_SESSION['admin'] = true;
+                    header('location:/admin/index.php');
+                } else {
+                    // Redirect to home page
+                    $_SESSION['admin'] = false;
+                    header('location:/index.php');
+                }
+    
+                exit();
             }
 
-            exit();
-        } else {
-            echo 'Wrong credentials';
-            // TODO: Do something instead of exiting
-            exit();
         }
+
+        
 
 
 
@@ -99,7 +102,7 @@
     $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
     
     // Set login form
-    $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));
+    $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm($error)));
 
     // Set footer
     $page->replaceTag('FOOTER', (new \html\components\footer));
