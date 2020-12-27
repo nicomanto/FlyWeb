@@ -286,6 +286,177 @@ function checkCartaCredito(){
 
 //#endregion
 
+
+
+
+
+
+//Form registrazione
+function validationTipoNome(id,Element){
+    var element  = document.getElementById(Element).value;
+    var error_id_message=document.getElementById(id);
+    var reg_expr= /^[A-Za-zÀ-ú\s]{4,30}$/;
+    var no_only_special=/^(\s)*$/;
+
+    if(element){
+        if( element.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
+            return false;
+        }
+        else if(no_only_special.test(element)){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Deve contenere almeno delle lettere";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+}
+
+function validationUsername(){
+    var username  = document.getElementById("username").value;
+    var error_id_message=document.getElementById("input_error_username");
+    var reg_expr= /^[\w@#-]{4,15}$/;
+    var no_only_special=/^([0-9]|_|@|#|-)*$/;
+
+    if(username){
+        if( username.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Permessi da 4 a 15 caratteri totali con # - _ @";
+            return false;
+        }
+        else if(no_only_special.test(username)){
+           error_id_message.style.visibility = 'visible';
+           error_id_message.innerHTML = "Deve contenere almeno delle lettere";
+           return false;
+        }
+        else{
+           error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+       error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+
+
+}
+
+function validationEmail(){
+    var email  = document.getElementById("email").value;
+    var error_id_message=document.getElementById("input_error_email");
+    var reg_expr= /^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/;
+
+    if(email){
+        if( email.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Non è in un formato standard come esempio@esempio.com";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+
+
+}
+
+function validationPassword(){
+    var password  = document.getElementById("password").value;
+    var error_id_message=document.getElementById("input_error_password");
+    var reg_expr= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+    if(password){
+        if( password.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "La <span xml:lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+
+}
+
+
+function validationPasswordRepeat(){
+    var password_ripetuta  = document.getElementById("password_ripetuta").value;
+    var password  = document.getElementById("password").value;
+    var error_id_message=document.getElementById("input_error_password_repeated");
+
+    if(password_ripetuta){
+        if( password_ripetuta!=password){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Le <span xml:lang='en'>password</span> non corrispondono";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+
+
+}
+
+
+
+function validationDataNascita(){
+    var dataNascita  = document.getElementById("data_nascita").value;
+    var error_id_message=document.getElementById("input_error_birt_date");
+    var today = convertDate(new Date());
+
+    if(dataNascita){
+        if(dataNascita>today){
+            error_id_message.style.visibility = 'visible';
+            error_id_message.innerHTML = "Hey, ma devi ancora nascere...";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+    }
+
+    return true;
+
+
+}
+
+
+function convertDate(date){
+    var day = ("0" + date.getDate()).slice(-2);
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    var year = date.getFullYear();
+
+    return year+'-'+month+'-'+day;
+}
+
 checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();

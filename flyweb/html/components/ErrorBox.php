@@ -3,11 +3,10 @@
 namespace html\components;
 
 use \html\components\baseComponent;
-use \html\components\ErrorBox;
 
-class LoginForm extends baseComponent {
+class ErrorBox extends baseComponent {
 
-    const _templateName = 'login_form';
+    const _templateName = 'error_box';
     private $error;
 
     public function __construct(array $error) {
@@ -18,14 +17,12 @@ class LoginForm extends baseComponent {
     }
 
     public function render(): string {
-        
-        if(!empty($this->error)){
+        $error_message="";
+        foreach($this->error as $i){
+            $error_message.="<li>".$i."</li>";
+        }
 
-            $this->replaceTag('ERROR_BOX',new ErrorBox($this->error));
-        }
-        else{
-            $this->replaceTag('ERROR_BOX','');
-        }
+        $this->replaceValue("list_error",$error_message);
 
         return $this;
     }

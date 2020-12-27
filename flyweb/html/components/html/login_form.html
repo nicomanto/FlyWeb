@@ -1,13 +1,14 @@
 <div id="content">
     <h1 class="titolo-pagina">ACCEDI</h1>
     <INFO_BOX />
+    <ERROR_BOX/>
     <form action="./login.php" method="post" class="form-registrazione">
         <fieldset>
             <legend class="aiuti_alla_navigazione">&nbsp;Modulo di accesso&nbsp; </legend>
                 <label for="user"><span lang="en">E-mail o Username</span></label>
-                <input type="text" name="user" class="input" id="user" /><br>
+                <input type="text" name="user" class="input" id="user" required/><br>
                 <label for="password" lang="en">Password</label>
-                <input type="password" name="password" class="input" id="password" /><br>
+                <input type="password" name="password" class="input" id="password" required/><br>
 
                 <input type="submit" id="login" name="login" class="btn-submit bottoneform" value="LOGIN" />
 
