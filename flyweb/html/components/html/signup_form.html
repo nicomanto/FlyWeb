@@ -1,31 +1,42 @@
 <div id="content">
     <h1  class="titolo-pagina">REGISTRATI</h1>
     <INFO_BOX />
-    <form action="./signup.php" method="post" class="form-registrazione">
+
+    <ERROR_BOX/>
+    <form action="./signup.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationPassword() && validationPasswordRepeat() && validationDataNascita())">
         <fieldset>
             <legend class="aiuti_alla_navigazione"> &nbsp; Modulo di registrazione &nbsp; </legend>
 
                 <label for="nome" lang="en">Nome</label>
-                <input type="text" name="nome" class="input" id="nome" value="%NOME%" /><br>
+                <input type="text" name="nome" class="input" id="nome" value="%NOME%" placeholder="Inserisci il tuo nome" required onblur="validationTipoNome('input_error_nome','nome')" /><br>
+                <p id="input_error_nome" class="p_input_error"> testo errore </p>
 
                 <label for="cognome" lang="en">Cognome</label>
-                <input type="text" name="cognome" class="input" id="cognome" value="%COGNOME%" /><br>
+                <input type="text" name="cognome" class="input" id="cognome" value="%COGNOME%" placeholder="Inserisci il tuo cognome" required onblur="validationTipoNome('input_error_cognome','cognome')"/><br>
+                <p id="input_error_cognome" class="p_input_error"> testo errore </p>
 
                 <label for="birt_date" lang="en">Data di nascita</label>
-                <input type="date" name="data_nascita" class="input input-date" id="data_nascita" value="%DATA_NASCITA%" /><br>
+                <input type="date" name="data_nascita" class="input input-date" id="data_nascita" value="%DATA_NASCITA%" required onblur="validationDataNascita()"/><br>
+                <p id="input_error_birt_date" class="p_input_error"> testo errore </p>
 
                 <label for="username"><span lang="en">Username</span></label>
-                <input type="text" name="username" class="input" id="username" value="%USERNAME%" /><br>
+                <input type="text" name="username" class="input" id="username" value="%USERNAME%" placeholder="Inserisci il tuo username" required onblur="validationUsername()"/><br>
+                <p id="input_error_username" class="p_input_error"> testo errore </p>
 
                 <label for="email"><span lang="en">E-mail</span></label>
-                <input type="text" name="email" class="input" id="email" value="%EMAIL%" /><br>
+                <input type="text" name="email" class="input" id="email" value="%EMAIL%" placeholder="Inserisci la tua email personale" required onblur="validationEmail()"/><br>
+                <p id="input_error_email" class="p_input_error"> testo errore </p>
 
                 <label for="password" lang="en">Password</label>
-                <input type="password" name="password" id="password" class="input" value="%PASSWORD%" /><br>
+                <input type="password" name="password" id="password" class="input" value="" placeholder="Inserisci la password" required onblur="validationPassword()"/><br>
+                <p id="input_error_password" class="p_input_error"> testo errore </p>
 
                 <label for="password_repeated" lang="en">Ripeti Password</label>
-                <input type="password" name="password_ripetuta" class="input" id="password_ripetuta" /><br>
+                <input type="password" name="password_ripetuta" class="input" id="password_ripetuta" placeholder="Ripeti la password" required onblur="validationPasswordRepeat()"/><br>
+                <p id="input_error_password_repeated" class="p_input_error"> testo errore </p>
+
                 <input type="submit" id="signup" name="signup" class="btn-submit bottoneform" value="Registrati" />
+
 
         </fieldset>
 

@@ -1,18 +1,16 @@
 <?php
-
+use model\BreadcrumbItem;
 use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
-    $admController = new \controllers\AdmController();
     $userController= new \controllers\UserController();
 
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
-    
     $ordini = $userController->getOrderList();
 
     $paginatedOrders = Paginator::paginate($ordini, $page);
@@ -23,9 +21,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("#","Ordini effettuati")
+    );
+
+    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
     $searchResults = '';
+    
     foreach ($paginatedOrders['elements'] as $ordine) {
         $searchResults .= new \html\components\orderListItem($ordine);
     }

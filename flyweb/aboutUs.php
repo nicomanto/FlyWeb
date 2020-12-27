@@ -1,25 +1,33 @@
 <?php
 
     use controllers\RouteController;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::unprotectedRoute();
 
-    // TODO: This is for debug only
-    if ($_SESSION['logged_in']) {
-        echo '<p>You\'re logged in!!</p>';
-        $user = "LoggedUser";
-    } else {
-        echo 'You\'re not logged in';
-        $user = "NotLoggedUser";
-    }
-
+    // ATTENZIONE: la presenza di queste stringhe di debug crea problemi al replace del tag <HEAD/> nella pagina aboutUs, non so il perchè
+    // // TODO: This is for debug only
+    // if ($_SESSION['logged_in']) {
+    //     echo '<p>You\'re logged in!!</p>';
+    //     $user = "LoggedUser";
+    // } else {
+    //     echo 'You\'re not logged in';
+    //     $user = "NotLoggedUser";
+    // }
 
     $page = new \html\template('aboutUs');
 
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("#","About us","en")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));

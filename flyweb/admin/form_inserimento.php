@@ -12,6 +12,8 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
+    $page->replaceValue('TITOLO', "INSERISCI VIAGGIO");
+
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio));
 
     echo $page;

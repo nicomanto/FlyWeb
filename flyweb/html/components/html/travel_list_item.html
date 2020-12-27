@@ -9,18 +9,20 @@
  
         <p>%TRAVEL_DESCRIPTION%</p>
         
-        <div class="bg-info">
-            <h3>Date:</h3></p><p>dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong>
-            <h3>Prezzo:</h3></p><p> <strong>%TRAVEL_PRICE% &euro;</strong>
+        <div class="basic-info">
+            <h3>Date:</h3><span> dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong> </span>
+        </div>
+
+        <div class="basic-info">
+            <h3>Prezzo:</h3><span><strong> %TRAVEL_PRICE% &euro;</strong></span> 
         </div>
 
     </div>
-    <input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Viaggia con noi!">
+    <input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Scopri di più...">
 
     <!--  TO DO 
         <form action="travel.php?id=%TRAVEL_ID%" method="get">
             <input class="travel-goto" type="submit" value="viaggia con noi">
         </form>
     -->
-
 </div>

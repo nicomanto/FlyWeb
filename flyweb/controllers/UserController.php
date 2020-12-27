@@ -42,17 +42,32 @@ class UserController extends BaseController {
         return $this->db->runQuery($query, $this->user->id_utente);
     }
 
+    public function getPassword(){
+        $query = 'SELECT Password FROM Utente WHERE ID_Utente = ?;';
+        return $this->db->runQuery($query, $this->user->id_utente)[0];
+    }
+
+    public function getNome(){
+        $query = 'SELECT Nome FROM Utente WHERE ID_Utente = ?;';
+        return $this->db->runQuery($query, $this->user->id_utente);
+    }
+
     //query che aggiorna i dati nel db di un utente
 
     public function aggiornaUtente(){
-            $query='UPDATE Utente SET  Password = ?, Nome = ?, Cognome = ?, Email = ?, DataNascita = ? WHERE ID_Utente=?';
+            $query='UPDATE Utente SET Username = ?, Nome = ?, Cognome = ?, Email = ?, DataNascita = ? WHERE ID_Utente=?';
              $this->db->runQuery($query,
-                                $this->user->password, 
+                                $this->user->username, 
                                 $this->user->nome, 
                                 $this->user->cognome, 
                                 $this->user->email,
                                 $this->user->data_nascita,
                                 $this->user->id_utente);
+    }
+
+    public function aggiornaPsw(){
+        $query='UPDATE Utente SET Password = ? WHERE ID_Utente=?';
+        $this->db->runQuery($query, $this->user->password, $this->user->id_utente);
     }
 
 }

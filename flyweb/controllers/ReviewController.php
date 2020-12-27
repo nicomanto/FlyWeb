@@ -20,5 +20,10 @@ class ReviewController extends BaseController {
         //inserimento reviewTravel
         $query = 'INSERT INTO RecensioneViaggio VALUES ((SELECT MAX(ID_Recensione) FROM Recensione),?);';
         $this->db->runQuery($query, $id_viaggio);
-    }    
+    }
+    
+    public function getNumberNoModReview(){
+        $query='SELECT COUNT(*) FROM Recensione WHERE `Mod`=0;';
+        return $this->db->runQuery($query)[0]["COUNT(*)"];
+    }
 }

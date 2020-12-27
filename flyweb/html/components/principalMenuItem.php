@@ -31,9 +31,9 @@ class PrincipalMenuItem extends BaseComponent {
 
         //controllare varibile di sessione per disattivare il link della pagina in cui ci si trova
         if(true)
-            $this->replaceValue('LINK',"href=\"".$this->itemMenu->get_path()."\"");
+            $this->replaceValue('LINK',$this->itemMenu->get_path());
         else
-            $this->replaceValue('LINK',"");
+            $this->replaceValue('LINK',"#");
 
         return $this;
     }

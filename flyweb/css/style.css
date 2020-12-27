@@ -17,17 +17,31 @@ label, legend{
     font-weight: bolder;
     font-size: 18px;
 }
-input, textarea{
+input,a{
     font-size: 16px;
+    cursor: pointer;
 }
+
+input[type="text"], input[type="date"], textarea{
+    cursor: text;
+}
+
+.aiuti-alla-navigazione{
+    visibility: hidden;
+}
+
+.azzera-altezza{
+    height: 0px;
+    width: 0;
+}
+
 
 * {
     padding: 0em;
     margin : 0em;
     line-height: 1.5em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto' ,sans-serif; /* 'Helvetica Neue' */
 }
-
 
 body {
     /* font-family: 'Lato'; */
@@ -47,10 +61,9 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex: 1;
 }
 
-.contenuto-home .nav-menu{
+.contenuto-home .main-menu{
     order: 1;
 }
 
@@ -70,7 +83,7 @@ body {
     order: 4;
 }
 
-/* === DASHBOARD === */
+/* === DASHBOARD board.html === */
 .board-flex-container{
     display: flex;
     flex-flow: row wrap;
@@ -84,6 +97,8 @@ body {
 .board-menu{
     width: 30%;
     order: 1;
+    background-color: #0a3150;
+    text-align: center;
     min-height: 100%;
 }
 
@@ -106,39 +121,28 @@ body {
     background-color: #fff;
     border: 3px solid #fff;
     list-style-type: none;
-    padding:0.5em;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     width: 80%;
     margin: 0 auto;
     margin-bottom: 3em;
-    cursor: pointer;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 90%;
 }
 
 .menu-dash-element:hover{
     background-color: #e49d44;
     border: 3px solid #e49d44;
     margin-bottom: 3em;
-    padding:0.5em;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .menu-dash-element-selected{
-    background-color: #fff;
-    border: 3px solid #fff;
-    opacity: 0.2;
-    border-radius: 5px;
-    list-style-type: none;
-    margin-bottom: 3em;
-    padding:0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
+    cursor: none;
+    text-decoration: none;
 
-.menu-logo{
-    width: 150px;
-    height: 150px;
 }
-
 
 /* === DASHBOARD FORM === */
 .dash-form{
@@ -242,7 +246,6 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none;
 }
 
-
 .dash-form fieldset{
     border-color: #0a3150;
     width: 100%;
@@ -251,6 +254,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding-left: 1em;
     padding-top: 1em;
     border-radius: 10px;
+
 }
 
 .dash-form legend{
@@ -312,6 +316,7 @@ input[type=number]::-webkit-outer-spin-button {
 .board-contenuto ul{
     list-style: none;
 }
+
 .adm-card{
     border: 0px solid #c53020;
     padding: 1em 1em 1em 1em;
@@ -341,6 +346,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 40%;
     margin: 0.5em;
 }
+
 .adm-bottone-modifica-card:hover{
     filter: brightness(1.5);
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -419,104 +425,108 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 
-/*  MENU */
-#board_footer{
-    width: 100%;
-    order: 3;
-    margin-top: 2em;
-}
-
-
 /* === SEARCH BOX === */
-
 .form-search{
     background-color: #0a3150;
     color:white;
     margin:auto;
-    width: 75%;
-    border-radius: 1em;
+    width: 90%;
+    border-radius: 30px;
     text-align: center;
-    padding-bottom: 1em;
+    padding-top: 1em;
+    margin-top: 1em 0 1em 0;
 }
 
-.search-box-input{
-    background-color: #c53020;
+.form-search legend{
+    height: 0px;
+}
+
+.form-search fieldset{
+    border: 0;
+}
+
+.form-search input, .form-search label{
     border-radius: 2em;
-    width: 95%;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0.5em;
-    margin-bottom: 0.5em;
+    border: 0;
 }
 
 .form-search input{
-    border-radius: 2em;
-    border: 0;
+    padding: 1.2em;
+    border:  2px solid #fff;
 }
 
-.search-box-date{
-    display: inline-block;
+.form-search input:hover{
+    background-color: #d3e2f8;
+    border:  2px solid #d3e2f8;
+}
+.form-search input:focus{
+    background-color: #91bcfd;
+    border:  2px solid #91bcfd;
+}
+
+.form-search span{
+    margin-left: 0.5em;
+}
+
+.search-box-div{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    border-radius: 2em;
+    text-align: left;
+    align-content: center;
+    margin-bottom: 1em;
+}
+
+.search-box{
     background-color: #c53020;
-    border-radius: 2em;
-    border: 0;
-    width: 95%;
-    vertical-align: middle;
-    padding: 0.5em;
-    background-image: url();
 }
 
-.search-box-input .search-key{
-    width: 60%;
-}
-
-.search-box-input .search-box-submit{
-    width: 25%;
-    display: inline;
-    cursor:pointer;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
-    border: 0;
-}
-
-.form-search .search-key:hover, .form-search .search-box-submit:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.form-search .search-box-submit:hover{
+.search-box input[type="submit"]:hover{
     color: #c53020;
-
+    font-size: medium;
+    font-weight: bolder;
 }
 
-.search-box-date1{
+.search-input-field{    
+    width: 70%;
+}
+
+.search-input-field .search-key{
+    width: 70%;
+}
+
+.search-submit-field{
+    width: 30%;
+}
+
+.search-submit-field .search-submit{
+    min-width: 100%;
+    background-color: #fff;
+}
+
+
+.search-label{
     background-color:#c53020;
-    padding: 0.5em;
-    border-radius: 2em;
-    display: inline-block;
-    padding-left: 1em;
+    min-width: 45%;
+    display: inline-flex;
+    justify-content: space-between;
+    background-color: #c53020;
+    min-width: 49%;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1em;
 }
 
-.search-box-date1:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.16);
-}
 
-.form-search input{
-    padding:1em;
-}
-
-#fieldset_search{
-    border: 0;
-}
-
-.aiuti-alla-navigazione{
-    visibility: hidden;
-}
-
-.search-box-div-filtri{
+.filtri-nascosti{
     display: none;
-
 }
-.form-search input[type="date"]{
-    cursor: text;
+
+.filtri{
+    display: block;
 }
 
 .form-search ::-webkit-calendar-picker-indicator:hover{
@@ -528,14 +538,22 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none;
 }
 
-/* === TRAVEL DETAILS === */
+/* === adattamento form alla dash di amministrazione === */
+.board-flex-container .search-box{
+    margin: 0 0 1em 0;
+}
 
+.board-flex-container .search-label{
+    width: 100%;  
+    margin: 0 0 1em 0;
+}
+
+/* === TRAVEL DETAILS === */
 .travel-details-container {
     display         : inline-flex;
     flex-direction  : row;
     flex-wrap       : wrap;    
     justify-content : space-between;
-    align-items     : stretch;
     margin-top      : 1em;
     width           : 100%;
     height          : 50%;
@@ -544,8 +562,48 @@ input[type=number]::-webkit-outer-spin-button {
 .travel-details-container .main-img{
     order           : 1;
     width           : 50%;
+    border-radius   : 10px;
+    border          : 2px solid lightgrey;
 }
 
+.travel-details-container .travel-details-info {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    order           : 2;
+    min-width: 48%;
+   
+}
+
+.travel-details-info h1{
+    margin-bottom   : 0.5em;
+}
+
+.travel-details-container .complete-desc{
+    order           : 3;
+    width           : 100%;
+    margin-top      : 1em;
+}
+
+.travel-details-container .travel-goto{
+    font-size       : large;
+    text-align      : center;
+    width           : 90%;
+    padding         : 1em;
+    margin          : 0 auto;
+    border-radius   : 10px;
+}
+
+.travel-details-container .price{
+    font-size       : x-large;
+    background-color: #e49d44;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+}
 
 /* === TRAVEL DETAILS INTEGRAZIONI === */
 .form-integrazioni{
@@ -591,13 +649,46 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom   : 1em;
 }
 
+/* === TRAVEL RELATED ITEM === */
 
-/* === REGISTRATI === */
+.related-travels{
+    order: 4;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.related-travels .travels-list{
+    background-color: #fff;
+}
+
+.related-travels h2{
+    margin-top: 1em;
+}
+
+.related-travels .travel-list-item{
+    flex: 0 0 200px;
+}
+
+.related-travels .travels-list{
+    justify-content: space-between;
+}
+
+.related-list li{
+    list-style: none;
+    text-align: center;
+    font-size: small;
+}
+.related-info{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.related-travels .travel-list-item a{
+    min-height: 100%;
+}
+
+/* === REGISTRAZIONE, LOGIN=== */
 .form-registrazione{
-    border-color: #0a3150;
-    background-color:#fff;
-    color: #0a3150;
-    font-family: 'Roboto', sans-serif;
     width: 50%;
     margin: 0 auto;
     margin-top: 1em;
@@ -605,30 +696,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-registrazione fieldset{   
-    border-color: #0a3150;
-    display: block;
-    margin: 1.0em auto;
     text-align: center;
     padding: 0.5em;
-    border-radius: 5px;
-}
-
-
-.form-registrazione legend{
-    text-align: center;
-}
-
-.form-registrazione .input-date{
-    text-align: center;
-    width: 90%;
-    margin-left: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .form-registrazione .btn-submit{
-    text-align: center;
-    display: block;
     width: 95%;
-    margin: auto;
+    margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
@@ -651,4 +727,489 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     letter-spacing: 2px;
+}
+
+.response-message{
+    height: auto;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/* === ABOUT US === */
+.about-us-container h1{
+    order: 0;
+    width: 100%;
+}
+.su-di-noi{
+    background-color: #E9EBEE;
+    border-radius: 10px;
+}
+
+.contatti-contenuto p{
+    text-align: center;
+}
+
+.su-di-noi p{
+    margin          : 0 auto;
+    vertical-align  : middle;
+    padding         : 1em;
+}
+
+.contatti{
+    margin-top      : 1em;
+    margin-bottom   : 1em;
+    background-color: #E9EBEE;
+    border-radius   : 10px;
+    width           : 100%;
+    order           : 3;
+    display         : inline-flex;
+    flex-direction  : row;
+    flex-wrap       : wrap;    
+}
+
+
+
+.contatti-contenuto{
+    width           : 100%;
+    margin          : 0 auto;
+    padding         : 1em;
+}
+
+.contatti ul{
+    list-style:none;
+    width: 100%;
+}
+
+
+.contatti ul li h3{
+    margin-left: -0.5em;
+    border-bottom: 2px solid #0a3150;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.contatti ul li{
+    background-color: #e49d44;
+    border-radius: 5px;
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+
+}
+
+.contatti ul li table{
+    border-collapse: collapse;
+    background-color: lightgray;
+    margin-right: 1em;
+    width: 98%;
+    text-align: center;
+}
+
+.contatti ul li table td, table th {
+    border: 2px solid gray;
+    padding: 8px;
+}
+
+.contatti ul li table tr:nth-child(even){background-color: #f2f2f2;}
+
+.contatti ul li table thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0a3150;
+    color: #fff;
+}
+
+/* === PROFILO  MENU === */
+.profilo-flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    background-color:#fff;
+    width: 100%;
+    padding: 0;
+    vertical-align: top;
+}
+
+.profilo-flex-container .main-menu{
+    order: 1;
+}
+
+.profilo-menu{
+    order: 2;
+    min-height: 100%;
+    width: 30%;
+    background-color: #0a3150;
+    padding-top: 3em;
+}
+
+.profilo-contenuto .form-registrazione{
+    width: 80%;
+}
+
+.profilo-contenuto{
+    width: 65%;
+    order: 3;
+    margin:auto;
+    vertical-align: top;
+    margin-top: 0;
+    padding: 0.5em;
+}
+
+.profilo-contenuto ul{
+    list-style:  none;
+    text-align: left;
+    padding-left: 1em;
+    padding-bottom: 1em;
+
+}
+
+.profilo-contenuto h3{
+    display: inline;
+}
+
+.profilo-flex-container .footer{
+    order: 4;
+    min-width: 100%;
+}
+
+.profilo-form-btn .adm-bottone-modifica-card, .profilo-form-btn .adm-bottone-elimina-card{
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* === ORDINI ITEM LIST=== */
+/* utilizzato css delle recensioni */
+
+/* === ORDER DETAILS === */
+
+.order-details .header-review h1{
+    display: block;
+}
+
+
+/* === FOOTER === */
+
+.footer{
+    background-color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
+    vertical-align: top;
+}
+
+.footer h3{
+    font-size    : 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.footer small {
+    margin-bottom: 3em;
+    font-size: 1em;
+    width: 100%;
+}
+
+.footer-menu{
+    text-align: center;
+    width: 100%;
+}
+
+.footer-menu ul {
+    display: inline-flex;
+    list-style: none;
+
+}
+
+.footer-menu ul li {
+    margin    : 1em;
+    text-align: center;
+    display: block;
+}
+.footer-menu ul li a{
+    text-align: center;
+    min-width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+.footer-menu ul li a:hover{
+    background-color: rgba(0, 0, 0, 0.21);
+}
+
+.navbar-social-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.footer .footer-col{
+    width: 45%;
+    margin: 1em;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.footer-col img{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* .footer .logo, .footer input, .footer label{
+    display: none;
+} */
+
+@media only screen and (max-width: 768px){
+
+    body, html, nav{
+        margin:0;
+        padding:0;
+        min-width: 100%;
+        height: auto;
+    }
+
+    li, a, input, .input, .input-date{
+        min-height: 48px;
+    }
+
+    /* === SEARCH BOX === */
+
+    .form-search span{
+        text-align: center;
+        font-size: xx-large;
+        display: block;
+        width: 100%;
+    }
+
+    .search-label input{
+        width: 100%;
+    }
+    
+    .search-label, .search-input-field, .search-submit-field{
+        width: 100%;
+    }
+
+    .search-key,.search-submit{
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 1em;
+    }
+    
+    /* ===  ACCEDI, REGISTRATI   === */
+    .form-registrazione{
+        width: 80%;
+    }
+
+    /* === FORM PROFILO ===*/
+
+    .form-registrazione fieldset{
+        display: block;
+        padding: 0;
+        padding-top: 1em;
+        width: 95%;
+    }
+
+    .form-registrazione input{
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .form-registrazione label, .form-registrazione h3{
+        display: block;
+    }
+
+    .form-registrazione span{
+        margin-left: 1em;
+    }
+    .form-registrazione li{
+        margin-bottom: 1em;
+    }
+
+    .form-registrazione .input, .form-registrazione .input-date{
+        padding: 0.2em;
+        margin: 0 auto;
+        width: 80%;
+        margin-bottom: 1em;
+    }
+
+    /* === FORM AMMINISTRAZIONE === */
+
+    .dash-form{
+        margin: 0;
+        margin-bottom: 3em;
+        padding: 0;
+        width: 95%;
+    }
+
+    .dash-form fieldset{
+        width: 100%;
+        text-align:center;
+        margin: 0;
+        padding: 0.5em;
+    }
+
+    .dash-form fieldset ul{
+        width: 100%;
+        text-align:left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dash-form .input-date{
+        margin: 0;
+    }
+
+
+    /* == SEARH BOX == */
+    .filtri{
+        width: 100%;
+    }
+
+    /* === AMMINISTRAZIONE === */
+
+    .board-contenuto .dash-form fieldset{
+        margin: 0.5em;
+        width: 95%;
+    }
+
+    .board-contenuto .dash-form label{
+        text-align: left;
+        display: block;
+        margin: 0;
+    }
+
+    .board-contenuto .form-search{
+        margin-bottom: 1em;
+    }
+
+    .board-contenuto .adm-card{
+        height: auto;
+    }
+
+
+
+    /* === TRAVELS LIST === */
+
+    .travel-list-item{
+        flex-grow: 0.5;
+    }
+
+    .travel-page-content{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* === TRAVEL DETAILS  === */
+
+    .travel-details-container {
+        display         : inline-flex;
+        flex-direction  : column;
+        flex-wrap       : wrap;    
+        justify-content : space-between;
+        align-items     : center;
+        width           : 100%;
+        height          : 50%;
+        margin          : 0 auto;
+        margin-top      : 0.5em;
+        text-align      : center;
+    }
+    
+    .travel-details-container .main-img{
+        width           : 95%;
+    }
+    
+    .travel-details-container .travel-details-info {
+        width: 95%;
+        justify-content : space-between;
+
+    }
+    
+    .travel-details-container h1{
+        margin-bottom   : 0.5em;
+    }
+
+    .travel-details-container h2{
+        text-align: center;
+    }
+
+    .travel-details-container .complete-desc{
+        width           : 95%;
+    }
+    
+    
+    .travel-details-container .price{
+        width: 50%;
+    }
+
+    .travel-details-container .travel-details-icon{
+        display: none;
+    }       
+
+
+    /* === TRAVEL RELATED === */
+    .related-travels .travels-list{
+        justify-content: center;
+
+    }
+
+    .related-travels h2{
+        text-align:  center;
+    }
+
+
+
+    /* === TRAVEL INTEGRAZIONI === */
+
+    .form-integrazioni fieldset{
+        /* width           : 98%; */
+        margin: 0 auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .form-integrazioni input[type="submit"]{
+        /* width: 90%; */
+        text-align: center;
+    }
+
+    
+    /* === TRAVEL REVIEWS === */
+    .travel-reviews{
+        /* width: 98%; */
+        margin: 0 auto;
+    }
+
+
+    /* === PROFILO ===*/
+
+    .profilo-flex-container{
+        justify-content: center;
+    }
+
+    .profilo-menu{
+        width: 100%;
+        padding-top: 3em;
+    }
+
+    .profilo-contenuto,
+    .profilo-contenuto fieldset{
+        width: 95%;
+        margin: 0 auto;
+
+    }
+
+    .profilo-contenuto form{ 
+        min-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 3em;
+    }
+
+}
+
+@media only screen and (max-width: 480px){
+
 }

@@ -6,10 +6,15 @@
     <h3>Contenuto :</h3> <span>%DESCRIZIONE%</span><br>
     <div class="adm-bottoni-recensione">
         <div class="adm-card-rev">
-            <input type="button" class="adm-bottone-approva-recensione" name="btn_approva"
-                id="%ID%" value="APPROVA" onclick="approva(this.id)">
-            <input type="button" class="adm-bottone-elimina-recensione" name="btn_approva"
-                id="%ID%" value="ELIMINA" onclick="elimina(this.id)">
+            <form action="/admin/moderazione_recensioni.php" method="post">
+                <input type="hidden" name="id_review" id="id_review" value="%ID%">
+
+                <input type="submit" class="adm-bottone-approva-recensione" name="btn_approva"
+                id="btn_approva" value="APPROVA" >
+
+                <input type="submit" class="adm-bottone-elimina-recensione" name="btn_elimina"
+                id="btn_elimina" value="ELIMINA" onclick="return ConfermaEliminazione()">
+            </form>
         </div>
     </div>
 </li>

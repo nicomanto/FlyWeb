@@ -1,24 +1,37 @@
 <head>
     <script type="text/javascript" src="/js/formUtenteScript.js"> </script>
 </head>
-<div id="content">
-    <form action='./eliminazione_profilo.php' onsubmit="return clicked()">
-    <h1>Dati Personali</h1>
-    <INFO_BOX />
-        <fieldset>
-            <legend class="aiuti_alla_navigazione">Dati personali utente</legend>
-            <div>
-                <p>Username : %USERNAME% <br>
-                   Email : %EMAIL% <br>
-                   Nome : %NOME% <br>
-                   Cognome : %COGNOME% <br>
-                   Data di nascita : %DATA_NASCITA% <br>
-                   Password : %PASSWORD% <br> </p> <!--la password andrebbe nascosta sotto asterischi-->
-            </div>
-                <div>
-                <input type="button" onclick="location.href='/modifica_info_profilo.php';" value="Modifica Dati" />
-                <input class="bottone" type="submit" id="submit" value="Elimina Profilo :(">
-            </div>            
-        </fieldset>
-    </form>    
-</div>
+<h1 class="titolo-pagina">Riepilogo dati personali</h1>
+
+<form action='./eliminazione_profilo.php' class="dash-form form-registrazione" onsubmit="return clicked()">
+    <fieldset>
+        <legend class="aiuti_alla_navigazione">Dati personali utente</legend>
+        <ul>
+            <li>
+                <h3><strong>Email: </strong></h3> <span>%EMAIL%</span>
+            </li>
+
+            <li>
+                <h3><strong>Nome: </strong></h3> <span>%NOME% </span>
+            </li>
+
+            <li>
+                <h3><strong>Cognome: </strong></h3><span>%COGNOME% </span>
+            </li>
+
+            <li>
+                <h3><strong>Data di nascita: </strong></h3> <span>%DATA_NASCITA% </span>
+            </li>
+
+            <li>
+                <h3><strong>Password:</strong></h3><span>%PASSWORD%</span>
+            </li>
+        </ul>
+        <!--la password andrebbe nascosta sotto asterischi-->
+        <div class="profilo-form-btn">
+            <input type="button" class="adm-bottone-modifica-card" onclick="location.href='/modifica_info_profilo.php';"
+                value="Modifica Dati" />
+            <input class="adm-bottone-elimina-card" type="submit" id="submit" value="Elimina Profilo &#128542; ">
+        </div>
+    </fieldset>
+</form>

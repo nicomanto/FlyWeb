@@ -5,8 +5,11 @@ use controllers\UserController;
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
-    $admController = new \controllers\AdmController();
     $userController= new \controllers\UserController();
+
+    if ($username){
+        $userController->user->username = $username;
+    }
     
     if ($email) {
         $userController->user->email = $email;
@@ -32,6 +35,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $page->replaceTag('HEAD', (new \html\components\head));
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("/modifica_info_profilo.php","Modifica profilo"),
+        new model\BreadcrumbItem("#","Riscontro modifica")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 

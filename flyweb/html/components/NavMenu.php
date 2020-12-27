@@ -6,15 +6,16 @@ use \html\components\BaseComponent;
 
 abstract class NavMenu extends BaseComponent {
 
-    const _templateName = "navmenu";
+    const _templateName1 = "navmenu";
+    const _templateName2 = "footer_site_map";
 
     protected $user;
     protected $menuItem;
     protected $typeMenu;
 
-    public function __construct($type){
+    public function __construct($type,$footer=true){
 
-        parent::__construct(self::_templateName);
+        parent::__construct(($footer) ? self::_templateName1 : self::_templateName2);
 
         $this->typeMenu=$type;
 
@@ -25,9 +26,9 @@ abstract class NavMenu extends BaseComponent {
         $this->render();
     }
 
-    abstract public function BuildMenuItem();
+    // abstract public function BuildMenuItem();
 
-    abstract public function TemplateMenuItem(): string;
+    // abstract public function TemplateMenuItem(): string;
 
     public function render(): string{
 
