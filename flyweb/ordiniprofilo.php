@@ -6,13 +6,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
-    $admController = new \controllers\AdmController();
     $userController= new \controllers\UserController();
 
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
-    
     $ordini = $userController->getOrderList();
 
     $paginatedOrders = Paginator::paginate($ordini, $page);

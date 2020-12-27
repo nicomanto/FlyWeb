@@ -5,8 +5,11 @@ use controllers\UserController;
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
-    $admController = new \controllers\AdmController();
     $userController= new \controllers\UserController();
+
+    if ($username){
+        $userController->user->username = $username;
+    }
     
     if ($email) {
         $userController->user->email = $email;
