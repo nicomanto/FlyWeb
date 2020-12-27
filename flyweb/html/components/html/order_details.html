@@ -1,5 +1,5 @@
 <div class="order_details">
-    <input type="button" onclick="location.href='/ordiniprofilo.php?id=%USER_ID%';" value="Torna ai tuoi ordini" />
+    <input type="button" value="Indietro" onClick="javascript:history.back()" name="button">
     <div class="elevator_pitch" style="display: flex; flex-direction: row;">
          <div class="info">
             <h1>Ordine N: %ID_ORDINE%</h1>
@@ -13,6 +13,8 @@
 
             <h3>Metodo di pagamento</h3>
             <p>%METODOPAGAMENTO%</p>
+
+            <h3>Viaggi acquistati:</h3>
             
         </div>
 

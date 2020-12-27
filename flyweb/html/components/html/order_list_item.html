@@ -1,6 +1,11 @@
-<div style="border:1px solid;">
-    <h3>Ordine N: %ID_ORDINE%</h3>
-    <p>Effettuato in data: %DATAORDINE% </p>
-    <p>Totale ordine: %TOTALE% £ </p>
-    <input type="button" onclick="location.href='/order.php?id=%ORDER_ID%';" value="Visualizza dettagli ordine" />    
-</div>
+ <form action='/order.php?id=%ORDER_ID%' method="GET">
+          <fieldset>
+              <h3 value = "%ID_ORDINE%">Ordine N: %ID_ORDINE%</h3>
+              <p id="data_ordine" class="data_ordine" value="%DATAORDINE%"> Effettuata in data: %DATAORDINE% </p>
+              <p id="totale" class="totale" value="%TOTALE%">Totale ordine: %TOTALE% £</p>
+              <input class="bottone" type="submit" id="submitForm" value="Visualizza dettagli ordine">
+          </fieldset>
+
+          <input type="hidden" name="id" id="id" value="%ID_ORDINE%">
+
+     </form>

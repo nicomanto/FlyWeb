@@ -3,8 +3,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
  
-
-    $admController = new \controllers\AdmController();
     $userController= new \controllers\UserController();
     $reviews = $userController->getReviewUtente();
 
