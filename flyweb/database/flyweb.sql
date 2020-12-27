@@ -47,7 +47,7 @@ create or replace table Ordine
 	MetodoPagamento ENUM('Paypal','CartaDiCredito','CardaDiDebito') not null,
 	Totale int not null,
 	constraint Ordine_ibfk_1
-		foreign key (ID_Utente) references Ordine (ID_Ordine) ON DELETE CASCADE
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE
 );
 
 create or replace table OrdineIntegrazione

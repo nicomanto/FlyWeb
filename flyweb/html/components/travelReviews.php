@@ -42,7 +42,5 @@ class TravelReviews extends baseComponent {
         $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);
 
         return $this;
-
-    }
-        
+    }     
 }

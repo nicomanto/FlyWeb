@@ -32,6 +32,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
     $searchResults = '';
+    
     foreach ($paginatedOrders['elements'] as $ordine) {
         $searchResults .= new \html\components\orderListItem($ordine);
     }

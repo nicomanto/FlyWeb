@@ -11,7 +11,7 @@ use \html\components\FooterSiteMapItem;
 class FooterSiteMap extends NavMenu {
 
     public function __construct() {
-        parent::__construct("footerSiteMap");
+        parent::__construct("footerSiteMap",false);
     }
 
     public function BuildMenuItem(){

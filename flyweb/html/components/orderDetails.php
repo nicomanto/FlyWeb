@@ -28,7 +28,7 @@ class OrderDetails extends baseComponent {
                 'comune' => $this->order->comune,
                 'metodopagamento' => $this->order->metodopagamento,
                 'totale' => $this->order->totale,
-                'dataordine' => $this->order->dataordine,
+                'dataordine' => $this->order->dataordine
         ]);
         return $this;
     }

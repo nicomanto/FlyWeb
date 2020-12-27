@@ -30,13 +30,14 @@ class SearchBox extends baseComponent {
     
         if($this->tipo == "adm-searchbox"){
             $values['url'] = '/admin/search_landing.php';
+            $values['filtri'] = 'filtri';
             $values['titolo'] = '';
         }else if($this->tipo == "searchbox"){
             $values['url'] = './search.php';
             $values['titolo'] = '';
         }else{
             $values['url'] = '/search.php';
-            $values['titolo'] = '';
+            $values['filtri'] = 'filtri-nascosti';
         }
 
         foreach ($this->values as $key => $value) {
