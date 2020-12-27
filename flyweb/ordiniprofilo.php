@@ -15,7 +15,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $paginatedOrders = Paginator::paginate($ordini, $page);
 
-    $_page= new \html\template('profilo');
+    $_page= new \html\template('order');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 

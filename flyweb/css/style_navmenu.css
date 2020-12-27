@@ -4,8 +4,8 @@
   width          : 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
   min-height: 60px;
-  
 }
+
 .main-menu ul {
     font-size      : 1em;
     float: right;
@@ -26,12 +26,9 @@
   height: 60px;
   width: 20%;
   background-color: #c53020;
-}
-
-.main-menu .logo{
   object-fit: cover;
-}
 
+}
 .main-menu  .menuPage{
     padding         : 0.3em;
     padding-left    : 1em;
@@ -47,17 +44,6 @@
     border-bottom: 3px solid #0a3150;
     box-shadow: 0 6px 10px rnavgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }
-
-
-.main-menu .logo{
-  display: inline-flex;
-  font-size: xx-large;
-  vertical-align: top;
-  margin-left: 1em;
-  color: #fff;
-  text-decoration: none;
-}
-
 
 /* === MOBILE  MENU === */
 .menucb{
