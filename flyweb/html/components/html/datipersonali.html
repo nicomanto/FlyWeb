@@ -8,6 +8,10 @@
         <legend class="aiuti_alla_navigazione">Dati personali utente</legend>
         <ul>
             <li>
+                <h3><strong>Username: </strong></h3> <span>%USERNAME%</span>
+            </li>
+
+            <li>
                 <h3><strong>Email: </strong></h3> <span>%EMAIL%</span>
             </li>
 
@@ -23,14 +27,13 @@
                 <h3><strong>Data di nascita: </strong></h3> <span>%DATA_NASCITA% </span>
             </li>
 
-            <li>
-                <h3><strong>Password:</strong></h3><span>%PASSWORD%</span>
-            </li>
         </ul>
-        <!--la password andrebbe nascosta sotto asterischi-->
+      
         <div class="profilo-form-btn">
-            <input type="button" class="adm-bottone-modifica-card" onclick="location.href='/modifica_info_profilo.php';"
+            <input type="button" class="adm-bottone-modifica-card" onclick="location.href='/form_modifica_info_profilo.php';"
                 value="Modifica Dati" />
+                <input type="button" class="adm-bottone-modifica-card" onclick="location.href='/form_modifica_psw.php';"
+                value="Modifica Password" />
             <input class="adm-bottone-elimina-card" type="submit" id="submit" value="Elimina Profilo &#128542; ">
         </div>
     </fieldset>
