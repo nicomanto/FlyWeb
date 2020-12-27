@@ -1,6 +1,7 @@
 <?php
 
     use controllers\RouteController;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -89,6 +90,13 @@
 
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("#","Accedi")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
     
     // Set login form
     $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm));

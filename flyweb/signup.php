@@ -1,6 +1,7 @@
 <?php
 
     use controllers\RouteController;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -20,6 +21,13 @@
 
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("#","Registrati")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     // Set signup form
     $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm));

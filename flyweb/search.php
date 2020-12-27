@@ -2,6 +2,7 @@
 
     use controllers\RouteController;
     use model\Paginator;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -50,6 +51,14 @@
 
     // Set nav menu
     $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/index.php","Home","en"),
+        new model\BreadcrumbItem("#","Ricerca viaggio")
+    );
+
+    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     // Set search box
     $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox("searchbox")));

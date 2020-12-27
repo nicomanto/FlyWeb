@@ -1,4 +1,5 @@
 <?php
+    use model\BreadcrumbItem;
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
@@ -11,6 +12,13 @@
     $page->replaceTag('HEAD', (new \html\components\head));
     
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("#","Profilo")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
   
