@@ -29,7 +29,7 @@ class ProfiloMenu extends BaseComponent {
 
         foreach($menu as $i){
             if($i->get_name()=="Dati Personali" || $i->get_name()=="Ordini"  || $i->get_name()=="Recensioni")
-                $li.="<li xml:lang=\"en\"><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
+                $li.="<li xml:lang=\"it\" class='menu-dash-element'><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
             else
                 $li.="<li><a href=\"".$i->get_path()."\">".$i->get_name()."</a></li>";
         }

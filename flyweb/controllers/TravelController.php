@@ -99,5 +99,4 @@ class TravelController extends BaseController {
 
         return ! empty($this->db->runQuery($query, $this->travel->id_viaggio, $this->travel->id_viaggio));
     }
-
 }

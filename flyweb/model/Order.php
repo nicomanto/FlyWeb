@@ -12,6 +12,7 @@ class Order {
     public $comune;
     public $metodopagamento;
     public $totale;
+    public $dataordine;
 
     /**
      * Workaround to have multiple constructors
@@ -40,7 +41,7 @@ class Order {
         $this->comune = $order['Comune'];
         $this->metodopagamento = $order['MetodoPagamento'];
         $this->totale = $order['Totale'];
-        $this->dataordine = $order['DataOrdine'];
+        $this->dataordine = $order['Data'];
     }
 
 

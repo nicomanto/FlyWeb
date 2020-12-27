@@ -7,17 +7,15 @@
 
     RouteController::unprotectedRoute();
 
-    // TODO: This is for debug only
-    if ($_SESSION['logged_in']) {
-        echo '<p>You\'re logged in!!</p>';
-        $user = "LoggedUser";
-    } else {
-        echo 'You\'re not logged in';
-        $user = "NotLoggedUser";
-    }
-
-    
-
+    // ATTENZIONE: la presenza di queste stringhe di debug crea problemi al replace del tag <HEAD/> nella pagina aboutUs, non so il perchè
+    // // TODO: This is for debug only
+    // if ($_SESSION['logged_in']) {
+    //     echo '<p>You\'re logged in!!</p>';
+    //     $user = "LoggedUser";
+    // } else {
+    //     echo 'You\'re not logged in';
+    //     $user = "NotLoggedUser";
+    // }
 
     $page = new \html\template('aboutUs');
 

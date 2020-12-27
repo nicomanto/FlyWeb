@@ -1,76 +1,84 @@
 <div class="content-search-box">
-    %TITOLO%
     <INFO_BOX />
     <form action="%URL%" method="get" class="form-search" id="form_search">
         <fieldset id="fieldset_search">
-            <legend class="aiuti-alla-navigazione">Cerca</legend>
+            <legend class="aiuti-alla-navigazione">Cerca un viaggio</legend>
 
-            <div class="search-box-input" id="search_box_input">
-                <label for="search_key"><span lang="en">CERCA</span>
-                    <input type="text" name="search_key" class="search-key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
+            <div class="search-box-div search-box" id="search_box_input">
+                <label class="search-input-field" for="search_key">
+                    <span>CERCA</span>
+                    <input type="text" class="search-key" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
                 </label>
 
-                <label class="aiuti_alla_navigazione" for="search">
-                    <input type="submit" name="search" value="CERCA" class="search-box-submit" id="search_box_submit"/>
+                <label class="search-submit-field" for="search-button">
+                    <input type="submit"  class="search-submit" name="search-button" value="CERCA" id="search_box_submit"/>
                 </label>
             </div>
 
+            <div class="search-box-div">
+                <label  class="search-label" for="search_start_date">
+                    <span>Data inizio viaggio </span>
+                    <input type="date" name="search_start_date" placeholder="Seleziona la data di inizio" value="%SEARCH_START_DATE%" min="" max="">
+                </label>
 
-                <div class="search-box-date1">
-                    <label for="search_start_date">
-                        <span lang="en">Data inizio viaggio </span>
-                        <input type="date" name="search_start_date" placeholder="Seleziona la data di inizio" value="%SEARCH_START_DATE%" min="" max="">
-                    </label>
-                </div>
+                <label class="search-label" for="search_end_date">
+                    <span>Data fine viaggio</span>
+                    <input type="date" name="search_end_date" placeholder="Seleziona la data di fine" value="%SEARCH_END_DATE%" min="" max="">
+                </label>
+            </div>
+        </fieldset>
+        
+        <fieldset class="%FILTRI%">
+            <legend class="aiuti-alla-navigazione">Filtri aggiuntivi per ricerca viaggio</legend>
 
-                <div class="search-box-date1">
-                    <label for="search_end_date">
-                        <span lang="en">Data fine viaggio</span>
-                        <input type="date" name="search_end_date" placeholder="Seleziona la data di fine" value="%SEARCH_END_DATE%" min="" max="">
-                    </label>
-                </div>
-            
+
             <!-- <input type="button" id="filtri" onclick="visualizzaFiltri()" value="FILTRI AGGIUNTIVI"> -->
-            <div class="search-box-div-filtri" id="search_box_div_filtri">
-                <div class="search-box-div2">
-                    <label for="search_end_price"><span lang="en">Prezzo massimo</span></label>
-                    <input type="number" name="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="" max="">    
-                </div>
+            <div class="search-box-div" id="search_box_div_filtri">
+                    <label for="search_end_price" class="search-label">
+                        <span>Prezzo massimo</span>
+                        <input type="number" name="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="" max="">    
+                    </label>
 
-                <div class="search-box-div2">
-                        <label for="search_by_option"><span lang="en">Cerca per</span></label>
+                    <label for="searcHh_start_price" class="search-label">
+                        <span>Prezzo minimo</span>
+                        <input type="number" name="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="" max="">
+                    </label>
+
+                    <label for="search_by_option" class="search-label">
+                        <span>Cerca per</span>
                         <input list="search_by_options" name="search_by_option" id="search_by_option" value="%SEARCH_BY_OPTION%">
                         <datalist id="search_by_options">
                             <option value="Citta">
                             <option value="Tag">
                         </datalist>
-                </div>
+                    </label>
 
-                <div class="search-box-div2">
-                    <label for="searcHh_start_price"><span lang="en">Prezzo minimo</span></label>
-                    <input type="number" name="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="" max="">
-                </div>
+                    <label for="search_order_by" class="search-label">
+                        <span>Ordina per</span>
+                        <input list="search_order_by" name="search_order_by" id="search_oder_by" value="%SEARCH_ORDER_BY%">
+                        <datalist id="search_order_by" >
+                            <option value="Prezzo">
+                            <option value="Data Inizio">
+                            <option value="Data Fine">
+                        </datalist>
+                    </label>
 
-                <div class="search-box-div2">
-                    <label for="search_order_by"><span lang="en">Ordina per</span></label>
-                    <input list="search_order_by" name="search_order_by" id="search_oder_by" value="%SEARCH_ORDER_BY%">
-                    <datalist id="search_order_by">
-                        <option value="Prezzo">
-                        <option value="Data Inizio">
-                        <option value="Data Fine">
-                    </datalist>
-                </div>
 
-                <div class="search-box-div2">
-                    <label for="search_order_by_mode"><span lang="en">Ordina in modo</span></label>
-                    <input list="search_order_by_mode" name="search_order_by_mode" id="search_oder_by_mode" value="%SEARCH_ORDER_BY_MODE%">
-                    <datalist id="search_order_by_mode">
-                        <option value="Ascendente">
-                        <option value="Discendente">
-                    </datalist>
+
+                    <label for="search_order_by_mode" class="search-label">
+                        <span>Ordina in modo</span>
+                        <input list="search_order_by_mode" name="search_order_by_mode" id="search_oder_by_mode" value="%SEARCH_ORDER_BY_MODE%">
+                        <datalist id="search_order_by_mode">
+                            <option value="Ascendente">
+                            <option value="Discendente">
+                        </datalist>
+                    </label>
+
                 </div>
 
             </div>
+
         </fieldset>
+        
     </form>
 </div>
