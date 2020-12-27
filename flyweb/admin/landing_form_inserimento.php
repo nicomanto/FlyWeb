@@ -20,10 +20,12 @@
         $str= "inserimento";
         $admController->inserisciViaggio($viaggio);
         $v_id=$admController->getTravelIdByTitle($viaggio['titolo']);
-        if(! empty($viaggio['tag'])){
+        if(!empty($viaggio['tag'])){
             $admController->setTagViaggio($v_id,$viaggio['tag']);
         }
         $admController->setIntegrazioniViaggio($v_id,$viaggio['integrazioni']);
+
+        $page->replaceValue('TITOLO', "INSERIMENTO");
 
     }else{
         $str= "aggiornamento";
@@ -34,6 +36,8 @@
             $admController->setTagViaggio($viaggio['id'],$viaggio['tag']);
         }
         $admController->setIntegrazioniViaggio($viaggio['id'],$viaggio['integrazioni']);
+
+        $page->replaceValue('TITOLO', "AGGIORNAMENTO");
     }
 
 
@@ -47,6 +51,8 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
+    
+    
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
 

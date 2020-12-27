@@ -20,6 +20,8 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
+    $page->replaceValue('TITOLO', "OPERAZIONE ELIMINAZIONE");
+
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
 
     echo $page;

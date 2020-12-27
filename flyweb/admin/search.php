@@ -14,6 +14,8 @@
     // Set nav menu
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
+    $page->replaceValue('TITOLO', "MODIFICA O ELIMINA UN VIAGGIO");
+
     // Set search box form
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));
 

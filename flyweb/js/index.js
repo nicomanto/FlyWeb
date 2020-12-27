@@ -1,5 +1,5 @@
 //#region SCRIPT MODERAZIONE RECENSIONI
-function approva(id){
+/*function approva(id){
     const data =    {  
                         id_recensione: id,
                         tipo_richiesta: "approvazione"
@@ -16,16 +16,28 @@ function approva(id){
     .then(
         function (data) {
             document.getElementById(id).parentElement.parentElement.parentElement.remove();
+
+            var list_review=document.getElementsByClassName("board-contenuto")[0].getElementsByTagName("LI");
+
+            if(list_review.length==0){
+                document.getElementsByClassName("pageSelector")[0].remove();
+                document.getElementsByClassName("board-contenuto")[0].getElementsByTagName("UL").remove();
+
+                var no_review = document.createElement('h2');
+                no_review.innerText = "Nessun recensione da moderare...per ora.";
+                document.getElementsByClassName("board-contenuto")[0].appendChild(no_review);
+            }
         }
     )
-}
+}*/
 
-function elimina(id){
+function ConfermaEliminazione(){
 
     console.log("55");
 
-    var popup_conferma = confirm("vuoi confermare l'eliminazione");
-    if(popup_conferma){
+    return confirm("Vuoi confermare l'eliminazione?");
+
+    /*if(popup_conferma){
         const data =    {  
             id_recensione: id,
             tipo_richiesta: "eliminazione"
@@ -43,9 +55,20 @@ function elimina(id){
             function (data) {
             console.log(id);
             document.getElementById(id).parentElement.parentElement.parentElement.remove();
+
+            var list_review=document.getElementsByClassName("board-contenuto")[0].getElementsByTagName("LI");
+            
+            if(list_review.length==0){
+                document.getElementsByClassName("pageSelector")[0].remove();
+                document.getElementsByClassName("board-contenuto")[0].getElementsByTagName("UL").remove();
+
+                var no_review = document.createElement('h2');
+                no_review.innerText = "Nessun recensione da moderare...per ora.";
+                document.getElementsByClassName("board-contenuto")[0].appendChild(no_review);
+            }
         }
         )
-    }
+    }*/
 }
 
 //#endregion 
@@ -158,8 +181,7 @@ function rimuoviTag(id_element) {
 }
 
 function conferma(){
-    var popup_conferma = confirm("vuoi confermare il form?");
-    return (popup_conferma)?true:false;
+    return confirm("Vuoi confermare il form?");
 }
 
 function admlogout(){
@@ -242,12 +264,7 @@ function validationDurata(){
 //#endregion
 
 
-//#region       - - -  POPUP  - - -     
-
-function confermaEliminazione(){
-    var popup_conferma = confirm("vuoi confermare l'eliminazione");
-    return (popup_conferma)?true:false;
-}
+//#region       - - -  POPUP  - - - 
 
 
 function checkCartaCredito(){

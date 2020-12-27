@@ -26,6 +26,8 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
+    $page->replaceValue('TITOLO', "ELIMINAZIONE");
+
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
 
 

@@ -86,25 +86,10 @@ class AdmController extends BaseController {
     //crea relazione tag-viaggio (relazione n-n scomposta in 1-n-n-1)
     public function setTagViaggio($id_viaggio, $tag){
         //echo "TAGS".$tags;
-        $listatag = explode(";", $tag);
-        array_pop($listatag);
 
-        foreach($listatag as $v) {
-            $query_id = 'SELECT ID_Tag FROM Tag WHERE Nome=? LIMIT 1;';
-            $id_tag = $this->db->runQuery($query_id, $v)[0];
-
-            echo "(".$id_tag['ID_Tag'].",".$id_viaggio.")";
-
-            if(empty($id_tag)){
-                $query_id = 'INSERT INTO Tag(Nome) VALUES(?);';
-                $this->db->runQuery($query_id,$v);
-            }
-
-            $query_id = 'SELECT ID_Tag FROM Tag WHERE Nome=? LIMIT 1;';
-            $id_tag = $this->db->runQuery($query_id, $v)[0];
-            
-            $query_tag= 'INSERT INTO TagViaggio(ID_Tag,ID_Viaggio) VALUES(?,?);';
-            $this->db->runQuery($query_tag, (int)$id_tag['ID_Tag'], (int)$id_viaggio)[0];
+        foreach($tag as $tagItem) {
+            $query_id = 'INSERT INTO TagViaggio(ID_Tag,ID_Viaggio) VALUES(?,?);';
+            $this->db->runQuery($query_id,$tagItem,$id_viaggio);
         }
     }
 

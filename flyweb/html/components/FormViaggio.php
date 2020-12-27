@@ -4,20 +4,26 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 use model\Travel;
+use \controllers\AdmController;
 
 class FormViaggio extends baseComponent
 {
 
     public $travel_loc;
+    public $travel_tag;
+
+    public $AdmController;
 
     const _templateName = 'adm_form_inserimento_viaggio';
 
-    public function __construct($travel = null)
+    public function __construct($travel = null,$tag=null)
     {
 
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->travel_loc = $travel;
+        $this->travel_tag=$tag;
+        $this->AdmController=(new AdmController());
         $this->render();
     }
 
@@ -40,6 +46,18 @@ class FormViaggio extends baseComponent
             'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio
         ]);
 
+        $tagList=$this->AdmController->getTags();
+
+        $checkBox="";
+        foreach($tagList as $i){
+            if(!empty($this->travel_tag) && in_array($i['ID_Tag'],$this->travel_tag))
+                $checkBox.=new CheckBoxItem("Tag".$i['ID_Tag'],'tag[]',$i['ID_Tag'],"#".$i['Nome'],true);
+            else
+                $checkBox.=new CheckBoxItem("Tag".$i['ID_Tag'],'tag[]',$i['ID_Tag'],"#".$i['Nome']);
+        }
+
+        $this->replaceTag('CHECKBOX_TAG',$checkBox);
+
         return $this;
     }
 
@@ -58,7 +76,7 @@ class FormViaggio extends baseComponent
             'datafine' => $_POST['datafine'],
             'prezzo' => $_POST['prezzo'],
             'id' => $_POST['id'],
-            'tag' => $_POST['tagDaInviare'],
+            'tag' => isset($_POST['tag']) ? $_POST['tag'] : array(),
             'integrazioni' => $_POST['integrazioni']
         ];
 

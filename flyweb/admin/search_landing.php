@@ -49,14 +49,25 @@
     // Set nav menu
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
+    $page->replaceValue('TITOLO', "MODIFICA O ELIMINA UN VIAGGIO");
+
     
     // Set search result travels
     if(empty($travels)){
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmEmptyContainer("LISTA VIAGGI")));
+        $page->replaceTag('ADM-CONTENUTO', 
+            (new \html\components\searchBox("adm-searchbox")).
+            "<h2>Nessun viaggio corrisponde alla ricerca</h2>");
     }
     else{
         // Paginate travels result
         $paginatedTravels = Paginator::paginate($travels, $count);
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmContainerList($paginatedTravels,"LISTA VIAGGI")));
+        foreach ($paginatedTravels['elements'] as $element) {
+            $searchResults.= new \html\components\AdmTravelListItem($element);
+        }
+        
+        $page->replaceTag('ADM-CONTENUTO',
+            (new \html\components\searchBox("adm-searchbox")).
+            "<ul>".$searchResults."</ul>".
+            (new \html\components\pageSelector($paginatedTravels)));
     }
     echo $page;

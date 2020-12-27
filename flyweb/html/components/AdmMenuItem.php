@@ -18,7 +18,12 @@ class AdmMenuItem extends BaseComponent {
     }
 
     public function render(): string {
-
+        if($this->itemMenu->get_lang()!="it") {
+            $this->replaceValue('LANG', "xml:lang=\"".$this->itemMenu->get_lang()."\"");
+        } else {
+            $this->replaceValue('LANG', "");
+        }
+        
         $this->replaceValue('PAGE', $this->itemMenu->get_name());
         
         if($this->itemMenu->get_name()=="Logout")
