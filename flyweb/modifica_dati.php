@@ -33,6 +33,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("/modifica_info_profilo.php","Modifica profilo"),
+        new model\BreadcrumbItem("#","Riscontro modifica")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
     $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));

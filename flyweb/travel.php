@@ -1,6 +1,7 @@
 <?php
 
     use controllers\RouteController;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -27,6 +28,48 @@
 
     // Set nav menu
     $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    // Set breadcrumb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Da vedere come fare serach.php perchè reindirizza a index.php perchè mancano gli elementi per la get
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/index.php","Home","en"),
+        new model\BreadcrumbItem("javascript:history.back()","Ricerca viaggio"),
+        new model\BreadcrumbItem("#","Dettagli viaggio")
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));

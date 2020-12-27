@@ -1,5 +1,6 @@
 <?php
     use controllers\RouteController;
+    use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -17,8 +18,17 @@
 
     $page = new \html\template('index');
 
+    
+
     // Set page head
     $page->replaceTag('HEAD', (new \html\components\head));
+
+    // Set breadcrumb
+    $breadcrumb=array(
+        new model\BreadcrumbItem("#","Home","en")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
