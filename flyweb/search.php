@@ -14,7 +14,7 @@
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
-    if (!isset($search)) {
+    if (!isset($search_button)) {
         // TODO: manage this situation
         header('location:/index.php');
         exit();
