@@ -1,0 +1,18 @@
+<head>
+    <script type="text/javascript" src="/js/formUtenteScript.js"> </script>
+</head>
+<div class="carrello-elementi">
+    <div class="elevator_pitch" style="display: flex; flex-direction: row;">
+        <div class="info">
+            <h4>%NAME%</h4>
+           <p>Prezzo: %PRICE%</p>
+            <p>Luogo: %COUNTRY%, %CITY%, %LOCATION%</p>
+            <p>Quando: %START_DATE% / %END_DATE%</p>
+            <p>N. posti che si intende acquistare: %POSTI%</p>
+            <form action="/carrello.php" method="post"></form>
+            <input type="submit" class="adm-bottone-elimina-recensione" name="btn_elimina"
+                id="btn_elimina" value="ELIMINA" onclick="return ConfermaEliminazione()">
+
+        </div>
+    </div>
+</div>

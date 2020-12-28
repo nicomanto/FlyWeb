@@ -70,4 +70,14 @@ class UserController extends BaseController {
         $this->db->runQuery($query, $this->user->password, $this->user->id_utente);
     }
 
+    public function getViaggiCarrello(){
+        $query='SELECT Viaggio.* FROM Viaggio, CarrelloViaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = CarrelloViaggio.ID_Viaggio AND CarrelloViaggio.ID_Carrello = Carrello.ID_Carrello;';
+        return($this->db->runQuery($query, $this->user->id_utente));
+    }
+
+    public function deleteViaggioCarrello(){
+        $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio=?;';
+        $this->db->runQuery($query,$id);
+    }
+
 }
