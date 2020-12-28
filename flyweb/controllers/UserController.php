@@ -3,6 +3,7 @@
 namespace controllers;
 
 use model\User;
+use model\Travel;
 
 class UserController extends BaseController {
 
@@ -75,9 +76,24 @@ class UserController extends BaseController {
         return($this->db->runQuery($query, $this->user->id_utente));
     }
 
-    public function deleteViaggioCarrello(){
-        $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio=?;';
-        $this->db->runQuery($query,$id);
+    public function deleteViaggioCarrello() {
+        $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio = ?;';
+        return $this->db->runQuery($query, $this->user->id_utente);
+    }
+
+     public function getSubtotale(){
+        $list_items_cart=$this->getViaggiCarrello();
+        $subtotale=0;
+
+        foreach($list_items_cart as $i){
+            $viaggio= new Travel($i);
+            $subtotale+=$viaggio->prezzo;
+            
+        }
+
+
+        return $subtotale;
+
     }
 
 }

@@ -6,8 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
-    $userController= new \controllers\UserController();
-
+    $userController=new \controllers\UserController();
     $items = $userController->getViaggiCarrello();
 
     if(!empty($_POST)){
@@ -45,6 +44,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     else {
         $_page->replaceTag('CONTENUTO-CARRELLO', $searchResults);
     }
+
+    //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
+    $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 

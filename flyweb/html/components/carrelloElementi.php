@@ -39,8 +39,6 @@ class CarrelloElementi extends baseComponent {
                 'location' => $this->travel->localita
             ]
         );
-
-        //$this->replaceTag('REVIEWS_INDICATOR', (new \html\components\reviewsIndicator($this->travel)));
         
         return $this;
     }       
