@@ -72,6 +72,21 @@ body {
 }
 
 
+
+/* === RESPONSE MESSAGE === */
+.response-message{
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.response-img{
+    width: 20em;
+    height: 20em;
+    margin: 0 auto;
+    display: block;
+}
+
+
 /* === LAYOUT index.html ===*/
 .contenuto-home{
     display: flex;
@@ -130,7 +145,13 @@ body {
     vertical-align: top;
     margin-top: 0;
 }
+/* === DASHBOARD MESSAGGIO INIZIALE === */
+.messaggio-dashborad{
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
 
+}
 /* === DASHBOARD MENU === */
 .menu-dashboard{
     background-color: #0a3150;
@@ -748,13 +769,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     letter-spacing: 2px;
-}
-
-.response-message{
-    height: auto;
-    text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 /* === ABOUT US === */

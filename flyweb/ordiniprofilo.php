@@ -38,16 +38,19 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     }
 
     if (empty($searchResults)) {
-        $_page->replaceTag('ORDINI-PROFILO', ("Non hai ancora effettuato nessun ordine!"));
+        $_page->replaceTag('ORDINI-PROFILO', (new \html\components\responseMessage("Non hai nessun ordine per ora...")));
+        $_page->replaceTag('PAGE_SELECTOR', ' ');
+
     }
 
     //dovrei fare un componente apposito per segnalare mancanza di ordini?
 
     else {
         $_page->replaceTag('ORDINI-PROFILO', $searchResults);
+        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedOrders)));
+
     }
 
-    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedOrders)));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 

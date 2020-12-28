@@ -12,9 +12,18 @@
 
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
-    $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("#","Modifica profilo")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
   
     $page->replaceTag('MODIFICA-PSW', (new \html\components\formModificaPsw($userController->user)));
+
+    $page->replaceTag('MODIFICA-INFO', '');
+
+    $page->replaceTag('SUCCESSO-MODIFICA', '');
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
