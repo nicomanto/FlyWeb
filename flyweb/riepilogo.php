@@ -7,15 +7,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     extract($_GET, EXTR_SKIP);
 
     $userController=new \controllers\UserController();
+
     $items = $userController->getViaggiCarrello();
 
-    if(!empty($_POST)){
-        if($_POST['btn_elimina']){
-            $userController->deleteViaggioCarrello();
-        }
-    }
-
-    $_page= new \html\template('carrello');
+    $_page= new \html\template('riepilogo');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
@@ -23,7 +18,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","Carrello")
+        new model\BreadcrumbItem("/carrello.php","Carrello"),
+        new model\BreadcrumbItem("#","Riepilogo Ordine")
     );
 
     $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
@@ -33,19 +29,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     
     $searchResults = '';
     foreach ($items as $li) {
-        $searchResults .= new \html\components\carrelloElementi($li);
+        $searchResults .= new \html\components\travelOrder($li);
     }
 
-    if (empty($searchResults)) {
-        $_page->replaceTag('CONTENUTO-CARRELLO', ("Il tuo carrello è vuoto"));
-    }
+    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
 
-    else {
-        $_page->replaceTag('CONTENUTO-CARRELLO', $searchResults);
-    }
+    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+
+    $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
+    
 
     //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-    $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+  //  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
