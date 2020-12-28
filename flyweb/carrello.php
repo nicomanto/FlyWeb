@@ -9,12 +9,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $userController=new \controllers\UserController();
     $items = $userController->getViaggiCarrello();
 
-    if(!empty($_POST)){
-        if($_POST['btn_elimina']){
-            $userController->deleteViaggioCarrello();
-        }
-    }
-
     $_page= new \html\template('carrello');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
@@ -42,6 +36,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     else {
         $_page->replaceTag('CONTENUTO-CARRELLO', $searchResults);
+    }
+
+
+    extract($_POST, EXTR_SKIP);
+
+    if(!empty($_POST)){
+        if($_POST['btn_elimina']){
+            $userController->deleteViaggioCarrello($id_viaggio);
+        }
     }
 
     //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );

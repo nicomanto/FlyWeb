@@ -76,9 +76,9 @@ class UserController extends BaseController {
         return($this->db->runQuery($query, $this->user->id_utente));
     }
 
-    public function deleteViaggioCarrello() {
+    public function deleteViaggioCarrello($id) {
         $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio = ?;';
-        return $this->db->runQuery($query, $this->user->id_utente);
+        return $this->db->runQuery($query, $id);
     }
 
      public function getSubtotale(){
@@ -90,8 +90,6 @@ class UserController extends BaseController {
             $subtotale+=$viaggio->prezzo;
             
         }
-
-
         return $subtotale;
 
     }

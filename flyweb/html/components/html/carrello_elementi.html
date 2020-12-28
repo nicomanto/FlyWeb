@@ -8,10 +8,12 @@
            <p>Prezzo: %PRICE%</p>
             <p>Luogo: %COUNTRY%, %CITY%, %LOCATION%</p>
             <p>Quando: %START_DATE% / %END_DATE%</p>
-            <p>N. posti che si intende acquistare: %POSTI%</p>
-            <form action="/carrello.php" method="post"></form>
-            <input type="submit" class="adm-bottone-elimina-recensione" name="btn_elimina" id="btn_elimina" value="ELIMINA" onclick="return ConfermaEliminazione()">
+            <form action="/carrello.php" method="post">
+                <input type="hidden" name="id_viaggio" id="id_viaggio" value="%ID_VIAGGIO%">
 
+                <input type="submit"  name="btn_elimina"
+                id="btn_elimina" value="Rimuovi dal carrello">
+            </form>
         </div>
     </div>
 </div>
