@@ -28,10 +28,10 @@
         new model\BreadcrumbItem("#","Home","en")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
-
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     $page->replaceTag('SUGGESTIONS', (new \html\components\boxSuggerimenti));
 
