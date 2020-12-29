@@ -61,6 +61,7 @@ body {
     background-color: #0a3150;
     padding: 0.2em 0em 0.2em 0em;
     width: 100%;
+    order: 2;
 }
 
 .breadcrumb p{
@@ -104,19 +105,19 @@ body {
 }
 
 .contenuto-home .content-search-box{
-    order: 2;
+    order: 3;
     padding-top: 7em;
     padding-bottom: 7em;
     background-color: blanchedalmond;
 }
 
 .contenuto-home .boxSuggerimenti{
-    order: 3;
+    order: 4;
     background-color: aliceblue;
 }
 
 .contenuto-home .footer{
-    order: 4;
+    order: 5;
 }
 
 /* === DASHBOARD board.html === */
@@ -938,8 +939,44 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /* ===  CARRELLO === */
-.carrello-item, .subtotale{
+.carrello-flex-container{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        background-color:#fff;
+        width: 100%;
+        padding: 0;
+        vertical-align: top;
+}
+
+.carrello-flex-container .main-menu{
+    order: 1;
+    width: 100%;
+}
+.carrello-flex-container .breadcrumb{
+    order: 2;
+    width: 100%;
+}
+
+.carrello-flex-container .carrello-contenuto{
     width: 70%;
+    order: 3;
+    display: inline;
+}
+
+.carrello-flex-container .subtotale{
+    width: 25%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    order: 4;
+}
+
+.carrello-flex-container .footer{
+    order: 5;
+}
+
+.carrello-item{
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -967,6 +1004,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
     vertical-align: top;
+    min-width: 100%;
 }
 
 .footer h3{

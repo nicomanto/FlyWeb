@@ -27,17 +27,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
     
-    $searchResults = '';
-    foreach ($items as $li) {
-        $searchResults .= new \html\components\travelOrder($li);
-    }
+    // $searchResults = '';
+    // foreach ($items as $li) {
+    //     $searchResults .= new \html\components\travelOrder($li);
+    // }
 
-    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
+    // $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
 
-    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
-
-    $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
-    
+    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));    
 
     //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
   //  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));

@@ -58,10 +58,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     }
 
-
-    //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-   // $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
-
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $_page;
