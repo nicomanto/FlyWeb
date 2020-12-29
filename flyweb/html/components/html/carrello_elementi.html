@@ -1,19 +1,11 @@
-<head>
-    <script type="text/javascript" src="/js/formUtenteScript.js"> </script>
-</head>
-<div class="carrello-elementi">
-    <div class="elevator_pitch" style="display: flex; flex-direction: row;">
-        <div class="info">
-            <h4>%NAME%</h4>
-           <p>Prezzo: %PRICE%</p>
-            <p>Luogo: %COUNTRY%, %CITY%, %LOCATION%</p>
-            <p>Quando: %START_DATE% / %END_DATE%</p>
-            <form action="/carrello.php" method="post">
-                <input type="hidden" name="id_viaggio" id="id_viaggio" value="%ID_VIAGGIO%">
+<div class="carrello-item">
+        <a href="travel.php?id=%ID_VIAGGIO%"><h2>%NAME%</h2></a>
+        <p><h3>Prezzo</h3>: %PRICE% &euro; </p>
+        <p><h3>Luogo</h3>: %COUNTRY%, %CITY%, %LOCATION%</p>
+        <p><h3>Date</h3>: dal %START_DATE% al %END_DATE%</p>
+        <form action="/carrello.php" method="post">
+            <input type="hidden" name="id_viaggio" id="id_viaggio" value="%ID_VIAGGIO%">
 
-                <input type="submit"  name="btn_elimina"
-                id="btn_elimina" value="Rimuovi dal carrello">
-            </form>
-        </div>
-    </div>
+            <input type="submit" class="adm-bottone-elimina-card" name="btn_elimina" id="btn_elimina" value="Rimuovi dal carrello">
+        </form>
 </div>

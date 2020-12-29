@@ -27,7 +27,7 @@ input[type="text"], input[type="date"], textarea{
 }
 
 .aiuti-alla-navigazione{
-    visibility: hidden;
+    display: none;
 }
 
 .azzera-altezza{
@@ -922,22 +922,44 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1em;
 }
 
-/* === ORDINI ITEM LIST=== */
-/* utilizzato css delle recensioni */
-
+/* === ORDERS, ORDER ITEM === */
+.order-form fieldset, .carrello-item, .subtotale{
+    padding: 0.5em;
+    border: 1px solid #0a3150;
+    box-shadow      : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin: 1em 0 1em 0;
+}
+.order-form h2, .subtotale h2{
+    text-align: center;
+    border-bottom: 2px solid #0a3150 ;
+    margin: 0 0 0.5em 0;
+}
 /* === ORDER DETAILS === */
 
-.order-details .header-review h1{
-    display: block;
+
+/* ===  CARRELLO === */
+.carrello-item, .subtotale{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
-.order-details .header-review h1{
-    display: block;
+.carrello-item .adm-bottone-elimina-card, .subtotale .adm-bottone-approva-recensione{
+    width: 100%;
+    margin: 0 auto;
+}
+.carrello-item h2, .carrello-item h3{
+    display: inline;
 }
 
+.subtotale{
+    background-color: #FFBA66;
+}
 
-
-
+.subtot-number{
+    padding: 0.5em;
+}
 /* === FOOTER === */
 
 .footer{
