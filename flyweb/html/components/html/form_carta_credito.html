@@ -1,5 +1,5 @@
 <div id="content">
-    <form  method="POST" name="form_carta_credito" id="form_carta_credito" onsubmit="return checkCartaCredito()">
+    <form  method="POST" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return checkCartaCredito()">
         <fieldset>
             <legend>Inserire il metodo di pagamento</legend>
 
@@ -13,9 +13,14 @@
                 <input type="text" name="codiceCarta" id="codiceCarta"  required="required" autocomplete="off"/><br/>
             </div>
 
-            <div id="codice3cifre">
-                <label for="codice3cifre">Codice a tre cifre: </label>
-                <input type="text" name="codice3cifre" id="codice3cifre" required="required" autocomplete="off"/><br/>
+            <div id="scadenza">
+                <label for="scadenza">Mese e anno di scadenza: </label>
+                <input type="text" name="scadenza" id="scadenza"  required="required" autocomplete="off"/><br/>
+            </div>
+
+            <div id="cvv">
+                <label for="cvv">CVV: </label>
+                <input type="text" name="cvv" id="cvv" required="required" autocomplete="off"/><br/>
             </div>
 
             <div>    
