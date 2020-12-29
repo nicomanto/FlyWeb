@@ -54,11 +54,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     else {
         $_page->replaceTag('CONTENUTO-CARRELLO', $results);
         $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedViaggiCarrello)));
+        $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+
     }
 
 
     //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-    $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+   // $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
