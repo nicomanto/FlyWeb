@@ -1,5 +1,6 @@
 <?php
 use model\BreadcrumbItem;
+use model\Paginator;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -16,9 +17,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
         }
     }
 
+    $page = isset($page) ? $page : 1;
 
     $items = $userController->getViaggiCarrello();
-    
+
+    $paginatedViaggiCarrello = Paginator::paginate($items, $page);
+
     $_page= new \html\template('carrello');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
@@ -34,18 +38,22 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
+
+    $results = '';
     
-    $searchResults = '';
-    foreach ($items as $li) {
-        $searchResults .= new \html\components\carrelloElementi($li);
+    foreach ($paginatedViaggiCarrello['elements'] as $viaggio) {
+        $results .= new \html\components\carrelloElementi($viaggio);
     }
 
-    if (empty($searchResults)) {
-        $_page->replaceTag('CONTENUTO-CARRELLO', ("Il tuo carrello è vuoto"));
+    if (empty($results)) {
+        $_page->replaceTag('CONTENUTO-CARRELLO', (new \html\components\responseMessage("Il tuo carrello è vuoto")));
+        $_page->replaceTag('PAGE_SELECTOR', ' ');
+
     }
 
     else {
-        $_page->replaceTag('CONTENUTO-CARRELLO', $searchResults);
+        $_page->replaceTag('CONTENUTO-CARRELLO', $results);
+        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedViaggiCarrello)));
     }
 
 
