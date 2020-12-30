@@ -27,20 +27,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
     
-//    $searchResults = '';
-//    foreach ($items as $li) {
-//        $searchResults .= new \html\components\travelOrder($li);
-//    }
 
-//    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
+    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
-//    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+    $_page->replaceTag('INSERIMENTO-DATI', '');
 
     $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\metodoPagamento()));
     
 
-    //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-  //  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+    $_page->replaceTag('TOTALE', '');
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
