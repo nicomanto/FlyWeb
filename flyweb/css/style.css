@@ -862,6 +862,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === PROFILO  MENU === */
+
 .profilo-flex-container{
     display: flex;
     flex-flow: row wrap;
@@ -925,6 +926,11 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.dati-personali{
+    border: 2px solid #0a3150;
+    padding: 1em 0.5em 1em 0.5em;
 }
 
 /* === ORDERS, ORDER ITEM === */
@@ -1112,7 +1118,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 80%;
     }
 
-    /* === FORM PROFILO ===*/
+    /* === PROFILO ===*/
 
     .form-registrazione fieldset{
         display: block;

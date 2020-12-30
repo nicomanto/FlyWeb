@@ -26,7 +26,7 @@ class Breadcrumb extends baseComponent {
 
         foreach($this->breadcrumb_items as $i){
             if($i->get_lang()!="it"){
-                $breadcrumb.="<a href =\"".$i->get_path()."\" xml:lang=\"".$i->get_lang()."\">".$i->get_name()."</a>";
+                $breadcrumb.="<a href =\"".$i->get_path()."\" lang=\"".$i->get_lang()."\">".$i->get_name()."</a>";
             }
             else{
                 $breadcrumb.="<a href =\"".$i->get_path()."\">".$i->get_name()."</a>";
