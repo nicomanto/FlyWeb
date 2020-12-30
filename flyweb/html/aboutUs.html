@@ -37,9 +37,8 @@
                 <ul>
                     <li>
                         <h3><span lang="en">Email</span></h3>
-                        <p>Scrivici se hai bisogno di supporto:  <a class="email" lang="en" title="Email">
-                            flyweb@gmail.com </a>
-                        </p>
+                        <p>Scrivici se hai bisogno di supporto:  <span lang="en" class="email">flyweb@gmail.com </span>
+                        </p> 
                     </li>
 
                     <li>
@@ -47,41 +46,44 @@
                         <p>I nostri operatori sono dispobili negli orari elencati sotto al seguente numero: 
                             <span class="tel">3338989987</span>  
                         </p>
-                        <table>
+                        <table title="tabella orari gionralieri centralino telefonico">
                             <thead>
                                 <tr>
-                                    <th>Giorno</th>
-                                    <th>Orario</th>
+                                    <th scope="col">Giorno</th>
+                                    <th scope="col">Orario</th>
                                 </tr>
                             </thead>
-                            <tr>
-                                <td>Lunedì</td>
-                                <td>8.00-14.00</td>
-                            </tr>
-                            <tr>
-                                <td>Martedì</td>
-                                <td>8.00-18.00</td>
-                            </tr>
-                            <tr>
-                                <td>Mercoledì</td>
-                                <td>8.00-18.00</td>
-                            </tr>
-                            <tr>
-                                <td>Giovedì</td>
-                                <td>8.00-18.00</td>
-                            </tr>
-                            <tr>
-                                <td>Venerdi</td>
-                                <td>8.00-18.00</td>
-                            </tr>
-                            <tr>
-                                <td>Sabato</td>
-                                <td>Non reperibili</td>
-                            </tr>
-                            <tr>
-                                <td>Domenica</td>
-                                <td>Non reperibili</td>
-                            </tr>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row" id="gg1" abbr="lun" axis="giorno" >Lunedì</th>
+                                    <td id="h1" abbr="lun" axis="orario">dalle <time>12:00</time> alle <time>18:00</time></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg2" abbr="mar" axis="giorno" >Martedì</th>
+                                    <td id="h2" abbr="lun" axis="orario">dalle <time>8:00</time> alle <time>18:00</time></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg3" abbr="mer" axis="giorno">Mercoledì</th>
+                                    <td id="h3" axis="orario">dalle <time>8:00</time> alle <time>18:00</time></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg4" abbr="gio" axis="giorno">Giovedì</th>
+                                    <td id="h4" axis="orario">dalle <time>8:00</time> alle <time>18:00</time></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg5" abbr="ven" axis="giorno">Venerdi</th>
+                                    <td id="h5" axis="orario">dalle <time>8:00</time> alle <time>14:00</time></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg6" abbr="sab" axis="giorno">Sabato</th>
+                                    <td id="h6" axis="orario">Non reperibili</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="gg7" abbr="dom" axis="giorno">Domenica</th>
+                                    <td id="h7" axis="orario">Non reperibili</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </li>
                 </ul>
