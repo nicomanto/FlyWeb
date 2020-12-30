@@ -27,14 +27,20 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
 
+    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
+
+    $_page->replaceTag('INSERIMENTO-DATI', '');
+
+    $_page->replaceTag('TOTALE', '');
+
 
     if (isset($_POST['submit'])) {
         // $selected_radio = $_POST['metodopagamento'];
 
-         if ($_POST['paypal']) {
+         if ($_POST['metodopagamento'] == 'paypal') {
                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
 
-          }else if ($_POST['carta']) {
+          }else if ($_POST['metodopagamento'] == 'carta') {
                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
 
           }
