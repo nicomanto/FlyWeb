@@ -1,4 +1,4 @@
-<h1>Inserimento carta di credito</h1>
+<h1 class="titolo-pagina">Inserimento carta di credito</h1>
 <div class="inserimento-dati-carta">
     <form  method="POST" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return checkCartaCredito()">
         <fieldset>
@@ -16,18 +16,18 @@
 
 
             <label for="scadenza_mese">Mese:
-                <input type="number" class="input input-carta" tabindex="3" name="scadenza_mese" id="scadenza_mese"  maxlengt="2" required="required" autocomplete="off"/>
+                <input type="number" class="input input-carta" tabindex="3" name="scadenza_mese" id="scadenza_mese" min="1" max="12" required="required" autocomplete="off"/>
             </label>
             <p id="input_error_carta_mese" class="p_input_error"> testo errore </p>
 
 
             <label for="scadenza_anno">Anno:
-                <input type="number" class="input" tabindex="4" name="scadenza_anno" id="scadenza_anno"  maxlengt="2" required="required" autocomplete="off"/>
+                <input type="number" class="input" tabindex="4" name="scadenza_anno" id="scadenza_anno" max="99" required="required" autocomplete="off"/>
             </label>
             <p id="input_error_carta_anno" class="p_input_error"> testo errore </p>
 
             <label for="cvv"><abbr lang="en" title="card security code">>CVV:</abbr>
-                <input type="number" class="input" tabindex="5" name="cvv" id="cvv" required="required" maxlengt="3" autocomplete="off"/>
+                <input type="number" class="input" tabindex="5" name="cvv" id="cvv" required="required" max="999" autocomplete="off"/>
             </label>
             <p id="input_error_carta_cvv" class="p_input_error"> testo errore </p>
 
