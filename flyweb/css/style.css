@@ -58,7 +58,9 @@ body {
     color              : #0a3150;
 
 }
-
+label{
+    display: block;
+}
 /* ===  BREADCRUMB === */
 .breadcrumb{
     color: #fff;

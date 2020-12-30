@@ -1,32 +1,38 @@
-<div id="content">
+<h1>Inserimento carta di credito</h1>
+<div class="inserimento-dati-carta">
     <form  method="POST" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return checkCartaCredito()">
         <fieldset>
             <legend>Inserire il metodo di pagamento</legend>
-            <div>
             <label for="titolareCarta">Titolare carta:
-                <input type="text" name="titolareCarta" id="titolareCarta" placeholder="es. Mario Rossi" required="required" autocomplete="off"/><br/>
-            </label>    
-        </div>
+                <input type="text" class="input" tabindex="1" name="titolareCarta" id="titolareCarta" placeholder="es. Mario Rossi" required="required" autocomplete="off"/>
+            </label><br>
+            <p id="input_error_carta_nome" class="p_input_error"> testo errore </p>
 
-            <div id="containerCarta">
-                <label for="codiceCarta">Codice carta: </label>
-                <input type="text" name="codiceCarta" id="codiceCarta"  required="required" autocomplete="off"/><br/>
-            </div>
 
-            <div id="scadenza">
-                <label for="scadenza">Mese e anno di scadenza: </label>
-                <input type="text" name="scadenza" id="scadenza"  required="required" autocomplete="off"/><br/>
-            </div>
+            <label for="codiceCarta">Codice carta:
+                <input type="number" class="input input-carta" tabindex="2" name="codiceCarta" id="codiceCarta"  required="required" autocomplete="off"/>
+            </label><br>
+            <p id="input_error_carta_codice" class="p_input_error"> testo errore </p>
 
-            <div id="cvv">
-                <label for="cvv">CVV: </label>
-                <input type="text" name="cvv" id="cvv" required="required" autocomplete="off"/><br/>
-            </div>
 
-            <div>    
-            <input class="bottone" type="submit" id="submit" value="Avanti">
-            </div>
+            <label for="scadenza_mese">Mese:
+                <input type="number" class="input input-carta" tabindex="3" name="scadenza_mese" id="scadenza_mese"  maxlengt="2" required="required" autocomplete="off"/>
+            </label>
+            <p id="input_error_carta_mese" class="p_input_error"> testo errore </p>
 
+
+            <label for="scadenza_anno">Anno:
+                <input type="number" class="input" tabindex="4" name="scadenza_anno" id="scadenza_anno"  maxlengt="2" required="required" autocomplete="off"/>
+            </label>
+            <p id="input_error_carta_anno" class="p_input_error"> testo errore </p>
+
+            <label for="cvv"><abbr lang="en" title="card security code">>CVV:</abbr>
+                <input type="number" class="input" tabindex="5" name="cvv" id="cvv" required="required" maxlengt="3" autocomplete="off"/>
+            </label>
+            <p id="input_error_carta_cvv" class="p_input_error"> testo errore </p>
+
+
+            <input type="submit" class="adm-bottone-modifica-card" tabindex="6"  id="submit" value="Avanti">
         </fieldset>
     </form>
 </div>

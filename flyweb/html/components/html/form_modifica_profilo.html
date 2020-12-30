@@ -1,42 +1,37 @@
 
-<div id="content">
+<h1 class="titolo-pagina">Modifica Dati Personali</h1>
+<div class="form-modifica-dati-personali">
     <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
-    <h1>Modifica Dati Personali</h1>
     <form action="./landing_modifica_dati.php" method="post" class="dash-form form-registrazione">
         <fieldset>
-            <legend class="aiuti_alla_navigazione">Modifica dati personali utente</legend>
-            <div>
-                <label for="username" lang="en">Username:</label>
-                <input class="input" type="text" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%">
-                <p id="input_error_username" class="p_input_error"> testo errore </p>
-            </div>
-            <div>
-                <label for="email" lang="en">E-mail:</label>
-                <input class="input" type="text" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%">
-                <p id="input_error_email" class="p_input_error"> testo errore </p>
-            </div>
-            <div>
-                <label for="nome"><span lang="en">Nome:</span></label>
-                <input class="input" type="text" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%">
-                <p id="input_error_nome" class="p_input_error"> testo errore </p>
+            <legend>Modifica dati personali utente</legend>
 
-            </div>
-            <div>
-                <label for="cognome" lang="en">Cognome:</label>
-                <input class="input" type="text" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%">
-                <p id="input_error_cognome" class="p_input_error"> testo errore </p>
-            </div>
-            <div>
-                <label for="data_nascita"><span lang="en">Data Nascita:</span></label>
-                <input class="input" type="date" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%">
-                <p id="input_error_birt_date" class="p_input_error"> testo errore </p>
-            </div>
-        
-            <div>
-                <input class="adm-bottone-modifica-card" type="submit" id="submit" value="Salva i nuovi dati">
-                
-            </div>
+            <label for="username"><span lang="en">Username<span>:
+                <input type="text" class="input" tabindex="1" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%">
+                <p id="input_error_username" class="p_input_error"> testo errore </p>
+            </label><br>
+
+            <label for="email" lang="en"><span lang="en">Email<span>:
+                <input type="text" class="input" tabindex="2" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%">
+                <p id="input_error_email" class="p_input_error"> testo errore </p>
+            </label><br>
             
+            <label for="nome">Nome:
+                <input type="text" class="input" tabindex="3" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%">
+                <p id="input_error_nome" class="p_input_error"> testo errore </p>
+            </label><br>
+
+            <label for="cognome">Cognome:
+                <input type="text" class="input" tabindex="4" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%">
+                <p id="input_error_cognome" class="p_input_error"> testo errore </p>
+            </label><br>
+
+            <label for="data_nascita">Data di nascita:
+                <input type="text" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%">
+                <p id="input_error_birt_date" class="p_input_error"> testo errore </p>
+            </label><br>
+        
+            <input type="submit" class="adm-bottone-modifica-card" tabindex="6" id="submit" value="Salva i nuovi dati">
         </fieldset>
     </form>
     

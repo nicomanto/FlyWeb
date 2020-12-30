@@ -1,25 +1,23 @@
 
-<div>
-    <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
-    <h1 class="titolo-pagina">Modifica Password</h1>
-    <form action="./landing_modifica_psw.php" method="post" class="dash-form form-registrazione">
+<h1 class="titolo-pagina">Modifica Password</h1>
+<div class="modficia-psw">
+        <form action="./landing_modifica_psw.php" method="post" class="dash-form form-registrazione">
         <fieldset>
-            <legend class="aiuti_alla_navigazione">Modifica la tua password</legend>
+            <legend>Modifica la tua password</legend>
             
-           <label for ="password_corrente" lang ="en"> Password corrente: </label>
-            <input type="password" class="input" name ="password_corrente" id="password_corrente" class ="input" > <br> 
+            <label for ="password_corrente">Password corrente:
+                <input type="password" class="input" tabindex="1" name ="password_corrente" id="password_corrente" minlength="8" > 
+            </label><br>
 
-            <label for="nuova_password" lang="en">Nuova Password</label>
-            <input type="password" class="input" name="nuova_password" id="nuova_password" class="input"  /><br>
+            <label for="nuova_password">Nuova password:
+                <input type="password" class="input" tabindex="2" name="nuova_password" id="nuova_password"  minlength="8"/>
+            </label><br>
 
-            <label for="password_ripetuta" lang="en">Ripeti Nuova Password</label>
-            <input type="password"class="input" name="password_ripetuta" class="input" id="password_ripetuta" /><br>
-            
-                <input class="adm-bottone-modifica-card" type="submit" id="submit" value="Salva">
-                <input class="adm-bottone-modifica-card" type="reset" id="resetForm" value="Reset">
-            </div>
-            
+            <label for="password_ripetuta">Ripeti nuova password:
+                <input type="password" class="input" tabindex="3" name="password_ripetuta" id="password_ripetuta" minlength="8"/>
+            </label><br>
+
+            <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" value="Salva nuova password">
         </fieldset>
     </form>
-    
 </div>
