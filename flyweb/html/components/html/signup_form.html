@@ -1,6 +1,5 @@
 <div id="content">
     <h1  class="titolo-pagina">REGISTRATI</h1>
-    <INFO_BOX />
 
     <ERROR_BOX/>
     <form action="./signup.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationPassword() && validationPasswordRepeat() && validationDataNascita())">
@@ -15,7 +14,7 @@
                 <input type="text" name="cognome" class="input" id="cognome" value="%COGNOME%" placeholder="Inserisci il tuo cognome" required onblur="validationTipoNome('input_error_cognome','cognome')"/><br>
                 <p id="input_error_cognome" class="p_input_error"> testo errore </p>
 
-                <label for="birt_date" lang="en">Data di nascita</label>
+                <label for="data_nascita" lang="en">Data di nascita</label>
                 <input type="date" name="data_nascita" class="input input-date" id="data_nascita" value="%DATA_NASCITA%" required onblur="validationDataNascita()"/><br>
                 <p id="input_error_birt_date" class="p_input_error"> testo errore </p>
 
@@ -31,7 +30,7 @@
                 <input type="password" name="password" id="password" class="input" value="" placeholder="Inserisci la password" required onblur="validationPassword()"/><br>
                 <p id="input_error_password" class="p_input_error"> testo errore </p>
 
-                <label for="password_repeated" lang="en">Ripeti Password</label>
+                <label for="password_ripetuta" lang="en">Ripeti Password</label>
                 <input type="password" name="password_ripetuta" class="input" id="password_ripetuta" placeholder="Ripeti la password" required onblur="validationPasswordRepeat()"/><br>
                 <p id="input_error_password_repeated" class="p_input_error"> testo errore </p>
 
