@@ -24,7 +24,7 @@
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
   
     $page->replaceTag('MODIFICA-INFO', (new \html\components\modificainfoprofilo($userController->user)));
-
+    
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

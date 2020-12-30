@@ -7,6 +7,7 @@
     $orderController = new \controllers\OrderController((int)$id);
 
     $viaggi = $orderController->getTravelByOrderList($id);
+
   
     $_page = new \html\template('order');
 

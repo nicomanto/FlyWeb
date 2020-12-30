@@ -3,6 +3,7 @@
 namespace controllers;
 
 use model\User;
+use model\Travel;
 
 class UserController extends BaseController {
 
@@ -68,6 +69,29 @@ class UserController extends BaseController {
     public function aggiornaPsw(){
         $query='UPDATE Utente SET Password = ? WHERE ID_Utente=?';
         $this->db->runQuery($query, $this->user->password, $this->user->id_utente);
+    }
+
+    public function getViaggiCarrello(){
+        $query='SELECT Viaggio.* FROM Viaggio, CarrelloViaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = CarrelloViaggio.ID_Viaggio AND CarrelloViaggio.ID_Carrello = Carrello.ID_Carrello;';
+        return($this->db->runQuery($query, $this->user->id_utente));
+    }
+
+    public function deleteViaggioCarrello($id) {
+        $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio = ?;';
+        return $this->db->runQuery($query, $id);
+    }
+
+     public function getSubtotale(){
+        $list_items_cart=$this->getViaggiCarrello();
+        $subtotale=0;
+
+        foreach($list_items_cart as $i){
+            $viaggio= new Travel($i);
+            $subtotale+=$viaggio->prezzo;
+            
+        }
+        return $subtotale;
+
     }
 
 }

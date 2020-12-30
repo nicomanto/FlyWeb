@@ -1,0 +1,35 @@
+<head>
+    <script type="text/javascript" src="/flyweb/js/formUtenteScript.js"> </script>
+</head>
+<div id="content">
+    <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
+    <h1>Inserisci indirizzo di fatturazione</h1>
+    <INFO_BOX />
+    <form action="./landing_riepilogo.php" method="post" class="dash-form form-registrazione">
+        <fieldset>
+            <legend class="aiuti_alla_navigazione">Inserisci indirizzo di fatturazione</legend>
+            <div>
+                <label for="via" lang="en">Via:</label>
+                <input class="input" type="text" id="via" name="via" required="required" placeholder="Inserisci via" value="%VIA%">
+            </div>
+            <div>
+                <label for="comune" lang="en">Comune:</label>
+                <input class="input" type="text" id="comune" name="comune" required="required" placeholder="Inserisci comune" value="%COMUNE%">
+            </div>
+            <div>
+                <label for="cap"><span lang="en">CAP:</span></label>
+                <input class="input" type="text" id="cap" name="cap" required="required" placeholder="Inserisci CAP" value="%CAP%">
+
+            </div>
+            <div>
+                <label for="provincia" lang="en">Provincia:</label>
+                <input class="input" type="text" id="provincia" name="provincia" required="required" placeholder="Inserisci provincia" value="%PROVINCIA%">
+            </div>
+            <div>
+                <input class="adm-bottone-modifica-card" type="submit" id="submit" value="Avanti">
+                
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

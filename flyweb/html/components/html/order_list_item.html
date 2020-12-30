@@ -12,14 +12,15 @@
 
     <input type="button" class="travel-goto" onclick="location.href='/order.php?id=%ORDER_ID%';" value="Visualizza dettagli ordine" />    
 </li> -->
- <form action='/order.php?id=%ORDER_ID%' method="GET">
+ <form action='/order.php?id=%ORDER_ID%' class="order-form" method="GET">
           <fieldset>
-              <h3 value = "%ID_ORDINE%">Ordine N: %ID_ORDINE%</h3>
-              <p id="data_ordine" class="data_ordine" value="%DATAORDINE%"> Effettuata in data: %DATAORDINE% </p>
-              <p id="totale" class="totale" value="%TOTALE%">Totale ordine: %TOTALE% £</p>
-              <input class="bottone" type="submit" id="submitForm" value="Visualizza dettagli ordine">
+              <legend class="aiuti-alla-navigazione"> Riepilogo ordine </legend>
+              <h2 value = "%ID_ORDINE%">Ordine N: %ID_ORDINE%</h2>
+              <p id="data_ordine"  value="%DATAORDINE%"><h3>Data ordine</h3>: %DATAORDINE% </p>
+              <p id="totale"  value="%TOTALE%"><h3>Totale ordine</h3>: %TOTALE% £</p>
+              <input type="submit" class="travel-goto"  id="submitForm" value="Visualizza dettagli ordine">
           </fieldset>
 
           <input type="hidden" name="id" id="id" value="%ID_ORDINE%">
 
-     </form>
+</form>

@@ -27,7 +27,7 @@ input[type="text"], input[type="date"], textarea{
 }
 
 .aiuti-alla-navigazione{
-    visibility: hidden;
+    display: none;
 }
 
 .azzera-altezza{
@@ -55,6 +55,39 @@ body {
 
 }
 
+/* ===  BREADCRUMB === */
+.breadcrumb{
+    color: #fff;
+    background-color: #0a3150;
+    padding: 0.2em 0em 0.2em 0em;
+    width: 100%;
+    order: 2;
+}
+
+.breadcrumb p{
+    margin: 0 0 0 1em;
+}
+
+.breadcrumb a{
+    color: #fff;
+}
+
+
+
+/* === RESPONSE MESSAGE === */
+.response-message{
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.response-img{
+    width: 20em;
+    height: 20em;
+    margin: 0 auto;
+    display: block;
+}
+
+
 /* === LAYOUT index.html ===*/
 .contenuto-home{
     display: flex;
@@ -67,20 +100,24 @@ body {
     order: 1;
 }
 
-.contenuto-home .content-search-box{
+.contenuto-home .breadcrumb{
     order: 2;
+}
+
+.contenuto-home .content-search-box{
+    order: 3;
     padding-top: 7em;
     padding-bottom: 7em;
     background-color: blanchedalmond;
 }
 
 .contenuto-home .boxSuggerimenti{
-    order: 3;
+    order: 4;
     background-color: aliceblue;
 }
 
 .contenuto-home .footer{
-    order: 4;
+    order: 5;
 }
 
 /* === DASHBOARD board.html === */
@@ -109,7 +146,13 @@ body {
     vertical-align: top;
     margin-top: 0;
 }
+/* === DASHBOARD MESSAGGIO INIZIALE === */
+.messaggio-dashborad{
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
 
+}
 /* === DASHBOARD MENU === */
 .menu-dashboard{
     background-color: #0a3150;
@@ -729,16 +772,8 @@ input[type=number]::-webkit-outer-spin-button {
     letter-spacing: 2px;
 }
 
-.response-message{
-    height: auto;
-    text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
 /* === ABOUT US === */
 .about-us-container h1{
-    order: 0;
     width: 100%;
 }
 .su-di-noi{
@@ -837,8 +872,12 @@ input[type=number]::-webkit-outer-spin-button {
     order: 1;
 }
 
-.profilo-menu{
+.profilo-flex-container .breadcrumb{
     order: 2;
+}
+
+.profilo-menu{
+    order: 3;
     min-height: 100%;
     width: 30%;
     background-color: #0a3150;
@@ -851,7 +890,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .profilo-contenuto{
     width: 65%;
-    order: 3;
+    order: 4;
     margin:auto;
     vertical-align: top;
     margin-top: 0;
@@ -871,11 +910,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .profilo-flex-container .footer{
-    order: 4;
+    order: 5;
     min-width: 100%;
 }
 
-.profilo-form-btn .adm-bottone-modifica-card, .profilo-form-btn .adm-bottone-elimina-card{
+.profilo-contenuto .adm-bottone-modifica-card, .profilo-contenuto .adm-bottone-elimina-card{
     width: 95%;
     display: block;
     margin: 0 auto;
@@ -884,16 +923,80 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1em;
 }
 
-/* === ORDINI ITEM LIST=== */
-/* utilizzato css delle recensioni */
-
+/* === ORDERS, ORDER ITEM === */
+.order-form fieldset, .carrello-item, .subtotale{
+    padding: 0.5em;
+    border: 1px solid #0a3150;
+    box-shadow      : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin: 1em 0 1em 0;
+}
+.order-form h2, .subtotale h2{
+    text-align: center;
+    border-bottom: 2px solid #0a3150 ;
+    margin: 0 0 0.5em 0;
+}
 /* === ORDER DETAILS === */
 
-.order-details .header-review h1{
-    display: block;
+
+/* ===  CARRELLO === */
+.carrello-flex-container{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        background-color:#fff;
+        width: 100%;
+        padding: 0;
+        vertical-align: top;
 }
 
+.carrello-flex-container .main-menu{
+    order: 1;
+    width: 100%;
+}
+.carrello-flex-container .breadcrumb{
+    order: 2;
+    width: 100%;
+}
 
+.carrello-flex-container .carrello-contenuto{
+    width: 70%;
+    order: 3;
+    display: inline;
+}
+
+.carrello-flex-container .subtotale{
+    width: 25%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    order: 4;
+}
+
+.carrello-flex-container .footer{
+    order: 5;
+}
+
+.carrello-item{
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.carrello-item .adm-bottone-elimina-card, .subtotale .adm-bottone-approva-recensione{
+    width: 100%;
+    margin: 0 auto;
+}
+.carrello-item h2, .carrello-item h3{
+    display: inline;
+}
+
+.subtotale{
+    background-color: #FFBA66;
+}
+
+.subtot-number{
+    padding: 0.5em;
+}
 /* === FOOTER === */
 
 .footer{
@@ -901,6 +1004,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
     vertical-align: top;
+    min-width: 100%;
 }
 
 .footer h3{
