@@ -18,8 +18,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("/carrello.php","Carrello"),
-        new model\BreadcrumbItem("#","Riepilogo Ordine")
+      new model\BreadcrumbItem("/carrello.php","Carrello"),
+      new model\BreadcrumbItem("/metodopagamento.php","Metodo di pagamento"),
+      new model\BreadcrumbItem("/landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
+      new model\BreadcrumbItem("/dati_fatturazione.php","Inserisci dati di fatturazione"),
+      new model\BreadcrumbItem("#", "Riepilogo ordine")
     );
 
     $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));

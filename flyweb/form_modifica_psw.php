@@ -14,7 +14,7 @@
 
     $breadcrumb=array(
         new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("#","Modifica profilo")
+        new model\BreadcrumbItem("#","Modifica Password")
     );
 
     $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));

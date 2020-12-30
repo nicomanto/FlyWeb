@@ -15,6 +15,15 @@
 
     $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("/ordiniprofilo.php","Ordini effettuati"),
+        new model\BreadcrumbItem("#", "Dettaglio ordine")
+    );
+
+    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+
+
     $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($orderController->order)));
 
     foreach($viaggi as $li){

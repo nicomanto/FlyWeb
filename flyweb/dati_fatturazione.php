@@ -19,7 +19,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     // Set breadcrumb
     $breadcrumb=array(
         new model\BreadcrumbItem("/carrello.php","Carrello"),
-        new model\BreadcrumbItem("/metodopagamento.php","Metodo di Pagamento"),
+        new model\BreadcrumbItem("/metodopagamento.php","Metodo di pagamento"),
+        new model\BreadcrumbItem("/landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
         new model\BreadcrumbItem("#","Inserisci dati di fatturazione")
     );
 
