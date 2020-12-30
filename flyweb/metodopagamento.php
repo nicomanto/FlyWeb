@@ -19,7 +19,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     // Set breadcrumb
     $breadcrumb=array(
         new model\BreadcrumbItem("/carrello.php","Carrello"),
-        new model\BreadcrumbItem("#","Metodo di Pagamento")
+        new model\BreadcrumbItem("#","Metodo di pagamento")
     );
 
     $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
