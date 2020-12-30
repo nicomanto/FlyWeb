@@ -27,18 +27,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
 
-    $paypal = 'unchecked';
-    $carta = 'unchecked';
 
     if (isset($_POST['submit'])) {
-         $selected_radio = $_POST['metodopagamento'];
+        // $selected_radio = $_POST['metodopagamento'];
 
-         if ($selected_radio == 'paypal') {
-                $paypal = 'checked';
+         if ($_POST['paypal']) {
                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
 
-          }else if ($selected_radio == 'carta') {
-                $carta = 'checked';
+          }else if ($_POST['carta']) {
                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
 
           }
