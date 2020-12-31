@@ -10,10 +10,16 @@
 
     $page->replaceTag('HEAD', (new \html\components\head));
 
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/form_inserimento.php","Inserimento viaggio")
+    );
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
-    $page->replaceValue('c', "INSERISCI VIAGGIO");
-
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio));
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;

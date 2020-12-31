@@ -16,8 +16,15 @@
     
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modifica_viaggio")));
 
-    $page->replaceValue('TITOLO', "MODIFICA IL VIAGGIO");
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new model\BreadcrumbItem("/admin/form_modifica.php","Modifica viaggio")
+    );
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
     
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($travelController->travel,$travelController->getIdTag())));
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;

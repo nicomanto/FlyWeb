@@ -152,6 +152,10 @@ label{
     vertical-align: top;
     margin-top: 0;
 }
+.board-flex-container .footer{
+    order:3;
+}
+
 /* === DASHBOARD MESSAGGIO INIZIALE === */
 .messaggio-dashborad{
     max-width: 100%;

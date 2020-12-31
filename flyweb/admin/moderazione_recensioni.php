@@ -28,7 +28,11 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modera_recensioni")));
 
-    $page->replaceValue('TITOLO', "MODERA LE RECENSIONI");
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/moderazione_recensioni.php","Modera recensioni")
+    );
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     if($admController->haveUnapprovedReviews()){
         $unapprovedRev = $admController->getUnapprovedReviewsList();
@@ -47,5 +51,7 @@
     }else{
         $page->replaceTag('ADM-CONTENUTO',"<h2>Nessun recensione da moderare...per ora.</h2>");
     }
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;

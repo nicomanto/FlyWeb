@@ -26,9 +26,15 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
-    $page->replaceValue('TITOLO', "ELIMINAZIONE");
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+    );
+    
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
 
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;
