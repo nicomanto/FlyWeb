@@ -199,6 +199,7 @@ label{
     display: block; 
     width: 100%; 
     min-height: 100%; 
+    max-height: 100%;
     padding: 1em 0 1em 0;
 }
 
@@ -1177,10 +1178,14 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 0.5em;
     }
 
-    .dash-form fieldset ul{
+    .dash-form ul{
         width: 100%;
         text-align:left;
         margin: 0;
+        padding: 0;
+    }
+
+    .dash-form ul li{
         padding: 0;
     }
 
