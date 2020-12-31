@@ -17,7 +17,7 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modifica_viaggio")));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
         new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
         new model\BreadcrumbItem("/admin/form_modifica.php","Modifica viaggio")
     );

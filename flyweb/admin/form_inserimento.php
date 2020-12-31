@@ -11,7 +11,7 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
         new model\BreadcrumbItem("/admin/form_inserimento.php","Inserimento viaggio")
     );
     $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));

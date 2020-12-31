@@ -29,7 +29,7 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modera_recensioni")));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
         new model\BreadcrumbItem("/admin/moderazione_recensioni.php","Modera recensioni")
     );
     $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
