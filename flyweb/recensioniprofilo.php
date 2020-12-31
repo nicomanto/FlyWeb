@@ -33,7 +33,7 @@
         //dovrei fare un componente apposito per segnalare il non aver ancora lasciato recensioni?
     }
     else {
-        $_page->replaceTag('RECENSIONI-PROFILO', (new \html\components\travelReviews($reviews)));
+        $_page->replaceTag('RECENSIONI-PROFILO', (new \html\components\profileReviews($reviews)));
     }
     
     $_page->replaceTag('FOOTER', (new \html\components\footer));

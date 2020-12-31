@@ -38,7 +38,7 @@ class UserController extends BaseController {
     //query che ritorna le recensioni lasciate dagli utenti
 
     public function getReviewUtente(){
-        $query = 'SELECT * FROM Recensione WHERE ID_Utente = ?;';
+        $query = 'SELECT * FROM Recensione WHERE ID_Utente = ? ORDER BY Recensione.Data DESC;';
         return $this->db->runQuery($query, $this->user->id_utente);
     }
 
