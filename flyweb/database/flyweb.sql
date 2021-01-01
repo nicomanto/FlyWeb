@@ -16,8 +16,8 @@ create or replace table Integrazione
 (
 	ID_Integrazione int auto_increment
 		primary key,
-	Nome varchar(128) null,
-	Descrizione text null,
+	Nome TEXT null,
+	Descrizione TEXT null,
 	Durata int default 0 null,
 	Prezzo int default 0 null
 );
@@ -28,26 +28,26 @@ create or replace table CarrelloIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Carrello, ID_Integrazione),
 	constraint CarrelloIntegrazione_ibfk_1
-		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
+		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE NO ACTION,
 	constraint CarrelloIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
-
 
 create or replace table Ordine
 (
 	ID_Ordine int auto_increment
 		primary key,
 	ID_Utente int not null,
-	Via varchar(256) null,
+	Via TEXT null,
 	Cap varchar(5) null,
 	Provincia varchar(2) null,
-	Note text null,
-	Comune text null,
+	Note TEXT null,
+	Comune TEXT null,
+	DataOrdine timestamp not null default current_timestamp(),
 	MetodoPagamento ENUM('Paypal','CartaDiCredito','CardaDiDebito') not null,
 	Totale int not null,
 	constraint Ordine_ibfk_1
-		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION
 );
 
 create or replace table OrdineIntegrazione
@@ -56,9 +56,9 @@ create or replace table OrdineIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Ordine, ID_Integrazione),
 	constraint OrdineIntegrazione_ibfk_1
-		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE CASCADE,
+		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE NO ACTION,
 	constraint OrdineIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
 
 create or replace table Preferiti
@@ -76,17 +76,17 @@ create or replace table PreferitiIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Preferiti, ID_Integrazione),
 	constraint PreferitiIntegrazione_ibfk_1
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE,
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION,
 	constraint PreferitiIntegrazione_ibfk_2
-		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
+		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE NO ACTION
 );
 
 create or replace table Tag
 (
 	ID_Tag int auto_increment
 		primary key,
-	Nome varchar(64) not null,
-	Immagine text
+	Nome TEXT not null,
+	Immagine TEXT
 );
 
 create or replace table TagIntegrazioni
@@ -95,21 +95,21 @@ create or replace table TagIntegrazioni
 	ID_Integrazione int not null,
 	primary key (ID_Tag, ID_Integrazione),
 	constraint TagIntegrazioni_ibfk_1
-		foreign key (ID_Tag) references Tag (ID_Tag) ON DELETE CASCADE,
+		foreign key (ID_Tag) references Tag (ID_Tag) ON DELETE NO ACTION,
 	constraint TagIntegrazioni_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
 
 create or replace table Utente
 (
 	ID_Utente int auto_increment
 		primary key,
-	Username varchar(128) not null,
-	Password varchar(128) not null,
-	Nome varchar(128) not null,
-	Cognome varchar(128) not null,
+	Username TEXT not null ,
+	Password TEXT not null,
+	Nome TEXT not null,
+	Cognome TEXT not null,
 	Propic TEXT null,
-	Email varchar(256) not null,
+	Email TEXT not null,
 	DataNascita date not null,
 	DataRegistrazione timestamp not null default current_timestamp(),
 	Admin TINYINT(1) default 0 null,
@@ -130,24 +130,24 @@ create or replace table Utente
 
 alter table Carrello
 	add constraint Carrello_ibfk_1
-		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE;
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION;
 
 alter table Preferiti
 	add constraint Preferiti_ibfk_1
-		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE;
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION;
 
 create or replace table Recensione
 (
 	ID_Recensione int auto_increment
 		primary key,
-	Titolo varchar(256) not null,
+	Titolo TEXT not null,
 	Valutazione int default 0 null,
-	Descrizione text null,
+	Descrizione TEXT null,
 	ID_Utente int null,
 	`Mod` TINYINT(1) default 0 null,
 	Data date,
 	constraint Recensione_ibfk_1
-		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION
 );
 
 create or replace table RecensioneIntegrazione
@@ -156,24 +156,25 @@ create or replace table RecensioneIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Recensione, ID_Integrazione),
 	constraint RecensioneIntegrazione_ibfk_1
-		foreign key (ID_Recensione) references Recensione (ID_Recensione) ON DELETE CASCADE,
+		foreign key (ID_Recensione) references Recensione (ID_Recensione) ON DELETE NO ACTION,
 	constraint RecensioneIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
 
 create or replace table Viaggio
 (
 	ID_Viaggio int auto_increment
 		primary key,
-	Titolo varchar(64) not null,
+	Titolo TEXT not null,
 	DataInizio date null,
 	DataFine date null,
 	Prezzo int default 0 null,
-	Descrizione text null,
-	DescrizioneBreve varchar(512) null,
-	Stato varchar(256) null,
-	Localita varchar(256) null,
-	Citta varchar(256) null
+	Descrizione TEXT null,
+	DescrizioneBreve TEXT null,
+	Stato TEXT,
+	Localita TEXT,
+	Citta TEXT,
+	Immagine TEXT
 );
 
 create or replace table CarrelloViaggio
@@ -182,9 +183,9 @@ create or replace table CarrelloViaggio
 	ID_Viaggio int not null,
 	primary key (ID_Carrello, ID_Viaggio),
 	constraint CarrelloViaggio_ibfk_1
-		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
+		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE NO ACTION,
 	constraint CarrelloViaggio_ibfk_2
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION
 );
 
 create or replace table OrdineViaggio
@@ -193,9 +194,9 @@ create or replace table OrdineViaggio
 	ID_Viaggio int not null,
 	primary key (ID_Ordine, ID_Viaggio),
 	constraint OrdineViaggio_ibfk_1
-		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE CASCADE,
+		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE NO ACTION,
 	constraint OrdineViaggio_ibfk_2
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION
 );
 
 
@@ -205,9 +206,9 @@ create or replace table PreferitiViaggio
 	ID_Viaggio int not null,
 	primary key (ID_Preferiti, ID_Viaggio),
 	constraint PreferitiViaggio_ibfk_1
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE,
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION,
 	constraint PreferitiViaggio_ibfk_2
-		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
+		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE NO ACTION
 );
 
 create or replace table RecensioneViaggio
@@ -216,9 +217,9 @@ create or replace table RecensioneViaggio
 	ID_Viaggio int not null,
 	primary key (ID_Recensione, ID_Viaggio),
 	constraint RecensioneViaggio_ibfk_1
-		foreign key (ID_Recensione) references Recensione (ID_Recensione) ON DELETE CASCADE,
+		foreign key (ID_Recensione) references Recensione (ID_Recensione) ON DELETE NO ACTION,
 	constraint RecensioneViaggio_ibfk_2
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION
 );
 
 
@@ -228,9 +229,9 @@ create or replace table TagViaggio
 	ID_Viaggio int not null,
 	primary key (ID_Tag, ID_Viaggio),
 	constraint TagViaggio_ibfk_1
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE,
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION,
 	constraint TagViaggio_ibfk_2
-		foreign key (ID_Tag) references Tag (ID_Tag) ON DELETE CASCADE
+		foreign key (ID_Tag) references Tag (ID_Tag) ON DELETE NO ACTION
 );
 
 create or replace table ViaggioIntegrazione
@@ -239,9 +240,9 @@ create or replace table ViaggioIntegrazione
 	ID_Integrazione int not null,
 	primary key (ID_Viaggio, ID_Integrazione),
 	constraint ViaggioIntegrazione_ibfk_1
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE,
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE NO ACTION,
 	constraint ViaggioIntegrazione_ibfk_2
-		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE CASCADE
+		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
 
 create or replace index ID_Integrazione
