@@ -44,7 +44,7 @@ create or replace table Ordine
 	Note TEXT null,
 	Comune TEXT null,
 	DataOrdine timestamp not null default current_timestamp(),
-	MetodoPagamento ENUM('Paypal','CartaDiCredito','CardaDiDebito') not null,
+	MetodoPagamento ENUM('Paypal','Carta') not null,
 	Totale int not null,
 	constraint Ordine_ibfk_1
 		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION
