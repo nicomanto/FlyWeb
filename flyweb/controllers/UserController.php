@@ -32,7 +32,7 @@ class UserController extends BaseController {
     //query che elimina un utente 
 
     public function deleteUser() {
-        $query = 'DELETE FROM Utente WHERE ID_Utente = ?;';
+        $query = 'DELETE  FROM Utente  WHERE ID_Utente = ?;';
         return $this->db->runQuery($query, $this->user->id_utente);
     }
 
@@ -93,5 +93,4 @@ class UserController extends BaseController {
         return $subtotale;
 
     }
-
 }

@@ -27,22 +27,23 @@ class FormInserimentoDatiFatturazione extends baseComponent {
                     'via' => $this->order->via,
                     'comune' => $this->order->comune,
                     'cap' => $this->order->cap,
-                    'provincia' => $this->order->provincia
+                    'provincia' => $this->order->provincia,
+                    'metodopagamento' => $_POST['metodopagamento']
+
             ]);
             
             return $this;
     }
 
     //estrae i dati inseriti nel form e li mette in un array associativo
-    public function estraiDatiUtente(): array{ 
+    public function estraiDatiFatturazione(): array{ 
 
         $dati = [
-            'username' => $_POST['username'],
-            'email' => $_POST['email'],
-            'nome' => $_POST['nome'],
-            'cognome' => $_POST['cognome'],
-            'data_nascita' => $_POST['data_nascita'],
-            'password' => $_POST['password'],
+            'via' => $_POST['via'],
+            'comune' => $_POST['comune'],
+            'cap' => $_POST['cap'],
+            'provincia' => $_POST['provincia'],
+            'metodopagamento' => $_POST['metodopagamento']
         ];
         
         return $dati;

@@ -8,7 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $userController=new \controllers\UserController();
 
-    $_page= new \html\template('riepilogo');
+    $_page= new \html\template('procedura_acquisto');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
@@ -45,7 +45,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
           }
     }
-
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 

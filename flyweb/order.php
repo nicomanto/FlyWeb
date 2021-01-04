@@ -1,12 +1,14 @@
 <?php
-
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_GET, EXTR_SKIP);
 
     $orderController = new \controllers\OrderController((int)$id);
 
+    $dettagli_ordine = $orderController->order;
+
     $viaggi = $orderController->getTravelByOrderList($id);
+   
 
   
     $_page = new \html\template('order');
@@ -24,7 +26,9 @@
     $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
 
-    $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($orderController->order)));
+    $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($dettagli_ordine,true)));
+
+
 
     foreach($viaggi as $li){
         $viaggio.= new \html\components\travelOrder($li);

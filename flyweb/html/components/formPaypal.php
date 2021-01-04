@@ -15,6 +15,10 @@ class FormPaypal extends BaseComponent {
     }
 
     public function render(): string{
+        $this->replaceValues([
+            'metodopagamento' => $_POST['metodopagamento']
+
+    ]);
 
 
         return $this;

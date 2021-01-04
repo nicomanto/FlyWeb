@@ -8,9 +8,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $userController=new \controllers\UserController();
 
-    $items = $userController->getViaggiCarrello();
+    $items = $userController->getViaggiCarrello(); 
 
-    $_page= new \html\template('riepilogo');
+    $_page= new \html\template('riepilogo_ordine');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
@@ -35,15 +35,16 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
         $searchResults .= new \html\components\travelOrder($li);
     }
 
-    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
+    extract($_POST, EXTR_SKIP);
 
-  //  $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+    $form1 = new \html\components\FormInserimentoDatiFatturazione();
+    $fatturazione = $form1->estraiDatiFatturazione();
 
-  //  $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
-    
+    $_page->replaceTag('DATI-INSERITI', (new \html\components\RiepilogoOrdine($fatturazione)));
 
-    //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-  //  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+    $_page->replaceTag('VIAGGI', $searchResults);
+
+    $_page->replaceTag('TOTALE', (new \html\components\Totale($userController->getSubtotale())));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 

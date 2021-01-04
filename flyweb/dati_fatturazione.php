@@ -10,7 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
    // $items = $userController->getViaggiCarrello();
 
-    $_page= new \html\template('riepilogo');
+    $_page= new \html\template('procedura_acquisto');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
 
