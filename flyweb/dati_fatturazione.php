@@ -37,6 +37,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 //    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
 
     $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+    
+    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
+
+    $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', '');
+
+    $_page->replaceTag('TOTALE', '');
 
   //  $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\metodoPagamento()));
     
