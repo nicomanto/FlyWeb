@@ -789,68 +789,48 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === ABOUT US === */
-.about-us-container h1{
+
+.about-us-container{
     width: 100%;
 }
-.su-di-noi{
-    background-color: #E9EBEE;
-    border-radius: 10px;
-}
-
-.contatti-contenuto p{
+.au h2{
     text-align: center;
 }
 
-.su-di-noi p{
-    margin          : 0 auto;
-    vertical-align  : middle;
-    padding         : 1em;
-}
 
-.contatti{
-    margin-top      : 1em;
-    margin-bottom   : 1em;
+.au{
+    margin: 0 auto;
+    margin-top      : 2em;
+    margin-bottom   : 2em;
     background-color: #E9EBEE;
     border-radius   : 10px;
-    width           : 100%;
     order           : 3;
-    display         : inline-flex;
-    flex-direction  : row;
-    flex-wrap       : wrap;    
-}
-
-
-
-.contatti-contenuto{
-    width           : 100%;
-    margin          : 0 auto;
     padding         : 1em;
+
 }
 
-.contatti ul{
+.au ul{
     list-style:none;
     width: 100%;
 }
 
-
-.contatti ul li h3{
+.au ul li h3{
     margin-left: -0.5em;
     border-bottom: 2px solid #0a3150;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
 }
 
-.contatti ul li{
+.au ul li{
     background-color: #e49d44;
     border-radius: 5px;
     margin-top: 1em;
     padding-left: 1em;
     padding-bottom: 0.5em;
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
-
 }
 
-.contatti ul li table{
+.au ul li table{
     border-collapse: collapse;
     background-color: lightgray;
     margin-right: 1em;
@@ -858,14 +838,14 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 
-.contatti ul li table td, table th {
+.au ul li table td, table th {
     border: 2px solid gray;
     padding: 8px;
 }
 
-.contatti ul li table tr:nth-child(even){background-color: #f2f2f2;}
+.au ul li table tr:nth-child(even){background-color: #f2f2f2;}
 
-.contatti ul li table thead {
+.au ul li table thead {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
