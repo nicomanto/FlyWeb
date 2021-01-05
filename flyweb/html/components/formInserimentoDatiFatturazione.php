@@ -24,11 +24,12 @@ class FormInserimentoDatiFatturazione extends baseComponent {
             $values = ['via','comune','cap','provincia'];
 
             $this->replaceValues([
-                    'via' => $this->order->via,
-                    'comune' => $this->order->comune,
-                    'cap' => $this->order->cap,
-                    'provincia' => $this->order->provincia,
+                    'via' => (empty($this->order))?' ':$this->order->via,
+                    'comune' => (empty($this->order))?' ':$this->order->comune,
+                    'cap' => (empty($this->order))?' ':$this->order->cap,
+                    'provincia' => (empty($this->order))?' ':$this->order->provincia,
                     'metodopagamento' => $_POST['metodopagamento']
+                
 
             ]);
             

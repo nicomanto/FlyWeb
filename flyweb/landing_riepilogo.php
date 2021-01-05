@@ -39,10 +39,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
 
+
+    $_SESSION['fatturazione'] = array ('via' => $_POST['via'], 'comune' => $_POST['comune'], 'provincia' =>$_POST['provincia'], 'cap' => $_POST['cap'] );
+    print_r($_SESSION['fatturazione']);
+    
     $form1 = new \html\components\FormInserimentoDatiFatturazione();
     $fatturazione = $form1->estraiDatiFatturazione();
-
-
 
     $_page->replaceTag('DATI-INSERITI', (new \html\components\RiepilogoOrdine($fatturazione)));
 
@@ -57,9 +59,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $fatturazione['totale'] = $risultato;
 
     $prova= $userController->ordineTemporaneo($fatturazione);
-
-
-
-
 
     echo $_page;
