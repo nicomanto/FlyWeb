@@ -105,4 +105,33 @@ class UserController extends BaseController {
                             $dati['metodopagamento'], 
                             $dati['totale']);
     }
+
+    public function estraiDatiOrdineTemporaneo(){
+            $query='SELECT * FROM OrdineTemporaneo WHERE ID_Utente=?';
+            return($this->db->runQuery($query, $this->user->id_utente)[0]);
+    }
+
+
+    public function addOrder($dati){
+        $query= 'INSERT INTO Ordine(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
+        $this->db->runQuery($query, 
+                            $this->user->id_utente, 
+                            $dati['Via'], 
+                            $dati['Cap'], 
+                            $dati['Provincia'], 
+                            $dati['Comune'], 
+                            $dati['MetodoPagamento'], 
+                            $dati['Totale']);
+    }
+
+    public function eliminaOrdineTemporaneo(){
+        $query = 'DELETE  FROM OrdineTemporaneo  WHERE ID_Utente = ?;';
+        return $this->db->runQuery($query, $this->user->id_utente);
+    }
+
+    public function eliminaCarrello(){
+            $query = 'DELETE FROM Carrello WHERE ID_Utente = ?;';
+            return $this->db->runQuery($query, $this->user->id_utente);
+        
+    }
 }
