@@ -13,19 +13,17 @@
     $nuova_password = md5($nuova_password);
     $password_ripetuta = md5($password_ripetuta);
  
-   
-    if ($password_corrente != $vecchia_password['Password']){
-        echo 'La password corrente non è esatta';
-        exit();
+   $check1=true;
+   $check2=true;
+
+    if ($password_corrente == $vecchia_password['Password']){
+        $check1=false;
     };
- 
- 
-    if ($nuova_password != $password_ripetuta) {
-        echo 'Le password inserite non corrispondono, riprova.';
-        exit();
+    if ($nuova_password != $password_ripetuta || !$nuova_password) {
+        $check2=false;
     };
 
-    if ($nuova_password) {
+    if ($check1 && $check2 && $nuova_password) {
         $userController->user->password = $nuova_password;
     };
 
@@ -47,7 +45,18 @@
     
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
-    $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+    if($check1 && $check2){
+        $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+    }else{
+        if(!$check1 && !$check2){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuova è uguale a quella vecchia, passowrd nuove non combaciano")));
+
+        }else if(!$check1){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuova è uguale a quella vecchia")));
+        }else{
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Passowrd nuove non combaciano")));
+        }
+    }
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
