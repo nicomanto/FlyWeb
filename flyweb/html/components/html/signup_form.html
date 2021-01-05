@@ -1,7 +1,7 @@
 <h1  class="titolo-pagina">REGISTRATI</h1>
 <div class="form-reg">
 
-    <form action="./signup.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationPassword() && validationPasswordRepeat() && validationDataNascita())">
+    <form action="/signup.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationPassword() && validationPasswordRepeat() && validationDataNascita())">
         <fieldset>
             <legend> &nbsp; Modulo di registrazione &nbsp; </legend>
 
@@ -48,6 +48,6 @@
     <ERROR_BOX/>
 
     <div class="sotto-form-reg-acc"> 
-        <p>...oppure <a href="./login.php">Accedi</a></p>
+        <p>...oppure <a href="/login.php">Accedi</a></p>
     </div>
 </div>
