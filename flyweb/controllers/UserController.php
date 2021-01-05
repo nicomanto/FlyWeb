@@ -93,4 +93,16 @@ class UserController extends BaseController {
         return $subtotale;
 
     }
+
+    public function ordineTemporaneo($dati){
+        $query= 'INSERT INTO OrdineTemporaneo(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
+        $this->db->runQuery($query, 
+                            $this->user->id_utente, 
+                            $dati['via'], 
+                            $dati['cap'], 
+                            $dati['provincia'], 
+                            $dati['comune'], 
+                            $dati['metodopagamento'], 
+                            $dati['totale']);
+    }
 }

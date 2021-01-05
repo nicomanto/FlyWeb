@@ -10,6 +10,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $items = $userController->getViaggiCarrello(); 
 
+    $risultato=$userController->getSubtotale();
+
     $_page= new \html\template('riepilogo_ordine');
 
     $_page->replaceTag('HEAD', (new \html\components\head));
@@ -40,12 +42,22 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $form1 = new \html\components\FormInserimentoDatiFatturazione();
     $fatturazione = $form1->estraiDatiFatturazione();
 
+
+
     $_page->replaceTag('DATI-INSERITI', (new \html\components\RiepilogoOrdine($fatturazione)));
 
     $_page->replaceTag('VIAGGI', $searchResults);
 
-    $_page->replaceTag('TOTALE', (new \html\components\Totale($userController->getSubtotale())));
+    $_page->replaceTag('TOTALE', (new \html\components\Totale($risultato)));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
+
+    $fatturazione['totale'] = $risultato;
+
+    $prova= $userController->ordineTemporaneo($fatturazione);
+
+
+
+
 
     echo $_page;
