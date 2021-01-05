@@ -34,14 +34,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
 
-    $prova=$userController->estraiDatiOrdineTemporaneo();
-    print_r($prova);
+    $ordine_temporaneo=$userController->estraiDatiOrdineTemporaneo();
+    $userController->addOrder($ordine_temporaneo);
 
-    $prova2=$userController->addOrder($prova);
+    $userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
     $userController->eliminaOrdineTemporaneo();
     $userController->eliminaCarrello();
-
-  //  $prova= $userController->addOrder($fatturazione);
 
     $_page->replaceTag('DATI-INSERITI', '');
 
