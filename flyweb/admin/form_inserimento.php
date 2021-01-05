@@ -14,7 +14,7 @@
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
-    $page->replaceValue('TITOLO', "INSERISCI VIAGGIO");
+    $page->replaceValue('c', "INSERISCI VIAGGIO");
 
     //controllo se c'è stata una richiesta post
     if(!empty($_POST)) {
