@@ -47,16 +47,12 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
-
-    $page->replaceValue('TITOLO', "MODIFICA O ELIMINA UN VIAGGIO");
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
     
     // Set search result travels
     if(empty($travels)){
-        $page->replaceTag('ADM-CONTENUTO', 
-            (new \html\components\searchBox("adm-searchbox")).
-            "<h2>Nessun viaggio corrisponde alla ricerca</h2>");
+        $page->replaceTag('ADM-CONTENUTO', new responseMessage("Nessun viaggio..."));
     }
     else{
         // Paginate travels result
@@ -66,8 +62,7 @@
         }
         
         $page->replaceTag('ADM-CONTENUTO',
-            (new \html\components\searchBox("adm-searchbox")).
-            "<ul>".$searchResults."</ul>".
-            (new \html\components\pageSelector($paginatedTravels)));
+        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new \html\components\pageSelector($paginatedTravels)));
     }
+
     echo $page;
