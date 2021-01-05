@@ -39,7 +39,6 @@ input[type="text"], input[type="date"], textarea{
     width: 0;
 }
 
-
 * {
     padding: 0em;
     margin : 0em;
@@ -920,11 +919,14 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1em;
 }
 
-.dati-personali{
+.dati-personali, .successo-modifica{
     border: 2px solid #0a3150;
     padding: 1em 0.5em 1em 0.5em;
+    margin: 0 0 3em 0;
 }
-
+.successo-modifica{
+    text-align: center;
+}
 /* === ORDERS, ORDER ITEM === */
 .order-form fieldset, .carrello-item, .subtotale{
     padding: 0.5em;
