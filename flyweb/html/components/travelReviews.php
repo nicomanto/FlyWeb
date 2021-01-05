@@ -39,7 +39,7 @@ class TravelReviews extends baseComponent {
 
         $this->replaceValue('NUMERO_RECENSIONI',$this->travelController->getNumberOfReviews());
         $this->replaceTag('BADGE_VOTO',new \html\components\AverageBadgeVoteReview($this->travelController->getAverageReviews()));
-        $this->replaceTag("TRAVEL_REVIEW_ITEM",$li);
+        $this->replaceTag("REVIEW_ITEM",$li);
 
         return $this;
     }     
