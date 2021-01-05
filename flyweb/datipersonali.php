@@ -23,6 +23,10 @@
   
     $page->replaceTag('DATIPERSONALI', (new \html\components\datiPersonali($userController->user)));
 
+    $page->replaceTag('ORDINI-PROFILO', '');
+
+    $page->replaceTag('RECENSIONI-PROFILO', '');
+
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

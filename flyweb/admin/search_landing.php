@@ -2,6 +2,7 @@
 
     use model\Paginator;
     use controllers\RouteController;
+    use html\components\ResponseMessage;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -49,6 +50,14 @@
     // Set nav menu
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new model\BreadcrumbItem("/admin/search_landing.php","Risultati ricerca viaggi")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+
     
     // Set search result travels
     if(empty($travels)){
@@ -64,5 +73,7 @@
         $page->replaceTag('ADM-CONTENUTO',
         '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new \html\components\pageSelector($paginatedTravels)));
     }
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;

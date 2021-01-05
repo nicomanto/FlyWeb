@@ -55,13 +55,20 @@
             $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag())));
         }
 
-    }
-    else{
+    } else{
         $id= $_GET['par_id'];
         $travelController = new \controllers\TravelController((int)$id);
         $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag())));
         
     }
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new model\BreadcrumbItem("/admin/form_modifica.php","Modifica viaggio")
+    );
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
     
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 
     echo $page;

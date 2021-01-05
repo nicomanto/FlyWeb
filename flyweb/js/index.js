@@ -282,6 +282,13 @@ function checkCartaCredito(){
 }
 
 
+function eliminazioneProfilo(){
+    $popup_conferma = confirm("vuoi davvero davvero eliminare il tuo profilo? :( :(")
+    if ($popup_conferma === true) {
+        location.href = 'eliminazione_profilo.php'; }
+}
+
+
 //#endregion
 
 

@@ -13,19 +13,21 @@
     $nuova_password = md5($nuova_password);
     $password_ripetuta = md5($password_ripetuta);
  
-   
-    if ($password_corrente != $vecchia_password['Password']){
-        echo 'La password corrente non è esatta';
-        exit();
-    };
- 
- 
-    if ($nuova_password != $password_ripetuta) {
-        echo 'Le password inserite non corrispondono, riprova.';
-        exit();
-    };
+   $check1=true;
+   $check2=true;
+   $check3=true;
 
-    if ($nuova_password) {
+    if ($password_corrente != $vecchia_password['Password']){
+        $check1=false;
+    };
+    if ($nuova_password != $password_ripetuta || !$nuova_password) {
+        $check2=false;
+    };
+    if ($nuova_password == $vecchia_password['Password']){
+        $check3=false;
+    }
+
+    if ($check1 && $check2 && $check3 && $nuova_password) {
         $userController->user->password = $nuova_password;
     };
 
@@ -37,9 +39,30 @@
     // Set nav menu
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("/modifica_info_psw.php","Modifica password"),
+        new model\BreadcrumbItem("#","Riscontro modifica")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
-    $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+    if($check1 && $check2){
+        $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+    }else{
+        if(!$check1 && !$check2){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta e le password nuove non combaciano")));
+
+        }else if(!$check1){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta")));
+        }else if(!$check3){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password nuova è uguale alla vecchia")));
+        }else {
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuove non combaciano")));
+        }
+    }
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
