@@ -16,7 +16,6 @@ class FormCartaCredito extends BaseComponent {
 
     public function render(): string{
         'metodopagamento' => $_POST['metodopagamento']
-
         return $this;
     }
 }
