@@ -9,6 +9,8 @@ use \controllers\AdmController;
 class FormViaggio extends baseComponent
 {
 
+    private $error;
+
     public $travel_loc;
     public $travel_tag;
 
@@ -16,13 +18,14 @@ class FormViaggio extends baseComponent
 
     const _templateName = 'adm_form_inserimento_viaggio';
 
-    public function __construct($travel = null,$tag=null)
+    public function __construct(array $error, $travel = null,$tag=null)
     {
 
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->travel_loc = $travel;
         $this->travel_tag=$tag;
+        $this->error=$error;
         $this->AdmController=(new AdmController());
         $this->render();
     }
@@ -34,6 +37,7 @@ class FormViaggio extends baseComponent
 
         $this->replaceValues([
             'type' => (empty($this->travel_loc)) ? 'INSERISCI' : 'MODIFICA',
+            'link_action' => (empty($this->travel_loc)) ? './form_inserimento.php' : './form_modifica.php',
             'titolo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->titolo,
             'descrizione' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizione,
             'descrizioneBreve' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizioneBreve,
@@ -57,6 +61,14 @@ class FormViaggio extends baseComponent
         }
 
         $this->replaceTag('CHECKBOX_TAG',$checkBox);
+
+        if(!empty($this->error)){
+
+            $this->replaceTag('ERROR_BOX',new ErrorBox($this->error));
+        }
+        else{
+            $this->replaceTag('ERROR_BOX','');
+        }
 
         return $this;
     }
