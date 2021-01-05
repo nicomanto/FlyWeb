@@ -22,6 +22,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
+    $page->replaceTag('MODIFICA-INFO', "");
+    $page->replaceTag('MODIFICA-PSW', "");
     $page->replaceTag('SUCCESSO-MODIFICA', "");
 
     $page->replaceTag('ELIMINAZIONE', (new \html\components\EliminazioneProfilo()));

@@ -15,15 +15,19 @@
  
    $check1=true;
    $check2=true;
+   $check3=true;
 
-    if ($password_corrente == $vecchia_password['Password']){
+    if ($password_corrente != $vecchia_password['Password']){
         $check1=false;
     };
     if ($nuova_password != $password_ripetuta || !$nuova_password) {
         $check2=false;
     };
+    if ($nuova_password == $vecchia_password['Password']){
+        $check3=false;
+    }
 
-    if ($check1 && $check2 && $nuova_password) {
+    if ($check1 && $check2 && $check3 && $nuova_password) {
         $userController->user->password = $nuova_password;
     };
 
@@ -49,12 +53,14 @@
         $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
     }else{
         if(!$check1 && !$check2){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuova è uguale a quella vecchia, passowrd nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta e le password nuove non combaciano")));
 
         }else if(!$check1){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuova è uguale a quella vecchia")));
-        }else{
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Passowrd nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta")));
+        }else if(!$check3){
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password nuova è uguale alla vecchia")));
+        }else {
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuove non combaciano")));
         }
     }
 
