@@ -22,8 +22,12 @@
     $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+
+    $page->replaceTag('MODIFICA-PSW', '');
   
     $page->replaceTag('MODIFICA-INFO', (new \html\components\modificainfoprofilo($userController->user)));
+
+    $page->replaceTag('SUCCESSO-MODIFICA', '');
     
     $page->replaceTag('FOOTER', (new \html\components\footer));
 

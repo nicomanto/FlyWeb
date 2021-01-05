@@ -208,7 +208,6 @@ function validationData(){
             document.getElementById("datainizio").style.border = "2px solid red";
             document.getElementById("datafine").style.border = "2px solid red";
 
-            document.getElementById("input_error_datafine").style.color = 'red';
             document.getElementById("input_error_datafine").style.visibility = 'visible';
             document.getElementById("input_error_datafine").innerHTML = "errore: data di inizio dev'essere antecedente alla data di fine";
             return false;
@@ -230,7 +229,6 @@ function validationPrz(){
     if(prz!=null && prz < 0){
         document.getElementById("prezzo").style.border = "2px solid red";
 
-        document.getElementById("input_error_prezzo").style.color = 'red';
             document.getElementById("input_error_prezzo").style.visibility = 'visible';
             document.getElementById("input_error_prezzo").innerHTML = "errore: prezzo dev'essere maggiore o ugale a zero";
             return false;
@@ -284,6 +282,13 @@ function checkCartaCredito(){
 }
 
 
+function eliminazioneProfilo(){
+    $popup_conferma = confirm("vuoi davvero davvero eliminare il tuo profilo? :( :(")
+    if ($popup_conferma === true) {
+        location.href = 'eliminazione_profilo.php'; }
+}
+
+
 //#endregion
 
 
@@ -301,20 +306,24 @@ function validationTipoNome(id,Element){
     if(element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
             error_id_message.innerHTML = "Permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
             error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
             error_id_message.innerHTML = "Deve contenere almeno delle lettere";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
+            document.getElementById(Element).style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
+        document.getElementById(Element).style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -329,20 +338,24 @@ function validationUsername(){
     if(username){
         if( username.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
+            document.getElementById("username").style.border = "2px solid red";
             error_id_message.innerHTML = "Permessi da 4 a 15 caratteri totali con # - _ @";
             return false;
         }
         else if(no_only_special.test(username)){
            error_id_message.style.visibility = 'visible';
+           document.getElementById("username").style.border = "2px solid red";
            error_id_message.innerHTML = "Deve contenere almeno delle lettere";
            return false;
         }
         else{
            error_id_message.style.visibility = 'hidden';
+           document.getElementById("username").style.border = "2px solid #0a3150";
         }
     }
     else{
        error_id_message.style.visibility = 'hidden';
+       document.getElementById("username").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -358,15 +371,18 @@ function validationEmail(){
     if(email){
         if( email.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
+            document.getElementById("email").style.border = "2px solid red";
             error_id_message.innerHTML = "Non è in un formato standard come esempio@esempio.com";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
+            document.getElementById("email").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
+        document.getElementById("email").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -382,15 +398,18 @@ function validationPassword(){
     if(password){
         if( password.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
+            document.getElementById("password").style.border = "2px solid red";
             error_id_message.innerHTML = "La <span xml:lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
+            document.getElementById("password").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
+        document.getElementById("password").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -406,15 +425,18 @@ function validationPasswordRepeat(){
     if(password_ripetuta){
         if( password_ripetuta!=password){
             error_id_message.style.visibility = 'visible';
+            document.getElementById("password_ripetuta").style.border = "2px solid red";
             error_id_message.innerHTML = "Le <span xml:lang='en'>password</span> non corrispondono";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
+            document.getElementById("password_ripetuta").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
+        document.getElementById("password_ripetuta").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -427,20 +449,22 @@ function validationPasswordRepeat(){
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
     var error_id_message=document.getElementById("input_error_birt_date");
-    var today = convertDate(new Date());
 
     if(dataNascita){
-        if(dataNascita>today){
+        if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
-            error_id_message.innerHTML = "Hey, ma devi ancora nascere...";
+            document.getElementById("data_nascita").style.border = "2px solid red";
+            error_id_message.innerHTML = "Devi avere almeno 14 anni per registrarti";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
+            document.getElementById("data_nascita").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
+        document.getElementById("data_nascita").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -449,12 +473,20 @@ function validationDataNascita(){
 }
 
 
-function convertDate(date){
+/*function convertDate(date){
     var day = ("0" + date.getDate()).slice(-2);
     var month = ("0" + (date.getMonth() + 1)).slice(-2);
     var year = date.getFullYear();
 
     return year+'-'+month+'-'+day;
+}*/
+
+
+function getAge(data_nascita){
+    now = new Date();
+    split=data_nascita.split('-');
+    var diff = now.getTime() - new Date(split[0],split[1]-1,split[2]).getTime();
+    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }
 
 checkboxintegrazione();

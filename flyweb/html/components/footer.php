@@ -22,5 +22,4 @@ class Footer extends BaseComponent {
         return $this;
     }
 }
-
 ?>

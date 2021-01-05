@@ -1,22 +1,19 @@
-<div id="content">
-    <form action='./response.php' method="POST" id="form_insert_review">
+<div class="inserimento-recensione">
+    <form action='/response.php' method="POST" id="form_insert_review">
         <fieldset>
             <legend>Inserisce una recensione per %TITOLO_VIAGGIO%</legend>
 
-            <div>
-            <label for="titolo">Titolo: </label>
-            <input type="text" name="titolo" id="titolo" placeholder="Inserisci qua il titolo" required="required" autocomplete="off"/><br/>
-            </div>
+            <label for="titolo">Titolo recensione:
+                <textarea type="text" class="input" tabindex="1" name="form_insert_review" id="titolo" placeholder="Inserisci qua il titolo" required="required" autocomplete="off"/><br/>
+            </label><br>
 
-            <div>
-            <label for="descrizione">Commento: </label>
-            <textarea name="descrizione" placeholder="Inserisci qua la tua recensione" id="descrizione" rows='7' cols='100' maxlength="1024" required="required" autocomplete="off"></textarea>
-            </div>
-            
-            <div>
-            <label for="valutazione">Valutazione (da 0 a 5):</label>
-            <input type="number" id="valutazione" name="valutazione" min="0" max="5" required="required">
-            </div>
+            <label for="descrizione">Scrivi qui il contenuto:
+                <textarea name="descrizione" class="input" tabindex="2" placeholder="Inserisci qua la tua recensione" id="descrizione" maxlength="5000" rows='10' cols='50'  required="required" autocomplete="off"></textarea>
+            </label><br>
+
+            <label for="valutazione">Valutazione (numero da 0 a 5):
+                <input type="number" class="input" tabindex="3" id="valutazione" name="valutazione" min="0" max="5" required="required">
+            </label><br>
 
             <input type="hidden" name="id_utente" id="id_utente" value="%ID_UTENTE%">
 
@@ -24,10 +21,7 @@
 
             <input type="hidden" name="type" id="type" value="%TYPE%">
 
-            <div>    
-            <input class="bottone" type="submit" id="submit" value="invia">
-            </div>
-
+            <input type="submit" class="adm-bottone-modifica-card" tabindex="4" id="submit" value="invia">
         </fieldset>
     </form>
 </div>

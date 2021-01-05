@@ -82,8 +82,12 @@
             array_push ( $error , "Campo Cognome: deve contenere almeno delle lettere");
         }
 
-        if($data_nascita>date('Y-m-d')){
-            array_push ( $error , "Campo Data di nascita: la data deve essere antecedente ad oggi");
+        $data = new DateTime($data_nascita); // Your date of birth
+        $today = new Datetime(date('Y-m-d'));
+        $diff = $today->diff($data);
+
+        if($diff->y<14){
+            array_push ( $error , "Campo Data di nascita: devi avere almeno 14 anni per registrarti");
         }
 
         if(!preg_match("/^[\w@#-]{4,15}$/",$username)){
@@ -140,7 +144,7 @@
 
         if(empty($error)){
             $signupController->registerUser($username, $email, $password, $nome, $cognome, $data_nascita);
-            $page->replaceTag('SIGNUP_FORM', (new \html\components\responseMessage("Registrazione avvenuta con successo, scegli il tuo primo volo!")));
+            $page->replaceTag('SIGNUP_FORM', (new \html\components\responseMessage("Registrazione avvenuta con successo, scegli il tuo primo volo!","./login.php","Accedi",false)));
         }
         else{
             $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm($error)));

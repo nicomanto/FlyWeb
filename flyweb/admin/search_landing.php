@@ -2,6 +2,7 @@
 
     use model\Paginator;
     use controllers\RouteController;
+    use html\components\ResponseMessage;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -47,16 +48,20 @@
     $page->replaceTag('HEAD', (new \html\components\head));
 
     // Set nav menu
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
+    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
-    $page->replaceValue('TITOLO', "MODIFICA O ELIMINA UN VIAGGIO");
+    $breadcrumb=array(
+        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new model\BreadcrumbItem("/admin/search_landing.php","Risultati ricerca viaggi")
+    );
+
+    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
 
     
     // Set search result travels
     if(empty($travels)){
-        $page->replaceTag('ADM-CONTENUTO', 
-            (new \html\components\searchBox("adm-searchbox")).
-            "<h2>Nessun viaggio corrisponde alla ricerca</h2>");
+        $page->replaceTag('ADM-CONTENUTO', new responseMessage("Nessun viaggio..."));
     }
     else{
         // Paginate travels result
@@ -66,8 +71,9 @@
         }
         
         $page->replaceTag('ADM-CONTENUTO',
-            (new \html\components\searchBox("adm-searchbox")).
-            "<ul>".$searchResults."</ul>".
-            (new \html\components\pageSelector($paginatedTravels)));
+        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new \html\components\pageSelector($paginatedTravels)));
     }
+
+    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
+
     echo $page;

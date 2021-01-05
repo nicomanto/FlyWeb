@@ -1,12 +1,9 @@
 <div class="order-details">
-    <input type="button" value="Indietro" onClick="javascript:history.back()" name="button">
-    <div class="elevator_pitch" style="display: flex; flex-direction: row;">
+    <input type="button" class="travel-goto" onclick="location.href='/ordiniprofilo.php?id=%USER_ID%';" value="Torna ai tuoi ordini" />
          
-        <div class="header-review">
-            <h1>Dettaglio ordine numero %ID_ORDINE%</h1>
-        </div>
+        <h1>Dettaglio ordine numero %ID_ORDINE%</h1>
 
-        <div class="content-review">
+        <div class="order-info">
             <h2>Informazioni generali</h2>
 
             <h3>Effettuato in data: </h3><span> %DATAORDINE% </span>
@@ -15,14 +12,9 @@
 
             <h3>Indirizzo di fatturazione</h3><span>%VIA%%CAP%, %COMUNE%, %PROVINCIA%</span>
             <h3>Metodo di pagamento</h3>
-            <p>%METODOPAGAMENTO%</p>
-
-            <h3>Viaggi acquistati:</h3>
-            
-            <h3>Metodo di pagamento</h3><span>%METODODIPAGAMENTO%</span>
+            <p>%METODOPAGAMENTO%</p>            
         </div>
 
-    </div>
-    <input type="button" class="travel-goto" onclick="location.href='/ordiniprofilo.php?id=%USER_ID%';" value="Torna ai tuoi ordini" />
+        <h3>Viaggi acquistati:</h3>
 
 </div>

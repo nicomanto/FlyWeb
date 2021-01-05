@@ -26,4 +26,9 @@ class ReviewController extends BaseController {
         $query='SELECT COUNT(*) FROM Recensione WHERE `Mod`=0;';
         return $this->db->runQuery($query)[0]["COUNT(*)"];
     }
+
+    public function getIdTravel(int $id_recensione){
+        $query='SELECT ID_Viaggio FROM RecensioneViaggio WHERE ID_Recensione=?';
+        return $this->db->runQuery($query,$id_recensione)[0]['ID_Viaggio'];
+    }
 }

@@ -1,0 +1,29 @@
+<h1 class="titolo-pagina">Inserisci indirizzo di fatturazione</h1>
+<div class="inserimento-dati-fatturazione">
+    <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
+    <form action="/landing_riepilogo.php" method="post" class="dash-form form-registrazione">
+        <fieldset>
+            <legend>Inserisci indirizzo di fatturazione</legend>
+
+            <label for="via">Via:
+                <input type="text" class="input" tabindex="1" id="via" name="via" required="required" placeholder="Inserisci via" value="%VIA%">
+            </label><br> 
+
+            <label for="comune">Comune:
+                <input type="text" class="input"  tabindex="2" id="comune" name="comune" required="required" placeholder="Inserisci comune" value="%COMUNE%">
+            </label><br> 
+
+            <label for="cap"><abbr title="codice avviamento postale">CAP:</abbr>
+                <input type="text" class="input" tabindex="3" id="cap" name="cap" required="required" placeholder="Inserisci CAP" value="%CAP%">
+            </label><br> 
+
+            <label for="provincia">Provincia:
+                <input type="text" class="input" tabindex="4" id="provincia" name="provincia" required="required" placeholder="Inserisci provincia" value="%PROVINCIA%">
+            </label><br> 
+
+            <input type="text" name="metodopagamento" value="%METODOPAGAMENTO%">
+
+            <input class="adm-bottone-modifica-card" tabindex="5"  type="submit" id="submit" value="Avanti">            
+        </fieldset>
+    </form>
+</div>
