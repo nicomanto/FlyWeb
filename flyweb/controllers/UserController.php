@@ -76,6 +76,11 @@ class UserController extends BaseController {
         return($this->db->runQuery($query, $this->user->id_utente));
     }
 
+    public function getIDViaggiCarrello(){
+        $query='SELECT Viaggio.ID_Viaggio FROM Viaggio, CarrelloViaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = CarrelloViaggio.ID_Viaggio AND CarrelloViaggio.ID_Carrello = Carrello.ID_Carrello;';
+        return($this->db->runQuery($query, $this->user->id_utente));
+    }
+
     public function deleteViaggioCarrello($id) {
         $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio = ?;';
         return $this->db->runQuery($query, $id);
@@ -105,4 +110,48 @@ class UserController extends BaseController {
                             $dati['metodopagamento'], 
                             $dati['totale']);
     }
+
+    public function estraiDatiOrdineTemporaneo(){
+            $query='SELECT * FROM OrdineTemporaneo WHERE ID_Utente=?';
+            return($this->db->runQuery($query, $this->user->id_utente)[0]);
+    }
+
+
+    public function addOrder($dati){
+        $query= 'INSERT INTO Ordine(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
+        $this->db->runQuery($query, 
+                            $this->user->id_utente, 
+                            $dati['Via'], 
+                            $dati['Cap'], 
+                            $dati['Provincia'], 
+                            $dati['Comune'], 
+                            $dati['MetodoPagamento'], 
+                            $dati['Totale']);
+    }
+
+    public function eliminaOrdineTemporaneo(){
+        $query = 'DELETE  FROM OrdineTemporaneo  WHERE ID_Utente = ?;';
+        return $this->db->runQuery($query, $this->user->id_utente);
+    }
+
+    public function eliminaCarrello(){
+            $query = 'DELETE FROM Carrello WHERE ID_Utente = ?;';
+            return $this->db->runQuery($query, $this->user->id_utente);
+        
+    }
+
+    public function getID_Order(){
+        $query='SELECT ID_Ordine FROM Ordine WHERE ID_Utente = ?  ORDER BY DataOrdine DESC LIMIT 1;';
+        return $this->db->runQuery($query, $this->user->id_utente)[0];
+    }
+
+    public function addViaggiOrdine($id_ordine, $dati){
+        foreach ($dati as $id) {
+            $query= 'INSERT INTO OrdineViaggio(ID_Ordine, ID_Viaggio) VALUES (?,?);';
+            $this->db->runQuery($query, 
+                            $id_ordine["ID_Ordine"], $id["ID_Viaggio"]);
+    }
+        }
+
+    
 }
