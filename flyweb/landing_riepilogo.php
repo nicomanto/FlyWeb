@@ -52,6 +52,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
+    $_page->replaceTag('SUCCESSO', '');
+
     $fatturazione['totale'] = $risultato;
 
     $prova= $userController->ordineTemporaneo($fatturazione);
