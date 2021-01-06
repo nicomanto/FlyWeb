@@ -1110,16 +1110,17 @@ input[type=number]::-webkit-outer-spin-button {
         width: 100%;
     }
     
-    .search-label, .search-input-field, .search-submit-field{
+    .search-label,.search-submit-field, .search-input-field{
         width: 100%;
+        text-align: center;
+    }
+    .search-key{
+        margin: 0 auto;
+        margin-bottom: 1em;
+        min-width: 85%;
     }
 
-    .search-key,.search-submit{
-        margin: 0 auto;
-        display: block;
-        margin-bottom: 1em;
-    }
-    
+
     /* ===  ACCEDI, REGISTRATI   === */
     .form-registrazione{
         width: 80%;
