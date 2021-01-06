@@ -5,12 +5,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
     extract($_POST, EXTR_SKIP);
-     $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-    print_r($_SESSION['metodopagamento']);
+
+    $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
 
     $userController=new \controllers\UserController();
-
-   // $items = $userController->getViaggiCarrello();
 
     $_page= new \html\template('procedura_acquisto');
 
@@ -31,8 +29,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
   if(isset($_SESSION['fatturazione'])){
-    echo "AAAAAAAAAAA";
-    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($_SESSION['fatturazione'])));
+    $mario=$_SESSION['fatturazione'];
+    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
   }else{
     $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
   }
@@ -41,12 +39,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', '');
 
     $_page->replaceTag('TOTALE', '');
-
-  //  $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\metodoPagamento()));
-    
-
-    //$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-  //  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 

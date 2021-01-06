@@ -52,7 +52,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     if(isset($_SESSION['metodopagamento'])){
         $variabile=$_SESSION['metodopagamento'];
           echo $variabile;
-
           $_POST['metodopagamento'] = $variabile;
           echo ($_POST['metodopagamento']);
             if ($variabile == 'paypal'){

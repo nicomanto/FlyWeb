@@ -8,15 +8,13 @@ use model\Order;
 class OrderDetails extends baseComponent {
 
     public $order;
-    public $data_type;
 
     const _templateName = 'order_details';
 
-    public function __construct($order, $data_type) {
+    public function __construct($order) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->order = ($order);
-        $this->data_type = ($data_type);
         $this->render();
     }
 
