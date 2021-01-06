@@ -1,4 +1,4 @@
-<h1 class="adm-titolo">INSERIMENTO VIAGGIO</h1>
+<h1 class="adm-titolo">%TYPE% VIAGGIO</h1>
 
 <ERROR_BOX/>
 <form action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
@@ -11,12 +11,12 @@
                <p id="input_error_titolo" class="p_input_error"> testo errore </p>
 
                <label for="descrizione"><strong>DESCRIZIONE DETTAGLIATA</strong>
-                    <textarea class="input" tabindex="2" id="descrizione" name="descrizione" placeholder="Inserisci descrizione dettagliata" rows='10' cols='50' form='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
+                    <textarea class="input" tabindex="2" id="descrizione" name="descrizione" required="required" placeholder="Inserisci descrizione dettagliata" rows='10' cols='50' form='form_inserimento_viaggio'>%DESCRIZIONE%</textarea> 
                </label><br>
                <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
 
                <label for="descrizionebreve"><strong>DESCRIZIONE BREVE</strong>
-                    <textarea class="input" tabindex="3" id="descrizionebreve" name="descrizionebreve" placeholder="Inserisci descrizione breve" rows='3' cols='50' form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
+                    <textarea class="input" tabindex="3" id="descrizionebreve" name="descrizionebreve" required="required" placeholder="Inserisci descrizione breve" rows='3' cols='50' form='form_inserimento_viaggio'>%DESCRIZIONEBREVE%</textarea> 
                </label><br>
                <p id="input_error_descrizione_breve" class="p_input_error"> testo errore </p>
           </fieldset>
@@ -26,17 +26,17 @@
                <legend>Informazioni geografiche del viaggio</legend>
 
                <label for="stato"><strong>STATO</strong>
-                    <input type="text" class="input" tabindex="4" id="stato" name="stato"  placeholder="Inserisci stato" autocomplete="off" value="%STATO%"><br>
+                    <input type="text" class="input" tabindex="4" id="stato" name="stato"  required="required" placeholder="Inserisci stato" autocomplete="off" value="%STATO%"><br>
                </label><br>
                <p id="input_error_stato" class="p_input_error"> testo errore </p>
      
-               <label for="citta"><strong>CITTA</strong>
-                    <input type="text" class="input" tabindex="5" id="citta" name="citta" placeholder="Inserisci città" autocomplete="off" value="%CITTA%"><br>
+               <label for="citta"><strong>CITTA'</strong>
+                    <input type="text" class="input" tabindex="5" id="citta" name="citta" required="required" placeholder="Inserisci città" autocomplete="off" value="%CITTA%"><br>
                </label><br>
                <p id="input_error_citta" class="p_input_error"> testo errore </p>
      
-               <label for="localita"><strong>LOCALITA</strong>
-                    <input type="text" class="input" tabindex="6" id="localita" name="localita" placeholder="Inserisci localita" autocomplete="off" value="%LOCALITA%">
+               <label for="localita"><strong>LOCALITA'</strong>
+                    <input type="text" class="input" tabindex="6" id="localita" name="localita" placeholder="Inserisci località" autocomplete="off" value="%LOCALITA%">
                </label><br>
                <p id="input_error_localita" class="p_input_error"> testo errore </p>
           </fieldset>

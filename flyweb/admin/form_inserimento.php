@@ -21,7 +21,7 @@
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
 
-    $page->replaceValue('c', "INSERISCI VIAGGIO");
+    $page->replaceValue('TYPE', "INSERISCI VIAGGIO");
 
     //controllo se c'è stata una richiesta post
     if(!empty($_POST)) {
@@ -31,6 +31,10 @@
         $viaggio = $form->estraiDatiViaggio();
         $t = $viaggio['titolo'];
 
+        #da gestire il campo 'immagini'
+        if($viaggio['titolo']=='' || $viaggio['descrizione']=='' || $viaggio['stato']=='' || $viaggio['citta']=='' || $viaggio['datainizio']=='' || $viaggio['datafine']=='' || $viaggio['prezzo']=='' || $viaggio['descrizioneBreve']){
+            array_push ( $error , "I campi titolo, descrizione dettagliata, descrizione breve, stato, città, data di inizio, data di fine, prezzo e immagine non possono essere vuoti");
+        }
 
         if($viaggio['datafine']<$viaggio['datainizio']){
             array_push ( $error , "Campi Data - data di inizio dev'essere antecedente alla data di fine");
