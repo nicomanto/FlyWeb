@@ -1093,6 +1093,10 @@ input[type=number]::-webkit-outer-spin-button {
         height: auto;
     }
 
+    label{
+        display: block;
+    }
+
     li, a, input, .input, .input-date, select, option{
         min-height: 48px;
     }
@@ -1124,6 +1128,9 @@ input[type=number]::-webkit-outer-spin-button {
     /* ===  ACCEDI, REGISTRATI   === */
     .form-registrazione{
         width: 80%;
+    }
+    .form-registrazione .input{
+        width: 100%;
     }
 
     /* === PROFILO ===*/

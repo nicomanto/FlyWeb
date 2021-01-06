@@ -3,17 +3,14 @@
         <fieldset>
             <legend>Inserisce una recensione per %TITOLO_VIAGGIO%</legend>
 
-            <label for="titolo">Titolo recensione:
+            <label for="titolo">Titolo recensione:</label>
                 <textarea type="text" class="input" tabindex="1" name="form_insert_review" id="titolo" placeholder="Inserisci qua il titolo" required="required" autocomplete="off"/><br/>
-            </label><br>
 
-            <label for="descrizione">Scrivi qui il contenuto:
+            <label for="descrizione">Scrivi qui il contenuto:</label>
                 <textarea name="descrizione" class="input" tabindex="2" placeholder="Inserisci qua la tua recensione" id="descrizione" maxlength="5000" rows='10' cols='50'  required="required" autocomplete="off"></textarea>
-            </label><br>
 
-            <label for="valutazione">Valutazione (numero da 0 a 5):
+            <label for="valutazione">Valutazione (numero da 0 a 5):</label>
                 <input type="number" class="input" tabindex="3" id="valutazione" name="valutazione" min="0" max="5" required="required">
-            </label><br>
 
             <input type="hidden" name="id_utente" id="id_utente" value="%ID_UTENTE%">
 

@@ -1,44 +1,36 @@
 <h1  class="titolo-pagina">REGISTRATI</h1>
 <div class="form-reg">
-    <ERROR_BOX/>
 
     <form action="/signup.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationPassword() && validationPasswordRepeat() && validationDataNascita())">
         <fieldset>
             <legend> &nbsp; Modulo di registrazione &nbsp; </legend>
 
-                <label for="nome">Nome
-                    <input type="text" name="nome" class="input" tabindex="1" id="nome" value="%NOME%" placeholder="Inserisci il tuo nome" required onblur="validationTipoNome('input_error_nome','nome')" />
-                </label>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="input" tabindex="1" id="nome" value="%NOME%" placeholder="Inserisci il tuo nome" required onblur="validationTipoNome('input_error_nome','nome')" />
                 <p id="input_error_nome" class="p_input_error"> testo errore </p>
 
-                <label for="cognome">Cognome
-                    <input type="text" name="cognome" class="input" tabindex="2" id="cognome" value="%COGNOME%" placeholder="Inserisci il tuo cognome" required onblur="validationTipoNome('input_error_cognome','cognome')"/>
-                </label>
+                <label for="cognome">Cognome</label>
+                <input type="text" name="cognome" class="input" tabindex="2" id="cognome" value="%COGNOME%" placeholder="Inserisci il tuo cognome" required onblur="validationTipoNome('input_error_cognome','cognome')"/>
                 <p id="input_error_cognome" class="p_input_error"> testo errore </p>
 
-                <label for="data_nascita">Data di nascita
-                    <input type="date" name="data_nascita" class="input input-date" tabindex="3" id="data_nascita" value="%DATA_NASCITA%" required onblur="validationDataNascita()"/>
-                </label>
+                <label for="data_nascita">Data di nascita</label>
+                <input type="date" name="data_nascita" class="input input-date" tabindex="3" id="data_nascita" value="%DATA_NASCITA%" required onblur="validationDataNascita()"/>
                 <p id="input_error_birt_date" class="p_input_error"> testo errore </p>
 
-                <label for="username"><span lang="en">Username</span>
-                    <input type="text" name="username" class="input" tabindex="4" id="username" value="%USERNAME%" placeholder="Inserisci il tuo username" required onblur="validationUsername()"/>
-                </label>
+                <label for="username"><span lang="en">Username</span></label>
+                <input type="text" name="username" class="input" tabindex="4" id="username" value="%USERNAME%" placeholder="Inserisci il tuo username" required onblur="validationUsername()"/>
                 <p id="input_error_username" class="p_input_error"> testo errore </p>
 
-                <label for="email"><span lang="en">E-mail</span>
-                    <input type="text" name="email" class="input" tabindex="5" id="email" value="%EMAIL%" placeholder="Inserisci la tua email personale" required onblur="validationEmail()"/>
-                </label>
+                <label for="email"><span lang="en">E-mail</span></label>
+                <input type="text" name="email" class="input" tabindex="5" id="email" value="%EMAIL%" placeholder="Inserisci la tua email personale" required onblur="validationEmail()"/>
                 <p id="input_error_email" class="p_input_error"> testo errore </p>
 
-                <label for="password"><span lang="en">Password</span>
-                    <input type="password" name="password" id="password" tabindex="6" class="input" value="" placeholder="Inserisci la password" required onblur="validationPassword()"/>
-                </label>
+                <label for="password"><span lang="en">Password</span></label>
+                <input type="password" name="password" id="password" tabindex="6" class="input" value="" placeholder="Inserisci la password" required onblur="validationPassword()"/>
                 <p id="input_error_password" class="p_input_error"> testo errore </p>
 
-                <label for="password_ripetuta">Ripeti <span lang="en">Ripeti password</span>
-                    <input type="password" name="password_ripetuta" class="input" tabindex="7"id="password_ripetuta" placeholder="Ripeti la password" required onblur="validationPasswordRepeat()"/>
-                </label>
+                <label for="password_ripetuta">Ripeti <span lang="en">Ripeti password</span></label>
+                <input type="password" name="password_ripetuta" class="input" tabindex="7"id="password_ripetuta" placeholder="Ripeti la password" required onblur="validationPasswordRepeat()"/>
                 <p id="input_error_password_repeated" class="p_input_error"> testo errore </p>
 
                 <input type="submit" id="signup" name="signup" class="btn-submit bottoneform" tabindex="8" value="Registrati" />
