@@ -41,7 +41,7 @@ class Order {
         $this->comune = $order['Comune'];
         $this->metodopagamento = $order['MetodoPagamento'];
         $this->totale = $order['Totale'];
-        $this->dataordine = $order['Data'];
+        $this->dataordine = $order['DataOrdine'];
     }
 
 

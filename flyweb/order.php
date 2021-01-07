@@ -27,14 +27,14 @@
 
 
     $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($dettagli_ordine,true)));
-
+    $_page->replaceTag('ORDINI-PROFILO', '');
 
 
     foreach($viaggi as $li){
         $viaggio.= new \html\components\travelOrder($li);
     }
 
-     $_page->replaceTag('CONTENUTO', $viaggio);
+    $_page->replaceTag('CONTENUTO', $viaggio);
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
