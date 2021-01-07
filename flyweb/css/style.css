@@ -113,12 +113,13 @@ label{
     order: 3;
     padding-top: 2em;
     padding-bottom: 7em;
-    background-color: blanchedalmond;
+    background-color: #ffd394;
 }
 
 .contenuto-home .boxSuggerimenti{
     order: 4;
-    background-color: aliceblue;
+    background-color: #d7ecff;
+    padding: 2em 0 4em 0;
 }
 
 .contenuto-home .footer{
