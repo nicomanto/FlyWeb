@@ -65,17 +65,17 @@
         extract($_POST, EXTR_SKIP);
 
         //check param like js
-        if(!preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$nome)){
-            array_push ( $error , "Campo Nome: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+        if(!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/",$nome)){
+            array_push ( $error , "Campo Nome: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^(\s)*$/",$nome)){
             array_push ( $error , "Campo Nome: deve contenere almeno delle lettere");
         }
 
-        if(!preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$cognome)){
+        if(!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/",$cognome)){
             echo preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$cognome);
-            array_push ( $error , "Campo Cognome: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+            array_push ( $error , "Campo Cognome: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^(\s)*$/",$cognome)){

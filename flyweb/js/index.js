@@ -264,21 +264,169 @@ function validationDurata(){
 
 //#region       - - -  POPUP  - - - 
 
-
+//SEZIONE PROFILO
 function checkCartaCredito(){
-    var creditNumber  = document.forms["form_carta_credito"]["codiceCarta"];
-    
-    if(creditNumber.value.length <13 || creditNumber.value.length>16){
+    var numero_carta  = document.getElementById("codiceCarta").value;
+    var error_id_message=document.getElementById("input_error_carta_codice");
 
-        var erroreMessage = document.createElement('P');
-        erroreMessage.innerText = "Carta di credito non valida";  
-        erroreMessage.setAttribute("id", "errorMessage");
-
-        if(!document.getElementById("errorMessage"))
-            document.getElementById("containerCarta").appendChild(erroreMessage);
-
-        return false;
+    if(numero_carta){
+        if(numero_carta.length <13 || numero_carta.length >16){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("codiceCarta").style.border = "2px solid red";
+            error_id_message.innerHTML = "La carta di credito è formata da 13 a 16 numeri";
+            return false;
+        }else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("codiceCarta").style.border = "2px solid #0a3150";
+        }
     }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("codiceCarta").style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function checkMonthCarta(){
+    var mese_carta  = document.getElementById("scadenza_mese").value;
+    var error_id_message=document.getElementById("input_error_carta_mese");
+
+    if(mese_carta){
+        if(mese_carta > 12 || mese_carta < 1){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("scadenza_mese").style.border = "2px solid red";
+            error_id_message.innerHTML = "Il numero deve essere compreso fra 1 e 12";
+            return false;
+        }
+        if(mese_carta.length>2){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("scadenza_mese").style.border = "2px solid red";
+            error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 01 o 1 per Gennaio)";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function checkYearCarta(){
+    var anno_carta  = document.getElementById("scadenza_anno").value;
+    var error_id_message=document.getElementById("input_error_carta_anno");
+
+    if(anno_carta){
+        if(anno_carta < 0){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("scadenza_anno").style.border = "2px solid red";
+            error_id_message.innerHTML = "Il numero deve essere positivo";
+            return false;
+        }
+        if(anno_carta.length>2){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("scadenza_anno").style.border = "2px solid red";
+            error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 21 per 2021)";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function checkCVV(){
+    var cvv  = document.getElementById("cvv").value;
+    var error_id_message=document.getElementById("input_error_carta_cvv");
+
+    if(cvv){
+        if(cvv.length>3){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("cvv").style.border = "2px solid red";
+            error_id_message.innerHTML = "Il codice deve avere al massimo 3 cifre";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("cvv").style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("cvv").style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function checkIndirizzi(id,Element){
+    var element  = document.getElementById(Element).value;
+    var error_id_message=document.getElementById(id);
+    var reg_expr= /^[\w\s\.]*$/;
+    var no_only_special=/^(\.|_|\s)*$/;
+
+    if(element){
+        if( element.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
+            error_id_message.innerHTML = "Permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
+            return false;
+        }
+        else if(no_only_special.test(element)){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
+            error_id_message.innerHTML = "Deve contenere almeno delle lettere o numeri";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById(Element).style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById(Element).style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function checkCAP(){
+    var cap = document.getElementById("cap").value;
+    var error_id_message=document.getElementById("input_error_cap");
+    var reg_expr= /^[\d]{5}$/;
+
+    if(cap){
+        if( cap.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("cap").style.border = "2px solid red";
+            error_id_message.innerHTML = "Si devono inserire 5 numeri";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("cap").style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("cap").style.border = "2px solid #0a3150";
+    }
+
+    return true;
 }
 
 
@@ -300,14 +448,14 @@ function eliminazioneProfilo(){
 function validationTipoNome(id,Element){
     var element  = document.getElementById(Element).value;
     var error_id_message=document.getElementById(id);
-    var reg_expr= /^[A-Za-zÀ-ú\s]{4,30}$/;
+    var reg_expr= /^[A-Za-zÀ-ú\s]{2,30}$/;
     var no_only_special=/^(\s)*$/;
 
     if(element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
+            error_id_message.innerHTML = "Permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
@@ -448,7 +596,7 @@ function validationPasswordRepeat(){
 
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
-    var error_id_message=document.getElementById("input_error_birt_date");
+    var error_id_message=document.getElementById("input_error_data_nascita");
 
     if(dataNascita){
         if(getAge(dataNascita)<14){
