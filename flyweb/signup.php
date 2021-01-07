@@ -144,7 +144,7 @@
 
         if(empty($error)){
             $signupController->registerUser($username, $email, $password, $nome, $cognome, $data_nascita);
-            $page->replaceTag('SIGNUP_FORM', (new \html\components\responseMessage("Registrazione avvenuta con successo, scegli il tuo primo volo!","./login.php","Accedi",false)));
+            $page->replaceTag('SIGNUP_FORM', (new \html\components\responseMessage("Registrazione avvenuta con successo, scegli il tuo primo viaggio!","./login.php","Accedi",false)));
         }
         else{
             $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm($error)));

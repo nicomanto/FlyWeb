@@ -53,14 +53,14 @@
         $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
     }else{
         if(!$check1 && !$check2){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta e le password nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password corrente non è esatta e le password nuove non combaciano")));
 
         }else if(!$check1){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password corrente non è esatta")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password corrente non è esatta")));
         }else if(!$check3){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("La password nuova è uguale alla vecchia")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password nuova è uguale alla vecchia")));
         }else {
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\ResponseMessage("Password nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("Password nuove non combaciano")));
         }
     }
 
