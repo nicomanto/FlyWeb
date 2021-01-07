@@ -16,10 +16,14 @@
 
 
 .button-selector-page:hover, .button-selector-page:disabled{
-    border: 2px solid #0a3150;
-    background-color: #0a3150;
+    border: 2px solid #FF8C00;
+    background-color: #FF8C00;
     color: #fff;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button-selector-page:disabled{
+    opacity: 0.6;
 }
 
 .button-selector-page:focus{

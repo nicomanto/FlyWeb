@@ -30,7 +30,7 @@ class TravelListItem extends baseComponent {
         $this->replaceValues([
                 'travel_id' => $this->travel->id_viaggio,
                 'travel_title' => $this->travel->titolo,
-                'travel_description' => (strlen($this->travel->descrizioneBreve)<=200)?$this->travel->descrizioneBreve:substr($this->travel->descrizioneBreve,0,200)."...",
+                'travel_description' => (strlen($this->travel->descrizioneBreve)<=200)?$this->travel->descrizioneBreve:substr($this->travel->descrizioneBreve,0,200).'<a href="travel.php?id=$this->travel->id_viaggio">...continua a leggere</a>',
                 'travel_price' => $this->travel->prezzo,
                 'travel_start_date' => $this->travel->data_inizio,
                 'travel_end_date' => $this->travel->data_fine,
@@ -39,8 +39,6 @@ class TravelListItem extends baseComponent {
                 'travel_location' => $this->travel->location
             ]
         );
-
-        //$this->replaceTag('REVIEWS_INDICATOR', (new \html\components\reviewsIndicator($this->travel)));
         
         return $this;
     }       
