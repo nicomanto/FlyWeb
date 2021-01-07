@@ -35,7 +35,7 @@ class ResponseMessage extends baseComponent {
         $this->replaceValue("LINK",$this->link_page_return);
 
         if($this->span_en)
-            $this->replaceValue("PAGE","<span xml:lang=\"en\">".$this->name_page_to_return."</span>");
+            $this->replaceValue("PAGE","<span lang=\"en\">".$this->name_page_to_return."</span>");
         else
             $this->replaceValue("PAGE",$this->name_page_to_return);
         

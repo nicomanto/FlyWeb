@@ -1,6 +1,6 @@
 /* === MAIN MENU === */
 .main-menu {
-  background-color: #c53020;
+  background-color: #FF8C00;
   width          : 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
   min-height: 60px;
@@ -9,7 +9,7 @@
 .main-menu ul {
     font-size      : 1em;
     float: right;
-    background-color: #c53020;
+    background-color: #FF8C00;
 
 }
 
@@ -22,10 +22,9 @@
 .main-menu img{
   float: left;
   left: 0;
-  object-fit: cover;
   height: 60px;
   width: 20%;
-  background-color: #c53020;
+  background-color: #FF8C00;
   object-fit: cover;
 
 }
@@ -42,7 +41,7 @@
 
 .main-menu  .menuPage:hover {
     border-bottom: 3px solid #0a3150;
-    box-shadow: 0 6px 10px rnavgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
+    box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }
 
 /* === MOBILE  MENU === */
@@ -98,7 +97,6 @@
             min-height:2.25em;
             font-size:1.1em;
             margin:0;
-            background-color: aqua;
             color: #0a3150;
             padding-top: 0.2em;
             padding-bottom: 0.5em;
@@ -152,7 +150,7 @@
           }  
 
           .main-menu  .menuPage:hover {
-            border: 5px solid #c53020;
+            border: 5px solid #FF8C00;
           }   
 
           .main-menu ul li a:active{

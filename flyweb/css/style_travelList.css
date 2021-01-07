@@ -7,7 +7,7 @@
     width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-color: cornsilk;
+    background-color: #ffd394;
     order:3;
 }
 
@@ -19,7 +19,7 @@
     flex: 0 0 300px;
     min-height: 300px;
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
     margin: 1em ;
 }
 
@@ -55,13 +55,13 @@
 
 .travel-image{
     width: 100%;
-    background-color: #c53020;
+    background-color: #FF8C00;
 }
 
 .travel-goto{
     padding:0.5em;
-    background-color: #c53020;
-    color: white;
+    background-color: #FF8C00;
+    color: #fff;
     border: 0;
     font-size: large;
     border-radius: 5px;

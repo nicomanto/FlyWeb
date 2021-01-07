@@ -29,7 +29,7 @@
 
 
     if (empty($reviews)) {
-        $_page->replaceTag('RECENSIONI-PROFILO', new responseMessage("Non hai nessuna recensione per ora..."));
+        $_page->replaceTag('RECENSIONI-PROFILO', new \html\components\ResponseMessage("Non hai nessuna recensione per ora..."));
         //dovrei fare un componente apposito per segnalare il non aver ancora lasciato recensioni?
     }
     else {

@@ -48,7 +48,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     if (empty($results)) {
         $_page->replaceTag('CONTENUTO-CARRELLO', (new \html\components\responseMessage("Il tuo carrello è vuoto")));
         $_page->replaceTag('PAGE_SELECTOR', ' ');
-
+        $_page->replaceTag('SUB-TOTALE', ' ');
+        $_page->replaceTag('ORDER_DETAILS', ' ');
+        $_page->replaceTag('CONTENUTO', ' ');
     }
 
     else {
