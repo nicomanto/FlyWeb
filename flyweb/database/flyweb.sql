@@ -50,6 +50,23 @@ create or replace table Ordine
 		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE NO ACTION
 );
 
+create or replace table OrdineTemporaneo
+(
+	ID_Ordine int auto_increment
+		primary key,
+	ID_Utente int not null,
+	Via TEXT null,
+	Cap varchar(5) null,
+	Provincia varchar(2) null,
+	Note TEXT null,
+	Comune TEXT null,
+	DataOrdine timestamp not null default current_timestamp(),
+	MetodoPagamento ENUM('Paypal','Carta') not null,
+	Totale int not null,
+	constraint OrdineTemporaneo_ibfk_1
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE
+);
+
 create or replace table OrdineIntegrazione
 (
 	ID_Ordine int not null,
