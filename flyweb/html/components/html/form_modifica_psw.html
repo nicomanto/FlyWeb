@@ -1,23 +1,27 @@
 
 <h1 class="titolo-pagina">Modifica <span lang="en">Password</span></h1>
 <div class="modficia-psw">
-        <form action="/landing_modifica_psw.php" method="post" class="dash-form form-registrazione">
+        <form action="./form_modifica_psw.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationPassword() && validationPasswordRepeat())">
         <fieldset>
             <legend>Modifica la tua <span lang="en">password</span></legend>
             
             <label for ="password_corrente"><span lang="en">Password</span> corrente:
-                <input type="password" class="input" tabindex="1" name ="password_corrente" id="password_corrente" minlength="8" > 
+                <input type="password" class="input" tabindex="1" name ="password_corrente" id="password_corrente" required='required'>
             </label><br>
 
-            <label for="nuova_password">Nuova <span lang="en">password</span>:
-                <input type="password" class="input" tabindex="2" name="nuova_password" id="nuova_password"  minlength="8"/>
+            <label for="password">Nuova <span lang="en">password</span>:
+                <input type="password" class="input" tabindex="2" name="password" id="password" required='required' onblur="validationPassword()">
             </label><br>
+            <p id="input_error_password" class="p_input_error"> testo errore </p>
 
             <label for="password_ripetuta">Ripeti nuova <span lang="en">password</span>:
-                <input type="password" class="input" tabindex="3" name="password_ripetuta" id="password_ripetuta" minlength="8"/>
+                <input type="password" class="input" tabindex="3" name="password_ripetuta" id="password_ripetuta" required='required' onblur="validationPasswordRepeat()">
             </label><br>
+            <p id="input_error_password_repeated" class="p_input_error"> testo errore </p>
 
-            <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" value="Salva nuova password">
+            <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" name='submit' value="Salva nuova password">
         </fieldset>
     </form>
+
+    <ERROR_BOX/>
 </div>

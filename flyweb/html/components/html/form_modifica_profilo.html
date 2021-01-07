@@ -2,38 +2,45 @@
 <h1 class="titolo-pagina">Modifica Dati Personali</h1>
 <div class="form-modifica-dati-personali">
     <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
-    <form action="/landing_modifica_dati.php" method="post" class="dash-form form-registrazione">
+    <form action="/form_modifica_info_profilo.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationTipoNome('input_error_nome','nome') && validationTipoNome('input_error_cognome','cognome') && validationUsername() && validationEmail() && validationDataNascita())">
         <fieldset>
             <legend>Modifica dati personali utente</legend>
 
             <label for="username"><span lang="en">Username</span>:
-                <input type="text" class="input" tabindex="1" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%">
-            </label><br>
+                <input type="text" class="input" tabindex="1" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%" onblur="validationUsername()">
+            </label>
             <p id="input_error_username" class="p_input_error"> testo errore </p>
+            <br>
 
 
             <label for="email" lang="en"><span lang="en">Email</span>:
-                <input type="text" class="input" tabindex="2" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%">
-            </label><br>
+                <input type="text" class="input" tabindex="2" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%" onblur="validationEmail()">
+            </label>
             <p id="input_error_email" class="p_input_error"> testo errore </p>
+            <br>
             
             <label for="nome">Nome:
-                <input type="text" class="input" tabindex="3" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%">
-            </label><br>
+                <input type="text" class="input" tabindex="3" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%" onblur="validationTipoNome('input_error_nome','nome')">
+            </label>
             <p id="input_error_nome" class="p_input_error"> testo errore </p>
+            <br>
 
             <label for="cognome">Cognome:
-                <input type="text" class="input" tabindex="4" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%">
+                <input type="text" class="input" tabindex="4" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%" onblur="validationTipoNome('input_error_cognome','cognome')">
             </label><br>
             <p id="input_error_cognome" class="p_input_error"> testo errore </p>
+            <br>
 
             <label for="data_nascita">Data di nascita:
-                <input type="text" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%">
+                <input type="date" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%" onblur="validationDataNascita()">
             </label><br>
-            <p id="input_error_data" class="p_input_error"> testo errore </p>
+            <p id="input_error_data_nascita" class="p_input_error"> testo errore </p>
+            <br>
         
-            <input type="submit" class="adm-bottone-modifica-card" tabindex="6" id="submit" value="Salva i nuovi dati">
+            <input type="submit" class="adm-bottone-modifica-card" name="submit" tabindex="6" id="submit" value="Salva i nuovi dati">
         </fieldset>
     </form>
+
+    <ERROR_BOX/>
     
 </div>

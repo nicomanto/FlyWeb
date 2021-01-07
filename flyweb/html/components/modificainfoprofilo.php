@@ -9,12 +9,14 @@ class ModificaInfoProfilo extends baseComponent {
 
     const _templateName = 'form_modifica_profilo';
     public $user;
+    private $error;
 
-    public function __construct($user) {
+    public function __construct($user,array $error) {
 
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->user = $user;
+        $this->error=$error;
         $this->render();
     }
     
@@ -29,8 +31,15 @@ class ModificaInfoProfilo extends baseComponent {
                     'nome' => (empty($this->user))?' ':$this->user->nome,
                     'cognome' => (empty($this->user))?' ':$this->user->cognome,
                     'data_nascita' => (empty($this->user))?' ':$this->user->data_nascita,
-                    'password' => (empty($this->user))?' ':$this->user->password
             ]);
+
+
+            if(!empty($this->error)){
+                $this->replaceTag('ERROR_BOX',new ErrorBox($this->error));
+            }
+            else{
+                $this->replaceTag('ERROR_BOX','');
+            }
             
             return $this;
     }
