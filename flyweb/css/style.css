@@ -85,6 +85,8 @@ label{
     text-align: center;
     margin-top: 2em;
     margin-bottom: 2em;
+    background-color: #1B88E0;
+    order: 3;
 }
 .response-img{
     width: 30em;
@@ -954,14 +956,16 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* === ORDER DETAILS === */
 
+.order-details h1{
+    background-color: #FFBA66;
+}
 
 /* ===  CARRELLO === */
 .carrello-flex-container{
         display: flex;
         flex-flow: row wrap;
-        align-items: stretch;
         background-color:#fff;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
         padding: 0;
         vertical-align: top;
@@ -1009,10 +1013,52 @@ input[type=number]::-webkit-outer-spin-button {
 
 .subtotale{
     background-color: #FFBA66;
+    height: fit-content;
 }
 
 .subtot-number{
     padding: 0.5em;
+}
+
+/* === PROCEDURA PAGAMENTO === */
+
+.procedura-pagamento form{
+    text-align: left;
+    padding-bottom: 15em;
+}
+.procedura-pagamento label{
+    margin: 1em 0 1em 0;
+}
+.procedura-pagamento input[type=radio]{
+    width:2em;
+    height:2em;
+    vertical-align: middle;
+    padding: 0 0 0 25%;
+}
+
+.riepilogo-contenuto{
+    border: 2px solid #0a3150;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    padding: 1em;
+}
+.riepilogo{
+    margin: 0 0 1em 0;
+}
+.travel-order h3, .travel-order span, .riepilogo h3, .riepilogo span{
+    display: inline;
+}
+
+.travel-order{
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-color: #0a3150;
+    border-style: solid;
 }
 /* === FOOTER === */
 
@@ -1022,6 +1068,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
     vertical-align: top;
     min-width: 100%;
+    margin-top: 2em;
 }
 
 .footer h3{

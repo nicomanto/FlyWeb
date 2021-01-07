@@ -10,7 +10,7 @@ class TravelOrder extends baseComponent {
     const _templateName = 'travel_order';
     public $travel;
 
-    public function __construct(array $travel) {
+    public function __construct($travel) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
 

@@ -60,7 +60,7 @@
 
 .travel-goto{
     padding:0.5em;
-    background-color: #FF8C00;
+    background-color: #00ACFF;
     color: #fff;
     border: 0;
     font-size: large;
@@ -76,7 +76,7 @@
 }
 
 .travel-goto:hover{
-    background-color: #eb5443;
+    background-color: #0a3150;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 

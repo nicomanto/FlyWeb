@@ -47,7 +47,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('TOTALE', '');
 
-    $_page->replaceTag('SUCCESSO', "Bravo");
+    $_page->replaceTag('SUCCESSO', new \html\components\responseMessage("Complimenti acquisto completato, ora rilassati e goditi il viaggio!"));
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
