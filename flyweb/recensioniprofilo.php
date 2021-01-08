@@ -1,5 +1,6 @@
 <?php
     use model\BreadcrumbItem;
+    use model\Paginator;
 
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
@@ -8,6 +9,10 @@
     $reviews = $userController->getReviewUtente();
 
     $_page= new \html\template('profilo');
+
+    $page = isset($page) ? $page : 1;
+
+    $paginatedReview = Paginator::paginate($reviews, $page);
 
     
     $_page->replaceTag('HEAD', (new \html\components\head));
@@ -27,15 +32,20 @@
 
     $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
 
+    $_page->replaceTag('ORDINI-PROFILO', '');
+    $_page->replaceTag('DATIPERSONALI', '');
 
     if (empty($reviews)) {
         $_page->replaceTag('RECENSIONI-PROFILO', new \html\components\ResponseMessage("Non hai nessuna recensione per ora..."));
-        //dovrei fare un componente apposito per segnalare il non aver ancora lasciato recensioni?
+        $_page->replaceTag('PAGE_SELECTOR', '');
     }
     else {
         $_page->replaceTag('RECENSIONI-PROFILO', (new \html\components\profileReviews($reviews)));
+        $paginatedReview = Paginator::paginate($reviews , $page);
+        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedReview)));
     }
-    
+
+
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $_page;

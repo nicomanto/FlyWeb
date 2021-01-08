@@ -933,8 +933,13 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline;
 }
 
-.profilo-flex-container .footer{
+.profilo-flex-container .pageSelector{
     order: 5;
+    min-width: 100%;
+}
+
+.profilo-flex-container .footer{
+    order: 6;
     min-width: 100%;
 }
 
