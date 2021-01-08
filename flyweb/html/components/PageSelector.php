@@ -2,10 +2,7 @@
 
 namespace html\components;
 
-use html\components\baseComponent;
-use html\components\pageSelectorItem;
-
-class PageSelector extends baseComponent {
+class PageSelector extends BaseComponent {
 
 
     public $currentPage;
