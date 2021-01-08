@@ -27,6 +27,10 @@
 
     $page->replaceTag('RECENSIONI-PROFILO', '');
 
+    $page->replaceTag('ORDINI-PROFILO', '');
+
+    $page->replaceTag('ORDINI-PROFILO', '');
+
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

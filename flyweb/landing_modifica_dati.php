@@ -48,6 +48,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
 
+    $page->replaceTag('ELIMINAZIONE', '');
+
+    $page->replaceTag('MODIFICA-PSW', '');
+
+    $page->replaceTag('MODIFICA-INFO', '');
+
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;

@@ -28,6 +28,8 @@
     $page->replaceTag('MODIFICA-INFO', (new \html\components\modificainfoprofilo($userController->user)));
 
     $page->replaceTag('SUCCESSO-MODIFICA', '');
+
+    $page->replaceTag('ELIMINAZIONE', '');
     
     $page->replaceTag('FOOTER', (new \html\components\footer));
 

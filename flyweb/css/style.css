@@ -904,6 +904,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 3em;
 }
 
+.profilo-contenuto{
+    min-height: 80vh;
+}
+
 .profilo-contenuto .form-registrazione{
     width: 80%;
 }
@@ -967,6 +971,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 .order-details h1{
     background-color: #FFBA66;
+}
+
+.order-details h2{
+    background-color: #ffd394;
+}
+
+.travel-order ul{
+    margin:0 auto;
+    padding: 1em 0 0 0;
 }
 
 /* ===  CARRELLO === */

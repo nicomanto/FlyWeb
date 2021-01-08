@@ -36,6 +36,8 @@
 
     $_page->replaceTag('CONTENUTO', $viaggio);
 
+    $_page->replaceTag('PAGE_SELECTOR', '');
+
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $_page;
