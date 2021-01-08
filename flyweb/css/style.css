@@ -93,6 +93,16 @@ label{
     display: block;
 }
 
+/* === ERROR BOX === */
+.error-box{
+    width: 100%;
+    text-align: center;
+    color: #ff0000;
+}
+
+.error-box ul{
+    list-style-type: none;
+}
 
 /* === LAYOUT index.html ===*/
 .contenuto-home{
