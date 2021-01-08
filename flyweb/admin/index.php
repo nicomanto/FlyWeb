@@ -13,18 +13,18 @@
     
 
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione")
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     $page->replaceTag('ADM-CONTENUTO', new \html\components\AdmInfoHome());
 

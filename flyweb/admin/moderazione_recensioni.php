@@ -21,18 +21,18 @@
     $count = isset($page) ? $page : 1;
 
 
-    $page = new \html\template('board');
+    $page = new Template('board');
     $admController = new \controllers\AdmController;
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modera_recensioni")));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new model\BreadcrumbItem("/admin/moderazione_recensioni.php","Modera recensioni")
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("/admin/moderazione_recensioni.php","Modera recensioni")
     );
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     if($admController->haveUnapprovedReviews()){
         $unapprovedRev = $admController->getUnapprovedReviewsList();
@@ -41,12 +41,12 @@
         $searchResults="";
 
         foreach ($paginatedReview['elements'] as $element) {
-            $searchResults.= (new \html\components\AdmTravelReviewItem((new \model\Review($element))));
+            $searchResults.= (new \html\components\AdmTravelReviewItem((new Review($element))));
         }
 
         $page->replaceTag('ADM-CONTENUTO', 
             "<ul>".$searchResults."</ul>".
-            (new \html\components\pageSelector($paginatedReview)));
+            (new PageSelector($paginatedReview)));
 
     }else{
         $page->replaceTag('ADM-CONTENUTO',"<h2>Nessun recensione da moderare...per ora.</h2>");

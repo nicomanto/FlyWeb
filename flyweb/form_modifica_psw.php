@@ -1,24 +1,37 @@
 <?php
+
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\FormModificaPsw;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\SuccessoModifica;
+    use html\Template;
+    use model\BreadcrumbItem;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    RouteController::loggedRoute();
 
     $error=array();
  
-    $page = new \html\template('modifica_info_profilo');
+    $page = new Template('modifica_info_profilo');
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("#","Modifica Password")
+        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("#","Modifica Password")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     if(isset($_POST['submit'])) {
 
-        $userController= new \controllers\UserController();
+        $userController= new UserController();
         $vecchia_password = $userController->getPassword();
         
         extract($_POST, EXTR_SKIP);
@@ -44,19 +57,19 @@
         if (empty($error)) {
             $userController->user->password = $nuova_password;
             $userController->aggiornaPsw();
-            $page->replaceTag('MODIFICA-PSW', (new \html\components\SuccessoModifica));
+            $page->replaceTag('MODIFICA-PSW', (new SuccessoModifica));
         }
         else{
-            $page->replaceTag('MODIFICA-PSW', (new \html\components\formModificaPsw($userController->user,$error)));
+            $page->replaceTag('MODIFICA-PSW', (new FormModificaPsw($userController->user,$error)));
         }
     }
     else{
-        $page->replaceTag('MODIFICA-PSW', (new \html\components\formModificaPsw($userController->user,$error)));
+        $page->replaceTag('MODIFICA-PSW', (new FormModificaPsw($userController->user,$error)));
     }
 
     $page->replaceTag('MODIFICA-INFO', '');
 
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
 
     echo $page;

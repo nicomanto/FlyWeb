@@ -1,60 +1,65 @@
 <?php
-use model\BreadcrumbItem;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+	use controllers\RouteController;
+	use controllers\UserController;
+	use html\components\Breadcrumb;
+	use html\components\Footer;
+	use html\components\Head;
+	use html\components\PrincipalMenu;
+	use html\components\ProfiloMenu;
+	use html\Template;
+	use model\BreadcrumbItem;
 
-    // Load request's data
-    extract($_GET, EXTR_SKIP);
+	require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
-    $userController=new \controllers\UserController();
+	RouteController::loggedRoute();
 
-    $items = $userController->getViaggiCarrello(); 
+	// Load request's data
+	extract($_GET, EXTR_SKIP);
 
-    $risultato=$userController->getSubtotale();
+	$userController = new UserController();
 
-    $_page= new \html\template('riepilogo_ordine');
+	$items = $userController->getViaggiCarrello();
 
-    $_page->replaceTag('HEAD', (new \html\components\head));
+	$risultato = $userController->getSubtotale();
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+	$_page = new Template('riepilogo_ordine');
 
-    // Set breadcrumb
-    $breadcrumb=array(
-      new model\BreadcrumbItem("/carrello.php","Carrello"),
-      new model\BreadcrumbItem("/metodopagamento.php","Metodo di pagamento"),
-      new model\BreadcrumbItem("/landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
-      new model\BreadcrumbItem("/dati_fatturazione.php","Inserisci dati di fatturazione"),
-      new model\BreadcrumbItem("/landing_riepilogo.php", "Riepilogo ordine"),
-      new model\BreadcrumbItem("#", "Ordine confermato")
-    );
+	$_page->replaceTag('HEAD', (new Head));
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+	$_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
-    $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+	// Set breadcrumb
+	$breadcrumb = array(
+		new BreadcrumbItem("/carrello.php", "Carrello"),
+		new BreadcrumbItem("/metodopagamento.php", "Metodo di pagamento"),
+		new BreadcrumbItem("/landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
+		new BreadcrumbItem("/dati_fatturazione.php", "Inserisci dati di fatturazione"),
+		new BreadcrumbItem("/landing_riepilogo.php", "Riepilogo ordine"),
+		new BreadcrumbItem("#", "Ordine confermato")
+	);
 
-    extract($_POST, EXTR_SKIP);
+	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $ordine_temporaneo=$userController->estraiDatiOrdineTemporaneo();
-    $userController->addOrder($ordine_temporaneo);
+	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
-    $userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
-    $userController->eliminaOrdineTemporaneo();
-    $userController->eliminaCarrello();
+	extract($_POST, EXTR_SKIP);
 
-    $_page->replaceTag('DATI-INSERITI', '');
+	$ordine_temporaneo = $userController->estraiDatiOrdineTemporaneo();
+	$userController->addOrder($ordine_temporaneo);
 
-    $_page->replaceTag('VIAGGI', '');
+	$userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
+	$userController->eliminaOrdineTemporaneo();
+	$userController->eliminaCarrello();
 
-    $_page->replaceTag('TOTALE', '');
+	$_page->replaceTag('DATI-INSERITI', '');
 
-    $_page->replaceTag('SUCCESSO', "Bravo");
+	$_page->replaceTag('VIAGGI', '');
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+	$_page->replaceTag('TOTALE', '');
 
+	$_page->replaceTag('SUCCESSO', "Bravo");
 
+	$_page->replaceTag('FOOTER', (new Footer));
 
-
-
-
-
-    echo $_page;
+	echo $_page;

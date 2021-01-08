@@ -6,12 +6,12 @@
 
     RouteController::protectedRoute();
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
     $error=array();
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modifica_viaggio")));
     
@@ -25,7 +25,7 @@
         $viaggio = $form->estraiDatiViaggio();
         $t = $viaggio['titolo'];
 
-        $travelController = new \controllers\TravelController((int)$viaggio['id']);
+        $travelController = new TravelController((int)$viaggio['id']);
 
         if($viaggio['datafine']<$viaggio['datainizio']){
             array_push ( $error , "Campi Data - data di inizio dev'essere antecedente alla data di fine");
@@ -57,16 +57,16 @@
 
     } else{
         $id= $_GET['par_id'];
-        $travelController = new \controllers\TravelController((int)$id);
+        $travelController = new TravelController((int)$id);
         $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag(), false)));
         
     }
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
-        new model\BreadcrumbItem("/admin/form_modifica.php","Modifica viaggio")
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("/admin/form_modifica.php","Modifica viaggio")
     );
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
     
 
     $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));

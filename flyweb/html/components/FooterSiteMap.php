@@ -2,11 +2,10 @@
 
 namespace html\components;
 
-use \html\components\PrincipalMenu;
+use PrincipalMenu;
 
 use \model\UserMenu;
 
-use \html\components\FooterSiteMapItem;
 
 class FooterSiteMap extends NavMenu {
 
@@ -22,7 +21,7 @@ class FooterSiteMap extends NavMenu {
 
         $li="";
         foreach($this->menuItem as $i){
-            $li.=new \html\components\FooterSiteMapItem($i);
+            $li.=new FooterSiteMapItem($i);
         }
 
         return $li;

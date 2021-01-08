@@ -1,26 +1,38 @@
 <?php
+
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\Template;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\ModificaInfoProfilo;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\components\SuccessoModifica;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    RouteController::loggedRoute();
 
     $error=array();
 
-    $userController= new \controllers\UserController();
+    $userController= new UserController();
 
-    $page = new \html\template('modifica_info_profilo');
+    $page = new Template('modifica_info_profilo');
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("#","Modifica profilo")
+        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("#","Modifica profilo")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
     $page->replaceTag('MODIFICA-PSW', '');
 
@@ -71,18 +83,18 @@
             $userController->user->cognome = $cognome;
             $userController->user->data_nascita = $data_nascita;
             $userController->aggiornaUtente();
-            $page->replaceTag('MODIFICA-INFO', (new \html\components\SuccessoModifica));
+            $page->replaceTag('MODIFICA-INFO', (new SuccessoModifica));
         }
         else{
-            $page->replaceTag('MODIFICA-INFO', (new \html\components\modificainfoprofilo($userController->user,$error)));
+            $page->replaceTag('MODIFICA-INFO', (new ModificaInfoProfilo($userController->user,$error)));
         }
     }else{
-        $page->replaceTag('MODIFICA-INFO', (new \html\components\modificainfoprofilo($userController->user,$error)));
+        $page->replaceTag('MODIFICA-INFO', (new ModificaInfoProfilo($userController->user,$error)));
     }
   
     
     
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;
 
