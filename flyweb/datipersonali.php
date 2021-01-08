@@ -31,6 +31,8 @@
 
     $page->replaceTag('ORDINI-PROFILO', '');
 
+    $page->replaceTag('PAGE_SELECTOR', '');
+
     $page->replaceTag('FOOTER', (new \html\components\footer));
 
     echo $page;
