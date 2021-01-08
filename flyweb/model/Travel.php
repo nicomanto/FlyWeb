@@ -13,6 +13,7 @@ class Travel {
     public $stato;
     public $citta;
     public $localita;
+    public $immagine;
 
     /**
      * Workaround to have multiple constructors
@@ -42,6 +43,7 @@ class Travel {
         $this->stato = $travel['Stato'];
         $this->citta = $travel['Citta'];
         $this->localita = $travel['Localita'];
+        $this->immagine = $travel['Immagine'];
     }
 
     /**

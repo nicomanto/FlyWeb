@@ -28,13 +28,13 @@ class PageSelector extends baseComponent {
         $show_first = $this->currentPage != 1;
         $show_last = $this->currentPage != $this->totalPages;
 
-        print_r($this->currentPage);
-        print_r(', ');
-        print_r($this->totalPages);
-        print_r(', ');
-        print_r($show_first);
-        print_r(', ');
-        print_r($show_last);
+        // print_r($this->currentPage);
+        // print_r(', ');
+        // print_r($this->totalPages);
+        // print_r(', ');
+        // print_r($show_first);
+        // print_r(', ');
+        // print_r($show_last);
 
 
         // If there is only one page or there are no pages

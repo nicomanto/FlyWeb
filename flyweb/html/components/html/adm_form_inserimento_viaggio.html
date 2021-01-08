@@ -1,7 +1,7 @@
 <h1 class="adm-titolo">INSERIMENTO VIAGGIO</h1>
 
 <ERROR_BOX/>
-<form action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
+<form enctype="multipart/form-data" action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
 
@@ -68,7 +68,7 @@
                
                <div class="miscellanea">
                     <label for="immagini"><strong>INSERISCI IMMAGINI</strong>
-                         <input type="file" class="input input-file" tabindex="10" id="immagini" accept="image/*" multiple="multiple" name="immagini" required="required">
+                         <input type="file" class="input input-file" tabindex="10" id="immagine" accept="image/*" name="immagine" required="required">
                     </label>
                     <p id="input_error_immagini" class="p_input_error"> testo errore </p>
                </div>
