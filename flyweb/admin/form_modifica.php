@@ -21,7 +21,7 @@
     if(!empty($_POST)) {
 
         $admController = new \controllers\AdmController();
-        $form = new \html\components\FormViaggio($error);
+        $form = new \html\components\FormViaggio($error, null, null, false);
         $viaggio = $form->estraiDatiViaggio();
         $t = $viaggio['titolo'];
 
@@ -52,13 +52,13 @@
 
         }
         else{
-            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag())));
+            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag(), false)));
         }
 
     } else{
         $id= $_GET['par_id'];
         $travelController = new \controllers\TravelController((int)$id);
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag())));
+        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$travelController->travel,$travelController->getIdTag(), false)));
         
     }
     $breadcrumb=array(

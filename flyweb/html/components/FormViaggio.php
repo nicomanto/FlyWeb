@@ -14,11 +14,13 @@ class FormViaggio extends baseComponent
     public $travel_loc;
     public $travel_tag;
 
+    public $image_required;
+
     public $AdmController;
 
     const _templateName = 'adm_form_inserimento_viaggio';
 
-    public function __construct(array $error, $travel = null,$tag=null)
+    public function __construct(array $error, $travel = null,$tag=null, bool $image_required=true)
     {
 
         // Call BaseComponent constructor
@@ -26,6 +28,7 @@ class FormViaggio extends baseComponent
         $this->travel_loc = $travel;
         $this->travel_tag=$tag;
         $this->error=$error;
+        $this->image_required = $image_required;
         $this->AdmController=(new AdmController());
         $this->render();
     }
@@ -47,7 +50,8 @@ class FormViaggio extends baseComponent
             'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
             'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
             'prezzo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->prezzo,
-            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio
+            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,
+            'image_required' => $this->image_required ? 'required="required"' : ''
         ]);
 
         $tagList=$this->AdmController->getTags();
