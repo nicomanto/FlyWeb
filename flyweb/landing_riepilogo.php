@@ -43,23 +43,55 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $fatturazione = $form1->estraiDatiFatturazione();
 
 
+    if(!preg_match("/^[\w\s\.]*$/",$fatturazione['via'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo via: permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(preg_match("/^(\.|_|\s)*$/",$fatturazione['via'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo via: deve contenere almeno delle lettere o numeri, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(!preg_match("/^[\w\s\.]*$/",$fatturazione['comune'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo comune: permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(preg_match("/^(\.|_|\s)*$/",$fatturazione['comune'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo comune: deve contenere almeno delle lettere o numeri, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(!preg_match("/^[\w\s\.]*$/",$fatturazione['provincia'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo provincia: permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(preg_match("/^(\.|_|\s)*$/",$fatturazione['provincia'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo provincia: deve contenere almeno delle lettere o numeri, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else if(!preg_match("/^[\d]{5}$/",$fatturazione['cap'])){
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\responseMessage('Campo CAP: Si devono inserire 5 numeri, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('VIAGGI', '');
+      $_page->replaceTag('TOTALE', '');
+    }
+    else{
+      $_page->replaceTag('DATI-INSERITI', (new \html\components\RiepilogoOrdine($fatturazione)));
 
-    $_page->replaceTag('DATI-INSERITI', (new \html\components\RiepilogoOrdine($fatturazione)));
+      $_page->replaceTag('VIAGGI', $searchResults);
 
-    $_page->replaceTag('VIAGGI', $searchResults);
+      $_page->replaceTag('TOTALE', (new \html\components\Totale($risultato)));
+      
+      $fatturazione['totale'] = $risultato;
 
-    $_page->replaceTag('TOTALE', (new \html\components\Totale($risultato)));
+      $prova= $userController->ordineTemporaneo($fatturazione);
+    }
 
     $_page->replaceTag('FOOTER', (new \html\components\footer));
 
     $_page->replaceTag('SUCCESSO', '');
-
-    $fatturazione['totale'] = $risultato;
-
-    $prova= $userController->ordineTemporaneo($fatturazione);
-
-
-
-
 
     echo $_page;

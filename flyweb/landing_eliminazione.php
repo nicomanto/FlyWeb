@@ -26,7 +26,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $page->replaceTag('MODIFICA-PSW', "");
     $page->replaceTag('SUCCESSO-MODIFICA', "");
 
-    $page->replaceTag('ELIMINAZIONE', (new \html\components\EliminazioneProfilo()));
+    $page->replaceTag('ELIMINAZIONE', (new \html\components\eliminazioneProfilo()));
 
     $page->replaceTag('FOOTER', (new \html\components\footer));
 

@@ -36,6 +36,7 @@
         extract($_POST, EXTR_SKIP);
 
         // Hash password
+        $no_crip_pass=$password;
         $password = md5($password);
         
         $userExists = $loginController->checkUserExistence($user);
@@ -46,7 +47,7 @@
             // TODO: do something instead of exiting
             //exit();
 
-            array_push ( $error , "L'utente " . $user . " non esiste nel database");
+            array_push ( $error , "L'utente \"" . $user . "\" non esiste nel database");
         }
         else{
 
@@ -58,7 +59,7 @@
                 // TODO: do something instead of exiting
                 //exit();
 
-                array_push ( $error , "La password " . $user . " non è corretta per l'utente ". $user);
+                array_push ( $error , "La password \"" . $no_crip_pass . "\" non è corretta per l'utente \"". $user . "\"");
             }
             else{
                 $_SESSION['logged_in'] = true;
