@@ -35,9 +35,10 @@ class FormViaggio extends baseComponent
     {
         //echo "debug";
 
+        //print_r($this->travel_loc);
         $this->replaceValues([
-            'type' => (empty($this->travel_loc)) ? 'INSERISCI' : 'MODIFICA',
-            'link_action' => (empty($this->travel_loc)) ? './form_inserimento.php' : './form_modifica.php',
+            'type' => (empty($this->travel_loc->id_viaggio)) ? 'INSERISCI' : 'MODIFICA',
+            'link_action' => (empty($this->travel_loc->id_viaggio)) ? './form_inserimento.php' : './form_modifica.php',
             'titolo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->titolo,
             'descrizione' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizione,
             'descrizioneBreve' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizioneBreve,
@@ -46,7 +47,7 @@ class FormViaggio extends baseComponent
             'localita' => (empty($this->travel_loc)) ? '' : $this->travel_loc->localita,
             'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
             'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
-            'prezzo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->prezzo,
+            'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
             'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio
         ]);
 

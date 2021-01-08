@@ -1,6 +1,7 @@
 <?php
 
     use controllers\RouteController;
+    use model\Travel;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
@@ -29,6 +30,10 @@
         $admController = new \controllers\AdmController();
         $form = new \html\components\FormViaggio($error);
         $viaggio = $form->estraiDatiViaggio();
+        //print_r($viaggio);
+        $temp_travel=new Travel($viaggio['titolo'], $viaggio['datainizio'], $viaggio['datafine'], (int)$viaggio['prezzo'], $viaggio['descrizione'], $viaggio['descrizioneBreve'],$viaggio['stato'], $viaggio['citta'], $viaggio['localita']);
+        //print_r($temp_travel);
+        
         $t = $viaggio['titolo'];
 
         #da gestire il campo 'immagini'
@@ -61,11 +66,11 @@
         }
         else{
             
-            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error)));
+            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$temp_travel,$viaggio['tag'])));
         }
     }
     else{
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error)));
+        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$temp_travel,$viaggio['tag'])));
         
     }
 
