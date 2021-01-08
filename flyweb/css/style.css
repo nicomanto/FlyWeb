@@ -2,7 +2,8 @@
 :root {
     --primary  : #0a3150;
     --secondary: #FF8C00;
-    --secondary_lighter: #ff9e14;
+    --secondary_lighter1: #ff9e14;
+    --secondaty_lighter2: #ffd394;
 }
 
 p{
@@ -130,7 +131,7 @@ label{
 .contenuto-home .boxSuggerimenti{
     order: 4;
     background-color: #d7ecff;
-    padding: 2em 0 4em 0;
+    padding: 2em 0 6em 0;
 }
 
 .contenuto-home .footer{
@@ -654,7 +655,7 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content : space-between;
     order           : 2;
     min-width: 48%;
-   
+    max-width: 48%;
 }
 
 .travel-details-info h1{
@@ -678,7 +679,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .travel-details-container .price{
     font-size       : x-large;
-    background-color: #e49d44;
+    background-color:#ffd394;
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -1095,7 +1096,6 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
     vertical-align: top;
     min-width: 100%;
-    margin-top: 2em;
 }
 
 .footer h3{
