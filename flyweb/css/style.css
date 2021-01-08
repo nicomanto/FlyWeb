@@ -2,7 +2,7 @@
 :root {
     --primary  : #0a3150;
     --secondary: #FF8C00;
-    --secondary_lighter1: #ff9e14;
+    --secondary_lighter: #ff9e14;
     --secondaty_lighter2: #ffd394;
 }
 
@@ -975,6 +975,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* === ORDER DETAILS === */
 
+.riepilogo-contenuto .adm-bottone-approva-recensione{
+    width: 100%;
+    margin: 0 auto;
+}
+
 .order-details h1{
     background-color: #FFBA66;
 }
@@ -986,6 +991,7 @@ input[type=number]::-webkit-outer-spin-button {
 .travel-order ul{
     margin:0 auto;
     padding: 1em 0 0 0;
+    list-style-type: none;
 }
 
 /* ===  CARRELLO === */

@@ -134,6 +134,14 @@ a{
     display: none;
 }
 
+.riepilogo-contenuto h2{
+    text-align: center;
+}
+
+.riepilogo-contenuto h3{
+    display: inline;
+}
+
 /* ===  CARRELLO === */
 .carrello-item, .subtotale{
     width: 70%;
@@ -145,7 +153,6 @@ a{
 .carrello-contenuto input, .order-item input{
     display: none
 }
-
 
 /* === PROFILO === */
 .form-registrazione{
