@@ -5,7 +5,7 @@
 
     RouteController::protectedRoute();
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
     $form = new \html\components\AdmFormIntegrazione();
     $integrazione = $form->estraiDatiIntegrazione();
@@ -26,7 +26,7 @@
 
     $t = $integrazione['nome'];
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 

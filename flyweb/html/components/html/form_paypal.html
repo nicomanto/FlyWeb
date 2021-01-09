@@ -1,14 +1,17 @@
 <h1>Inserimento credenziali <span lang="en">Paypal</span></h1>
 
 <div class="form-paypal">
-    <form  method="POST" name="form_paypal" id="form_paypal" action="/dati_fatturazione.php">
+    <form  method="POST" name="form_paypal" id="form_paypal" action="/dati_fatturazione.php" onsubmit="return validationEmail()">
         <fieldset>
             <legend>Inserisci la tua <span lang="en">email</span>: associata a Paypal</legend>
 
-            <label for="emailPaypal"><span lang="en">Email</span>:associata a <span lang="en">Paypal</span>: 
-                <input type="text" class="input" tabindex="1" name="emailPaypal" id="emailPaypal" required="required">
-            </label><br>
-            <input type="text" name="metodopagamento" value="%METODOPAGAMENTO%">
+            <label for="email"><span lang="en">Email</span>:associata a <span lang="en">Paypal</span>: 
+                <input type="text" class="input" tabindex="1" name="email" id="email" required="required" onblur="validationEmail()">
+            </label>
+            <p id="input_error_email" class="p_input_error"> testo errore </p>
+            <br>
+            
+            <input type="hidden" name="metodopagamento" value="%METODOPAGAMENTO%">
             <input type="submit" class="adm-bottone-modifica-card" tabindex="2" id="submit" value="Avanti">
         </fieldset>
     </form>

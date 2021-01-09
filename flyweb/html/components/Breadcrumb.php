@@ -3,7 +3,7 @@
 namespace html\components;
 
 use html\components\baseComponent;
-use model\BreadcrumbItem;
+use BreadcrumbItem;
 
 class Breadcrumb extends baseComponent {
 

@@ -29,9 +29,9 @@ class AdmController extends BaseController {
 
     //inserisce un viaggio
     public function inserisciViaggio($viaggio): void{
-        $query='INSERT INTO Viaggio (Titolo, Descrizione, DescrizioneBreve, DataInizio, DataFine, Stato, Citta, Localita, Prezzo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
+        $query='INSERT INTO Viaggio (Titolo, Descrizione, DescrizioneBreve, DataInizio, DataFine, Stato, Citta, Localita, Prezzo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
         
-        //print_r($viaggio);
+        print_r($viaggio);
 
         $this->db->runQuery($query, 
                             $viaggio['titolo'], 
@@ -42,7 +42,9 @@ class AdmController extends BaseController {
                             $viaggio['stato'], 
                             $viaggio['citta'], 
                             $viaggio['localita'], 
-                            $viaggio['prezzo']);
+                            $viaggio['prezzo'],
+                            $viaggio['immagine']
+                        );
     }
 
     //aggiorna un viaggio già esistente

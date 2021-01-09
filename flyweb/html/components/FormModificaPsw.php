@@ -9,12 +9,14 @@ class FormModificaPsw extends baseComponent {
 
     const _templateName = 'form_modifica_psw';
     public $user;
+    private $error;
 
-    public function __construct($user) {
+    public function __construct($user,array $error) {
 
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->user = $user;
+        $this->error=$error;
         $this->render();
     }
     
@@ -25,6 +27,13 @@ class FormModificaPsw extends baseComponent {
             $this->replaceValues([
                     'nuova_password' => $this->user->password
             ]);
+
+            if(!empty($this->error)){
+                $this->replaceTag('ERROR_BOX',new ErrorBox($this->error));
+            }
+            else{
+                $this->replaceTag('ERROR_BOX','');
+            }
             
             return $this;
     }

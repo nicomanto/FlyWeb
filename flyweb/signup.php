@@ -1,6 +1,14 @@
 <?php
 
     use controllers\RouteController;
+    use controllers\SignupController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ResponseMessage;
+    use html\components\SignupForm;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
@@ -17,31 +25,31 @@
     $error=array();
 
     // Loading signup template
-    $page = new \html\template('signup');
+    $page = new Template('signup');
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","Registrati")
+        new BreadcrumbItem("#","Registrati")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     // Set signup form
-    //$page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm));
+    //$page->replaceTag('SIGNUP_FORM', (new SignupForm));
 
     // Set footer
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     // Check is signup is attempted
     if(isset($_POST['signup'])) {
 
-        $signupController = new \controllers\SignupController();
+        $signupController = new SignupController();
 
         $requiredParams = [
             'nome',
@@ -65,17 +73,17 @@
         extract($_POST, EXTR_SKIP);
 
         //check param like js
-        if(!preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$nome)){
-            array_push ( $error , "Campo Nome: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+        if(!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/",$nome)){
+            array_push ( $error , "Campo Nome: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^(\s)*$/",$nome)){
             array_push ( $error , "Campo Nome: deve contenere almeno delle lettere");
         }
 
-        if(!preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$cognome)){
+        if(!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/",$cognome)){
             echo preg_match("/^[A-Za-zÀ-ú\s]{4,30}$/",$cognome);
-            array_push ( $error , "Campo Cognome: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+            array_push ( $error , "Campo Cognome: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^(\s)*$/",$cognome)){
@@ -144,14 +152,14 @@
 
         if(empty($error)){
             $signupController->registerUser($username, $email, $password, $nome, $cognome, $data_nascita);
-            $page->replaceTag('SIGNUP_FORM', (new \html\components\responseMessage("Registrazione avvenuta con successo, scegli il tuo primo volo!","./login.php","Accedi",false)));
+            $page->replaceTag('SIGNUP_FORM', (new ResponseMessage("Registrazione avvenuta con successo, scegli il tuo primo viaggio!","./login.php","Accedi",false)));
         }
         else{
-            $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm($error)));
+            $page->replaceTag('SIGNUP_FORM', (new SignupForm($error)));
         }
     }
     else{
-        $page->replaceTag('SIGNUP_FORM', (new \html\components\signupForm($error)));
+        $page->replaceTag('SIGNUP_FORM', (new SignupForm($error)));
     }
     
 

@@ -1,22 +1,25 @@
 <?php
 
     use controllers\RouteController;
+    use controllers\ImagesController;
+    use \controllers\AdmController;
+    use \html\components\FormViaggio;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::protectedRoute();
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
     $error=array();
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new model\BreadcrumbItem("/admin/form_inserimento.php","Inserimento viaggio")
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("/admin/form_inserimento.php","Inserimento viaggio")
     );
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
@@ -26,8 +29,8 @@
     //controllo se c'è stata una richiesta post
     if(!empty($_POST)) {
 
-        $admController = new \controllers\AdmController();
-        $form = new \html\components\FormViaggio($error);
+        $admController = new AdmController();
+        $form = new FormViaggio($error);
         $viaggio = $form->estraiDatiViaggio();
         $t = $viaggio['titolo'];
 
@@ -41,6 +44,10 @@
             array_push ( $error , "Campo Prezzo - Il prezzo non può essere negativo");
         }
 
+        print_r($_FILES);
+
+        $imageController = new ImagesController();
+        $viaggio['immagine'] = $imageController->saveUploadedImage($_FILES['immagine']);
        
         //controllo se ci sono errori, in tal caso non invio la richiesta al database
         if(empty($error)){

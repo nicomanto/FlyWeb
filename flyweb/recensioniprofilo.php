@@ -1,32 +1,44 @@
 <?php
+
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ProfileReviews;
+    use html\components\ProfiloMenu;
+    use html\components\ResponseMessage;
+    use html\Template;
     use model\BreadcrumbItem;
     use html\components\responseMessage;
 
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    RouteController::loggedRoute();
 
  
-    $userController= new \controllers\UserController();
+    $userController= new UserController();
     $reviews = $userController->getReviewUtente();
 
-    $_page= new \html\template('profilo');
+    $_page= new Template('profilo');
 
     
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
     
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("#","Recensioni effettuate")
+        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("#","Recensioni effettuate")
     );
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
 
 
-    $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
 
     if (empty($reviews)) {
@@ -34,9 +46,9 @@
         //dovrei fare un componente apposito per segnalare il non aver ancora lasciato recensioni?
     }
     else {
-        $_page->replaceTag('RECENSIONI-PROFILO', (new \html\components\profileReviews($reviews)));
+        $_page->replaceTag('RECENSIONI-PROFILO', (new ProfileReviews($reviews)));
     }
     
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;

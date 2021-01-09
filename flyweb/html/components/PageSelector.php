@@ -2,10 +2,7 @@
 
 namespace html\components;
 
-use html\components\baseComponent;
-use html\components\pageSelectorItem;
-
-class PageSelector extends baseComponent {
+class PageSelector extends BaseComponent {
 
 
     public $currentPage;
@@ -37,8 +34,8 @@ class PageSelector extends baseComponent {
         // print_r($show_last);
 
 
-        // If there is only one page 
-        if ($this->totalPages == 1) {
+        // If there is only one page or there are no pages
+        if ($this->totalPages == 1 || $this->totalPages == 0) {
             $show_first = false;
             $show_last = false;
             $start_counter = 1;

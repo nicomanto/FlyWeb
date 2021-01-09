@@ -1,13 +1,28 @@
 <?php
-use model\BreadcrumbItem;
-use model\Paginator;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\CarrelloElementi;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PageSelector;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\components\ResponseMessage;
+    use html\components\Subtotale;
+    use html\Template;
+    use model\BreadcrumbItem;
+    use model\Paginator;
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    RouteController::loggedRoute();
+
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
-    $userController=new \controllers\UserController();
+    $userController=new UserController();
     
     extract($_POST, EXTR_SKIP);
 
@@ -23,41 +38,41 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $paginatedViaggiCarrello = Paginator::paginate($items, $page);
 
-    $_page= new \html\template('carrello');
+    $_page= new Template('carrello');
 
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","Carrello")
+        new BreadcrumbItem("#","Carrello")
     );
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
 
     $results = '';
     
     foreach ($paginatedViaggiCarrello['elements'] as $viaggio) {
-        $results .= new \html\components\carrelloElementi($viaggio);
+        $results .= new CarrelloElementi($viaggio);
     }
 
     if (empty($results)) {
-        $_page->replaceTag('CONTENUTO-CARRELLO', (new \html\components\responseMessage("Il tuo carrello è vuoto")));
+        $_page->replaceTag('CONTENUTO-CARRELLO', (new ResponseMessage("Il tuo carrello è vuoto")));
         $_page->replaceTag('PAGE_SELECTOR', ' ');
 
     }
 
     else {
         $_page->replaceTag('CONTENUTO-CARRELLO', $results);
-        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedViaggiCarrello)));
-        $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+        $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedViaggiCarrello)));
+        $_page->replaceTag('SUB-TOTALE',new Subtotale($userController->getSubtotale()));
 
     }
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;

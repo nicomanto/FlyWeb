@@ -21,7 +21,7 @@
         exit();
     }
 
-    $searchController = new \controllers\SearchController();
+    $searchController = new SearchController();
 
     if (!isset($search_by_option)) {
         echo 'Param search_by_option is missing';
@@ -42,21 +42,21 @@
     }
 
     // Loading search result template
-    $page= new \html\template('board');
+    $page= new Template('board');
     
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di gestione"),
-        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
-        new model\BreadcrumbItem("/admin/search_landing.php","Risultati ricerca viaggi")
+        new BreadcrumbItem("/admin/index.php","Pannello di gestione"),
+        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("/admin/search_landing.php","Risultati ricerca viaggi")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     
     // Set search result travels
@@ -71,7 +71,7 @@
         }
         
         $page->replaceTag('ADM-CONTENUTO',
-        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new \html\components\pageSelector($paginatedTravels)));
+        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new PageSelector($paginatedTravels)));
     }
 
     $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));

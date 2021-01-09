@@ -8,24 +8,24 @@
     RouteController::protectedRoute();
 
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
 
     // Set search box form
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));
+    $page->replaceTag('ADM-CONTENUTO', (new SearchBox("adm-searchbox")));
 
     $page->replaceTag('ADM-FOOTER', new AdmFooter());
 

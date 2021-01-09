@@ -1,6 +1,12 @@
 <?php
 
     use controllers\RouteController;
+    use controllers\TravelController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
@@ -15,61 +21,30 @@
         exit();
     }
 
-    $travelController = new \controllers\TravelController((int)$id);
+    $travelController = new TravelController((int)$id);
 
     // Loading travel detail template
-    $_page = new \html\template('travel');
+    $_page = new Template('travel');
 
     // Replace values in template
     $_page->replaceValue('TRAVEL_NAME', $travelController->travel->titolo);
 
     // Set page head
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Da vedere come fare serach.php perchè reindirizza a index.php perchè mancano gli elementi per la get
     $breadcrumb=array(
-        new model\BreadcrumbItem("/index.php","Home","en"),
-        new model\BreadcrumbItem("javascript:history.back()","Ricerca viaggio"),
-        new model\BreadcrumbItem("#","Dettagli viaggio")
+        new BreadcrumbItem("/index.php","Home","en"),
+        new BreadcrumbItem("javascript:history.back()","Ricerca viaggio"),
+        new BreadcrumbItem("#","Dettagli viaggio")
     );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     // Set travel details
     $_page->replaceTag('TRAVEL_DETAILS', (new \html\components\travelDetails($travelController->travel)));
@@ -92,10 +67,9 @@
     else{
         $_page->replaceTag('TRAVEL_REVIEWS', (new \html\components\noReviews()));
     }
-    
 
     // Set footer
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;
 

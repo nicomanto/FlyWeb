@@ -20,9 +20,9 @@
     $paginatedIntegrazioni = Paginator::paginate($integrazioni, $page);
 
     // Loading search result template
-    $page= new \html\template('board');
+    $page= new Template('board');
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_integrazioni")));
 

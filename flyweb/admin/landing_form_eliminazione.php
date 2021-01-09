@@ -5,11 +5,11 @@
 
     RouteController::protectedRoute();
 
-    $page = new \html\template('board');
+    $page = new Template('board');
 
     $id= $_GET['par_id'];
 
-    $travelController = new \controllers\TravelController($id);
+    $travelController = new TravelController($id);
     $admController    = new \controllers\AdmController;
 
     /*
@@ -22,16 +22,16 @@
     $travelController->deleteTravel($id);
 
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new model\BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
     );
     
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
 
