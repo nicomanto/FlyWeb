@@ -1,19 +1,15 @@
 <li class="travel-list-item">
-
-    <img class="travel-image" src="https://cdn-static.dagospia.com/img/patch/12-2017/gianni-morandi-con-la-zizzona-di-battipaglia-970741.jpg" alt="%ALT_IMAGE%">
-
-        <h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2>
-
-
-        <div class="travel-info">
-            <p>%TRAVEL_DESCRIPTION%</p>
-
-            <div class="basic-info">
-                <p><h3>Date:</h3><span> dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong> </span></p>
+        <img class="travel-image"src="https://i.pinimg.com/originals/87/9f/ba/879fba21d66993bf0efb278e6767b658.jpg" alt="%ALT_IMAGE%">
+            <h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2>
+            <div class="travel-info">
+                <p>%TRAVEL_DESCRIPTION%</p>
     
-                <p><h3>Prezzo:</h3><span><strong> %TRAVEL_PRICE% &euro;</strong></span> </p>
+                <div class="basic-info">
+                    <p><h3>Date:</h3><span> dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong> </span></p>
+        
+                    <p><h3>Prezzo:</h3><span><strong> %TRAVEL_PRICE% &euro;</strong></span> </p>
+                </div>
+        
+                <input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Scopri di più...">
             </div>
-    
-            <input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Scopri di più...">
-        </div>
 </li>

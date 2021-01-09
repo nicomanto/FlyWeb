@@ -1421,6 +1421,13 @@ input[type=number]::-webkit-outer-spin-button {
         margin-bottom: 3em;
     }
 
+
+    /* === TRAVEL LIST ITEM === */
+    .travel-image{
+        height: 100px;
+
+    }
+
 }
 
 @media only screen and (max-width: 480px){
