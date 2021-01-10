@@ -17,9 +17,8 @@
 }
 
 .reviews-list{
-    list-style-type: none;    
+    margin-left: -1em;
 }
-
 
 .header-review{
     display: inline-flex;

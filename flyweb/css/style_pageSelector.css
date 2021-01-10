@@ -9,7 +9,6 @@
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     cursor: pointer;
-    background-color: #fff;
     margin: 0.2em;
     vertical-align: middle;
 }
@@ -35,9 +34,11 @@
     cursor: auto;
 }
 
-.pageSelector {
+.page-selector{
+    width: 100%;
+    background-color: #0a3150;;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    padding: 1em 0 1em 0;
+    
 }

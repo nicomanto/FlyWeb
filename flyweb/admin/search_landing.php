@@ -71,7 +71,10 @@
         }
         
         $page->replaceTag('ADM-CONTENUTO',
-        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new \html\components\pageSelector($paginatedTravels)));
+        '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>");
+
+        $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedTravels)));
+
     }
 
     $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
