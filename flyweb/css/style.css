@@ -499,6 +499,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === SEARCH BOX === */
+.content-search-box{
+    margin: 0 auto;
+    background-color: #ffd394;
+    padding: 2em 0 2em;
+}
 .form-search{
     background-color: #0a3150;
     color:#fff;
@@ -506,8 +511,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 90%;
     border-radius: 30px;
     text-align: center;
-    padding-top: 1em;
-    margin-top: 2em;
+    padding: 1em 0 1em 0;
 }
 
 .form-search legend{
@@ -801,18 +805,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 1em;
 }
 
-.cb-login{
-    height: 2em;
-    width: 2em;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
 .titolo-pagina{
     text-align: center;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     letter-spacing: 2px;
+    width: 100%;
+    display: block;
 }
 
 /* === ABOUT US === */
