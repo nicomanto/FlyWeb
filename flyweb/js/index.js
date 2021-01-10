@@ -489,6 +489,18 @@ function getAge(data_nascita){
     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }
 
+/* hamburger menu */
+function hamb() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display == "none") {
+      menu.style.display = "block";
+      document.getElementById("menu").focus();
+    } else {
+      menu.style.display = "none";
+      document.body.focus();
+    }
+}
+
 checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();
