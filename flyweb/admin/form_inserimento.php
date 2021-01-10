@@ -50,6 +50,10 @@
             array_push ( $error , "Campo Prezzo - Il prezzo non può essere negativo");
         }
 
+        if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
+            array_push ( $error , "Campo Descrizione Breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
+        }
+
        
         //controllo se ci sono errori, in tal caso non invio la richiesta al database
         if(empty($error)){
