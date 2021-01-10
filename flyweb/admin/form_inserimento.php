@@ -64,6 +64,7 @@
         $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error)));
         
     }
+    $page->replaceTag('PAGE-SELECTOR', '');
 
     $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
 

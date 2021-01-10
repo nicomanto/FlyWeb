@@ -601,8 +601,8 @@ input[type=number]::-webkit-outer-spin-button {
 .search-submit-field .search-submit{
     min-width: 100%;
     background-color: #fff;
+    font-weight: bolder;
 }
-
 
 .search-label{
     min-width: 45%;
@@ -1487,8 +1487,16 @@ input[type=number]::-webkit-outer-spin-button {
 
     .board-flex-container .footer{
         height: 35vh;
+    }   
+
+    .content-search-box div label{
+        display: flex;
+        flex-direction: column;
     }
 
+    .content-search-box div label input{
+        width: 85%;
+    }
 
 }
 
