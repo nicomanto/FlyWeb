@@ -23,6 +23,7 @@ services:
       - flyweb_network
     volumes:
       - ../flyweb/:/var/www/html/
+      - uploads-volume:/var/www/html/uploads
     environment:
       DB_HOST: mariadb
       DB_DATABASE: flyweb
@@ -43,9 +44,13 @@ services:
       - ../flyweb/css:/var/www/html/css
       - ../flyweb/js:/var/www/html/js
       - ../flyweb/img:/var/www/html/img
+      - uploads-volume:/var/www/html/uploads
 
 volumes:
   flyweb-volume:
+    driver: local
+  
+  uploads-volume:
     driver: local
 
 networks:

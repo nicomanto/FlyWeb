@@ -1,6 +1,13 @@
 <?php
 
     use controllers\RouteController;
+    use controllers\LoginController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\LoginForm;
+    use html\components\PrincipalMenu;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
@@ -17,7 +24,7 @@
 
     // Check if login is attempted
     if(isset($_POST['login'])) {
-        $loginController = new \controllers\LoginController();
+        $loginController = new LoginController();
 
         $requiredParams = [
             'user',
@@ -80,32 +87,28 @@
 
         }
 
-        
-
-
-
     }
 
     // Loading login template
-    $page = new \html\template('login');
+    $page = new Template('login');
     
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","Accedi")
+        new BreadcrumbItem("#","Accedi")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
     
     // Set login form
-    $page->replaceTag('LOGIN_FORM', (new \html\components\loginForm($error)));
+    $page->replaceTag('LOGIN_FORM', (new LoginForm($error)));
 
     // Set footer
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;

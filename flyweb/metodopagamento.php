@@ -1,30 +1,41 @@
 <?php
-use model\BreadcrumbItem;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\MetodoPagamento;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\Template;
+    use model\BreadcrumbItem;
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    RouteController::loggedRoute();
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
-    $userController=new \controllers\UserController();
+    $userController=new UserController();
 
    // $items = $userController->getViaggiCarrello();
 
-    $_page= new \html\template('procedura_acquisto');
+    $_page= new Template('procedura_acquisto');
 
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("/carrello.php","Carrello"),
-        new model\BreadcrumbItem("#","Metodo di pagamento")
+        new BreadcrumbItem("/carrello.php","Carrello"),
+        new BreadcrumbItem("#","Metodo di pagamento")
     );
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $_page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
     
 
@@ -32,10 +43,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     $_page->replaceTag('INSERIMENTO-DATI', '');
 
-    $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\metodoPagamento()));
+    $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new MetodoPagamento()));
 
     $_page->replaceTag('TOTALE', '');
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;

@@ -1,7 +1,16 @@
 <?php
 
     use controllers\RouteController;
+    use controllers\SearchController;
     use model\Paginator;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PageSelector;
+    use html\components\PrincipalMenu;
+    use html\components\SearchBox;
+    use html\components\TravelListItem;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
@@ -20,7 +29,7 @@
         exit();
     }
 
-    $searchController = new \controllers\SearchController();
+    $searchController = new SearchController();
 
     if (!isset($search_by_option)) {
         echo 'Param search_by_option is missing';
@@ -44,38 +53,38 @@
     $paginatedTravels = Paginator::paginate($travels, $page);
 
     // Loading search result template
-    $_page= new \html\template('search');
+    $_page= new Template('search');
 
     // Set page head
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("/index.php","Home","en"),
-        new model\BreadcrumbItem("#","Ricerca viaggio")
+        new BreadcrumbItem("/index.php","Home","en"),
+        new BreadcrumbItem("#","Ricerca viaggio")
     );
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     // Set search box
-    $_page->replaceTag('SEARCH_BOX', (new \html\components\searchBox("searchbox")));
+    $_page->replaceTag('SEARCH_BOX', (new SearchBox("searchbox")));
 
     // Build list of travels;
     $searchResults = '';
     foreach ($paginatedTravels['elements'] as $travel) {
-        $searchResults .= new \html\components\travelListItem($travel);
+        $searchResults .= new TravelListItem($travel);
     }
     
     // Set search result travels
     $_page->replaceTag('SEARCH_RESULTS', $searchResults);
 
     // Set pagination indicator
-    $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedTravels)));
+    $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedTravels)));
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;

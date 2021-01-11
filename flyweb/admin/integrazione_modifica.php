@@ -6,13 +6,13 @@
 
     RouteController::protectedRoute();
 
-    $page = new \html\template('board');
+    $page = new Template('board');
     $id=$_GET['par_id'];
     $integrazioneContorller = (new \controllers\IntegrazioneController((int)$id));
 
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("integrazione_modifica")));
 

@@ -3,7 +3,7 @@
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
-    $userController = new \controllers\UserController();
+    $userController = new UserController();
     $vecchia_password = $userController->getPassword();
     
 
@@ -33,38 +33,38 @@
 
     $userController->aggiornaPsw();
 
-    $page = new \html\template('modifica_info_profilo');
+    $page = new Template('modifica_info_profilo');
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("/modifica_info_psw.php","Modifica password"),
-        new model\BreadcrumbItem("#","Riscontro modifica")
+        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("/modifica_info_psw.php","Modifica password"),
+        new BreadcrumbItem("#","Riscontro modifica")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
     
-    $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
     if($check1 && $check2){
-        $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+        $page->replaceTag('SUCCESSO-MODIFICA', (new SuccessoModifica));
     }else{
         if(!$check1 && !$check2){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password corrente non è esatta e le password nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new ResponseMessage("La password corrente non è esatta e le password nuove non combaciano")));
 
         }else if(!$check1){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password corrente non è esatta")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new ResponseMessage("La password corrente non è esatta")));
         }else if(!$check3){
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("La password nuova è uguale alla vecchia")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new ResponseMessage("La password nuova è uguale alla vecchia")));
         }else {
-            $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\responseMessage("Password nuove non combaciano")));
+            $page->replaceTag('SUCCESSO-MODIFICA', (new ResponseMessage("Password nuove non combaciano")));
         }
     }
 
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;
  

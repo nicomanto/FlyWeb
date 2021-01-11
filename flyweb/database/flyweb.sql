@@ -3,6 +3,7 @@ drop database if exists flyweb;
 create or replace schema flyweb collate utf8mb4_general_ci;
 use flyweb;
 
+
 create or replace table Carrello
 (
 	ID_Carrello int not null,
@@ -31,6 +32,43 @@ create or replace table CarrelloIntegrazione
 		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE NO ACTION,
 	constraint CarrelloIntegrazione_ibfk_2
 		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
+);
+
+create or replace table Preferiti
+(
+	ID_Preferiti int not null,
+	ID_Utente int not null,
+	primary key (ID_Preferiti, ID_Utente),
+	constraint ID_Utente
+		unique (ID_Utente)
+);
+
+create or replace table Utente
+(
+	ID_Utente int auto_increment
+		primary key,
+	Username TEXT not null ,
+	Password TEXT not null,
+	Nome TEXT not null,
+	Cognome TEXT not null,
+	Propic TEXT null,
+	Email TEXT not null,
+	DataNascita date not null,
+	DataRegistrazione timestamp not null default current_timestamp(),
+	Admin TINYINT(1) default 0 null,
+	EvilBit TINYINT(1) default 0 null,
+	ID_Carrello int null,
+	ID_Preferiti int null,
+	constraint Utente_ID_Carrello_uindex
+		unique (ID_Carrello),
+	constraint Utente_ID_Preferiti_uindex
+		unique (ID_Preferiti),
+	constraint Utente_Username_uindex
+		unique (Username),
+	constraint Utente_ibfk_1
+		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
+	constraint Utente_ibfk_2
+		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
 );
 
 create or replace table Ordine
@@ -78,15 +116,6 @@ create or replace table OrdineIntegrazione
 		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
 );
 
-create or replace table Preferiti
-(
-	ID_Preferiti int not null,
-	ID_Utente int not null,
-	primary key (ID_Preferiti, ID_Utente),
-	constraint ID_Utente
-		unique (ID_Utente)
-);
-
 create or replace table PreferitiIntegrazione
 (
 	ID_Preferiti int not null,
@@ -115,34 +144,6 @@ create or replace table TagIntegrazioni
 		foreign key (ID_Tag) references Tag (ID_Tag) ON DELETE NO ACTION,
 	constraint TagIntegrazioni_ibfk_2
 		foreign key (ID_Integrazione) references Integrazione (ID_Integrazione) ON DELETE NO ACTION
-);
-
-create or replace table Utente
-(
-	ID_Utente int auto_increment
-		primary key,
-	Username TEXT not null ,
-	Password TEXT not null,
-	Nome TEXT not null,
-	Cognome TEXT not null,
-	Propic TEXT null,
-	Email TEXT not null,
-	DataNascita date not null,
-	DataRegistrazione timestamp not null default current_timestamp(),
-	Admin TINYINT(1) default 0 null,
-	EvilBit TINYINT(1) default 0 null,
-	ID_Carrello int null,
-	ID_Preferiti int null,
-	constraint Utente_ID_Carrello_uindex
-		unique (ID_Carrello),
-	constraint Utente_ID_Preferiti_uindex
-		unique (ID_Preferiti),
-	constraint Utente_Username_uindex
-		unique (Username),
-	constraint Utente_ibfk_1
-		foreign key (ID_Carrello) references Carrello (ID_Carrello) ON DELETE CASCADE,
-	constraint Utente_ibfk_2
-		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
 );
 
 alter table Carrello

@@ -1,38 +1,34 @@
 <?php
 
     use controllers\RouteController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
     RouteController::unprotectedRoute();
 
-    // ATTENZIONE: la presenza di queste stringhe di debug crea problemi al replace del tag <HEAD/> nella pagina aboutUs, non so il perchè
-    // // TODO: This is for debug only
-    // if ($_SESSION['logged_in']) {
-    //     echo '<p>You\'re logged in!!</p>';
-    //     $user = "LoggedUser";
-    // } else {
-    //     echo 'You\'re not logged in';
-    //     $user = "NotLoggedUser";
-    // }
 
-    $page = new \html\template('aboutUs');
+    $page = new Template('aboutUs');
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","About us","en")
+        new BreadcrumbItem("#","About us","en")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     // Set footer
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;

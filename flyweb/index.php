@@ -1,5 +1,12 @@
 <?php
     use controllers\RouteController;
+    use html\components\BoxSuggerimenti;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\SearchBox;
+    use html\Template;
     use model\BreadcrumbItem;
 
     require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
@@ -16,29 +23,29 @@
     }
 
 
-    $page = new \html\template('index');
+    $page = new Template('index');
 
     
 
     // Set page head
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
 
     // Set breadcrumb
     $breadcrumb=array(
-        new model\BreadcrumbItem("#","Home","en")
+        new BreadcrumbItem("#","Home","en")
     );
 
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('SUGGESTIONS', (new \html\components\boxSuggerimenti));
+    $page->replaceTag('SUGGESTIONS', (new BoxSuggerimenti));
 
     // Set search box form
-    $page->replaceTag('SEARCH_BOX', (new \html\components\searchBox));
+    $page->replaceTag('SEARCH_BOX', (new SearchBox));
 
     // Set footer
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;

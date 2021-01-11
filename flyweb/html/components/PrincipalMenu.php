@@ -4,10 +4,6 @@ namespace html\components;
 
 use \html\components\NavMenu;
 
-use \html\components\PrincipalMenuItem;
-
-use \model\UserMenu;
-
 class PrincipalMenu extends NavMenu {
 
     public function __construct() {
@@ -23,7 +19,7 @@ class PrincipalMenu extends NavMenu {
 
         $li="";
         foreach($this->menuItem as $i){
-            $li.=new \html\components\principalMenuItem($i);
+            $li.=new PrincipalMenuItem($i);
         }
 
         return $li;
