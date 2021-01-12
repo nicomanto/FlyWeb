@@ -18,7 +18,6 @@ class FormInsertReview extends BaseComponent {
         parent::__construct(self::_templateName);
         $this->error=$error;
         $this->id_viaggio=$id_viaggio;
-        $this->id_utente=$id_utente;
         $this->render();
     }
 

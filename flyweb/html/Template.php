@@ -20,17 +20,10 @@ class Template {
      * @return string
      */
     public function load(): void {
-        if($_SESSION['admin']){
-            $filename = '/../html/' . $this->_templateName . '.html';
-        }else{
-            $filename = 'html/' . $this->_templateName . '.html';
-        }
+        $filename = 'html/' . $this->_templateName . '.html';
         if (file_exists($filename)) {
-            echo "!!!!";
-            $this->_template = file_get_contents(__DIR__ . $filename);
-            echo $this->_template;
+            $this->_template = file_get_contents($filename);
         } else {
-            echo "????";
             $this->_template = '';
         }
     }

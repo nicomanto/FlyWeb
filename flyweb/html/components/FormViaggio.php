@@ -3,8 +3,7 @@
 namespace html\components;
 
 use \html\components\BaseComponent;
-use model\Travel;
-use AdmController;
+use controllers\AdmController;
 
 class FormViaggio extends baseComponent
 {

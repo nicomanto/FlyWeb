@@ -13,13 +13,13 @@ class RouteController {
 
     public static function unprotectedRoute(): void {
         if ($_SESSION['admin']) {
-            header('location:/admin/index.php');
+            header('location:./adm_index.php');
         }
     }
 
     public static function unloggedRoute(): void {
         if ($_SESSION['logged_in'] && $_SESSION['admin']) {
-            header('location:/admin/index.php');
+            header('location:./adm_index.php');
             exit;
         } else if ($_SESSION['logged_in']) {
             header('location:/index.php');

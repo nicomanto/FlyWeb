@@ -75,7 +75,7 @@
                 if ($loggedIn['Admin']) {
                     // Redirect to Administration page
                     $_SESSION['admin'] = true;
-                    header('location:./admin/index.php');
+                    header('location:./adm_index.php');
                 } else {
                     // Redirect to home page
                     $_SESSION['admin'] = false;
