@@ -29,7 +29,7 @@
 
     // Set breadcrumb
     $breadcrumb=array(
-        new BreadcrumbItem("/carrello.php","Carrello"),
+        new BreadcrumbItem("./carrello.php","Carrello"),
         new BreadcrumbItem("#","Riepilogo Ordine")
     );
 

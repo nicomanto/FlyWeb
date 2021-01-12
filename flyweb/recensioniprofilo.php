@@ -29,7 +29,7 @@
 
     // Set breadcrumb
     $breadcrumb=array(
-        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("./datipersonali.php","Profilo"),
         new BreadcrumbItem("#","Recensioni effettuate")
     );
 

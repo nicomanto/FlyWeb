@@ -1,13 +1,24 @@
 <?php
-    use controllers\RouteController;
-    use model\Paginator;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+use controllers\AdmController;
+use controllers\RouteController;
+use html\components\AdmDashBoard;
+use html\components\AdmFooter;
+use html\components\AdmTravelReviewItem;
+use html\components\Breadcrumb;
+use html\components\Head;
+use html\components\PageSelector;
+use html\Template;
+use model\BreadcrumbItem;
+use model\Paginator;
+use model\Review;
+
+require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
     #controllo se sono presenti richieste post per eliminazione o accettazione review
-    $admController = new \controllers\AdmController();
+    $admController = new AdmController();
     if(!empty($_POST)){
         if($_POST['btn_approva']){
             $admController->approveReview($_POST['id_review']);
@@ -22,15 +33,14 @@
 
 
     $page = new Template('board');
-    $admController = new \controllers\AdmController;
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("modera_recensioni")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("modera_recensioni")));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("/admin/moderazione_recensioni.php","Modera recensioni")
+        new BreadcrumbItem("./index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("./moderazione_recensioni.php","Modera recensioni")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
@@ -41,7 +51,7 @@
         $searchResults="";
 
         foreach ($paginatedReview['elements'] as $element) {
-            $searchResults.= (new \html\components\AdmTravelReviewItem((new Review($element))));
+            $searchResults.= (new AdmTravelReviewItem((new Review($element))));
         }
 
         $page->replaceTag('ADM-CONTENUTO', 
@@ -52,6 +62,6 @@
         $page->replaceTag('ADM-CONTENUTO',"<h2>Nessun recensione da moderare...per ora.</h2>");
     }
 
-    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
+    $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 
     echo $page;

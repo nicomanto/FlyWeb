@@ -4,7 +4,7 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 use model\Travel;
-use \controllers\AdmController;
+use AdmController;
 
 class FormViaggio extends baseComponent
 {

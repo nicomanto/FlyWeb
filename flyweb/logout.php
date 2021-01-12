@@ -2,7 +2,7 @@
 
     use controllers\RouteController;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
 
     RouteController::loggedRoute();
 
@@ -10,5 +10,5 @@
     session_unset();
 
     // Redirect to home page
-    header('location:/index.php');
+    header('location:./index.php');
     exit();

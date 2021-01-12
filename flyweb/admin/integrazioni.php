@@ -1,9 +1,13 @@
 <?php
 
+    use controllers\IntegrazioneController;
     use model\Paginator;
     use controllers\RouteController;
+    use html\components\AdmDashBoard;
+    use html\components\Head;
+    use html\Template;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -13,7 +17,7 @@
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
-    $integrazioneContorller = (new \controllers\IntegrazioneController());
+    $integrazioneContorller = (new IntegrazioneController());
     $integrazioni = $integrazioneContorller->getAllIntegrazioni();
 
     // Paginate travels result
@@ -24,7 +28,7 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("gestisci_integrazioni")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("gestisci_integrazioni")));
 
     
         

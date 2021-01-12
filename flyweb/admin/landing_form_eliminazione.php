@@ -1,7 +1,17 @@
 <?php
-    use controllers\RouteController;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+use controllers\AdmController;
+use controllers\RouteController;
+use controllers\TravelController;
+use html\components\AdmDashBoard;
+use html\components\AdmFooter;
+use html\components\AdmSuccesso;
+use html\components\Breadcrumb;
+use html\components\Head;
+use html\Template;
+use model\BreadcrumbItem;
+
+require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -10,7 +20,7 @@
     $id= $_GET['par_id'];
 
     $travelController = new TravelController($id);
-    $admController    = new \controllers\AdmController;
+    $admController    = new AdmController;
 
     /*
     //print debug
@@ -24,17 +34,17 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("generale")));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("./index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("./search.php","Ricerca viaggi"),
     );
     
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($titolo,"eliminazione") ));
+    $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($titolo,"eliminazione") ));
 
-    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
+    $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 
     echo $page;

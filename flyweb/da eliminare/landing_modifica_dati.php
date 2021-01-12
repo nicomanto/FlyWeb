@@ -1,8 +1,16 @@
 <?php
 
-use controllers\UserController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\components\SuccessoModifica;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     extract($_POST, EXTR_SKIP);
     $userController= new UserController();
@@ -37,8 +45,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
     $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/datipersonali.php","Profilo"),
-        new BreadcrumbItem("/modifica_info_profilo.php","Modifica profilo"),
+        new BreadcrumbItem("./datipersonali.php","Profilo"),
+        new BreadcrumbItem("./modifica_info_profilo.php","Modifica profilo"),
         new BreadcrumbItem("#","Riscontro modifica")
     );
 

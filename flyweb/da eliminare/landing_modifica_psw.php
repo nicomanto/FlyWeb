@@ -1,4 +1,16 @@
 <?php
+
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\components\ResponseMessage;
+    use html\components\SuccessoModifica;
+    use html\Template;
+    use model\BreadcrumbItem;
+
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
     // Load request's data
@@ -40,8 +52,8 @@
     $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/datipersonali.php","Profilo"),
-        new BreadcrumbItem("/modifica_info_psw.php","Modifica password"),
+        new BreadcrumbItem("./datipersonali.php","Profilo"),
+        new BreadcrumbItem("./modifica_info_psw.php","Modifica password"),
         new BreadcrumbItem("#","Riscontro modifica")
     );
 

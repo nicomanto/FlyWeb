@@ -2,7 +2,7 @@
 
 namespace html;
 
-require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+require_once('./autoload.php');
 
 
 class Template {
@@ -23,7 +23,7 @@ class Template {
      * @return string
      */
     public function load(): void {
-        $filename = $_SERVER['CONTEXT_DOCUMENT_ROOT'] . 'html/' . $this->_templateName . '.html';
+        $filename = 'html/' . $this->_templateName . '.html';
         if (file_exists($filename)) {
             $this->_template = file_get_contents($filename);
         } else {
