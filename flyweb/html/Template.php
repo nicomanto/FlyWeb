@@ -2,9 +2,6 @@
 
 namespace html;
 
-require_once('./autoload.php');
-
-
 class Template {
 
     public $_templateName;

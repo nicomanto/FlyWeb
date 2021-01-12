@@ -50,14 +50,9 @@ class FormViaggio extends baseComponent
             'localita' => (empty($this->travel_loc)) ? '' : $this->travel_loc->localita,
             'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
             'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
-<<<<<<< HEAD
-            'prezzo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->prezzo,
+            'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
             'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,
             'image_required' => $this->image_required ? 'required="required"' : ''
-=======
-            'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
-            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio
->>>>>>> feature/FixAdmPage
         ]);
 
         $tagList=$this->AdmController->getTags();

@@ -4,7 +4,7 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 
-use TravelController;
+use \controllers\TravelController;
 
 class FormInsertReview extends BaseComponent {
 
