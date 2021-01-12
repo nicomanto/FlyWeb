@@ -96,6 +96,9 @@ use controllers\UserController;
       $_page->replaceTag('TOTALE', '');
     }
     else{
+
+      $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
+
       $_page->replaceTag('DATI-INSERITI', (new RiepilogoOrdine($fatturazione)));
 
       $_page->replaceTag('VIAGGI', $searchResults);
@@ -103,6 +106,10 @@ use controllers\UserController;
       $_page->replaceTag('TOTALE', (new Totale($risultato)));
       
       $fatturazione['totale'] = $risultato;
+
+      $_SESSION['totale']=$risultato;
+
+      $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
 
       $prova= $userController->ordineTemporaneo($fatturazione);
     }

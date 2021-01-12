@@ -76,8 +76,6 @@
 		}
 	}
 
-
-
 	$_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
 	$_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', '');

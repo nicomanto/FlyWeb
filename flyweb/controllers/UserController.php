@@ -134,9 +134,14 @@ class UserController extends BaseController {
         return $this->db->runQuery($query, $this->user->id_utente);
     }
 
-    public function eliminaCarrello(){
-            $query = 'DELETE FROM Carrello WHERE ID_Utente = ?;';
-            return $this->db->runQuery($query, $this->user->id_utente);
+    public function getID_Carrello(){
+        $query='SELECT ID_Carrello FROM Carrello WHERE ID_Utente = ? ;';
+        return $this->db->runQuery($query, $this->user->id_utente)[0];
+    }
+
+    public function eliminaCarrello($id_carrello){
+            $query = 'DELETE FROM CarrelloViaggio WHERE ID_Carrello = ?;';
+            return $this->db->runQuery($query, $id_carrello["ID_Carrello"]);
         
     }
 

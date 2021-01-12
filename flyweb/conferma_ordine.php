@@ -50,7 +50,7 @@
 
 	$userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
 	$userController->eliminaOrdineTemporaneo();
-	$userController->eliminaCarrello();
+	$userController->eliminaCarrello($userController->getID_Carrello());
 
 	$_page->replaceTag('DATI-INSERITI', '');
 
