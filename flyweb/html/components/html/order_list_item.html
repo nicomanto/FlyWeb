@@ -1,26 +1,11 @@
-<!-- <li class="item-review">
-    <div class="header-review">
-        <h3>Ordine numero %ID_ORDINE%</h3>
-    </div>
-
-    <div class="content-review">
-
-        <p class="review-info"><strong>Data ordine: </strong> %DATAORDINE% </p>
-        <p class="review-info"><strong>Totale ordine: </strong>%TOTALE%</p>
-    
-    </div>
-
-    <input type="button" class="travel-goto" onclick="location.href='/order.php?id=%ORDER_ID%';" value="Visualizza dettagli ordine" />    
-</li> -->
- <form action='./order.php?id=%ORDER_ID%' class="order-form" method="GET">
+ <form action='/order.php?id=%ORDER_ID%' class="order-form" method="GET">
           <fieldset>
-              <legend class="aiuti-alla-navigazione"> Riepilogo ordine </legend>
+              <legend class="aiuti-alla-navigazione"> Riepilogo essenziale dell'ordine </legend>
               <h2>Ordine numero: %ID_ORDINE%</h2>
-              <h3>Data ordine:</h3><p> %DATAORDINE%</p>
-              <h3>Totale ordine:</h3><p> %TOTALE% &euro;</p>
+              <p><h3>Data ordine:</h3> %DATAORDINE%</p>
+              <p><h3>Totale ordine:</h3> %TOTALE% &euro;</p>
               <input type="submit" class="travel-goto" value="Visualizza dettagli ordine">
           </fieldset>
 
           <input type="hidden" name="id" value="%ID_ORDINE%">
-
 </form>

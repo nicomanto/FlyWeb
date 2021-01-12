@@ -1,8 +1,10 @@
 /*GENERAL CSS*/
 :root {
     --primary  : #0a3150;
-    --secondary: #c53020;
-    --white    : #ffffff;
+    --secondary: #FF8C00;
+    --secondary_lighter: #ff9e14;
+    --secondaty_lighter2: #ffd394;
+    --primary_ligher: #1B88E0;
 }
 
 p{
@@ -53,13 +55,15 @@ body {
     margin             : auto;
     height             : 100%;
     width              : 100%;
-    background-color   : white;
+    background-color   : #fff;
     color              : #0a3150;
 
 }
 label{
     display: block;
 }
+
+
 /* ===  BREADCRUMB === */
 .breadcrumb{
     color: #fff;
@@ -81,17 +85,28 @@ label{
 
 /* === RESPONSE MESSAGE === */
 .response-message{
+    min-width: 100%;
     text-align: center;
     margin-top: 2em;
     margin-bottom: 2em;
+    order: 3;
 }
 .response-img{
-    width: 20em;
-    height: 20em;
+    width: 50%;
     margin: 0 auto;
     display: block;
 }
 
+/* === ERROR BOX === */
+.error-box{
+    width: 100%;
+    text-align: center;
+    color: #ff0000;
+}
+
+.error-box ul{
+    list-style-type: none;
+}
 
 /* === LAYOUT index.html ===*/
 .contenuto-home{
@@ -111,14 +126,15 @@ label{
 
 .contenuto-home .content-search-box{
     order: 3;
-    padding-top: 7em;
+    padding-top: 2em;
     padding-bottom: 7em;
-    background-color: blanchedalmond;
+    background-color: #ffd394;
 }
 
 .contenuto-home .boxSuggerimenti{
     order: 4;
-    background-color: aliceblue;
+    background-color: #d7ecff;
+    padding: 2em 0 6em 0;
 }
 
 .contenuto-home .footer{
@@ -133,7 +149,6 @@ label{
     background-color:#fff;
     width: 100%;
     padding: 0;
-    vertical-align: top;
 }
 
 .board-menu{
@@ -148,8 +163,13 @@ label{
     width: 70%;
     order: 2;
     margin:auto;
-    vertical-align: top;
     margin-top: 0;
+}
+.board-contenuto .page-selector{
+    background-color: #fff;
+}
+.board-contenuto ul{
+    padding-top: 1em;
 }
 .board-flex-container .footer{
     order:3;
@@ -182,8 +202,8 @@ label{
 }
 
 .menu-dash-element:hover{
-    background-color: #e49d44;
-    border: 3px solid #e49d44;
+    background-color: #FF8C00;
+    border: 3px solid #FF8C00;
     margin-bottom: 3em;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -228,7 +248,7 @@ label{
     width: 90%;
     padding: 12px 20px 10px 10px;
     margin: 5px 0;
-    border: 2px solid darkgray;
+    border: 2px solid #aaa;
     border-radius: 5px;
     resize: none;
     margin-bottom: 1.5em;
@@ -268,7 +288,7 @@ input[type=number]::-webkit-outer-spin-button {
 .input-date::-webkit-calendar-picker-indicator{
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid darkgray;
+    border: 2px solid #aaa;
     border-radius: 5px;
 }
 .input-date::-webkit-calendar-picker-indicator:hover{
@@ -280,7 +300,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .p_input_error{
     visibility: hidden;
-    color: red;
+    color: #ff0000;
 }
 
 .bottoneform{
@@ -377,7 +397,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .adm-card{
-    border: 0px solid #c53020;
+    border: 0px solid #FF8C00;
     padding: 1em 1em 1em 1em;
     margin: 0 auto;
     margin-bottom: 1em;
@@ -444,7 +464,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     padding: 10px;
     width: 40%;
-    margin:auto;
+    margin: 0 auto;
     margin: 0.5em;
 }
 
@@ -485,15 +505,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* === SEARCH BOX === */
+.content-search-box{
+    margin: 0 auto;
+    background-color: #ffd394;
+    padding: 2em 0 2em;
+}
 .form-search{
     background-color: #0a3150;
-    color:white;
-    margin:auto;
+    color:#fff;
+    margin: 0 auto;
     width: 90%;
     border-radius: 30px;
     text-align: center;
-    padding-top: 1em;
-    margin-top: 1em 0 1em 0;
+    padding: 2em 0 1em 0;
 }
 
 .form-search legend{
@@ -501,24 +525,37 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-search fieldset{
+    display: block;
     border: 0;
 }
 
-.form-search input, .form-search label{
+.form-search input, .form-search label, .lista{
     border-radius: 2em;
     border: 0;
 }
 
-.form-search input{
+.form-search input, .lista{
     padding: 1.2em;
     border:  2px solid #fff;
 }
 
-.form-search input:hover{
+.lista{
+    font-size: medium;
+    cursor: pointer;
+    width: 50%;
+}
+
+.lista:active, .lista:focus{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+
+.form-search input:hover, .lista:hover{
     background-color: #d3e2f8;
     border:  2px solid #d3e2f8;
 }
-.form-search input:focus{
+.form-search input:focus, .lista:focus{
     background-color: #91bcfd;
     border:  2px solid #91bcfd;
 }
@@ -540,11 +577,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .search-box{
-    background-color: #c53020;
+    background-color: #FF8C00;
 }
 
 .search-box input[type="submit"]:hover{
-    color: #c53020;
+    color: #FF8C00;
     font-size: medium;
     font-weight: bolder;
 }
@@ -564,15 +601,14 @@ input[type=number]::-webkit-outer-spin-button {
 .search-submit-field .search-submit{
     min-width: 100%;
     background-color: #fff;
+    font-weight: bolder;
 }
 
-
 .search-label{
-    background-color:#c53020;
     min-width: 45%;
     display: inline-flex;
     justify-content: space-between;
-    background-color: #c53020;
+    background-color: #FF8C00;
     min-width: 49%;
     align-items: center;
     margin: 0 auto;
@@ -615,14 +651,16 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content : space-between;
     margin-top      : 1em;
     width           : 100%;
-    height          : 50%;
+    min-height: 80%;
+    max-height: 80%;
 }
 
 .travel-details-container .main-img{
     order           : 1;
     width           : 50%;
-    border-radius   : 10px;
-    border          : 2px solid lightgrey;
+    max-height      : 50vh;
+    background-size: cover;
+    border          : 2px solid #ddd;
 }
 
 .travel-details-container .travel-details-info {
@@ -631,7 +669,7 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content : space-between;
     order           : 2;
     min-width: 48%;
-   
+    max-width: 48%;
 }
 
 .travel-details-info h1{
@@ -655,7 +693,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .travel-details-container .price{
     font-size       : x-large;
-    background-color: #e49d44;
+    background-color:#ffd394;
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -673,7 +711,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-integrazioni fieldset{
-    border          : 2px solid #c53020;
+    border          : 2px solid #FF8C00;
     box-shadow      : 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     text-align      : center;
     width           : 100%;
@@ -774,18 +812,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 1em;
 }
 
-.cb-login{
-    height: 2em;
-    width: 2em;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
 .titolo-pagina{
     text-align: center;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     letter-spacing: 2px;
+    width: 100%;
+    display: block;
 }
 
 /* === ABOUT US === */
@@ -822,7 +855,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .au ul li{
-    background-color: #e49d44;
+    background-color: #ffd394;
     border-radius: 5px;
     margin-top: 1em;
     padding-left: 1em;
@@ -832,14 +865,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 .au ul li table{
     border-collapse: collapse;
-    background-color: lightgray;
+    background-color: #ddd;
     margin-right: 1em;
     width: 98%;
     text-align: center;
 }
 
 .au ul li table td, table th {
-    border: 2px solid gray;
+    border: 2px solid #aaa;
     padding: 8px;
 }
 
@@ -881,6 +914,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 3em;
 }
 
+.profilo-contenuto{
+    min-height: 80vh;
+}
+
 .profilo-contenuto .form-registrazione{
     width: 80%;
 }
@@ -888,8 +925,7 @@ input[type=number]::-webkit-outer-spin-button {
 .profilo-contenuto{
     width: 65%;
     order: 4;
-    margin:auto;
-    vertical-align: top;
+    display: block;
     margin-top: 0;
     padding: 0.5em;
 }
@@ -906,8 +942,14 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline;
 }
 
-.profilo-flex-container .footer{
+.profilo-flex-container .page-selector{
     order: 5;
+    align-items: flex-end;
+    min-width: 100%;
+}
+
+.profilo-flex-container .footer{
+    order: 6;
     min-width: 100%;
 }
 
@@ -942,14 +984,31 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* === ORDER DETAILS === */
 
+.riepilogo-contenuto .adm-bottone-approva-recensione{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.order-details h1{
+    background-color: #FFBA66;
+}
+
+.order-details h2{
+    background-color: #ffd394;
+}
+
+.travel-order ul{
+    margin:0 auto;
+    padding: 1em 0 0 0;
+    list-style-type: none;
+}
 
 /* ===  CARRELLO === */
 .carrello-flex-container{
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: stretch;
         background-color:#fff;
+        justify-content: space-between;
         width: 100%;
         padding: 0;
         vertical-align: top;
@@ -997,20 +1056,64 @@ input[type=number]::-webkit-outer-spin-button {
 
 .subtotale{
     background-color: #FFBA66;
+    height: fit-content;
+    text-align: center;
 }
 
 .subtot-number{
     padding: 0.5em;
 }
+
+/* === PROCEDURA PAGAMENTO === */
+
+.procedura-pagamento form{
+    text-align: left;
+    padding-bottom: 15em;
+}
+.procedura-pagamento label{
+    margin: 1em 0 1em 0;
+}
+.procedura-pagamento input[type=radio]{
+    width:2em;
+    height:2em;
+    vertical-align: middle;
+    padding: 0 0 0 25%;
+}
+
+.riepilogo-contenuto{
+    border: 2px solid #0a3150;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    padding: 1em;
+}
+.riepilogo{
+    margin: 0 0 1em 0;
+}
+.travel-order h3, .travel-order span, .riepilogo h3, .riepilogo span{
+    display: inline;
+}
+
+.travel-order{
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-color: #0a3150;
+    border-style: solid;
+}
 /* === FOOTER === */
 
 .footer{
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
     text-align: center;
     box-shadow: 0 -5px 5px -5px  rgba(0,0,0,0.16);
     vertical-align: top;
     min-width: 100%;
 }
+
 
 .footer h3{
     font-size    : 1.2em;
@@ -1023,8 +1126,11 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.footer-menu{
-    text-align: center;
+.footer-site-map{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
 }
 
@@ -1081,10 +1187,17 @@ input[type=number]::-webkit-outer-spin-button {
         height: auto;
     }
 
-    li, a, input, .input, .input-date{
+    label{
+        display: block;
+    }
+
+    li, a, input, .input, .input-date, select, option{
         min-height: 48px;
     }
 
+    .footer{
+        height: 100vh;
+    }
     /* === SEARCH BOX === */
 
     .form-search span{
@@ -1098,19 +1211,23 @@ input[type=number]::-webkit-outer-spin-button {
         width: 100%;
     }
     
-    .search-label, .search-input-field, .search-submit-field{
+    .search-label,.search-submit-field, .search-input-field{
         width: 100%;
+        text-align: center;
+    }
+    .search-key{
+        margin: 0 auto;
+        margin-bottom: 1em;
+        min-width: 85%;
     }
 
-    .search-key,.search-submit{
-        margin: 0 auto;
-        display: block;
-        margin-bottom: 1em;
-    }
-    
+
     /* ===  ACCEDI, REGISTRATI   === */
     .form-registrazione{
         width: 80%;
+    }
+    .form-registrazione .input{
+        width: 100%;
     }
 
     /* === PROFILO ===*/
@@ -1208,13 +1325,20 @@ input[type=number]::-webkit-outer-spin-button {
     /* === TRAVELS LIST === */
 
     .travel-list-item{
-        flex-grow: 0.5;
+        flex-grow: 0;
     }
 
     .travel-page-content{
         width: 100%;
         margin: 0 auto;
     }
+
+
+    /* === TRAVEL LIST ITEM === */
+    .travel-image{
+        height: 150px;
+    }
+
     
     /* === TRAVEL DETAILS  === */
 
@@ -1236,9 +1360,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
     
     .travel-details-container .travel-details-info {
-        width: 95%;
-        justify-content : space-between;
-
+        min-width: 95%;
     }
     
     .travel-details-container h1{
@@ -1292,10 +1414,17 @@ input[type=number]::-webkit-outer-spin-button {
     
     /* === TRAVEL REVIEWS === */
     .reviews{
-        /* width: 98%; */
+        width: 98%;
         margin: 0 auto;
+        padding-bottom: 1em;
+        border-top: 2px solid #FF8C00;
+        border-bottom: 2px solid #FF8C00;
     }
 
+    .reviews-list{
+        width: 95%;
+        margin: 0 auto;
+    }
 
     /* === PROFILO ===*/
 
@@ -1321,8 +1450,60 @@ input[type=number]::-webkit-outer-spin-button {
         margin-bottom: 3em;
     }
 
+    /* === CARRELLO === */
+
+    .carrello-flex-container{
+        margin: 0 auto;
+        flex-flow: column;
+    }
+
+    .carrello-flex-container .carrello-contenuto{
+        width: 100%;
+        order: 4;
+        display: inline;
+    }
+
+    .carrello-flex-container .subtotale{
+        padding: 1em 0 1em 0;
+        margin: 0 auto;
+        margin-top: 1em;
+        width: 95%;
+        order: 3;
+    }
+
+    .carrello-flex-container .subtotale .adm-bottone-approva-recensione{
+        width: 90%;
+        padding: 0 1em 0 1em;
+    }
+
+    /* === AMMINISTRAZIONE === */
+    .board-flex-container .mm-item a{
+        display: none;
+    }
+
+    .board-flex-container .mm-item img{
+        height: 80px
+    }
+
+    .board-flex-container .footer{
+        height: 35vh;
+    }   
+
+    .content-search-box div label{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-search-box div label input{
+        width: 85%;
+    }
+
 }
 
 @media only screen and (max-width: 480px){
+    .response-img{
+        width: 100%;
+        height: 100%;
 
+    }
 }

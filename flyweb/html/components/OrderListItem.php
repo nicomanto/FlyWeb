@@ -37,6 +37,5 @@ class OrderListItem extends baseComponent {
             ]
          );
         return $this;
-    }
-        
+    } 
 }

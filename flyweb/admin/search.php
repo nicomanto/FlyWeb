@@ -30,9 +30,10 @@
 
 
     // Set search box form
-    $page->replaceTag('ADM-CONTENUTO', (new SearchBox("adm-searchbox")));
+    $page->replaceTag('ADM-CONTENUTO', (new \html\components\searchBox("adm-searchbox")));
+    
+    $page->replaceTag('PAGE-SELECTOR', '');
 
     $page->replaceTag('ADM-FOOTER', new AdmFooter());
-
 
     echo $page;

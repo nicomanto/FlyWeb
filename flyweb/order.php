@@ -37,15 +37,17 @@ use html\components\Breadcrumb;
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
 
-    $_page->replaceTag('ORDER_DETAILS', (new OrderDetails($dettagli_ordine,true)));
-
+    $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($dettagli_ordine,true)));
+    $_page->replaceTag('ORDINI-PROFILO', '');
 
 
     foreach($viaggi as $li){
         $viaggio.= new TravelOrder($li);
     }
 
-     $_page->replaceTag('CONTENUTO', $viaggio);
+    $_page->replaceTag('CONTENUTO', $viaggio);
+
+    $_page->replaceTag('PAGE_SELECTOR', '');
 
     $_page->replaceTag('FOOTER', (new Footer));
 

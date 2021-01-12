@@ -1,6 +1,6 @@
 /* === MAIN MENU === */
 .main-menu {
-  background-color: #c53020;
+  background-color: #FF8C00;
   width          : 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
   min-height: 60px;
@@ -9,7 +9,7 @@
 .main-menu ul {
     font-size      : 1em;
     float: right;
-    background-color: #c53020;
+    background-color: #FF8C00;
 
 }
 
@@ -22,12 +22,10 @@
 .main-menu img{
   float: left;
   left: 0;
-  object-fit: cover;
   height: 60px;
   width: 20%;
-  background-color: #c53020;
-  object-fit: cover;
-
+  min-width: 5%;
+  background-color: #FF8C00;
 }
 .main-menu  .menuPage{
     padding         : 0.3em;
@@ -42,38 +40,63 @@
 
 .main-menu  .menuPage:hover {
     border-bottom: 3px solid #0a3150;
-    box-shadow: 0 6px 10px rnavgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
+    box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }
 
 /* === MOBILE  MENU === */
-.menucb{
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    display:none;
+.mm-hamburger{
+  display: none;
 }
-.labelmenu{ 
-    display:none;
-    cursor: pointer;
-    user-select:none;
-}
-
 @media only screen and (max-width: 768px) {
-
-        /* === NAVBAR MOBILE HAMBURGER === */
 
         .main-menu{
             min-width: 100%;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .main-menu .logo{
-          width: 90%;
+
+        .mm-item{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+
+        .mm-logo{   
+          width: 80%;
+        }
+
+        .mm-hamburger{
+          background-color: #0a3150;
+          margin-left: 1em;
+          color:#fff;
+          line-height: 90%;
+          display: inline-flex;
+          height: 60px;
+          font-size: 4em;
+          padding: 0 0.1em 0 0.1em;
+          margin: 0;
+          text-align: center;
+          border-radius: 10px;
+        }
+
+        .mm-hamburger:hover{
+          background-color: #1B88E0;
+
+        }
+
+        .mm-logo .logo{
+          width: 100%;
           font-size: xx-large;
           vertical-align: top;
           margin-left: 1em;
           color: #fff;
           text-decoration: none;
+          width: fit-content;
       }
 
         .main-menu  .menuPage{
@@ -87,50 +110,15 @@
             width: 100%;
             background-color: #0a3150;
             box-shadow: 0;
-            border-top: 2px solid #0a3150;
-            border-bottom: 2px solid #0a3150;
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
             width: 20%;
-        }
-        
-        .main-menu  label {
-            position:relative;
-            display:inline-block;
-            min-height:2.25em;
-            font-size:1.1em;
-            margin:0;
-            background-color: aqua;
-            color: #0a3150;
-            padding-top: 0.2em;
-            padding-bottom: 0.5em;
-          }
-          
-          .main-menu  label:after {
-            position: absolute;
-            right: .25em;  
-            content:"\2261";
-            background-color: #fff;
-            border-radius: 10px;
-            min-height: 44px;
-            min-width: 44px;
-            font-size:5em;
-          }
-
-          .main-menu input[type=checkbox]:checked ~ label:after {
-            background-color: #0a3150;
-            color: #fff;
-            text-align: center;
-          }
-              
-          .main-menu input[type=checkbox]:checked ~ ul {
-            display:block;
-          }   
-
-          .main-menu ul {
             padding-top: 1em;
             width: 100%;
             text-align: center;
             margin: 0 auto;
-          }   
+        }
+
           .main-menu ul li{
             width: 90%;
             padding: 0;
@@ -152,7 +140,7 @@
           }  
 
           .main-menu  .menuPage:hover {
-            border: 5px solid #c53020;
+            border: 5px solid #FF8C00;
           }   
 
           .main-menu ul li a:active{

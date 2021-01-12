@@ -55,6 +55,7 @@
 	$_page->replaceTag('DATI-INSERITI', '');
 
 	$_page->replaceTag('VIAGGI', '');
+    $_page->replaceTag('SUCCESSO', new \html\components\responseMessage("Complimenti acquisto completato, ora rilassati e goditi il viaggio!"));
 
 	$_page->replaceTag('TOTALE', '');
 

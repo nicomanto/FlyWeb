@@ -54,10 +54,9 @@ require_once('../autoload.php');
             $searchResults.= (new AdmTravelReviewItem((new Review($element))));
         }
 
-        $page->replaceTag('ADM-CONTENUTO', 
-            "<ul>".$searchResults."</ul>".
-            (new PageSelector($paginatedReview)));
+        $page->replaceTag('ADM-CONTENUTO',"<ul>".$searchResults."</ul>");
 
+        $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedReview)));
     }else{
         $page->replaceTag('ADM-CONTENUTO',"<h2>Nessun recensione da moderare...per ora.</h2>");
     }

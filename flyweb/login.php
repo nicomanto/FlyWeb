@@ -54,7 +54,7 @@
             // TODO: do something instead of exiting
             //exit();
 
-            array_push ( $error , "L'utente \"" . $user . "\" non esiste nel database");
+            array_push ( $error , "L'utente " . $user . " non è registrato nel sito.");
         }
         else{
 

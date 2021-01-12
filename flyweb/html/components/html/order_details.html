@@ -2,20 +2,16 @@
     <button class="travel-goto"><a href='/ordiniprofilo.php?id=%USER_ID%'>Torna ai tuoi ordini</a></button>
     <!--<input type="button" class="travel-goto" onclick="location.href='/ordiniprofilo.php?id=%USER_ID%';" value="Torna ai tuoi ordini" />-->
          
-        <h1>Dettaglio ordine numero %ID_ORDINE%</h1>
+    <h1 class="titolo-pagina">Dettaglio ordine numero %ID_ORDINE%</h1>
 
         <div class="order-info">
-            <h2>Informazioni generali</h2>
+            <h2 class="titolo-pagina">Informazioni generali:</h2>
 
-            <h3>Effettuato in data: </h3><span> %DATAORDINE% </span>
-
-            <h3>Costo totale: </h3><span>%TOTALE%</span>
-
-            <h3>Indirizzo di fatturazione</h3><span>%VIA%%CAP%, %COMUNE%, %PROVINCIA%</span>
-            <h3>Metodo di pagamento</h3>
-            <p>%METODOPAGAMENTO%</p>            
+            <p><h3>Effettuato in data: </h3><span> %DATAORDINE% </span></p>
+            <p><h3>Costo totale: </h3><span>%TOTALE%</span></p>
+            <p><h3>Indirizzo di fatturazione: </h3><span>%VIA%%CAP%, %COMUNE%, %PROVINCIA%</span></p>
+            <p><h3>Metodo di pagamento: </h3><span>%METODOPAGAMENTO%</span></p>            
         </div>
 
-        <h3>Viaggi acquistati:</h3>
-
+        <h2 class="titolo-pagina">Elenco viaggi acquistati:</h2>
 </div>

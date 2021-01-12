@@ -1,25 +1,23 @@
-<h1 class="titolo-pagina">ACCEDI</h1>
-
 <div class="login-form">
-    <form action="./login.php" method="post" class="dash-form form-registrazione">
+    <h1 class="titolo-pagina">ACCEDI</h1>
+
+    <ERROR_BOX/>
+    <form action="/login.php" method="post" class="dash-form form-registrazione">
         <fieldset>
             <legend class="aiuti_alla_navigazione">&nbsp;Modulo di accesso al sito&nbsp; </legend>
                 
-                <label for="user"><span lang="en"><span lang="en">Email</span> o <span lang="en">Username</span>
-                    <input type="text" name="user" class="input" tabindex="1" id="user" required/><br>
-                </label><br>
+                <label for="user"><span lang="en"><span lang="en">Email</span> o <span lang="en">Username</span></label>
+                <input type="text" name="user" class="input" tabindex="1" id="user" required/>
+                
 
-                <label for="password"><span lang="en">Password</span>
-                    <input type="password" name="password" class="input" tabindex="2" id="password" required/>
-                </label><br>
+                <label for="password"><span lang="en">Password</span></label>
+                <input type="password" name="password" class="input" tabindex="2" id="password" required/>
+                
 
                 <input type="submit" lid="login" name="login" class="btn-submit bottoneform" tabindex="3" value="ACCESSO" />
         </fieldset>
 
     </form>
-
-    <ERROR_BOX/>
-
     <div class="sotto-form-reg-acc"> 
         <p>...oppure <a href="./signup.php">Registrati</a></p>
     </div>

@@ -61,16 +61,18 @@
     }
 
     if (empty($results)) {
-        $_page->replaceTag('CONTENUTO-CARRELLO', (new ResponseMessage("Il tuo carrello è vuoto")));
-        $_page->replaceTag('PAGE_SELECTOR', ' ');
-
+        $_page->replaceTag('RISPOSTA', (new \html\components\responseMessage("Il tuo carrello è vuoto")));
+        $_page->replaceTag('PAGE_SELECTOR', '');
+        $_page->replaceTag('SUB-TOTALE', '');
+        $_page->replaceTag('ORDER_DETAILS', '');
+        $_page->replaceTag('CONTENUTO-CARRELLO', '');
     }
 
     else {
         $_page->replaceTag('CONTENUTO-CARRELLO', $results);
-        $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedViaggiCarrello)));
-        $_page->replaceTag('SUB-TOTALE',new Subtotale($userController->getSubtotale()));
-
+        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedViaggiCarrello)));
+        $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
+        $_page->replaceTag('RISPOSTA', '');
     }
 
     $_page->replaceTag('FOOTER', (new Footer));

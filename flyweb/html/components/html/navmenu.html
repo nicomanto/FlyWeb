@@ -1,9 +1,28 @@
+<script>
+    //to-do:    REMOVE and move to .js
+    //TO-DO:    REMOVE and move to .js
+    function hamb() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display == "none") {
+      menu.style.display = "block";
+      document.getElementById("menu").focus();
+    } else {
+      menu.style.display = "none";
+      document.body.focus();
+    }
+}
+</script>
+
 <nav class="%CLASS%">
-    <input type="checkbox" id="button" class="menucb" aria-label="Apri/Chiudi menù">
-    <label for="button" class="labelmenu" title="apri o chiudi il menu" aria-label="Apri/Chiudi menù"> </label>
-    <img src="/img/FlyWebLogo.png" alt="" role="presentation" class="logo">
-    <a href="#breadcrumb" class="aiuti-alla-navigazione">Vai al contenuto e salta il menù</a>
-    <ul title="menù principale">
-            <NAVMENUITEM />
-    </ul>
+        <div class="mm-item">
+            <img src="/img/FlyWebLogo.png" class="mm-logo" alt="" class="" role="presentation">
+            <a class="mm-hamburger" #id="hambuger" title="menu" onclick="hamb()"> &#9776; </a>
+        </div>
+
+        <div class="mm-menu">
+            <a href="#breadcrumb" class="aiuti-alla-navigazione">Vai al contenuto e salta il menù</a>
+            <ul title="menù principale" id="menu">
+                    <NAVMENUITEM />
+            </ul>
+        </div>
 </nav>

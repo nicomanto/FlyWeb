@@ -1,28 +1,29 @@
 <div class="content-search-box">
-    <form action="%URL%" method="get" class="form-search" id="form_search">
+    <TITOLO />
+    <form action="%URL%" method="get" class="form-search filtri" id="form_search">
         <fieldset id="fieldset_search">
             <legend class="aiuti-alla-navigazione">Cerca un viaggio</legend>
 
             <div class="search-box-div search-box" id="search_box_input">
                 <label class="search-input-field" for="search_key">
                     <span>CERCA</span>
-                    <input type="text" class="search-key" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
+                    <input type="text" class="search-key" tabindex="9" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
                 </label>
 
                 <label class="search-submit-field" for="search_button">
-                    <input type="submit"  class="search-submit" name="search_button" value="CERCA" id="search_button"/>
+                    <input type="submit"  class="search-submit" tabindex="1" name="search_button" value="CERCA" id="search_button"/>
                 </label>
             </div>
 
             <div class="search-box-div">
                 <label  class="search-label" for="search_start_date">
                     <span>Data inizio viaggio </span>
-                    <input type="date" name="search_start_date" id="search_start_date"  value="%SEARCH_START_DATE%">
+                    <input type="date" tabindex="2" name="search_start_date" id="search_start_date"  value="%SEARCH_START_DATE%">
                 </label>
 
                 <label class="search-label" for="search_end_date">
                     <span>Data fine viaggio</span>
-                    <input type="date" name="search_end_date" id="search_end_date"  value="%SEARCH_END_DATE%" >
+                    <input type="date" tabindex="3" name="search_end_date" id="search_end_date"  value="%SEARCH_END_DATE%" >
                 </label>
             </div>
         </fieldset>
@@ -30,22 +31,20 @@
         <fieldset class="%FILTRI%">
             <legend class="aiuti-alla-navigazione">Filtri aggiuntivi per ricerca viaggio</legend>
 
-
-            <!-- <input type="button" id="filtri" onclick="visualizzaFiltri()" value="FILTRI AGGIUNTIVI"> -->
             <div class="search-box-div" id="search_box_div_filtri">
                     <label for="search_end_price" class="search-label">
                         <span>Prezzo massimo</span>
-                        <input type="number" name="search_end_price" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" >    
+                        <input type="number" tabindex="4" name="search_end_price" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" >    
                     </label>
 
                     <label for="search_start_price" class="search-label">
                         <span>Prezzo minimo</span>
-                        <input type="number" name="search_start_price" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
+                        <input type="number" tabindex="5" name="search_start_price" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
                     </label>
 
                     <label for="search_by_option" class="search-label">
                         <span>Cerca per</span>
-                        <select id="search_by_option" name ="search_by_option">
+                        <select class="lista" tabindex="6" id="search_by_option" name ="search_by_option">
                             <option value="Citta">Città</option>
                             <option value="Tag">Tag</option>
                         </select>
@@ -53,7 +52,7 @@
 
                     <label for="search_order_by" class="search-label">
                         <span>Ordina per</span>
-                        <select name="search_order_by" id="search_order_by" >
+                        <select class="lista" tabindex="7" name="search_order_by" id="search_order_by" >
                             <option value="Prezzo"> Prezzo </option>
                             <option value="Data Inizio"> Data Inizio </option>
                             <option value="Data Fine"> Data Fine </option>
@@ -64,7 +63,7 @@
 
                     <label for="search_order_by_mode" class="search-label">
                         <span>Ordina in modo</span>
-                        <select id="search_order_by_mode" name ="search_order_by_mode">
+                        <select class="lista" tabindex="8" id="search_order_by_mode" name ="search_order_by_mode">
                             <option value="Ascendente">Ascendente</option>
                             <option value="Discendente">Discendente</option>
                         </select>

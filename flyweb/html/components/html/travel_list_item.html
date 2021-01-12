@@ -2,30 +2,19 @@
 
     <img class="travel-image" alt="%TRAVEL_IMAGE_NAME%" src="%TRAVEL_IMAGE%">
 
-    <div class="travel-info">
 
-        <h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2>
- 
-        <p>%TRAVEL_DESCRIPTION%</p>
-        
-        <div>
-            <div class="basic-info">
-                <h3>Date:</h3><span> dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong> </span>
-            </div>
-    
-            <div class="basic-info">
-                <h3>Prezzo:</h3><span><strong> %TRAVEL_PRICE% &euro;</strong></span> 
-            </div>
+        <div class="item-title">
+            <h2><a href="travel.php?id=%TRAVEL_ID%"> %TRAVEL_TITLE%</a></h2>
         </div>
 
-    </div>
+        <div class="item-desc">
+            <p>%TRAVEL_DESCRIPTION%</p>
+        </div>
+        <div class="item-info">
+            <p><h3>Date:</h3><span> dal <strong>%TRAVEL_START_DATE%</strong> al <strong>%TRAVEL_END_DATE%</strong> </span></p>
+
+            <p><h3>Prezzo:</h3><span><strong> %TRAVEL_PRICE% &euro;</strong></span> </p>
+        </div>
 
     <button class='travel-goto'><a href='/travel.php?id=%TRAVEL_ID%'>Scopri di più...</a></button>
-    <!--<input type="button" onclick="location.href = '/travel.php?id=%TRAVEL_ID%';" class="travel-goto" value="Scopri di più...">-->
-
-    <!--  TO DO 
-        <form action="travel.php?id=%TRAVEL_ID%" method="get">
-            <input class="travel-goto" type="submit" value="viaggia con noi">
-        </form>
-    -->
-</div>
+    </li>

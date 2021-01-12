@@ -17,9 +17,8 @@
 }
 
 .reviews-list{
-    list-style-type: none;    
+    margin-left: -1em;
 }
-
 
 .header-review{
     display: inline-flex;
@@ -35,7 +34,7 @@
     padding      : 0.5em;
     margin-top   : 1em;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border : 1px solid lightgray;
+    border : 1px solid #ddd;
 }
 
 .travel-reviews h3 {

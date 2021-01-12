@@ -94,6 +94,7 @@
         $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$temp_travel,$viaggio['tag'])));
         
     }
+    $page->replaceTag('PAGE-SELECTOR', '');
 
     $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 

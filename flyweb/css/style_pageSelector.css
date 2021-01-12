@@ -4,22 +4,25 @@
     font-weight: 700;
     width: 2em;
     height: 2em;
-    border: 2px solid #c53020;
-    color: #c53020;
+    border: 2px solid #FF8C00;
+    color: #FF8C00;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     cursor: pointer;
-    background-color: #fff;
     margin: 0.2em;
     vertical-align: middle;
 }
 
 
 .button-selector-page:hover, .button-selector-page:disabled{
-    border: 2px solid #eb5443;
-    background-color: #eb5443;
+    border: 2px solid #FF8C00;
+    background-color: #FF8C00;
     color: #fff;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button-selector-page:disabled{
+    opacity: 0.6;
 }
 
 .button-selector-page:focus{
@@ -31,9 +34,11 @@
     cursor: auto;
 }
 
-.pageSelector {
+.page-selector{
+    width: 100%;
+    background-color: #0a3150;;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    padding: 1em 0 1em 0;
+    
 }

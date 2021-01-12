@@ -31,13 +31,17 @@ class SearchBox extends baseComponent {
         if($this->tipo == "adm-searchbox"){
             $values['url'] = './search_landing.php';
             $values['filtri'] = 'filtri';
-            $values['titolo'] = '';
+            $this->replaceTag('TITOLO', '');
+
         }else if($this->tipo == "searchbox"){
             $values['url'] = './search.php';
             $values['titolo'] = '';
-        }else{
-            $values['url'] = './search.php';
+            $this->replaceTag('TITOLO', '');
+
+        }else{  //index searchbox
+            $values['url'] = '/search.php';
             $values['filtri'] = 'filtri-nascosti';
+            $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
         }
 
         foreach ($this->values as $key => $value) {

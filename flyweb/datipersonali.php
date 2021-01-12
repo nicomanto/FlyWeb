@@ -39,6 +39,7 @@
 
     $page->replaceTag('RECENSIONI-PROFILO', '');
 
+    $page->replaceTag('PAGE_SELECTOR', '');    
     $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;
