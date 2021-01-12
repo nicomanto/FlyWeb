@@ -56,7 +56,7 @@ class Travel {
      * @param string $descrizione
      * @return void
      */
-    public function __construct5(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizioneBreve,string $stato, string $citta, string $localita) {
+    public function __construct9(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizioneBreve,string $stato, string $citta, string $localita) {
         $this->titolo = $titolo;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
