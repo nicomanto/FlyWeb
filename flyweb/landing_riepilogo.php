@@ -53,9 +53,11 @@ use controllers\UserController;
     }
 
     extract($_POST, EXTR_SKIP);
+    $_SESSION['fatturazione'] = array ('via' => $_POST['via'], 'comune' => $_POST['comune'], 'provincia' =>$_POST['provincia'], 'cap' => $_POST['cap'] );
 
-    $form1 = new FormInserimentoDatiFatturazione();
-    $fatturazione = $form1->estraiDatiFatturazione();
+   // $form1 = new FormInserimentoDatiFatturazione();
+   // $fatturazione = $form1->estraiDatiFatturazione();
+   $fatturazione=$_SESSION['fatturazione'];
 
 
     if(!preg_match("/^[\w\s\.]*$/",$fatturazione['via'])){

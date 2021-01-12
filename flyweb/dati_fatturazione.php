@@ -12,6 +12,8 @@
 	use html\Template;
 	use model\BreadcrumbItem;
 
+	require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+
 
 	// Load request's data
 	extract($_GET, EXTR_SKIP);
@@ -20,10 +22,8 @@
 	$userController = new UserController();
 
 	$_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-
-	// $items = $userController->getViaggiCarrello();
-
-	$_page = new Template('procedura_acquisto');
+	echo ($_SESSION['metodopagamento']);
+	$_page= new Template('procedura_acquisto');
 
 	$_page->replaceTag('HEAD', (new Head));
 
@@ -38,26 +38,15 @@
 	);
 
 	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
-
-<<<<<<< HEAD
-  if(isset($_SESSION['fatturazione'])){
-    $mario=$_SESSION['fatturazione'];
-    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
-  }else{
-    $_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
-  }
-    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
-=======
 	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
+	if(isset($_SESSION['fatturazione'])){
+		$mario=$_SESSION['fatturazione'];
+		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
+	  }else{
+		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+	  }
 
-	//    $searchResults = '';
-	//    foreach ($items as $li) {
-	//        $searchResults .= new TravelOrder($li);
-	//    }
->>>>>>> ee91f5f04196a23d830944fc1178ccfc776d7414
-
-	//    $_page->replaceTag('VIAGGI-DA-ACQUISTARE', $searchResults);
 	if ($_POST['metodopagamento'] != 'paypal') {
 		if (!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/", $_POST['titolareCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
@@ -77,33 +66,21 @@
 		} else if (strlen($_POST['cvv']) > 3) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il codice CVV deve avere al massimo 3 cifre, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
-			$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
+			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
 		}
 	} else {
 		if (!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/", $_POST['email'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento <span xml:lang=\'en\'>email</span> paypal: non è in un formato standard come esempio@esempio.com, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
-			$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
+			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
 		}
 	}
 
 
-<<<<<<< HEAD
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
-=======
 
 	$_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
 	$_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', '');
->>>>>>> ee91f5f04196a23d830944fc1178ccfc776d7414
-
-	$_page->replaceTag('TOTALE', '');
-
-	//  $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new MetodoPagamento()));
-
-
-	//$_page->replaceTag('SUB-TOTALE', (new \html\components\subtotale) );
-	//  $_page->replaceTag('SUB-TOTALE',new \html\components\subtotale($userController->getSubtotale()));
 
 	$_page->replaceTag('FOOTER', (new Footer));
 

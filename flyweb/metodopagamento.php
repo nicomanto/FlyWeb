@@ -19,8 +19,6 @@
 
     $userController=new UserController();
 
-   // $items = $userController->getViaggiCarrello();
-
     $_page= new Template('procedura_acquisto');
 
     $_page->replaceTag('HEAD', (new Head));
@@ -36,8 +34,6 @@
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
-
-    
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 

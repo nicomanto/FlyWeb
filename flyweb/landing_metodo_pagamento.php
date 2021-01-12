@@ -39,10 +39,9 @@
 
     extract($_POST, EXTR_SKIP);
     echo ($_POST['metodopagamento']);
-
-
    // $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-   // print_r($_SESSION['metodopagamento']);
+    echo("           !!!!!!!!!!!!!!          ");
+    echo($_SESSION['metodopagamento']);
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
@@ -50,28 +49,20 @@
 
     $_page->replaceTag('TOTALE', '');
 
-    if (isset($_POST['submit'])) {
+    if ($_POST['metodopagamento'] == 'paypal') {
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
+    }else if ($_POST['metodopagamento'] == 'carta'){
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));}
 
-         if ($_POST['metodopagamento'] == 'paypal') {
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
-
-          }else if ($_POST['metodopagamento'] == 'carta') {
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));
-
-          }
-    } 
-    print_r($_SESSION['metodopagamento']);
     if(isset($_SESSION['metodopagamento'])){
         $variabile=$_SESSION['metodopagamento'];
-          echo $variabile;
-          $_POST['metodopagamento'] = $variabile;
-          echo ($_POST['metodopagamento']);
+        $_POST['metodopagamento'] = $variabile;
             if ($variabile == 'paypal'){
                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
         }else if ($variabile == 'carta'){
             $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
     }
-}
+} 
 
 
     $_page->replaceTag('FOOTER', (new Footer));
