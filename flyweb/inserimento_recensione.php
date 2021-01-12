@@ -4,10 +4,17 @@
     use \controllers\reviewController;
     use \model\Review;
     use \controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ResponseMessage;
+    use html\components\FormInsertReview;
+    use html\Template;
 
     require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
 
-    $userController= new \controllers\UserController();
+    $userController= new UserController();
 
     if($_SESSION['logged_in'] == false){
         header('location:/index.php');
@@ -21,25 +28,25 @@
 
     //print_r($_GET);
 
-    $_page = new \html\template('inserimento_recensione');
+    $_page = new Template('inserimento_recensione');
 
-    $_page->replaceTag('HEAD', (new \html\components\head));
+    $_page->replaceTag('HEAD', (new Head));
 
-    $_page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("/ordiniprofilo.php","Ordini effettuati"),
-        new model\BreadcrumbItem("#", "Inserire recensione"),
+        new BreadcrumbItem("/datipersonali.php","Profilo"),
+        new BreadcrumbItem("/ordiniprofilo.php","Ordini effettuati"),
+        new BreadcrumbItem("#", "Inserire recensione"),
     );
 
-    $_page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     
 
     if(!$_POST['btn_approva']){
 
-        $review = new \model\Review($_POST['titolo'],(int)$_POST['valutazione'],$_POST['descrizione'],(int)$userController->user->id_utente,$_POST['lingua']);
+        $review = new Review($_POST['titolo'],(int)$_POST['valutazione'],$_POST['descrizione'],(int)$userController->user->id_utente,$_POST['lingua']);
 
         //check param like js
         if(!preg_match("/^[\w\s\.]*$/",$review->titolo)){
@@ -64,19 +71,19 @@
 
 
         if(empty($error)){
-            (new \controllers\ReviewController())->insertReview($review,$_POST['id_viaggio']);
-            $_page->replaceTag('FORM_RECENSIONE', (new \html\components\responseMessage("Recensione inserita con successo, grazie!")));
+            (new ReviewController())->insertReview($review,$_POST['id_viaggio']);
+            $_page->replaceTag('FORM_RECENSIONE', (new ResponseMessage("Recensione inserita con successo, grazie!")));
         }
         else{
-            $_page->replaceTag('FORM_RECENSIONE', new \html\components\formInsertReview($error,(int)$_POST['id_viaggio']));
+            $_page->replaceTag('FORM_RECENSIONE', new FormInsertReview($error,(int)$_POST['id_viaggio']));
         }
         
     }
     else{
-        $_page->replaceTag('FORM_RECENSIONE', new \html\components\formInsertReview($error,(int)$_POST['id_viaggio']));
+        $_page->replaceTag('FORM_RECENSIONE', new FormInsertReview($error,(int)$_POST['id_viaggio']));
     }
     
 
-    $_page->replaceTag('FOOTER', (new \html\components\footer));
+    $_page->replaceTag('FOOTER', (new Footer));
 
     echo $_page;
