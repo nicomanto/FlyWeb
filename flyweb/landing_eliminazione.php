@@ -22,8 +22,8 @@
     $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/datipersonali.php","Profilo"),
-        new BreadcrumbItem("/modifica_info_profilo.php","Modifica profilo"),
+        new BreadcrumbItem("./datipersonali.php","Profilo"),
+        new BreadcrumbItem("./modifica_info_profilo.php","Modifica profilo"),
         new BreadcrumbItem("#","Conferma eliminazione")
     );
 

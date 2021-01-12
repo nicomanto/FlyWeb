@@ -2,9 +2,18 @@
 
     use model\Paginator;
     use controllers\RouteController;
+    use controllers\SearchController;
+    use html\components\AdmDashBoard;
+    use html\components\AdmFooter;
+    use html\components\AdmTravelListItem;
+    use html\components\Breadcrumb;
+    use html\components\Head;
+    use html\components\PageSelector;
     use html\components\ResponseMessage;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -48,12 +57,12 @@
     $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("inserisci_viaggio")));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di gestione"),
-        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
-        new BreadcrumbItem("/admin/search_landing.php","Risultati ricerca viaggi")
+        new BreadcrumbItem("./index.php","Pannello di gestione"),
+        new BreadcrumbItem("./search.php","Ricerca viaggi"),
+        new BreadcrumbItem("./search_landing.php","Risultati ricerca viaggi")
     );
 
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
@@ -67,13 +76,13 @@
         // Paginate travels result
         $paginatedTravels = Paginator::paginate($travels, $count);
         foreach ($paginatedTravels['elements'] as $element) {
-            $searchResults.= new \html\components\AdmTravelListItem($element);
+            $searchResults.= new AdmTravelListItem($element);
         }
         
         $page->replaceTag('ADM-CONTENUTO',
         '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>".(new PageSelector($paginatedTravels)));
     }
 
-    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
+    $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 
     echo $page;

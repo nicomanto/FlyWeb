@@ -1,5 +1,5 @@
 <?php  
-require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+require_once('./autoload.php');
 
 /*
      script php che restituisce la lista di integrazioni sottoforma di <option> che vanno inseriti dentro <datalist>
@@ -7,7 +7,7 @@ require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
 
      //echo "!! ".$_POST['id'];
 
-     $autocompleteController = new \controllers\IntegrazioneController();
+     $autocompleteController = new IntegrazioneController();
 
      extract($_GET, EXTR_SKIP);
 

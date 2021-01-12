@@ -4,8 +4,6 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 
-use \html\components\AdmMenuComponent;
-
 class AdmDashBoard extends BaseComponent {
 
     const _templateName = "adm_dashboard";

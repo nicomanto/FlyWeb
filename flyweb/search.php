@@ -13,7 +13,7 @@
     use html\Template;
     use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
 
     RouteController::unprotectedRoute();
 
@@ -25,7 +25,7 @@
 
     if (!isset($search_button)) {
         // TODO: manage this situation
-        header('location:/index.php');
+        header('location:./index.php');
         exit();
     }
 
@@ -63,7 +63,7 @@
 
     // Set breadcrumb
     $breadcrumb=array(
-        new BreadcrumbItem("/index.php","Home","en"),
+        new BreadcrumbItem("./index.php","Home","en"),
         new BreadcrumbItem("#","Ricerca viaggio")
     );
 

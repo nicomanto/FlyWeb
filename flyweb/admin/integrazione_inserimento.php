@@ -1,8 +1,12 @@
 <?php
 
     use controllers\RouteController;
+    use html\components\AdmDashBoard;
+    use html\components\AdmFormIntegrazione;
+    use html\components\Head;
+    use html\Template;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -10,8 +14,8 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_integrazione")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("inserisci_integrazione")));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione()));
+    $page->replaceTag('ADM-CONTENUTO', (new AdmFormIntegrazione()));
 
     echo $page;

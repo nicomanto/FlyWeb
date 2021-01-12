@@ -11,13 +11,13 @@
     use html\Template;
     use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
 
     RouteController::unloggedRoute();
 
     // Redirect to home if user's already logged in
     if ($_SESSION['logged'] == true) {
-        header('location:/index.php');
+        header('location:./index.php');
         exit();
     }
 

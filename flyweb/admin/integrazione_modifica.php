@@ -1,21 +1,26 @@
 <?php
 
+    use controllers\IntegrazioneController;
     use controllers\RouteController;
+    use html\components\AdmDashBoard;
+    use html\components\AdmFormIntegrazione;
+    use html\components\Head;
+    use html\Template;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
     $page = new Template('board');
     $id=$_GET['par_id'];
-    $integrazioneContorller = (new \controllers\IntegrazioneController((int)$id));
+    $integrazioneContorller = (new IntegrazioneController((int)$id));
 
 
     // Set page head
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("integrazione_modifica")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("integrazione_modifica")));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmFormIntegrazione($integrazioneContorller->integrazione)));
+    $page->replaceTag('ADM-CONTENUTO', (new AdmFormIntegrazione($integrazioneContorller->integrazione)));
 
     echo $page;

@@ -8,7 +8,7 @@
     use html\Template;
     use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
 
     RouteController::unprotectedRoute();
 

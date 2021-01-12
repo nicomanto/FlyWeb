@@ -1,12 +1,12 @@
 <?php  
-require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+require_once('./autoload.php');
 
 /*
      script php che restituisce la lista di tag sottoforma di <option> che vanno inseriti dentro <datalist>
 */
 
 
-     $autocompleteController = new \controllers\AdmController();
+     $autocompleteController = new AdmController();
 
 
      $result = $autocompleteController->getTags();
