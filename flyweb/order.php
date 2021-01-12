@@ -16,7 +16,6 @@ use html\components\Breadcrumb;
     extract($_GET, EXTR_SKIP);
 
     $orderController = new \controllers\OrderController((int)$id);
-
     $dettagli_ordine = $orderController->order;
 
     $viaggi = $orderController->getTravelByOrderList($id);

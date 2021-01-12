@@ -35,6 +35,7 @@ class AdmTravelReviewItem extends baseComponent {
             "NOME_UTENTE" => $user->user->nome,
             "COGNOME_UTENTE" => $user->user->nome,
             "DATA" => $this->review->data,
+            "LINGUA" => $this->review->lingua
         ]);
         return $this;
     }   

@@ -14,8 +14,9 @@ class ReviewController extends BaseController {
     public function insertReview($review,$id_viaggio){
 
         //inserimento review
-        $query = 'INSERT INTO Recensione (Titolo, Valutazione, Descrizione, ID_Utente, Data) VALUES (?,?,?,?,CURDATE());';
-        $this->db->runQuery($query, $review->titolo, $review->valutazione,$review->descrizione, $review->id_utente);
+        print($review->id_utente);
+        $query = 'INSERT INTO Recensione (Titolo, Valutazione, Descrizione, ID_Utente, Data, Lingua) VALUES (?,?,?,?,CURDATE(),?);';
+        $this->db->runQuery($query, $review->titolo, $review->valutazione,$review->descrizione, $review->id_utente,$review->lingua);
 
         //inserimento reviewTravel
         $query = 'INSERT INTO RecensioneViaggio VALUES ((SELECT MAX(ID_Recensione) FROM Recensione),?);';
