@@ -34,6 +34,7 @@ class TravelReviewItem extends baseComponent {
         
         $this->replaceTag('BADGE_VOTO', new \html\components\SingleBadgeVoteReview($this->review->valutazione));
         $this->replaceValue("TITOLO",$this->review->titolo);
+        $this->replaceValue("LINGUA",$this->review->lingua);
         $this->replaceTag('STELLE_REVIEW', $li);
         $this->replaceValue("CONTENUTO",$this->review->descrizione);
 

@@ -637,6 +637,67 @@ function getAge(data_nascita){
     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }
 
+
+
+//Recensioni
+function titoloEDescrizioneRecensione(id,Element){
+    var element  = document.getElementById(Element).value;
+    var error_id_message=document.getElementById(id);
+    var reg_expr= /^[\w\s\.]*$/;
+    var no_only_special=/^(\.|_|\s)*$/;
+
+    if(element){
+        if( element.search(reg_expr) !=0){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
+            error_id_message.innerHTML = "Permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
+            return false;
+        }
+        else if(no_only_special.test(element)){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById(Element).style.border = "2px solid red";
+            error_id_message.innerHTML = "Deve contenere almeno delle lettere o numeri";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById(Element).style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById(Element).style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+function valutazioneRecensione(){
+    var valutazione  = document.getElementById("valutazione").value;
+    var error_id_message=document.getElementById("input_error_valutazione");
+
+    if(valutazione){
+        if(valutazione<0 || valutazione>5){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("valutazione").style.border = "2px solid red";
+            error_id_message.innerHTML = "La valutazione deve essere compresa fra 0 e 5";
+            return false;
+        }
+        else{
+            error_id_message.style.visibility = 'hidden';
+            document.getElementById("valutazione").style.border = "2px solid #0a3150";
+        }
+    }
+    else{
+        error_id_message.style.visibility = 'hidden';
+        document.getElementById("valutazione").style.border = "2px solid #0a3150";
+    }
+
+    return true;
+}
+
+
+
 checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();

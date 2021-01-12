@@ -10,6 +10,7 @@ class Review {
     public $id_utente;
     public $mod;
     public $data;
+    public $lingua;
 
     /**
      * Workaround to have multiple constructors
@@ -36,6 +37,7 @@ class Review {
         $this->id_utente = $review['ID_Utente'];
         $this->mod= $review['Mod'];
         $this->data=$review['Data'];
+        $this->lingua=$review['Lingua'];
     }
 
     /**
@@ -49,23 +51,25 @@ class Review {
      * @param string %data
      * @return void
      */
-    public function __construct6(string $titolo, int $valutazione, string $descrizione, int $id_utente, bool $mod, string $data) {
+    public function __construct7(string $titolo, int $valutazione, string $descrizione, int $id_utente, bool $mod, string $data, string $lingua) {
         $this->titolo = $titolo;
         $this->valutazione = $valutazione;
         $this->descrizione = $descrizione;
         $this->id_utente = $id_utente;
         $this->mod= $mod;
         $this->data=$data;
+        $this->lingua=$lingua;
     }
 
     /**
      * Constructor with minimal informations to create a new Review (used with form information)
      */
-    public function __construct4(string $titolo, int $valutazione, string $descrizione, int $id_utente) {
+    public function __construct5(string $titolo, int $valutazione, string $descrizione, int $id_utente, string $lingua) {
         $this->titolo = $titolo;
         $this->valutazione = $valutazione;
         $this->descrizione = $descrizione;
         $this->id_utente = $id_utente;
         $this->mod= 0;
+        $this->lingua=$lingua;
     }
 }
