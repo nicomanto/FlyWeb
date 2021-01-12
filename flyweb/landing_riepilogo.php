@@ -35,10 +35,10 @@ use controllers\UserController;
 
     // Set breadcrumb
     $breadcrumb=array(
-      new BreadcrumbItem("/carrello.php","Carrello"),
-      new BreadcrumbItem("/metodopagamento.php","Metodo di pagamento"),
-      new BreadcrumbItem("/landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
-      new BreadcrumbItem("/dati_fatturazione.php","Inserisci dati di fatturazione"),
+      new BreadcrumbItem("./carrello.php","Carrello"),
+      new BreadcrumbItem("./metodopagamento.php","Metodo di pagamento"),
+      new BreadcrumbItem("./landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
+      new BreadcrumbItem("./dati_fatturazione.php","Inserisci dati di fatturazione"),
       new BreadcrumbItem("#", "Riepilogo ordine")
     );
 

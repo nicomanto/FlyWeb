@@ -1,7 +1,13 @@
 <?php
-    use controllers\RouteController;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    use controllers\IntegrazioneController;
+    use controllers\RouteController;
+    use html\components\AdmDashBoard;
+    use html\components\AdmSuccesso;
+    use html\components\Head;
+    use html\Template;
+
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -9,7 +15,7 @@
 
     $id= $_GET['par_id'];
 
-    $integrazioneController = new \controllers\IntegrazioneController($id);
+    $integrazioneController = new IntegrazioneController($id);
 
     $integrazione = ($integrazioneController->integrazione);
     $t = $integrazione->nome;
@@ -18,8 +24,8 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("generale")));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,"eliminazione") ));
+    $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($t,"eliminazione") ));
 
     echo $page;

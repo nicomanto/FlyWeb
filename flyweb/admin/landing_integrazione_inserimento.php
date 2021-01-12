@@ -1,16 +1,23 @@
 <?php
-    use controllers\RouteController;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+use controllers\IntegrazioneController;
+use controllers\RouteController;
+use html\components\AdmDashBoard;
+use html\components\AdmFormIntegrazione;
+use html\components\AdmSuccesso;
+use html\components\Head;
+use html\Template;
+
+require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
     $page = new Template('board');
 
-    $form = new \html\components\AdmFormIntegrazione();
+    $form = new AdmFormIntegrazione();
     $integrazione = $form->estraiDatiIntegrazione();
     //print_r($integrazione);
-    $integrazioneController = new \controllers\IntegrazioneController();
+    $integrazioneController = new IntegrazioneController();
 
     $str=" ";
 
@@ -28,8 +35,8 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("generale")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("generale")));
 
-    $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
+    $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($t,$str)));
 
     echo $page;

@@ -1,9 +1,14 @@
 <?php
     use controllers\RouteController;
+    use html\components\AdmDashBoard;
     use html\components\AdmFooter;
+    use html\components\Breadcrumb;
+    use html\components\Head;
+    use html\components\SearchBox;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -14,11 +19,11 @@
     $page->replaceTag('HEAD', (new Head));
 
     // Set nav menu
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("/admin/search.php","Ricerca viaggi"),
+        new BreadcrumbItem("./index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("./search.php","Ricerca viaggi"),
     );
 
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));

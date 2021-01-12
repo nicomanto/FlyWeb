@@ -28,8 +28,8 @@
 
     // Set breadcrumb
     $breadcrumb=array(
-        new BreadcrumbItem("/carrello.php","Carrello"),
-        new BreadcrumbItem("/metodopagamento.php","Metodo di pagamento"),
+        new BreadcrumbItem("./carrello.php","Carrello"),
+        new BreadcrumbItem("./metodopagamento.php","Metodo di pagamento"),
         new BreadcrumbItem("#", "Inserisci dati di pagamento")
     );
 

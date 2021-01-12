@@ -7,11 +7,11 @@
     use html\Template;
     use model\Review;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
     RouteController::loggedRoute();
 
     if (empty($_POST)) {
-      header('location:/index.php');
+      header('location:./index.php');
       exit();
     }
 

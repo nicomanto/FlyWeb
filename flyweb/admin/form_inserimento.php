@@ -2,10 +2,17 @@
 
     use controllers\RouteController;
     use controllers\ImagesController;
-    use \controllers\AdmController;
-    use \html\components\FormViaggio;
+    use controllers\AdmController;
+    use html\components\AdmDashBoard;
+    use html\components\AdmSuccesso;
+    use html\components\Breadcrumb;
+    use html\components\AdmFooter;
+    use html\components\FormViaggio;
+    use html\components\Head;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     RouteController::protectedRoute();
 
@@ -16,12 +23,12 @@
     $page->replaceTag('HEAD', (new Head));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("/admin/form_inserimento.php","Inserimento viaggio")
+        new BreadcrumbItem("./index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("./form_inserimento.php","Inserimento viaggio")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard("inserisci_viaggio")));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard("inserisci_viaggio")));
 
 
     $page->replaceValue('c', "INSERISCI VIAGGIO");
@@ -60,18 +67,18 @@
             $admController->setIntegrazioniViaggio($v_id,$viaggio['integrazioni']);
 
 
-            $page->replaceTag('ADM-CONTENUTO', (new \html\components\AdmSuccesso($t,$str)));
+            $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($t,$str)));
         }
         else{
             
-            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error)));
+            $page->replaceTag('ADM-CONTENUTO', (new FormViaggio($error)));
         }
     }
     else{
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error)));
+        $page->replaceTag('ADM-CONTENUTO', (new FormViaggio($error)));
         
     }
 
-    $page->replaceTag('ADM-FOOTER', (new \html\components\AdmFooter()));
+    $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 
     echo $page;

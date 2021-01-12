@@ -1,11 +1,14 @@
 <?php
     use controllers\RouteController;
-    use controllers\UserController;
-    use model\User;
-    use html\components\AdmInfoHome;
+    use html\components\AdmDashBoard;
     use html\components\AdmFooter;
+    use html\components\AdmInfoHome;
+    use html\components\Breadcrumb;
+    use html\components\Head;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('../autoload.php');
 
     // This route can be accessed only by admins
     RouteController::protectedRoute();
@@ -18,15 +21,15 @@
 
     $page->replaceTag('HEAD', (new Head));
 
-    $page->replaceTag('ADM-MENU', (new \html\components\AdmDashboard));
+    $page->replaceTag('ADM-MENU', (new AdmDashboard));
 
     $breadcrumb=array(
-        new BreadcrumbItem("/admin/index.php","Pannello di amministrazione")
+        new BreadcrumbItem("./index.php","Pannello di amministrazione")
     );
 
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('ADM-CONTENUTO', new \html\components\AdmInfoHome());
+    $page->replaceTag('ADM-CONTENUTO', new AdmInfoHome());
 
     $page->replaceTag('ADM-FOOTER', new AdmFooter());
 

@@ -10,13 +10,13 @@
     use html\Template;
     use model\BreadcrumbItem;
 
-    require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/autoload.php');
+    require_once('./autoload.php');
 
     RouteController::unloggedRoute();
 
     // Redirect to home if user's already logged in
     if($_SESSION['logged_in'] == true){
-        header('location:/index.php');
+        header('location:./index.php');
         exit();
     }
 
@@ -75,11 +75,11 @@
                 if ($loggedIn['Admin']) {
                     // Redirect to Administration page
                     $_SESSION['admin'] = true;
-                    header('location:/admin/index.php');
+                    header('location:./admin/index.php');
                 } else {
                     // Redirect to home page
                     $_SESSION['admin'] = false;
-                    header('location:/index.php');
+                    header('location:./index.php');
                 }
     
                 exit();
