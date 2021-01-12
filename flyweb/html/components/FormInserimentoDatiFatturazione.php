@@ -9,25 +9,27 @@ class FormInserimentoDatiFatturazione extends baseComponent {
 
     const _templateName = 'form_inserimento_dati_fatturazione';
     public $order;
+    public $data_type;
 
-    public function __construct() {
+    public function __construct(array $order=null) {
 
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
         $this->order = $order;
+        $this->data_type=$data_type;
         $this->render();
     }
     
 
     public function render(): string {
         //echo "debug";
-            $values = ['via','comune','cap','provincia'];
+           // $values = ['via','comune','cap','provincia'];
 
             $this->replaceValues([
-                    'via' => $this->order->via,
-                    'comune' => $this->order->comune,
-                    'cap' => $this->order->cap,
-                    'provincia' => $this->order->provincia,
+                    'via' => (empty($this->order))?' ':$this->order['via'],
+                    'comune' => (empty($this->order))?' ':$this->order['comune'],
+                    'cap' => (empty($this->order))?' ':$this->order['cap'],
+                    'provincia' => (empty($this->order))?' ':$this->order['provincia'],
                     'metodopagamento' => $_POST['metodopagamento']
 
             ]);

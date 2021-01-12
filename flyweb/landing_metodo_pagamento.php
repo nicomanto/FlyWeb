@@ -38,6 +38,10 @@
     $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
     extract($_POST, EXTR_SKIP);
+    echo ($_POST['metodopagamento']);
+   // $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
+    echo("           !!!!!!!!!!!!!!          ");
+    echo($_SESSION['metodopagamento']);
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
@@ -45,18 +49,21 @@
 
     $_page->replaceTag('TOTALE', '');
 
+    if ($_POST['metodopagamento'] == 'paypal') {
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
+    }else if ($_POST['metodopagamento'] == 'carta'){
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));}
 
-    if (isset($_POST['submit'])) {
-        // $selected_radio = $_POST['metodopagamento'];
-
-         if ($_POST['metodopagamento'] == 'paypal') {
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
-
-          }else if ($_POST['metodopagamento'] == 'carta') {
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));
-
-          }
+    if(isset($_SESSION['metodopagamento'])){
+        $variabile=$_SESSION['metodopagamento'];
+        $_POST['metodopagamento'] = $variabile;
+            if ($variabile == 'paypal'){
+                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
+        }else if ($variabile == 'carta'){
+            $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
     }
+} 
+
 
     $_page->replaceTag('FOOTER', (new Footer));
 

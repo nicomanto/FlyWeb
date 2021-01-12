@@ -53,9 +53,11 @@ use controllers\UserController;
     }
 
     extract($_POST, EXTR_SKIP);
+    $_SESSION['fatturazione'] = array ('via' => $_POST['via'], 'comune' => $_POST['comune'], 'provincia' =>$_POST['provincia'], 'cap' => $_POST['cap'] );
 
-    $form1 = new FormInserimentoDatiFatturazione();
-    $fatturazione = $form1->estraiDatiFatturazione();
+   // $form1 = new FormInserimentoDatiFatturazione();
+   // $fatturazione = $form1->estraiDatiFatturazione();
+   $fatturazione=$_SESSION['fatturazione'];
 
 
     if(!preg_match("/^[\w\s\.]*$/",$fatturazione['via'])){
@@ -94,6 +96,9 @@ use controllers\UserController;
       $_page->replaceTag('TOTALE', '');
     }
     else{
+
+      $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
+
       $_page->replaceTag('DATI-INSERITI', (new RiepilogoOrdine($fatturazione)));
 
       $_page->replaceTag('VIAGGI', $searchResults);
@@ -102,11 +107,16 @@ use controllers\UserController;
       
       $fatturazione['totale'] = $risultato;
 
+      $_SESSION['totale']=$risultato;
+
+      $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
+
       $prova= $userController->ordineTemporaneo($fatturazione);
     }
 
     $_page->replaceTag('FOOTER', (new Footer));
 
     $_page->replaceTag('SUCCESSO', '');
+
 
     echo $_page;

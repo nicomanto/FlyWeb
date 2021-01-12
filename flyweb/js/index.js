@@ -352,13 +352,14 @@ function checkCVV(){
     var cvv  = document.getElementById("cvv").value;
     var error_id_message=document.getElementById("input_error_carta_cvv");
 
-    if(cvv){
+    if(cvv){ 
         if(cvv.length>3){
             error_id_message.style.visibility = 'visible';
             document.getElementById("cvv").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il codice deve avere al massimo 3 cifre";
+            error_id_message.innerHTML = "Il codice deve avere 3 cifre";
             return false;
         }
+
         else{
             error_id_message.style.visibility = 'hidden';
             document.getElementById("cvv").style.border = "2px solid #0a3150";
