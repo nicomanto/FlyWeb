@@ -66,7 +66,7 @@
                 // TODO: do something instead of exiting
                 //exit();
 
-                array_push ( $error , "La password \"" . $no_crip_pass . "\" non è corretta per l'utente \"". $user . "\"");
+                array_push ( $error , "La password immessa non è corretta per l'utente \"". $user . "\"");
             }
             else{
                 $_SESSION['logged_in'] = true;

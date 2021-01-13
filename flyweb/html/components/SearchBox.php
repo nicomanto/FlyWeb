@@ -39,7 +39,7 @@ class SearchBox extends baseComponent {
             $this->replaceTag('TITOLO', '');
 
         }else{  //index searchbox
-            $values['url'] = '/search.php';
+            $values['url'] = './search.php';
             $values['filtri'] = 'filtri-nascosti';
             $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
         }
