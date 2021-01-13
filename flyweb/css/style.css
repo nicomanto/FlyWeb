@@ -92,7 +92,7 @@ label{
     order: 3;
 }
 .response-img{
-    width: 50%;
+    width: 25vw;
     margin: 0 auto;
     display: block;
 }
@@ -615,8 +615,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 1em;
 }
 
-
-.filtri-nascosti{
+.contenuto-home .filtri-nascosti{
     display: none;
 }
 
@@ -892,6 +891,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     flex-flow: row wrap;
     align-items: stretch;
+    justify-content: center;
     background-color:#fff;
     width: 100%;
     padding: 0;
