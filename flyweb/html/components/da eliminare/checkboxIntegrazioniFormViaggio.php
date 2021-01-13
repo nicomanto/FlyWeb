@@ -1,4 +1,5 @@
 <?php  
+use controllers\IntegrazioneController;
 require_once('./autoload.php');
 
 /*
