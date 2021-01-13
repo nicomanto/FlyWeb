@@ -56,7 +56,7 @@
     $_page->replaceTag('TRAVEL_DETAILS', (new TravelDetails($travelController->travel)));
 
     // Set travel configurator
-    $_page->replaceTag('INTEGRATION_CONFIGURATOR', (new Integrazione((int)$id)));
+    $_page->replaceTag('INTEGRATION_CONFIGURATOR', '');
 
 
     if($travelController->haveRelatedTravel()){
