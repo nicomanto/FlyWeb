@@ -1,4 +1,5 @@
 <?php  
+use controllers\IntegrazioneController;
 require_once('./autoload.php');
 
 /*
@@ -17,7 +18,7 @@ require_once('./autoload.php');
         //echo $id . " => " . $nome . "\n";
             
         $output .= '<label for='.$row['ID_Integrazione'].'> <input type="checkbox" id='.$row['ID_Integrazione'].' name="integrazioni[]" value='.$row['ID_Integrazione'].'>'.$row['Nome'].' - '.$row['Prezzo'].' euro </label>';
-        $output .= '<br>';
+        $output .= '<br/>';
         //echo $output;
     }
 

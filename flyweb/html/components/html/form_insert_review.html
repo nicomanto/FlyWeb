@@ -1,5 +1,5 @@
 <div class="inserimento-recensione">
-    <form action='/inserimento_recensione.php' method="POST" id="form_insert_review" onsubmit="return (valutazioneRecensione() && titoloEDescrizioneRecensione('input_error_titolo','titolo') && titoloEDescrizioneRecensione('input_error_descrizione','descrizione'))">
+    <form action='/inserimento_recensione.php' method="POST" class="dash-form form-registrazione" id="form_insert_review" onsubmit="return (valutazioneRecensione() && titoloEDescrizioneRecensione('input_error_titolo','titolo') && titoloEDescrizioneRecensione('input_error_descrizione','descrizione'))">
         <fieldset>
             <legend>Inserisce una recensione per %TITOLO_VIAGGIO%</legend>
 
@@ -26,18 +26,15 @@
             <textarea type="text" class="input" tabindex="1" name="titolo" id="titolo" placeholder="Inserisci qua il titolo" required="required" autocomplete="off" onblur="titoloEDescrizioneRecensione('input_error_titolo','titolo')">%TITOLO%</textarea>
             
             <p id="input_error_titolo" class="p_input_error"> testo errore </p>
-            <br>
 
             <label for="descrizione">Scrivi qui il contenuto:</label>
             <textarea name="descrizione" class="input" tabindex="2" placeholder="Inserisci qua la tua recensione" id="descrizione" maxlength="5000" rows='10' cols='50'  required="required" autocomplete="off" onblur="titoloEDescrizioneRecensione('input_error_descrizione','descrizione')">%DESCRIZIONE%</textarea>
             <p id="input_error_descrizione" class="p_input_error"> testo errore </p>
-            <br>
 
             <label for="valutazione">Valutazione (numero da 0 a 5):</label>
             <input type="number" class="input" tabindex="3" value='%VALUTAZIONE%' id="valutazione" name="valutazione" min="0" max="5" required="required" onblur='valutazioneRecensione()'>
             
             <p id="input_error_valutazione" class="p_input_error"> testo errore </p>
-            <br>
 
             <input type="hidden" name="id_viaggio" id="id_viaggio" value="%ID_VIAGGIO%">
 

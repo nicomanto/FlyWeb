@@ -59,7 +59,7 @@ class TravelOrder extends baseComponent {
             </form>');
         }
         else{
-            $this->replaceTag('BOTTONE_RECENSIONE','<p>Potrai lasciare una recensione dopo aver terminato il viaggio</p>');
+            $this->replaceTag('BOTTONE_RECENSIONE','<h2>Potrai lasciare una recensione dopo aver terminato il viaggio.</h2>');
         }
 
         

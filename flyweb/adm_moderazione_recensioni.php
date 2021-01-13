@@ -8,6 +8,7 @@ use html\components\AdmTravelReviewItem;
 use html\components\Breadcrumb;
 use html\components\Head;
 use html\components\PageSelector;
+use html\components\ResponseMessage;
 use html\Template;
 use model\BreadcrumbItem;
 use model\Paginator;
@@ -58,7 +59,7 @@ require_once('./autoload.php');
 
         $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedReview)));
     }else{
-        $page->replaceTag('ADM-CONTENUTO',"<h2>Nessun recensione da moderare...per ora.</h2>");
+        $page->replaceTag('ADM-CONTENUTO',new ResponseMessage("Nessun recensione da moderare...per ora"));
     }
 
     $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
