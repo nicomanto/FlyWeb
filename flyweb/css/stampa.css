@@ -17,6 +17,10 @@ a{
     display: none;
 }
 
+#UpArrow{
+	display: none;
+}
+
 .main-menu{
     display: none;
 }
