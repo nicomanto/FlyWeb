@@ -40,7 +40,7 @@ class FormViaggio extends baseComponent
         //print_r($this->travel_loc);
         $this->replaceValues([
             'type' => (empty($this->travel_loc->id_viaggio)) ? 'INSERISCI' : 'MODIFICA',
-            'link_action' => (empty($this->travel_loc->id_viaggio)) ? './form_inserimento.php' : './form_modifica.php',
+            'link_action' => (empty($this->travel_loc->id_viaggio)) ? './adm_form_inserimento.php' : './adm_form_modifica.php',
             'titolo' => (empty($this->travel_loc)) ? '' : $this->travel_loc->titolo,
             'descrizione' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizione,
             'descrizioneBreve' => (empty($this->travel_loc)) ? '' : $this->travel_loc->descrizioneBreve,

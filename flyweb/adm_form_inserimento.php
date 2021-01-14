@@ -27,7 +27,7 @@
 
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("./form_inserimento.php","Inserimento viaggio")
+        new BreadcrumbItem("./adm_form_inserimento.php","Inserimento viaggio")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 

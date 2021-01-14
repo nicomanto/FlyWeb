@@ -711,6 +711,24 @@ function hamb() {
     }
 }
 
+/*Button torna su */
+function scrollFunction() {
+    var btn = document.getElementById("UpArrow"); 
+
+    
+    if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btn.classList.remove("hide");
+    } 
+    else {
+        if( !btn.classList.contains("hide")){
+            btn.classList.add("hide");
+        }
+           
+    }
+}
+
+window.onscroll = function() {scrollFunction()};
+
 checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();

@@ -29,7 +29,7 @@ class SearchBox extends baseComponent {
     public function render(): string {
     
         if($this->tipo == "adm-searchbox"){
-            $values['url'] = './search_landing.php';
+            $values['url'] = './adm_search_landing.php';
             $values['filtri'] = 'filtri';
             $this->replaceTag('TITOLO', '');
 

@@ -45,7 +45,7 @@
     // Da vedere come fare serach.php perchè reindirizza a index.php perchè mancano gli elementi per la get
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Home","en"),
-        new BreadcrumbItem("javascript:history.back()","Ricerca viaggio"),
+        new BreadcrumbItem("./","Ricerca viaggio"),
         new BreadcrumbItem("#","Dettagli viaggio")
     );
 
