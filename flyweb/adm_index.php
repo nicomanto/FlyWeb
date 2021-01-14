@@ -24,7 +24,7 @@
     $page->replaceTag('ADM-MENU', (new AdmDashboard));
 
     $breadcrumb=array(
-        new BreadcrumbItem("./index.php","Pannello di amministrazione")
+        new BreadcrumbItem("#","Pannello di amministrazione")
     );
 
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));

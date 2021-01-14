@@ -24,10 +24,10 @@
     $page->replaceTag('ADM-MENU', (new AdmDashboard));
 
     $breadcrumb=array(
-        new BreadcrumbItem("./index.php","Pannello di amministrazione")
+        new BreadcrumbItem("#","Pannello di amministrazionee")
     );
 
-    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
+    #$page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
     $page->replaceTag('ADM-CONTENUTO', new AdmInfoHome());
 

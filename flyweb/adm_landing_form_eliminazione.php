@@ -38,7 +38,8 @@ require_once('./autoload.php');
 
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("#","Ricerca viaggi"),
+        new BreadcrumbItem("./adm_search.php","Ricerca viaggi"),
+        new BreadcrumbItem("#","Eliminazione viaggio")
     );
     
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));

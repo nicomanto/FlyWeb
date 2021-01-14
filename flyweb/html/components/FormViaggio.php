@@ -4,6 +4,7 @@ namespace html\components;
 
 use \html\components\BaseComponent;
 use controllers\AdmController;
+use controllers\ImagesController;
 
 class FormViaggio extends baseComponent
 {
@@ -35,6 +36,7 @@ class FormViaggio extends baseComponent
 
     public function render(): string
     {
+        $imagesController = new ImagesController();
         //echo "debug";
 
         //print_r($this->travel_loc);
@@ -50,7 +52,7 @@ class FormViaggio extends baseComponent
             'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
             'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
             'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
-            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,
+            'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,  
             'image_required' => $this->image_required ? 'required="required"' : ''
         ]);
 
@@ -64,7 +66,19 @@ class FormViaggio extends baseComponent
                 $checkBox.=new CheckBoxItem("Tag".$i['ID_Tag'],'tag[]',$i['ID_Tag'],"#".$i['Nome']);
         }
 
+
         $this->replaceTag('CHECKBOX_TAG',$checkBox);
+
+        if(!empty($this->travel_loc) && !empty( $this->travel_loc->immagine)){
+            $this->replaceTag('IMAGE_INSERT_TRAVEL','
+            <div><img class="main-img"
+            src="'. $imagesController->getImagePath( $this->travel_loc->immagine) .'"
+            alt="' .$imagesController->getImageName( $this->travel_loc->immagine). '"/></div>');
+        }
+        else{
+            $this->replaceTag('IMAGE_INSERT_TRAVEL','');
+        }
+        
 
         if(!empty($this->error)){
 

@@ -1,7 +1,7 @@
 <?php
 
-use controllers\AdmController;
-use controllers\RouteController;
+    use controllers\AdmController;
+    use controllers\RouteController;
     use controllers\TravelController;
     use html\components\AdmDashBoard;
     use html\components\AdmFooter;
@@ -11,6 +11,7 @@ use controllers\RouteController;
     use html\components\Head;
     use html\Template;
     use model\BreadcrumbItem;
+    use controllers\ImagesController;
 
     require_once('./autoload.php');
 
@@ -35,20 +36,58 @@ use controllers\RouteController;
         $viaggio = $form->estraiDatiViaggio();
         $t = $viaggio['titolo'];
 
+
+        $imageController = new ImagesController();
+
+        if($_FILES['immagine']!=''){
+            $viaggio['immagine'] = $imageController->saveUploadedImage($_FILES['immagine']);
+        }
+        
         $travelController = new TravelController((int)$viaggio['id']);
 
-        #da gestire il campo 'immagini'
-        if($viaggio['titolo']=='' || $viaggio['descrizione']=='' || $viaggio['stato']=='' || $viaggio['citta']=='' || $viaggio['datainizio']=='' || $viaggio['datafine']=='' || $viaggio['prezzo']=='' || $viaggio['descrizioneBreve']==''){
-            array_push ( $error , "I campi titolo, descrizione dettagliata, descrizione breve, stato, città, data di inizio, data di fine, prezzo e immagine non possono essere vuoti");
+        if($viaggio['titolo']==''){
+            array_push ( $error , "Campo titolo mancante");
+        }
+
+        if($viaggio['descrizione']==''){
+            array_push ( $error , "Campo descrizione mancante");
+        }
+
+        if($viaggio['stato']==''){
+            array_push ( $error , "Campo stato mancante");
+        }
+
+        if($viaggio['citta']==''){
+            array_push ( $error , "Campo città mancante");
+        }
+
+        if($viaggio['datainizio']==''){
+            array_push ( $error , "Campo data di inizio mancante");
+        }
+
+        if($viaggio['datafine']==''){
+            array_push ( $error , "Campo data di fine mancante");
+        }
+
+        if($viaggio['prezzo']==''){
+            array_push ( $error , "Campo prezzo mancante");
         }
 
         if($viaggio['datafine']<$viaggio['datainizio']){
-            array_push ( $error , "Campi Data - data di inizio dev'essere antecedente alla data di fine");
+            array_push ( $error , "Campi data - data di inizio dev'essere antecedente alla data di fine");
         }
 
 
         if($viaggio['prezzo']<0){
-            array_push ( $error , "Campo Prezzo - Il prezzo non può essere negativo");
+            array_push ( $error , "Campo prezzo - Il prezzo non può essere negativo");
+        }
+
+        #print_r($_FILES);
+
+        
+        
+        if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
+            array_push ( $error , "Campo descrizione breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
         }
 
        

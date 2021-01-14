@@ -654,7 +654,7 @@ input[type=number]::-webkit-outer-spin-button {
     max-height: 80%;
 }
 
-.travel-details-container .main-img{
+.main-img{
     order           : 1;
     width           : 50%;
     max-height      : 50vh;

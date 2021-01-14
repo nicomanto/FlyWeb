@@ -48,8 +48,11 @@
         
         $t = $viaggio['titolo'];
 
+        $imageController = new ImagesController();
+        $viaggio['immagine'] = $imageController->saveUploadedImage($_FILES['immagine']);
+
         #da gestire il campo 'immagini'
-        if($viaggio['titolo']=='' || $viaggio['descrizione']=='' || $viaggio['stato']=='' || $viaggio['citta']=='' || $viaggio['datainizio']=='' || $viaggio['datafine']=='' || $viaggio['prezzo']=='' || $viaggio['descrizioneBreve']==''){
+        if($viaggio['titolo']=='' || $viaggio['descrizione']=='' || $viaggio['stato']=='' || $viaggio['citta']=='' || $viaggio['datainizio']=='' || $viaggio['datafine']=='' || $viaggio['prezzo']=='' || $viaggio['descrizioneBreve']=='' ||  $viaggio['immagine']){
             array_push ( $error , "I campi titolo, descrizione dettagliata, descrizione breve, stato, città, data di inizio, data di fine, prezzo e immagine non possono essere vuoti");
         }
 
@@ -64,8 +67,7 @@
 
         print_r($_FILES);
 
-        $imageController = new ImagesController();
-        $viaggio['immagine'] = $imageController->saveUploadedImage($_FILES['immagine']);
+        
         
         if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
             array_push ( $error , "Campo Descrizione Breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
@@ -87,11 +89,11 @@
         }
         else{
             
-            $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$temp_travel,$viaggio['tag'])));
+            $page->replaceTag('ADM-CONTENUTO', (new FormViaggio($error,$temp_travel,$viaggio['tag'])));
         }
     }
     else{
-        $page->replaceTag('ADM-CONTENUTO', (new \html\components\FormViaggio($error,$temp_travel,$viaggio['tag'])));
+        $page->replaceTag('ADM-CONTENUTO', (new FormViaggio($error,$temp_travel,$viaggio['tag'])));
         
     }
     $page->replaceTag('PAGE-SELECTOR', '');

@@ -71,7 +71,22 @@ class AdmController extends BaseController {
                             $viaggio['citta'], 
                             $viaggio['localita'], 
                             $viaggio['prezzo'],
-                            $viaggio['id']);
+                            $viaggio['id']
+                            );
+
+        if($viaggio['immagine']!=''){
+            $query='UPDATE Viaggio
+            SET
+            Immagine = ?
+            WHERE ID_VIAGGIO=?';
+
+            $this->db->runQuery($query,
+                        $viaggio['immagine'],
+                        $viaggio['id']
+                        );
+        }
+
+       
     }
 
     public function checkTravel(int $idViaggio):bool{
