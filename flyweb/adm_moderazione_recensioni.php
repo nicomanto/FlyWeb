@@ -40,7 +40,7 @@ require_once('./autoload.php');
 
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("./moderazione_recensioni.php","Modera recensioni")
+        new BreadcrumbItem("./adm_moderazione_recensioni.php","Modera recensioni")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 

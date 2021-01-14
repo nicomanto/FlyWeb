@@ -77,9 +77,9 @@ use controllers\RouteController;
         
     }
     $breadcrumb=array(
-        new BreadcrumbItem("./index.php","Pannello di amministrazione"),
-        new BreadcrumbItem("./search.php","Ricerca viaggi"),
-        new BreadcrumbItem("./form_modifica.php","Modifica viaggio")
+        new BreadcrumbItem("./adm_index.php","Pannello di amministrazione"),
+        new BreadcrumbItem("./adm_search.php","Ricerca viaggi"),
+        new BreadcrumbItem("#","Modifica viaggio")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
     

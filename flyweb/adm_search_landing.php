@@ -61,7 +61,7 @@
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Pannello di gestione"),
         new BreadcrumbItem("./search.php","Ricerca viaggi"),
-        new BreadcrumbItem("./search_landing.php","Risultati ricerca viaggi")
+        new BreadcrumbItem("./adm_search_landing.php","Risultati ricerca viaggi")
     );
 
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
