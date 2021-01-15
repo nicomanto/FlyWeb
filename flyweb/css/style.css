@@ -28,6 +28,10 @@ input[type="text"], input[type="date"], textarea{
     cursor: text;
 }
 
+button a{
+    display: block;
+    width: 100%;
+}
 .aiuti-alla-navigazione{
     position: absolute;
     height: 1px;
@@ -1107,6 +1111,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-right: 0;
     border-color: #0a3150;
     border-style: solid;
+}
+
+.final-order .adm-bottone-approva-recensione{
+    display: none;
 }
 /* === FOOTER === */
 
