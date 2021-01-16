@@ -28,7 +28,7 @@ class TravelListItem extends baseComponent {
         $st = $this->travel->id_viaggio;
 
         $imagesController = new ImagesController();
-        print_r($this->travel);
+        // print_r($this->travel);
 
         // TODO: modificare il modifica
         $this->replaceValues([
