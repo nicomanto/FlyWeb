@@ -147,6 +147,14 @@
             font-size: 30px;
           }   
 
+          .main-menu ul li span{
+            display: inline-block;
+            max-width: 90%;
+            vertical-align: middle;
+            margin: 0 auto;
+            font-size: 30px;
+          } 
+
           .main-menu  .menuPage {
             border: 5px solid #0a3150;
           }  

@@ -46,7 +46,7 @@ require_once('./autoload.php');
 
     $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($titolo,"eliminazione") ));
 
-    $page->replaceTag('PAGE-SELECTOR', ""));
+    $page->replaceTag('PAGE-SELECTOR', "");
 
     $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 
