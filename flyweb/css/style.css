@@ -1541,6 +1541,10 @@ input[type=number]::-webkit-outer-spin-button {
         width: 85%;
     }
 
+    .content-search-box{
+        padding: 15px;
+    }
+
 }
 
 @media only screen and (max-width: 480px){

@@ -3,7 +3,7 @@
   background-color: #FF8C00;
   width          : 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
-  min-height: 60px;
+  min-height: 66px;
 }
 
 .main-menu ul {
@@ -23,7 +23,7 @@
 .main-menu img{
   float: left;
   left: 0;
-  height: 60px;
+  height: 66px;
   min-width: 5%;
   background-color: #FF8C00;
 }
@@ -91,14 +91,9 @@
           height: 60px;
           font-size: 4em;
           padding: 0 0.1em 0 0.1em;
-          margin: 0;
+          margin:3px;
           text-align: center;
           border-radius: 10px;
-        }
-
-        .mm-hamburger:hover{
-          background-color: #1B88E0;
-
         }
 
         .mm-logo .logo{

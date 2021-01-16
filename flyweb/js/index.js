@@ -509,7 +509,7 @@ function valutazioneRecensione(){
 /* hamburger menu */
 function hamb() {
     var menu = document.getElementById("menu");
-    if (menu.style.display == "none") {
+    if (menu.style.display == "none" || !menu.style.display) {
       menu.style.display = "block";
       document.getElementById("menu").focus();
     } else {
