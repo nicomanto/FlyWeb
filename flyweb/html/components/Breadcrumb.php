@@ -25,16 +25,31 @@ class Breadcrumb extends baseComponent {
         $lastElement = end($this->breadcrumb_items);
 
         foreach($this->breadcrumb_items as $i){
-            if($i->get_lang()!="it"){
-                $breadcrumb.="<a href =\"".$i->get_path()."\" lang=\"".$i->get_lang()."\">".$i->get_name()."</a>";
-            }
-            else{
-                $breadcrumb.="<a href =\"".$i->get_path()."\">".$i->get_name()."</a>";
-            }
 
-            if($i!=$lastElement)
-                $breadcrumb.=" > ";
-            
+            $i_lang = $i->get_lang();
+
+            if ($i == $lastElement) {
+
+                $breadcrumb .= "<span";
+
+                // Add language if needed
+                if ($i_lang != "it") {
+                    $breadcrumb .= " lang=\"" . $i->get_lang() . "\""; 
+                }
+
+                $breadcrumb .= ">" . $i->get_name() . "</span>";
+            } else {
+
+                $breadcrumb .= "<a href=\"" . $i->get_path();
+
+                // Add language if needed
+                if ($i_lang != "it") {
+                    $breadcrumb .= " lang=\"" . $i->get_lang() . "\""; 
+                }
+
+                $breadcrumb .= ">" . $i->get_name() . "</a> > ";
+            }
+        
         }
         $this->replaceValue("breadcrumb_items",$breadcrumb);
 
