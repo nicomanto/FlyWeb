@@ -16,7 +16,7 @@ class AdmDashBoard extends BaseComponent {
 
     public function render(): string{
 
-        $this->replaceTag('MENUADM', new \html\components\AdmMenuComponent());
+        $this->replaceTag('MENUADM', new AdmMenuComponent());
 
         return $this;
     }

@@ -18,24 +18,22 @@ class AdmMenuItem extends BaseComponent {
     }
 
     public function render(): string {
-        if($this->itemMenu->get_lang()!="it") {
-            $this->replaceValue('LANG', "xml:lang=\"".$this->itemMenu->get_lang()."\"");
+
+        $lang = $this->itemMenu->get_lang()!="it" ? "lang=\"".$this->itemMenu->get_lang()."\"" : "";
+        $name = $this->itemMenu->get_name();
+        $path = $this->itemMenu->get_path();
+
+        //controllare variabile di sessione per disattivare il link della pagina in cui ci si trova
+        if(substr($_SERVER['SCRIPT_FILENAME'], -(strlen($path) - 1)) != substr($path, 1)) {
+            $item = "<a href=\"$path\">$name</a>";
         } else {
-            $this->replaceValue('LANG', "");
+            $item = "<span>$name</span>";
         }
-        
-        $this->replaceValue('PAGE', $this->itemMenu->get_name());
-        
-        if($this->itemMenu->get_name()=="Logout")
-            $this->replaceValue('JS', "onclick=\"admlogout()\"");
-        else
-            $this->replaceValue('JS', "");
-        
-        //controllare varibile di sessione per disattivare il link della pagina in cui ci si trova
-        if(true)
-            $this->replaceValue('LINK',$this->itemMenu->get_path());
-        else
-            $this->replaceValue('LINK',"#");
+
+        $this->replaceValues([
+            "ITEM" => $item,
+            "LANG" => $lang
+        ]);
 
         return $this;
     }

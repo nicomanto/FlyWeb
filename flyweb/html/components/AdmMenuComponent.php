@@ -2,8 +2,6 @@
 
 namespace html\components;
 
-use PrincipalMenu;
-
 use \model\AdmMenu;
 
 class AdmMenuComponent extends NavMenu {
@@ -19,7 +17,7 @@ class AdmMenuComponent extends NavMenu {
     public function TemplateMenuItem(): string{
         $li="";
         foreach($this->menuItem as $i){
-            $li.=new \html\components\AdmMenuItem($i);
+            $li.=new AdmMenuItem($i);
         }
 
         return $li;

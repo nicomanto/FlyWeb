@@ -2,7 +2,7 @@
 
 namespace html\components;
 
-use \html\components\NavMenu;
+use model\UserMenu;
 
 class PrincipalMenu extends NavMenu {
 
@@ -12,7 +12,7 @@ class PrincipalMenu extends NavMenu {
 
     
     public function BuildMenuItem(){
-        return (new \model\UserMenu)->build_menu($this->user);
+        return (new UserMenu)->build_menu($this->user);
     }
 
     public function TemplateMenuItem(): string{
