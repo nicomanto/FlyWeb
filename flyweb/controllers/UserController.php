@@ -99,8 +99,10 @@ class UserController extends BaseController {
 
     }
 
-    public function ordineTemporaneo($dati){
-        $query= 'INSERT INTO OrdineTemporaneo(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
+
+
+    public function addOrder($dati){
+        $query= 'INSERT INTO Ordine(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
         $this->db->runQuery($query, 
                             $this->user->id_utente, 
                             $dati['via'], 
@@ -109,24 +111,6 @@ class UserController extends BaseController {
                             $dati['comune'], 
                             $dati['metodopagamento'], 
                             $dati['totale']);
-    }
-
-    public function estraiDatiOrdineTemporaneo(){
-            $query='SELECT * FROM OrdineTemporaneo WHERE ID_Utente=?';
-            return($this->db->runQuery($query, $this->user->id_utente)[0]);
-    }
-
-
-    public function addOrder($dati){
-        $query= 'INSERT INTO Ordine(ID_Utente, Via, Cap, Provincia, Comune, MetodoPagamento, Totale) VALUES (?,?,?,?,?,?,?);';
-        $this->db->runQuery($query, 
-                            $this->user->id_utente, 
-                            $dati['Via'], 
-                            $dati['Cap'], 
-                            $dati['Provincia'], 
-                            $dati['Comune'], 
-                            $dati['MetodoPagamento'], 
-                            $dati['Totale']);
     }
 
     public function eliminaOrdineTemporaneo(){
@@ -158,5 +142,14 @@ class UserController extends BaseController {
     }
         }
 
+    public function newCart(){
+        $query='INSERT INTO Carrello(ID_Utente) VALUES (?)';
+        $this->db->runQuery($query, $this->user->id_utente)[0];
+    }
+
+    public function addToCart($id_carrello, $id_viaggio){
+        $query= 'INSERT INTO CarrelloViaggio(ID_Carrello, ID_Viaggio) VALUES (?,?);';
+        $this->db->runQuery($query, $id_carrello,  $id_viaggio)[0];
+    }
     
 }

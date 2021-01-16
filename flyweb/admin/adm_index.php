@@ -18,19 +18,14 @@
 
     $page = new Template('board');
 
-
     $page->replaceTag('HEAD', (new Head));
-
     $page->replaceTag('ADM-MENU', (new AdmDashboard));
 
     $breadcrumb=array(
         new BreadcrumbItem("#","Pannello di amministrazionee")
     );
-
-    #$page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
-
     $page->replaceTag('ADM-CONTENUTO', new AdmInfoHome());
-
+    $page->replaceTag('PAGE-SELECTOR', '');
     $page->replaceTag('ADM-FOOTER', new AdmFooter());
 
     echo $page;

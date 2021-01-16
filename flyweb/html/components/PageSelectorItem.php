@@ -24,7 +24,7 @@ class PageSelectorItem extends baseComponent {
     public function render(): string {
         // Select class based on if the page is the current page or not
         if ($this->isCurrentPage) {
-            $this->url = '#';
+            $this->url = '';
         } else {
             $this->isDisabled  = '';
             $this->url = $this->buildPageUrl($this->pageNumber);
@@ -33,7 +33,7 @@ class PageSelectorItem extends baseComponent {
 
         $this->replaceValues([
             'PAGE_NUMBER' => $this->pageNumber,
-            'PAGE_URL' => $this->url
+            'PAGE_URL' => "href=".'"'.$this->url.'"'
         ]);
         return $this;
     }

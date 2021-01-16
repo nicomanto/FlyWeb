@@ -65,7 +65,7 @@
                     
                     <IMAGE_INSERT_TRAVEL/>
                     
-                    <label for="immagini"><strong>INSERISCI IMMAGINI</strong></label>
+                    <label for="immagine"><strong>INSERISCI IMMAGINI</strong></label>
                     <input type="file" class="input input-file" tabindex="10" id="immagine" accept="image/*" name="immagine" %IMAGE_REQUIRED%>
                     <p id="input_error_immagini" class="p_input_error"> testo errore </p>
                </div>
@@ -83,8 +83,10 @@
           </div>
         </fieldset>
 
-     <input type="hidden" name="id" id="id" value="%ID%">
-
-     <input class="btn-submit bottoneform" tabindex="12" type="submit" id="submitForm" value="INVIA">
-     <!--<input class="btn-reset bottoneform" tabindex="13" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">-->
-</form>
+     
+     <div>
+          <input type="hidden" name="id" id="id" value="%ID%">
+          <input class="btn-submit bottoneform" tabindex="12" type="submit" id="submitForm" value="INVIA">
+          <input class="btn-reset bottoneform" tabindex="13" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
+     </div>
+ </form>

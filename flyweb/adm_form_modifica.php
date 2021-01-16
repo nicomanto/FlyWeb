@@ -121,7 +121,9 @@
         new BreadcrumbItem("#","Modifica viaggio")
     );
     $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
+
     
+    $page->replaceTag('PAGE-SELECTOR', "");
 
     $page->replaceTag('ADM-FOOTER', (new AdmFooter()));
 

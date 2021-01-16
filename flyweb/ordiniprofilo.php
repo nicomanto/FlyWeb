@@ -55,7 +55,6 @@
 
     }
 
-    //dovrei fare un componente apposito per segnalare mancanza di ordini?
 
     else {
         $_page->replaceTag('ORDINI-PROFILO', $searchResults);
@@ -63,6 +62,8 @@
 
     }
 
+    $_page->replaceTag('ORDER_DETAILS', "");
+    $_page->replaceTag('CONTENUTO', "");
 
     $_page->replaceTag('FOOTER', (new Footer));
 

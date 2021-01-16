@@ -91,7 +91,7 @@ use controllers\UserController;
       $_page->replaceTag('TOTALE', '');
     }
     else if(!preg_match("/^[\d]{5}$/",$fatturazione['cap'])){
-      $_page->replaceTag('DATI-INSERITI', (new ResponseMessage('Campo CAP: Si devono inserire 5 numeri, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
+      $_page->replaceTag('DATI-INSERITI', (new ResponseMessage('Campo CAP: Si devono inserire 5 cifre, riprova...',"./metodopagamento.php","Seleziona metodo di pagamento",false)));
       $_page->replaceTag('VIAGGI', '');
       $_page->replaceTag('TOTALE', '');
     }
@@ -104,14 +104,10 @@ use controllers\UserController;
       $_page->replaceTag('VIAGGI', $searchResults);
 
       $_page->replaceTag('TOTALE', (new Totale($risultato)));
-      
-      $fatturazione['totale'] = $risultato;
 
       $_SESSION['totale']=$risultato;
 
       $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
-
-      $prova= $userController->ordineTemporaneo($fatturazione);
     }
 
     $_page->replaceTag('FOOTER', (new Footer));

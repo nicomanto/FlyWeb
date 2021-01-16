@@ -38,9 +38,7 @@
     $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
     extract($_POST, EXTR_SKIP);
-    echo ($_POST['metodopagamento']);
    // $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-    echo("           !!!!!!!!!!!!!!          ");
     echo($_SESSION['metodopagamento']);
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
