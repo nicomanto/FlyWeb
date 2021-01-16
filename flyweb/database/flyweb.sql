@@ -47,7 +47,7 @@ create or replace table Utente
 (
 	ID_Utente int auto_increment
 		primary key,
-	Username TEXT not null ,
+	Username VARCHAR(128) not null ,
 	Password TEXT not null,
 	Nome TEXT not null,
 	Cognome TEXT not null,
