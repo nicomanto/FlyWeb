@@ -5,6 +5,7 @@
     use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
+    use html\components\OrderListItem;
     use html\components\PageSelector;
     use html\components\PrincipalMenu;
     use html\components\ProfiloMenu;
@@ -46,7 +47,7 @@
     $searchResults = '';
     
     foreach ($paginatedOrders['elements'] as $ordine) {
-        $searchResults .= new \html\components\orderListItem($ordine);
+        $searchResults .= new OrderListItem($ordine);
     }
 
     if (empty($searchResults)) {

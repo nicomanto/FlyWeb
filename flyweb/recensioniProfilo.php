@@ -5,6 +5,7 @@
     use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
+    use html\components\PageSelector;
     use html\components\PrincipalMenu;
     use html\components\ProfileReviews;
     use html\components\ProfiloMenu;
@@ -48,13 +49,13 @@
     $_page->replaceTag('DATIPERSONALI', '');
 
     if (empty($reviews)) {
-        $_page->replaceTag('RECENSIONI-PROFILO', new \html\components\ResponseMessage("Non hai nessuna recensione per ora..."));
+        $_page->replaceTag('RECENSIONI-PROFILO', new ResponseMessage("Non hai nessuna recensione per ora..."));
         $_page->replaceTag('PAGE_SELECTOR', '');
     }
     else {
         $_page->replaceTag('RECENSIONI-PROFILO', (new ProfileReviews($reviews)));
         $paginatedReview = Paginator::paginate($reviews , $page);
-        $_page->replaceTag('PAGE_SELECTOR', (new \html\components\pageSelector($paginatedReview)));
+        $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedReview)));
     }
     
     $_page->replaceTag('FOOTER', (new Footer));
