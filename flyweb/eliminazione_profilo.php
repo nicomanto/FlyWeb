@@ -3,7 +3,7 @@
 use controllers\RouteController;
 use controllers\UserController;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once('./autoload.php');
     RouteController::loggedRoute();
     
     $userController= new UserController();

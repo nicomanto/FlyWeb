@@ -12,7 +12,7 @@
     use html\Template;
     use model\BreadcrumbItem;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once('./autoload.php');
     RouteController::loggedRoute();
 
     // Load request's data

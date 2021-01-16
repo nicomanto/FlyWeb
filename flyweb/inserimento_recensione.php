@@ -12,7 +12,7 @@
     use html\components\FormInsertReview;
     use html\Template;
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . 'autoload.php');
+    require_once('./autoload.php');
 
     $userController= new UserController();
 
