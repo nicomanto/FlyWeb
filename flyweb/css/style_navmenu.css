@@ -39,6 +39,17 @@
     width: 100%;
 }
 
+.main-menu  .menuPageDisabled {
+  padding         : 0.3em;
+  padding-left    : 1em;
+  padding-right   : 1em;
+  border-radius: 5px;
+  background-color: #fff;
+  border-bottom: 3px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0), 0 1px 3px rgba(0,0,0,0.24);
+  width: 100%;
+}
+
 .main-menu  .menuPage:hover {
     border-bottom: 3px solid #0a3150;
     box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
@@ -105,6 +116,11 @@
             padding: 0;
             margin: 0 auto;
         }
+
+        .main-menu  .menuPageDisabled{
+          padding: 0;
+          margin: 0 auto;
+      }
       
         .main-menu ul{
             display:none;
@@ -140,6 +156,10 @@
           .main-menu  .menuPage {
             border: 5px solid #0a3150;
           }  
+
+          .main-menu  .menuPageDisabled {
+            border: 5px solid #0a3150;
+          } 
 
           .main-menu  .menuPage:hover {
             border: 5px solid #FF8C00;
