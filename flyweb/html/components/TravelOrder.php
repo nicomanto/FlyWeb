@@ -43,7 +43,9 @@ class TravelOrder extends baseComponent {
                 'end_date' => $this->travel->data_fine,
                 'country' => $this->travel->stato,
                 'city' => $this->travel->citta,
-                'location' => $this->travel->localita
+                'location' => $this->travel->localita,
+              //  'travel_image' => $imagesController->getImagePath($this->travel->immagine),
+              //  'travel_image_name' => $imagesController->getImageName($this->travel->immagine)
             ]
         );
 

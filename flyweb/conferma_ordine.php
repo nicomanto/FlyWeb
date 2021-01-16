@@ -17,11 +17,17 @@
 	// Load request's data
 	extract($_GET, EXTR_SKIP);
 
+	
+	$ordine['via'] = $_SESSION['fatturazione']['via'];
+	$ordine['cap'] = $_SESSION['fatturazione']['cap'];
+	$ordine['provincia'] = $_SESSION['fatturazione']['provincia'];
+	$ordine['comune'] = $_SESSION['fatturazione']['comune'];
+	$ordine['metodopagamento'] = $_SESSION['metodopagamento'];
+	$ordine['totale'] = $_SESSION['totale'];
+
 	$userController = new UserController();
 
 	$items = $userController->getViaggiCarrello();
-
-	$risultato = $userController->getSubtotale();
 
 	$_page = new Template('riepilogo_ordine');
 
@@ -45,11 +51,9 @@
 
 	extract($_POST, EXTR_SKIP);
 
-	$ordine_temporaneo = $userController->estraiDatiOrdineTemporaneo();
-	$userController->addOrder($ordine_temporaneo);
+	$userController->addOrder($ordine);
 
 	$userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
-	$userController->eliminaOrdineTemporaneo();
 	$userController->eliminaCarrello($userController->getID_Carrello());
 
 	$_page->replaceTag('DATI-INSERITI', '');
@@ -58,8 +62,6 @@
     $_page->replaceTag('SUCCESSO', new \html\components\responseMessage("Complimenti acquisto completato, ora rilassati e goditi il viaggio!"));
 
 	$_page->replaceTag('TOTALE', '');
-
-	$_page->replaceTag('SUCCESSO', "Bravo");
 
 	$_page->replaceTag('FOOTER', (new Footer));
 

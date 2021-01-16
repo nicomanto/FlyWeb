@@ -71,6 +71,7 @@
     // Set search result travels
     if(empty($travels)){
         $page->replaceTag('ADM-CONTENUTO', new responseMessage("Nessun viaggio..."));
+        $page->replaceTag('PAGE-SELECTOR', '');
     }
     else{
         // Paginate travels result

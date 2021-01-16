@@ -11,7 +11,11 @@
                 <p><img alt="" src="./img/clock.svg" class="travel-details-icon"/><span>Data partenza: <strong>%START_DATE%</strong></span></p>
                 <p><img alt="" src="./img/clock.svg" class="travel-details-icon"/><span>Data ritorno: <strong>%END_DATE%</strong></span></p>
                 <p class="price"><strong>%PRICE% &euro; </strong> </p>
-                <input type="button" id="aggiungi-al-carrello" class="travel-goto" value="Aggiugni al carrello">
+                <form action="./landing_aggiungi_carrello.php" method="post">
+                    <input type="text" name="id_viaggio" value="%ID_VIAGGIO%">
+                    <input type="submit" class="adm-bottone-modifica-card" name="btn_aggiungi" value="Aggiungi al carrello">
+              </form>
+               
         </div>
         <div class="complete-desc">
             <h2>Descrizione del viaggio: </h2>

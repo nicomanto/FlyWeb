@@ -31,6 +31,8 @@
 
     $page->replaceTag('ADM-CONTENUTO', new AdmInfoHome());
 
+    $page->replaceTag('PAGE-SELECTOR', "");
+
     $page->replaceTag('ADM-FOOTER', new AdmFooter());
 
     echo $page;

@@ -65,7 +65,7 @@
         }
 
         if(!preg_match("/^[\w@#-]{4,15}$/",$username)){
-            array_push ( $error , "Campo <span xml:lang='en'>Username</span>: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+            array_push ( $error , "Campo <span lang='en'>Username</span>: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^([0-9]|_|@|#|-)*$/",$username)){
@@ -95,7 +95,7 @@
     
     #$page->replaceTag('SUCCESSO-MODIFICA', '');
 
-    #$page->replaceTag('ELIMINAZIONE', '');
+    $page->replaceTag('ELIMINAZIONE', '');
     
     $page->replaceTag('FOOTER', (new Footer));
 

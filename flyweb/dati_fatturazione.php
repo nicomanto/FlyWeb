@@ -22,7 +22,6 @@
 	$userController = new UserController();
 
 	$_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-	echo ($_SESSION['metodopagamento']);
 	$_page= new Template('procedura_acquisto');
 
 	$_page->replaceTag('HEAD', (new Head));
@@ -75,6 +74,8 @@
 			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
 		}
 	}
+
+	$_page->replaceTag('TOTALE', '');
 
 	$_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 

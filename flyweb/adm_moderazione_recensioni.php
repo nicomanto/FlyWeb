@@ -60,6 +60,7 @@ require_once('./autoload.php');
         $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedReview)));
     }else{
         $page->replaceTag('ADM-CONTENUTO',new ResponseMessage("Nessun recensione da moderare...per ora"));
+        $page->replaceTag('PAGE-SELECTOR', "");
     }
 
     $page->replaceTag('ADM-FOOTER', (new AdmFooter()));

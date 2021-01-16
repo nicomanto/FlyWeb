@@ -1,6 +1,6 @@
 <h1 class="titolo-pagina">Inserimento carta di credito</h1>
 <div class="inserimento-dati-carta">
-    <form  method="POST" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return (checkCartaCredito() && validationTipoNome('input_error_carta_nome','titolareCarta') && checkMonthCarta() && checkYearCarta() && checkCVV())">
+    <form  method="POST" class="dash-form form-registrazione" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return (checkCartaCredito() && validationTipoNome('input_error_carta_nome','titolareCarta') && checkMonthCarta() && checkYearCarta() && checkCVV())">
         <fieldset>
             <legend>Inserire il metodo di pagamento</legend>
             <label for="titolareCarta">Titolare carta:</label>
@@ -26,7 +26,7 @@
             <p id="input_error_carta_anno" class="p_input_error"> testo errore </p>
 
             <label for="cvv"><abbr lang="en" title="card security code">CVV:</abbr></label>
-            <input type="text" class="input" tabindex="5" name="cvv" id="cvv" required="required" max="3" min="3" autocomplete="off" onblur="checkCVV()"/>
+            <input type="text" class="input" tabindex="5" name="cvv" id="cvv" required="required" autocomplete="off" onblur="checkCVV()"/>
             
             <p id="input_error_carta_cvv" class="p_input_error"> testo errore </p>
 

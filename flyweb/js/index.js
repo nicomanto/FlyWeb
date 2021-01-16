@@ -273,7 +273,7 @@ function checkCartaCredito(){
         if(numero_carta.length <13 || numero_carta.length >16){
             error_id_message.style.visibility = 'visible';
             document.getElementById("codiceCarta").style.border = "2px solid red";
-            error_id_message.innerHTML = "La carta di credito è formata da 13 a 16 numeri";
+            error_id_message.innerHTML = "La carta di credito è formata da 13 a 16 cifre";
             return false;
         }else{
             error_id_message.style.visibility = 'hidden';
@@ -548,7 +548,7 @@ function validationPassword(){
         if( password.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("password").style.border = "2px solid red";
-            error_id_message.innerHTML = "La <span xml:lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
+            error_id_message.innerHTML = "La <span lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
             return false;
         }
         else{

@@ -22,6 +22,7 @@ class TravelDetails extends baseComponent {
         $imagesController = new ImagesController();
 
         $this->replaceValues([
+            'id_viaggio' => $this->travel->id_viaggio,
             'name' => $this->travel->titolo,
             'long_desc' => $this->travel->descrizione,
             'price' => $this->travel->prezzo,

@@ -41,17 +41,17 @@
         $password_ripetuta = md5($password_ripetuta);
 
         if ($password_corrente != $vecchia_password['Password']){
-            array_push ( $error , "La <span xml:lang='en'>password</span> corrente non è esatta");
+            array_push ( $error , "La <span lang='en'>password</span> corrente non è esatta");
         };
         if ($nuova_password != $password_ripetuta || !$nuova_password) {
-            array_push ( $error , "Le <span xml:lang='en'>password</span> nuove non combaciano");
+            array_push ( $error , "Le <span lang='en'>password</span> nuove non combaciano");
         };
         if ($nuova_password == $vecchia_password['Password']){
-            array_push ( $error , "La <span xml:lang='en'>password</span> nuova è uguale alla vecchia");
+            array_push ( $error , "La <span lang='en'>password</span> nuova è uguale alla vecchia");
         }
 
         if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/",$password)){
-            array_push ( $error , "La <span xml:lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero");
+            array_push ( $error , "La <span lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero");
         }
 
         if (empty($error)) {
@@ -68,6 +68,8 @@
     }
 
     $page->replaceTag('MODIFICA-INFO', '');
+
+    $page->replaceTag('ELIMINAZIONE', '');
 
     $page->replaceTag('FOOTER', (new Footer));
 

@@ -1,6 +1,8 @@
 
 <h1 class="titolo-pagina">Modifica <span lang="en">Password</span></h1>
 <div class="modficia-psw">
+    <ERROR_BOX/>
+
         <form action="./form_modifica_psw.php" method="post" class="dash-form form-registrazione" onsubmit="return (validationPassword() && validationPasswordRepeat())">
         <fieldset>
             <legend>Modifica la tua <span lang="en">password</span></legend>
@@ -19,6 +21,4 @@
             <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" name='submit' value="Salva nuova password">
         </fieldset>
     </form>
-
-    <ERROR_BOX/>
 </div>
