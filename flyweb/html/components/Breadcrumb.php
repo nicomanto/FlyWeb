@@ -40,7 +40,7 @@ class Breadcrumb extends baseComponent {
                 $breadcrumb .= ">" . $i->get_name() . "</span>";
             } else {
 
-                $breadcrumb .= "<a href=\"" . $i->get_path();
+                $breadcrumb .= "<a href=\"" . $i->get_path() .  "\"";
 
                 // Add language if needed
                 if ($i_lang != "it") {
