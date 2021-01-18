@@ -82,7 +82,7 @@
         $page->replaceTag('ADM-CONTENUTO',
         '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>");
 
-        $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedTravels)));
+        $page->replaceTag('PAGE-SELECTOR',(new \html\components\PageSelector($paginatedTravels)));
 
     }
 
