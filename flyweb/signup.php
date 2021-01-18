@@ -99,15 +99,15 @@
         }
 
         if(!preg_match("/^[\w@#-]{4,15}$/",$username)){
-            array_push ( $error , "Campo <span xml:lang='en'>Username</span>: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
+            array_push ( $error , "Campo <span lang='en'>Username</span>: permessi da 4 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio");
         }
 
         if(preg_match("/^([0-9]|_|@|#|-)*$/",$username)){
-            array_push ( $error , "Campo <span xml:lang='en'>Username</span>: deve contenere almeno delle lettere");
+            array_push ( $error , "Campo <span lang='en'>Username</span>: deve contenere almeno delle lettere");
         }
 
         if(!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/",$email)){
-            array_push ( $error , "Campo <span xml:lang='en'>Email</span>: non è in un formato standard come esempio@esempio.com");
+            array_push ( $error , "Campo <span lang='en'>Email</span>: non è in un formato standard come esempio@esempio.com");
         }
 
         if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/",$password)){

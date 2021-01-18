@@ -69,11 +69,11 @@
         }
 
         if(preg_match("/^([0-9]|_|@|#|-)*$/",$username)){
-            array_push ( $error , "Campo <span xml:lang='en'>Username</span>: deve contenere almeno delle lettere");
+            array_push ( $error , "Campo <span lang='en'>Username</span>: deve contenere almeno delle lettere");
         }
 
         if(!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/",$email)){
-            array_push ( $error , "Campo <span xml:lang='en'>Email</span>: non è in un formato standard come esempio@esempio.com");
+            array_push ( $error , "Campo <span lang='en'>Email</span>: non è in un formato standard come esempio@esempio.com");
         }
 
         if(empty($error)){

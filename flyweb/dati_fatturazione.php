@@ -69,7 +69,7 @@
 		}
 	} else {
 		if (!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/", $_POST['email'])) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento <span xml:lang=\'en\'>email</span> paypal: non è in un formato standard come esempio@esempio.com, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
+			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento <span lang=\'en\'>email</span> paypal: non è in un formato standard come esempio@esempio.com, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
 			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
 		}

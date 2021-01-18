@@ -391,7 +391,7 @@ function validationPasswordRepeat(){
         if( password_ripetuta!=password){
             error_id_message.style.visibility = 'visible';
             document.getElementById("password_ripetuta").style.border = "2px solid red";
-            error_id_message.innerHTML = "Le <span xml:lang='en'>password</span> non corrispondono";
+            error_id_message.innerHTML = "Le <span lang='en'>password</span> non corrispondono";
             return false;
         }
         else{
