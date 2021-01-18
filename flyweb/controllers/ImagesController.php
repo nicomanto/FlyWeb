@@ -56,7 +56,7 @@ class ImagesController extends BaseController {
      * @return string
      */
     public function getImagePath(string $imageId): string {
-        return '/' . $this->uploadDir . $imageId ;
+        return './' . $this->uploadDir . $imageId ;
     }
 
     /**
