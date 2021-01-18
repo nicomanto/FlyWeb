@@ -23,12 +23,6 @@
     // Set pagination to page 1 if not specified differently
     $page = isset($page) ? $page : 1;
 
-    if (!isset($search_button)) {
-        // TODO: manage this situation
-        header('location:./index.php');
-        exit();
-    }
-
     $searchController = new SearchController();
 
     if (!isset($search_by_option)) {
