@@ -54,7 +54,7 @@ class TravelOrder extends baseComponent {
         }
         else if($this->checkDateForReview($this->travel->data_fine)){
             $this->replaceTag('BOTTONE_RECENSIONE',
-            '<form action="/inserimento_recensione.php" method="POST">
+            '<form action="./inserimento_recensione.php" method="POST">
                 <input type="hidden" name="id_viaggio" value="'.$this->travel->id_viaggio.'">
 
                 <input type="submit" class="adm-bottone-approva-recensione" name="btn_approva" value="Lascia una recensione" >
