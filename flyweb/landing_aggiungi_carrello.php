@@ -49,15 +49,18 @@
     // Da vedere come fare serach.php perchè reindirizza a index.php perchè mancano gli elementi per la get
     $breadcrumb=array(
         new BreadcrumbItem("./index.php","Home","en"),
-        new BreadcrumbItem("./","Ricerca viaggio"),
-        new BreadcrumbItem("./","Dettagli viaggio"),
+        new BreadcrumbItem("./search.php?search_key=&search_button=CERCA&search_start_date=&search_end_date=&search_end_price=&search_start_price=&search_by_option=Citta&search_order_by=Prezzo&search_order_by_mode=Ascendente","Ricerca viaggio","Ricerca viaggio"),
+        new BreadcrumbItem("./travel.php?id=".$id_viaggio,"Dettagli viaggio"),
         new BreadcrumbItem("#", "Viaggio nel carrello")
     );
 
 
+    $_page->replaceValue('TRAVEL_NAME', $travelController->travel->titolo);
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb))); 
 
-    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, continua a volare a fare in culo")));
+    $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb))); 
+
+    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, effettua il checkout o continua a cercare viaggi")));
     // Set footer
     $_page->replaceTag('FOOTER', (new Footer));
 
