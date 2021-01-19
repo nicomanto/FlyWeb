@@ -48,17 +48,17 @@
     $_page->replaceTag('TOTALE', '');
 
     if ($_POST['metodopagamento'] == 'paypal') {
-        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
     }else if ($_POST['metodopagamento'] == 'carta'){
-        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));}
+        $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));}
 
     if(isset($_SESSION['metodopagamento'])){
         $variabile=$_SESSION['metodopagamento'];
         $_POST['metodopagamento'] = $variabile;
             if ($variabile == 'paypal'){
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formPaypal()));
+                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
         }else if ($variabile == 'carta'){
-            $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new \html\components\formCartaCredito()));
+            $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));
     }
 } 
 
