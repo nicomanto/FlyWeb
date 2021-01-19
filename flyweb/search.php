@@ -12,6 +12,7 @@
     use html\components\TravelListItem;
     use html\Template;
     use model\BreadcrumbItem;
+    use html\components\ResponseMessage;
 
     require_once('./autoload.php');
 
@@ -68,15 +69,28 @@
 
     // Build list of travels;
     $searchResults = '';
+    
     foreach ($paginatedTravels['elements'] as $travel) {
         $searchResults .= new TravelListItem($travel);
     }
     
     // Set search result travels
-    $_page->replaceTag('SEARCH_RESULTS', $searchResults);
+    // Set search result travels
+    if($searchResults == ''){
+        $_page->replaceTag('RISULTATI_SEARCH', new responseMessage("Nessun viaggio corrisponde alla ricerca effettuata..."));
+        $_page->replaceTag('PAGE-SELECTOR', "");
+    }
+    else{
+        $_page->replaceTag('RISULTATI_SEARCH', 
+        '<h1 class="titolo-pagina">Risultati della ricerca: </h1>
+        <ul class="travels-list" title="lista dei viaggi risultanti dalla ricerca">' 
+        . $searchResults .
+        '</ul>');
 
-    // Set pagination indicator
-    $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedTravels)));
+        // Set pagination indicator
+        $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedTravels)));
+    }
+    
     // $_page .= "sei a pagina " . $paginatedTravels['currentPage'] . ' di ' . $paginatedTravels['totalPages'];
 
     $_page->replaceTag('FOOTER', (new Footer));
