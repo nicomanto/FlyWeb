@@ -4,12 +4,15 @@ namespace controllers;
 
 class ImagesController extends BaseController {
 
-    const systemBasePath = '/var/www/html/';
-    const uploadDir = 'uploads/';
-    const basePath = self::systemBasePath . self::uploadDir;
+    private $systemBasePath;
+    private $uploadDir;
+    private $basePath;
 
     public function __construct() {
         parent::__construct();
+        $this->systemBasePath = $_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/';
+        $this->uploadDir = 'uploads/';
+        $this->basePath = $this->systemBasePath . $this->uploadDir;
     }
 
     /**
@@ -37,7 +40,7 @@ class ImagesController extends BaseController {
     public function saveUploadedImage(array $file_info): string {
         $imageId = uniqid() . '_' . $file_info['name'];
         
-        $moved = move_uploaded_file($file_info['tmp_name'], self::basePath . $imageId);
+        $moved = move_uploaded_file($file_info['tmp_name'], $this->basePath . $imageId);
 
         if (!$moved) {
             return '';
@@ -53,7 +56,7 @@ class ImagesController extends BaseController {
      * @return string
      */
     public function getImagePath(string $imageId): string {
-        return '/' . self::uploadDir . $imageId ;
+        return './' . $this->uploadDir . $imageId ;
     }
 
     /**

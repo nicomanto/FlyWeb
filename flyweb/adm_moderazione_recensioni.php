@@ -57,7 +57,7 @@ require_once('./autoload.php');
 
         $page->replaceTag('ADM-CONTENUTO',"<ul>".$searchResults."</ul>");
 
-        $page->replaceTag('PAGE-SELECTOR',(new \html\components\pageSelector($paginatedReview)));
+        $page->replaceTag('PAGE-SELECTOR',(new \html\components\PageSelector($paginatedReview)));
     }else{
         $page->replaceTag('ADM-CONTENUTO',new ResponseMessage("Nessun recensione da moderare...per ora"));
         $page->replaceTag('PAGE-SELECTOR', "");
