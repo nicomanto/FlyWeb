@@ -43,13 +43,14 @@
         $form = new FormViaggio($error);
         $viaggio = $form->estraiDatiViaggio();
         //print_r($viaggio);
-        $temp_travel=new Travel($viaggio['titolo'], $viaggio['datainizio'], $viaggio['datafine'], (int)$viaggio['prezzo'], $viaggio['descrizione'], $viaggio['descrizioneBreve'],$viaggio['stato'], $viaggio['citta'], $viaggio['localita']);
+        $temp_travel=new Travel($viaggio['titolo'], $viaggio['datainizio'], $viaggio['datafine'], (int)$viaggio['prezzo'], $viaggio['descrizione'], $viaggio['descrizioneBreve'],$viaggio['stato'], $viaggio['citta'], $viaggio['localita'], $viaggio['altImmagine']);
         //print_r($temp_travel);
 
         $imageController = new ImagesController();
         $viaggio['immagine'] = $imageController->saveUploadedImage(isset($_FILES['immagine'])? $_FILES['immagine'] : array() );
         
         $t = $viaggio['titolo'];
+
 
         
         if($viaggio['titolo']==''){
@@ -84,6 +85,10 @@
             array_push ( $error , "Campo immagine mancante");
         }
 
+        if($viaggio['altImmagine']==''){
+            array_push ( $error , 'Campo <abbr title="Testo alternativo">alt</abbr> immagine mancante');
+        }
+
         if($viaggio['datafine']<$viaggio['datainizio']){
             array_push ( $error , "Campi data - data di inizio dev'essere antecedente alla data di fine");
         }
@@ -99,6 +104,10 @@
         
         if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
             array_push ( $error , "Campo descrizione breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
+        }
+
+        if(strlen($viaggio['altImmagine'])<5 || strlen($viaggio['altImmagine'])>50){
+            array_push ( $error , 'Campo <abbr title="Testo alternativo">alt</abbr> immagine - la descrizione deve avere un minimo di 5 caratteri ed un massimo di 50 caratteri');
         }
 
        

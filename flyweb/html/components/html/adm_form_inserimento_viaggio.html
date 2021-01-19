@@ -68,6 +68,10 @@
                     <label for="immagine"><strong>INSERISCI IMMAGINI</strong></label>
                     <input type="file" class="input input-file" tabindex="10" id="immagine" accept="image/*" name="immagine" %IMAGE_REQUIRED%>
                     <p id="input_error_immagini" class="p_input_error"> testo errore </p>
+                    
+                    <label for="altImmagine"><strong><abbr title="Testo alternativo">ALT</abbr> IMMAGINE (minimo 5 massimo 50 caratteri)</strong></label>
+                    <input type="text" class="input" tabindex="11" id="altImmagine" name="altImmagine" maxlength='50' minlength="5" required="required" placeholder="Inserisci una breve descrizione dell'immagine" value="%ALTIMMAGINE%" autocomplete="off">
+                    <p id="input_error_alt_immagine" class="p_input_error"> testo errore </p>
                </div>
           </fieldset>
 
@@ -77,7 +81,7 @@
 
           <div class="miscellanea">
 
-               <ul class="TagList" tabindex="11" title="lista dei tag">
+               <ul class="TagList" tabindex="12" title="lista dei tag">
                     <CHECKBOX_TAG/>
                </ul>
           </div>
@@ -86,7 +90,7 @@
      
      <div>
           <input type="hidden" name="id" id="id" value="%ID%">
-          <input class="btn-submit bottoneform" tabindex="12" type="submit" id="submitForm" value="INVIA">
-          <input class="btn-reset bottoneform" tabindex="13" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
+          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" value="INVIA">
+          <input class="btn-reset bottoneform" tabindex="14" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
      </div>
  </form>

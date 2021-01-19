@@ -52,6 +52,7 @@ class FormViaggio extends baseComponent
             'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
             'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
             'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
+            'altImmagine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->altImmagine,
             'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,  
             'image_required' => $this->image_required ? 'required="required"' : ''
         ]);
@@ -71,9 +72,8 @@ class FormViaggio extends baseComponent
 
         if(!empty($this->travel_loc) && !empty( $this->travel_loc->immagine)){
             $this->replaceTag('IMAGE_INSERT_TRAVEL','
-            <div><img class="main-img"
-            src="'. $imagesController->getImagePath( $this->travel_loc->immagine) .'"
-            alt="' .$imagesController->getImageName( $this->travel_loc->immagine). '"/></div>');
+            <div><img class="main-img" 
+            src="'. $imagesController->getImagePath( $this->travel_loc->immagine) .'" alt="' . $this->travel_loc->altImmagine . '"/></div>');
         }
         else{
             $this->replaceTag('IMAGE_INSERT_TRAVEL','');
@@ -107,7 +107,8 @@ class FormViaggio extends baseComponent
             'prezzo' => $_POST['prezzo'],
             'id' => $_POST['id'],
             'tag' => isset($_POST['tag']) ? $_POST['tag'] : array(),
-            'integrazioni' => $_POST['integrazioni']
+            'integrazioni' => $_POST['integrazioni'],
+            'altImmagine' => $_POST['altImmagine']
         ];
 
         return $dati;

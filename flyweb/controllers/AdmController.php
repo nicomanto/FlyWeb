@@ -27,7 +27,7 @@ class AdmController extends BaseController {
 
     //inserisce un viaggio
     public function inserisciViaggio($viaggio): void{
-        $query='INSERT INTO Viaggio (Titolo, Descrizione, DescrizioneBreve, DataInizio, DataFine, Stato, Citta, Localita, Prezzo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+        $query='INSERT INTO Viaggio (Titolo, Descrizione, DescrizioneBreve, DataInizio, DataFine, Stato, Citta, Localita, Prezzo, Immagine, AltImmagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
         
         #print_r($viaggio);
 
@@ -41,7 +41,8 @@ class AdmController extends BaseController {
                             $viaggio['citta'], 
                             $viaggio['localita'], 
                             $viaggio['prezzo'],
-                            $viaggio['immagine']
+                            $viaggio['immagine'],
+                            $viaggio['altImmagine']
                         );
     }
 
@@ -59,7 +60,8 @@ class AdmController extends BaseController {
                 Stato = ?,
                 Citta = ?,
                 Localita = ?,
-                Prezzo = ?
+                Prezzo = ?,
+                AltImmagine = ?
                 WHERE ID_VIAGGIO=?';
         $this->db->runQuery($query,
                             $viaggio['titolo'], 
@@ -71,6 +73,7 @@ class AdmController extends BaseController {
                             $viaggio['citta'], 
                             $viaggio['localita'], 
                             $viaggio['prezzo'],
+                            $viaggio['altImmagine'],
                             $viaggio['id']
                             );
 

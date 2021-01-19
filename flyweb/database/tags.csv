@@ -1,6 +1,6 @@
-Nome
-Per lei
-Per lui
-Anniversario
-Famiglia
-Coppia
+Nome,Immagine,AltImmagine
+Per lei,./img/tag_background/perLui.jpg,Ragazzo che guarda l'orizzonte
+Per lui,./img/tag_background/perLei.jpg,Ragazza sul ciglio di un fiume
+Anniversario,./img/tag_background/anniversario.jpg,Marito e moglie che fanno colazione
+Famiglia,./img/tag_background/famiglia.jpg,"Madre, padre e figlio in riva al mare"
+Coppia,./img/tag_background/coppia.jpg,"Una coppia di colore che sorride"

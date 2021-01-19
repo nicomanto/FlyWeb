@@ -14,6 +14,7 @@ class Travel {
     public $citta;
     public $localita;
     public $immagine;
+    public $altImmagine;
 
     /**
      * Workaround to have multiple constructors
@@ -44,6 +45,7 @@ class Travel {
         $this->citta = $travel['Citta'];
         $this->localita = $travel['Localita'];
         $this->immagine = $travel['Immagine'];
+        $this->altImmagine= $travel['AltImmagine'];
     }
 
     /**
@@ -56,7 +58,7 @@ class Travel {
      * @param string $descrizione
      * @return void
      */
-    public function __construct9(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizioneBreve,string $stato, string $citta, string $localita) {
+    public function __construct10(string $titolo, string $data_inizio, string $data_fine, int $prezzo, string $descrizione, string $descrizioneBreve,string $stato, string $citta, string $localita, string $altImmagine) {
         $this->titolo = $titolo;
         $this->data_inizio = $data_inizio;
         $this->data_fine = $data_fine;
@@ -66,6 +68,7 @@ class Travel {
         $this->stato = $stato;
         $this->citta = $citta;
         $this->localita = $localita;
+        $this->altImmagine =$altImmagine;
     }
 
 }

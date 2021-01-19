@@ -42,6 +42,7 @@
         if($_FILES['immagine']!=''){
             $viaggio['immagine'] = $imageController->saveUploadedImage($_FILES['immagine']);
         }
+
         
         $travelController = new TravelController((int)$viaggio['id']);
 
@@ -73,6 +74,10 @@
             array_push ( $error , "Campo prezzo mancante");
         }
 
+        if($viaggio['altImmagine']==''){
+            array_push ( $error , 'Campo <abbr title="Testo alternativo">alt</abbr> immagine mancante');
+        }
+
         if($viaggio['datafine']<$viaggio['datainizio']){
             array_push ( $error , "Campi data - data di inizio dev'essere antecedente alla data di fine");
         }
@@ -88,6 +93,10 @@
         
         if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
             array_push ( $error , "Campo descrizione breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
+        }
+
+        if(strlen($viaggio['altImmagine'])<5 || strlen($viaggio['altImmagine'])>50){
+            array_push ( $error , 'Campo <abbr title="Testo alternativo">alt</abbr> immagine - la descrizione deve avere un minimo di 5 caratteri ed un massimo di 50 caratteri');
         }
 
        

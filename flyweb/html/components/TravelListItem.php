@@ -39,7 +39,7 @@ class TravelListItem extends baseComponent {
                 'travel_city' => $this->travel->city,
                 'travel_location' => $this->travel->location,
                 'travel_image' => $imagesController->getImagePath($this->travel->immagine),
-                'travel_image_name' => $imagesController->getImageName($this->travel->immagine)
+                'travel_image_name' => $this->travel->altImmagine
             ]
         );
         

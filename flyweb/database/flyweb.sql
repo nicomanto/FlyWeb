@@ -132,7 +132,8 @@ create or replace table Tag
 	ID_Tag int auto_increment
 		primary key,
 	Nome TEXT not null,
-	Immagine TEXT
+	Immagine TEXT,
+	AltImmagine VARCHAR(50) not null
 );
 
 create or replace table TagIntegrazioni
@@ -193,7 +194,8 @@ create or replace table Viaggio
 	Stato TEXT,
 	Localita TEXT,
 	Citta TEXT,
-	Immagine TEXT
+	Immagine TEXT,
+	AltImmagine VARCHAR(50) not null
 );
 
 create or replace table CarrelloViaggio

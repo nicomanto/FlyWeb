@@ -35,6 +35,8 @@
     // Replace values in template
     $_page->replaceValue('TRAVEL_NAME', $travelController->travel->titolo);
 
+    // Replace values in template
+
     // Set page head
     $_page->replaceTag('HEAD', (new Head));
 

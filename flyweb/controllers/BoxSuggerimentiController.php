@@ -16,7 +16,7 @@ class BoxSuggerimentiController extends BaseController {
     }
 
     public function get_RandomElements() {
-        $query = "SELECT Nome, Immagine FROM ".$this->type." ORDER BY RAND() LIMIT ".$this->number_sugg;
+        $query = "SELECT Nome, Immagine, AltImmagine FROM ".$this->type." ORDER BY RAND() LIMIT ".$this->number_sugg;
 
         return $this->db->runQuery($query);
     }
