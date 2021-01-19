@@ -29,7 +29,7 @@ class AdmController extends BaseController {
     public function inserisciViaggio($viaggio): void{
         $query='INSERT INTO Viaggio (Titolo, Descrizione, DescrizioneBreve, DataInizio, DataFine, Stato, Citta, Localita, Prezzo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
         
-        print_r($viaggio);
+        #print_r($viaggio);
 
         $this->db->runQuery($query, 
                             $viaggio['titolo'], 
