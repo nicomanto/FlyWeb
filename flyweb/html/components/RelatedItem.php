@@ -26,7 +26,7 @@ class RelatedItem extends baseComponent {
 
     public function render(): string {
 
-        $this->replaceValue("link","travel.php?id=".$this->id_viaggio);
+        $this->replaceValue("link","./travel.php?id=".$this->id_viaggio);
         $this->replaceValue("descrizionebreve",$this->descrizionebreve);
         $this->replaceValue("suggerimento",$this->name);
         $this->replaceValue("imgsrc",$this->img);

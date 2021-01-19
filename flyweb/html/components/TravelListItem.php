@@ -24,17 +24,14 @@ class TravelListItem extends baseComponent {
 
     public function render(): string {
 
-        // Load travel properties into template
-        $st = $this->travel->id_viaggio;
-
         $imagesController = new ImagesController();
-        // print_r($this->travel);
+        #print($this->travel->id_viaggio);
 
         // TODO: modificare il modifica
         $this->replaceValues([
                 'travel_id' => $this->travel->id_viaggio,
                 'travel_title' => $this->travel->titolo,
-                'travel_description' => (strlen($this->travel->descrizioneBreve)<=200)?$this->travel->descrizioneBreve:substr($this->travel->descrizioneBreve,0,200).'<a href="travel.php?id=$this->travel->id_viaggio">...continua a leggere</a>',
+                'travel_description' => (strlen($this->travel->descrizioneBreve)<=200)?$this->travel->descrizioneBreve:substr($this->travel->descrizioneBreve,0,200).'<a href="./travel.php?id='. $this->travel->id_viaggio. '">...continua a leggere</a>',
                 'travel_price' => $this->travel->prezzo,
                 'travel_start_date' => $this->travel->data_inizio,
                 'travel_end_date' => $this->travel->data_fine,

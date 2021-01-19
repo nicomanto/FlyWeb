@@ -25,7 +25,7 @@ class SuggerimentoItem extends baseComponent {
 
     public function render(): string {
 
-        $this->replaceValue("link","search.php?search_by_option=".$this->type."&search_key=".$this->name."&search_start_date=&search_end_date=&search_start_price=&search_end_price=&search_order_by=&search_order_by_mode=&search=search");
+        $this->replaceValue("link","./search.php?search_by_option=".$this->type."&search_key=".$this->name."&search_start_date=&search_end_date=&search_start_price=&search_end_price=&search_order_by=&search_order_by_mode=&search=search");
         $this->replaceValue("img-tag", $this->img);
         $this->replaceValue("img-tag-title",$this->name);
         $this->replaceValue("id",str_replace(" ", "", $this->name));

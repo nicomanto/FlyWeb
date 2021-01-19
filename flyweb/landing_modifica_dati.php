@@ -37,8 +37,8 @@ require_once('./autoload.php');
     $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("/datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("/modifica_info_profilo.php","Modifica profilo"),
+        new model\BreadcrumbItem("./datipersonali.php","Profilo"),
+        new model\BreadcrumbItem("./modifica_info_profilo.php","Modifica profilo"),
         new model\BreadcrumbItem("#","Riscontro modifica")
     );
 
