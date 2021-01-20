@@ -39,39 +39,46 @@
 	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
-	if(isset($_SESSION['fatturazione'])){
-		$mario=$_SESSION['fatturazione'];
-		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
-	  }else{
-		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
-	  }
-
+	
+	
 	if ($_POST['metodopagamento'] != 'paypal') {
 		if (!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/", $_POST['titolareCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if (preg_match("/^(\s)*$/", $_POST['titolareCarta'])) {
 			array_push($error, "Errore inserimento titolare carta: deve contenere almeno delle lettere");
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: deve contenere almeno delle lettere, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (strlen($_POST['codiceCarta']) < 13 || strlen($_POST['codiceCarta']) > 16) {
+		} else if (!preg_match("/^[\d]{13,16}$/", $_POST['codiceCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La carta di credito è formata da 13 a 16 numeri, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if ($_POST['scadenza_mese'] > 12 || $_POST['scadenza_mese'] < 1) {
+		} else if ((int)$_POST['scadenza_mese'] > 12 || (int)$_POST['scadenza_mese'] < 1) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il mese di scadenza deve essere compreso fra 1 e 12, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (strlen($_POST['scadenza_mese']) > 2) {
+		} else if (!preg_match("/^[\d]{1,2}$/",(int)$_POST['scadenza_mese'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il mese di scadenza deve avere al massimo due cifre (es. 01 o 1 per Gennaio), riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if ($_POST['scadenza_anno'] < 0) {
+		} else if ((int)$_POST['scadenza_anno'] < 0) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: L\'anno di scadenza deve essere positivo, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (strlen($_POST['scadenza_anno']) > 2) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: L\'anno di scadenza deve avere al massimo due cifre (es. 21 per 2021), riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (strlen($_POST['cvv']) > 3) {
+		} else if (!preg_match("/^[\d]{2}$/",(int)$_POST['scadenza_anno'])) {
+			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: L\'anno di scadenza deve avere due cifre (es. 21 per 2021), riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
+		} else if (!preg_match("/^[\d]{3}$/",$_POST['cvv'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il codice CVV deve avere al massimo 3 cifre, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
+		} else if(date('y')>(int)$_POST['scadenza_anno'] || (date('m')>(int)$_POST['scadenza_mese'] && date('y')==(int)$_POST['scadenza_anno'])){
+        	$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La tua carta è scaduta, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
-			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
+			if(isset($_SESSION['fatturazione'])){
+				$mario=$_SESSION['fatturazione'];
+				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
+			  }else{
+				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+			  }
 		}
 	} else {
 		if (!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/", $_POST['email'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento <span lang=\'en\'>email</span> paypal: non è in un formato standard come esempio@esempio.com, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
-			//$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
+			if(isset($_SESSION['fatturazione'])){
+				$mario=$_SESSION['fatturazione'];
+				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
+			  }else{
+				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+			  }
 		}
 	}
 
