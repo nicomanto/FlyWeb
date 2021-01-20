@@ -1,7 +1,7 @@
 <?php
 
-	use controllers\RouteController;
-	use controllers\UserController;
+use controllers\RouteController;
+use controllers\UserController;
 	use html\components\Breadcrumb;
 	use html\components\Footer;
 	use html\components\FormInserimentoDatiFatturazione;
@@ -13,6 +13,8 @@
 	use model\BreadcrumbItem;
 
 	require_once('./autoload.php');
+
+	RouteController::loggedRoute();
 
 
 	// Load request's data
@@ -41,9 +43,9 @@
 
 	if(isset($_SESSION['fatturazione'])){
 		$mario=$_SESSION['fatturazione'];
-		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
+		$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione($mario)));
 	  }else{
-		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+		$_page->replaceTag('INSERIMENTO-DATI', (new FormInserimentoDatiFatturazione()));
 	  }
 
 	if ($_POST['metodopagamento'] != 'paypal') {
