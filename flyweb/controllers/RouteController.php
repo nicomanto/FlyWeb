@@ -6,7 +6,7 @@ class RouteController {
 
     public static function protectedRoute(): void {
         if (!$_SESSION['admin'] || !$_SESSION['logged_in']) {
-            header('location:./index.php');
+            header('location:./login.php');
             exit;
         }
     }
@@ -29,7 +29,7 @@ class RouteController {
 
     public static function loggedRoute(): void {
         if (!$_SESSION['logged_in']) {
-            header('location:./index.php');
+            header('location:./login.php');
             exit;
         }
     }

@@ -19,7 +19,7 @@
 
     require_once('./autoload.php');
 
-    RouteController::unprotectedRoute();
+    RouteController::loggedRoute();
 
     // Load request's data
     extract($_POST, EXTR_SKIP);
