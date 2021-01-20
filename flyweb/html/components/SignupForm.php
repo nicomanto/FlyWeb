@@ -24,7 +24,6 @@ class SignupForm extends baseComponent {
         $this->replaceValues($signupValues);
         
         if(!empty($this->error)){
-
             $this->replaceTag('ERROR_BOX',new ErrorBox($this->error));
         }
         else{
