@@ -1,7 +1,7 @@
 <?php
 
-	use controllers\RouteController;
-	use controllers\UserController;
+use controllers\RouteController;
+use controllers\UserController;
 	use html\components\Breadcrumb;
 	use html\components\Footer;
 	use html\components\FormInserimentoDatiFatturazione;
@@ -13,6 +13,8 @@
 	use model\BreadcrumbItem;
 
 	require_once('./autoload.php');
+
+	RouteController::loggedRoute();
 
 
 	// Load request's data
@@ -39,8 +41,6 @@
 	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
-	
-	
 	if ($_POST['metodopagamento'] != 'paypal') {
 		if (!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/", $_POST['titolareCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));

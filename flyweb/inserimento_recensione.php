@@ -2,6 +2,7 @@
 
     use \model\BreadcrumbItem;
     use \controllers\reviewController;
+    use controllers\RouteController;
     use \model\Review;
     use \controllers\UserController;
     use html\components\Breadcrumb;
@@ -13,6 +14,7 @@
     use html\Template;
 
     require_once('./autoload.php');
+    RouteController::loggedRoute();
 
     $userController= new UserController();
 

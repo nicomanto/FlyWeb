@@ -3,16 +3,10 @@
     use controllers\RouteController;
     use controllers\TravelController;
     use controllers\UserController;
-    use html\components\BoxRelated;
-    use html\components\BoxSuggerimenti;
     use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
-    use html\components\Integrazione;
-    use html\components\NoReviews;
     use html\components\PrincipalMenu;
-    use html\components\TravelDetails;
-    use html\components\TravelReviews;
     use html\components\ResponseMessage;
     use html\Template;
     use model\BreadcrumbItem;

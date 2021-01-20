@@ -7,7 +7,6 @@ use html\components\AdmFooter;
 use html\components\AdmTravelReviewItem;
 use html\components\Breadcrumb;
 use html\components\Head;
-use html\components\PageSelector;
 use html\components\ResponseMessage;
 use html\Template;
 use model\BreadcrumbItem;

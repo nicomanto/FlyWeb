@@ -1,11 +1,22 @@
 <?php
 
-use controllers\UserController;
+    use controllers\RouteController;
+    use controllers\UserController;
+    use html\components\Breadcrumb;
+    use html\components\Footer;
+    use html\components\Head;
+    use html\components\PrincipalMenu;
+    use html\components\ProfiloMenu;
+    use html\components\SuccessoModifica;
+    use html\Template;
+    use model\BreadcrumbItem;
 
-require_once('./autoload.php');
+    require_once('./autoload.php');
+
+    RouteController::loggedRoute();
 
     extract($_POST, EXTR_SKIP);
-    $userController= new \controllers\UserController();
+    $userController= new UserController();
 
     if ($username){
         $userController->user->username = $username;
@@ -30,23 +41,23 @@ require_once('./autoload.php');
 
     $userController->aggiornaUtente();
 
-    $page = new \html\template('modifica_info_profilo');
+    $page = new Template('modifica_info_profilo');
 
-    $page->replaceTag('HEAD', (new \html\components\head));
+    $page->replaceTag('HEAD', (new Head));
     // Set nav menu
-    $page->replaceTag('NAV-MENU', (new \html\components\PrincipalMenu));
+    $page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new model\BreadcrumbItem("./datipersonali.php","Profilo"),
-        new model\BreadcrumbItem("./modifica_info_profilo.php","Modifica profilo"),
-        new model\BreadcrumbItem("#","Riscontro modifica")
+        new BreadcrumbItem("./datipersonali.php","Profilo"),
+        new BreadcrumbItem("./modifica_info_profilo.php","Modifica profilo"),
+        new BreadcrumbItem("#","Riscontro modifica")
     );
 
-    $page->replaceTag('BREADCRUMB', (new \html\components\Breadcrumb($breadcrumb)));
+    $page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
-    $page->replaceTag('PROFILOMENU', (new \html\components\ProfiloMenu));
+    $page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
-    $page->replaceTag('SUCCESSO-MODIFICA', (new \html\components\SuccessoModifica));
+    $page->replaceTag('SUCCESSO-MODIFICA', (new SuccessoModifica));
 
     $page->replaceTag('ELIMINAZIONE', '');
 
@@ -54,6 +65,6 @@ require_once('./autoload.php');
 
     $page->replaceTag('MODIFICA-INFO', '');
 
-    $page->replaceTag('FOOTER', (new \html\components\footer));
+    $page->replaceTag('FOOTER', (new Footer));
 
     echo $page;

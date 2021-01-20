@@ -7,7 +7,6 @@
     use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
-    use html\components\Integrazione;
     use html\components\NoReviews;
     use html\components\PrincipalMenu;
     use html\components\TravelDetails;
