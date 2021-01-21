@@ -5,6 +5,7 @@ namespace html\components;
 use controllers\ImagesController;
 use html\components\baseComponent;
 use model\Travel;
+use controllers\ImagesController;
 
 class CarrelloElementi extends baseComponent {
 
@@ -26,6 +27,7 @@ class CarrelloElementi extends baseComponent {
 
         // Load travel properties into template
         $st = $this->travel->id_viaggio;
+        $imagesController = new ImagesController();
 
         $imagesController = new ImagesController();
 

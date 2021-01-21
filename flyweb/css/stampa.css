@@ -46,17 +46,14 @@ input{
     display: none;
 }
 
-.pageSelector{
+.page-selector{
     text-align: center;
     display: block;
     margin: 0 auto;
-}
-
-.pageSelector input[type=button]{
     visibility: hidden;
 }
 
-.pageSelector input[type=button]:disabled{
+.page-selector input[type=button]:disabled{
     opacity: 1;
     border: 1px solid #000;
     color: #000;

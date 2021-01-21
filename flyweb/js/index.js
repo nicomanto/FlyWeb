@@ -84,9 +84,10 @@ function validationDurata(){
 function checkCartaCredito(){
     var numero_carta  = document.getElementById("codiceCarta").value;
     var error_id_message=document.getElementById("input_error_carta_codice");
+    var reg_expr= /^[\d]{13,16}$/;
 
     if(numero_carta){
-        if(numero_carta.length <13 || numero_carta.length >16){
+        if(numero_carta.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("codiceCarta").style.border = "2px solid red";
             error_id_message.innerHTML = "La carta di credito è formata da 13 a 16 cifre";
@@ -107,6 +108,7 @@ function checkCartaCredito(){
 function checkMonthCarta(){
     var mese_carta  = document.getElementById("scadenza_mese").value;
     var error_id_message=document.getElementById("input_error_carta_mese");
+    var reg_expr= /^[\d]{1,2}$/;
 
     if(mese_carta){
         if(mese_carta > 12 || mese_carta < 1){
@@ -115,7 +117,7 @@ function checkMonthCarta(){
             error_id_message.innerHTML = "Il numero deve essere compreso fra 1 e 12";
             return false;
         }
-        if(mese_carta.length>2){
+        else if(mese_carta.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("scadenza_mese").style.border = "2px solid red";
             error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 01 o 1 per Gennaio)";
@@ -136,19 +138,29 @@ function checkMonthCarta(){
 
 function checkYearCarta(){
     var anno_carta  = document.getElementById("scadenza_anno").value;
+    var mese_carta  = document.getElementById("scadenza_mese").value;
     var error_id_message=document.getElementById("input_error_carta_anno");
+    var reg_expr= /^[\d]{2}$/;
+    var today= new Date();
+    //alert(today.getFullYear().toString().slice(2));
 
     if(anno_carta){
-        if(anno_carta < 0){
+        if(anno_carta<0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve essere positivo";
+            error_id_message.innerHTML = "Il numero deve essere maggiore di 0";
             return false;
         }
-        if(anno_carta.length>2){
+        else if((anno_carta.search(reg_expr) !=0)){
             error_id_message.style.visibility = 'visible';
             document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 21 per 2021)";
+            error_id_message.innerHTML = "Il numero deve avere due cifre (es. 21 per 2021)";
+            return false;
+        }
+        else if(mese_carta && (today.getFullYear().toString().slice(2)> anno_carta || (today.getFullYear().toString().slice(2)== anno_carta && today.getMonth()> mese_carta))){
+            error_id_message.style.visibility = 'visible';
+            document.getElementById("scadenza_anno").style.border = "2px solid red";
+            error_id_message.innerHTML = "La tua carta è scaduta";
             return false;
         }
         else{
@@ -167,9 +179,10 @@ function checkYearCarta(){
 function checkCVV(){
     var cvv  = document.getElementById("cvv").value;
     var error_id_message=document.getElementById("input_error_carta_cvv");
+    var reg_expr= /^[\d]{3}$/;
 
     if(cvv){ 
-        if(cvv.length>3){
+        if(cvv.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("cvv").style.border = "2px solid red";
             error_id_message.innerHTML = "Il codice deve avere 3 cifre";
