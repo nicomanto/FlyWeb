@@ -1,5 +1,5 @@
 <li class="adm-card">
-    <h2>Recensione #%ID% : <span lang='%LINGUA%'>%TITOLO%</span></h2>
+    <h2>Recensione numero %ID% : <span lang='%LINGUA%'>%TITOLO%</span></h2>
     <div><h3>Data rilascio:</h3><span>%DATA% </span></div>
     <div><h3>Valutazione: </h3> <span>%VALUTAZIONE% su 5 </span></div>
     <div><h3>Generalità scrittore:</h3> <span>%NOME_UTENTE%</span> <span>%COGNOME_UTENTE%</span></div>
@@ -10,10 +10,10 @@
                 <input type="hidden" name="id_review" value="%ID%">
 
                 <input type="submit" class="adm-bottone-approva-recensione" name="btn_approva"
-                 value="APPROVA" >
+                 value="APPROVA" title="approva recensione %ID%">
 
                 <input type="submit" class="adm-bottone-elimina-recensione" name="btn_elimina"
-                 value="ELIMINA" onclick="return ConfermaEliminazione()">
+                 value="ELIMINA" onclick="return ConfermaEliminazione()" title="elimina recensione %ID%">
             </form>
         </div>
     </div>
