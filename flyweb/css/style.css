@@ -1572,3 +1572,9 @@ input[type=number]::-webkit-outer-spin-button {
 .hide {
     display: none; 
 }
+
+
+/*LINK FONT UPPER*/
+.upper_link{
+    font-size: 1em;
+}
