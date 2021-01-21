@@ -1578,3 +1578,21 @@ input[type=number]::-webkit-outer-spin-button {
 .upper_link{
     font-size: 1em;
 }
+
+/*Error page*/
+
+#contenutoErrorPage{
+    text-align: center;
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+}
+
+#contenutoErrorPage img{
+    width           : 50%;
+    max-height      : 60vh;
+    border-radius: 30%;
+    margin: 2em;
+}
