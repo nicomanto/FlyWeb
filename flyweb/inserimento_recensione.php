@@ -1,7 +1,7 @@
 <?php
 
     use \model\BreadcrumbItem;
-    use \controllers\reviewController;
+    use \controllers\ReviewController;
     use controllers\RouteController;
     use \model\Review;
     use \controllers\UserController;

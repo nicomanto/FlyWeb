@@ -25,11 +25,11 @@ class TravelReviewItem extends baseComponent {
         $li="";
 
         for($i=0;$i<$this->review->valutazione;$i++){
-            $li.=new stellaItem("yellow");
+            $li.=new StellaItem("yellow");
         }
 
         for($i=$this->review->valutazione;$i<5;$i++){
-            $li.=new stellaItem();
+            $li.=new StellaItem();
         }
         
         $this->replaceTag('BADGE_VOTO', new \html\components\SingleBadgeVoteReview($this->review->valutazione));

@@ -4,9 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 
-use html\components\travelReviewItem;
-
-use controllers\TravelController;
+use html\components\TravelReviewItem;
 
 use model\Review;
 
@@ -33,12 +31,12 @@ class TravelReviews extends baseComponent {
             $review= new Review($i);
             
             if($review->mod!=0) //controllo se la review è stata moderata
-                $li.= new travelReviewItem($review);
+                $li.= new TravelReviewItem($review);
             
         }
 
         $this->replaceValue('NUMERO_RECENSIONI',$this->travelController->getNumberOfReviews());
-        $this->replaceTag('BADGE_VOTO',new \html\components\AverageBadgeVoteReview($this->travelController->getAverageReviews()));
+        $this->replaceTag('BADGE_VOTO',new AverageBadgeVoteReview($this->travelController->getAverageReviews()));
         $this->replaceTag("REVIEW_ITEM",$li);
 
         return $this;
