@@ -9,7 +9,6 @@ class PageSelectorItem extends baseComponent {
     public $pageNumber;
     public $isCurrentPage;
     public $url;
-    public $isDisabled;
 
     const _templateName = 'page_selector_item';
 
@@ -24,17 +23,13 @@ class PageSelectorItem extends baseComponent {
     public function render(): string {
         // Select class based on if the page is the current page or not
         if ($this->isCurrentPage) {
-            $this->url = '';
+            $element = "<span class=\"button-selector-page disabled\">$this->pageNumber</span>";
         } else {
-            $this->isDisabled  = '';
             $this->url = $this->buildPageUrl($this->pageNumber);
+            $element = "<a href=\"$this->url\" class=\"button-selector-page\">$this->pageNumber<\a>";
         }
         
-
-        $this->replaceValues([
-            'PAGE_NUMBER' => $this->pageNumber,
-            'PAGE_URL' => "href=".'"'.$this->url.'"'
-        ]);
+        $this->replaceValue('ELEMENT', $element);
         return $this;
     }
 

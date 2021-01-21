@@ -12,7 +12,7 @@
                 <p><img alt="" src="./img/clock.svg" class="travel-details-icon"/><span>Data ritorno: <strong>%END_DATE%</strong></span></p>
                 <p class="price"><strong>%PRICE% &euro; </strong> </p>
                 <form action="./landing_aggiungi_carrello.php" method="post">
-                    <input type="text" name="id_viaggio" value="%ID_VIAGGIO%">
+                    <input type="hidden" name="id_viaggio" value="%ID_VIAGGIO%">
                     <input type="submit" class="adm-bottone-modifica-card" name="btn_aggiungi" value="Aggiungi al carrello">
               </form>
                
