@@ -4,6 +4,7 @@ namespace html\components;
 use DateTime;
 use controllers\TravelController;
 use controllers\UserController;
+use controllers\ImagesController;
 use html\components\baseComponent;
 use model\Travel;
 use model\User;
@@ -22,7 +23,8 @@ class TravelOrder extends baseComponent {
         // Unpacking associative array (from db) into Travel
         $this->travel = new Travel($travel);
         $this->travel_controller=new TravelController((int)$this->travel->id_viaggio);
-        $this->userController= new \controllers\UserController();
+        $this->userController= new UserController();
+
 
         // Render page
         $this->render();
@@ -32,6 +34,7 @@ class TravelOrder extends baseComponent {
 
         // Load travel properties into template
         $st = $this->travel->id_viaggio;
+        $imagesController = new ImagesController();
 
         // TODO: modificare il modifica
         $this->replaceValues([
@@ -44,8 +47,8 @@ class TravelOrder extends baseComponent {
                 'country' => $this->travel->stato,
                 'city' => $this->travel->citta,
                 'location' => $this->travel->localita,
-              //  'travel_image' => $imagesController->getImagePath($this->travel->immagine),
-              //  'travel_image_name' => $imagesController->getImageName($this->travel->immagine)
+                'travel_image' => $imagesController->getImagePath($this->travel->immagine),
+                'travel_image_name' => $imagesController->getImageName($this->travel->immagine)
             ]
         );
 
