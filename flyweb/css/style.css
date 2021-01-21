@@ -447,19 +447,12 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0.5em;
 }
 
-.adm-bottone-modifica-card:hover{
-    filter: brightness(1.5);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
 
 .adm-bottone-elimina-card, .adm-bottone-elimina-recensione{
     border-radius: 5px;
     color:#fff;
-    background-color: rgb(206, 0, 0);
-    border: 3px solid rgb(206, 0, 0);
+    background-color: #b80000;
+    border: 3px solid #b80000;
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     outline: none;
     padding: 10px;
@@ -468,8 +461,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0.5em;
 }
 
-.adm-bottone-elimina-card:hover, .adm-bottone-elimina-recensione:hover{
-    filter: brightness(1.5);
+.adm-bottone-modifica-card:hover, .adm-bottone-elimina-recensione:hover{
+    background-color: #ff0000;
+    border: 3px solid #ff0000;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 5px;
     color: #fff;
@@ -479,8 +473,8 @@ input[type=number]::-webkit-outer-spin-button {
 .adm-bottone-approva-recensione{
     border-radius: 5px;
     color:#fff;
-    background-color: #4caf50;
-    border: 3px solid #4caf50;
+    background-color: #026c45;
+    border: 3px solid #026c45;
     outline: none;
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     padding: 10px;
@@ -490,7 +484,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .adm-bottone-approva-recensione:hover{
-    filter: brightness(1.5);
+    background-color: #4caf50;
+    border: 3px solid #4caf50;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     color: #fff;
     cursor: pointer;

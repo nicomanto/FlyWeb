@@ -1,9 +1,9 @@
 <div class="carrello-item">
     <img class="travel-image" alt="%TRAVEL_IMAGE_NAME%" src="%TRAVEL_IMAGE%" />
-        <a href="./travel.php?id=%ID_VIAGGIO%"><h2>%NAME%</h2></a>
-        <h3>Prezzo</h3>:<p> %PRICE% &euro; </p>
-        <h3>Luogo</h3>:<p class="adr"> %COUNTRY%, %CITY%, %LOCATION%</p>
-        <h3>Date</h3>:<p> dal %START_DATE% al %END_DATE%</p>
+        <div><a href="./travel.php?id=%ID_VIAGGIO%"><h2>%NAME%</h2></a></div>
+        <div><h3>Prezzo</h3>:<span> %PRICE% &euro; </span></div>
+        <div><h3>Luogo</h3>:<span class="adr"> %COUNTRY%, %CITY%, %LOCATION%</span></div>
+        <div><h3>Date</h3>:<span> dal %START_DATE% al %END_DATE%</span></div>
         <form action="./carrello.php" method="post">
             <!-- id="id_viaggio" è stato toldo: vi erano duplicati-->
             <input type="hidden" name="id_viaggio" value="%ID_VIAGGIO%">
