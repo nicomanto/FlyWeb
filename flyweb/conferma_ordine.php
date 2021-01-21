@@ -7,7 +7,8 @@
 	use html\components\Head;
 	use html\components\PrincipalMenu;
 	use html\components\ProfiloMenu;
-	use html\Template;
+use html\components\ResponseMessage;
+use html\Template;
 	use model\BreadcrumbItem;
 
 	require_once('./autoload.php');
@@ -59,7 +60,7 @@
 	$_page->replaceTag('DATI-INSERITI', '');
 
 	$_page->replaceTag('VIAGGI', '');
-    $_page->replaceTag('SUCCESSO', new \html\components\responseMessage("Complimenti acquisto completato, ora rilassati e goditi il viaggio!"));
+    $_page->replaceTag('SUCCESSO', new ResponseMessage("Complimenti acquisto completato, ora rilassati e goditi il viaggio!"));
 
 	$_page->replaceTag('TOTALE', '');
 

@@ -8,7 +8,8 @@
     use html\components\AdmTravelListItem;
     use html\components\Breadcrumb;
     use html\components\Head;
-    use html\components\ResponseMessage;
+use html\components\PageSelector;
+use html\components\ResponseMessage;
     use html\Template;
     use model\BreadcrumbItem;
 
@@ -58,7 +59,7 @@
     
     // Set search result travels
     if(empty($travels)){
-        $page->replaceTag('ADM-CONTENUTO', new responseMessage("Nessun viaggio..."));
+        $page->replaceTag('ADM-CONTENUTO', new ResponseMessage("Nessun viaggio..."));
         $page->replaceTag('PAGE-SELECTOR', "");
     }
     else{
@@ -71,7 +72,7 @@
         $page->replaceTag('ADM-CONTENUTO',
         '<h1 class="adm-titolo">LISTA VIAGGI</h1>'."<ul>".$searchResults."</ul>");
 
-        $page->replaceTag('PAGE-SELECTOR',(new \html\components\PageSelector($paginatedTravels)));
+        $page->replaceTag('PAGE-SELECTOR',(new PageSelector($paginatedTravels)));
 
     }
 

@@ -1,7 +1,8 @@
 <?php
 
-use controllers\RouteController;
-use html\components\Breadcrumb;
+    use controllers\OrderController;
+    use controllers\RouteController;
+    use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
     use html\components\OrderDetails;
@@ -15,7 +16,7 @@ use html\components\Breadcrumb;
 
     extract($_GET, EXTR_SKIP);
 
-    $orderController = new \controllers\OrderController((int)$id);
+    $orderController = new OrderController((int)$id);
     $dettagli_ordine = $orderController->order;
 
     $viaggi = $orderController->getTravelByOrderList($id);
@@ -37,7 +38,7 @@ use html\components\Breadcrumb;
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 
 
-    $_page->replaceTag('ORDER_DETAILS', (new \html\components\orderDetails($dettagli_ordine,true)));
+    $_page->replaceTag('ORDER_DETAILS', (new OrderDetails($dettagli_ordine,true)));
     $_page->replaceTag('ORDINI-PROFILO', '');
 
 

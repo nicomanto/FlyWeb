@@ -21,7 +21,7 @@ class OrderDetails extends baseComponent {
     public function render(): string {
             $this->replaceValues([
                 'id_ordine' => $this->order->id_ordine,
-                'id_utente' => $this->order->id_utente,
+                'user_id' => $this->order->id_utente,
                 'via' => $this->order->via,
                 'cap' => $this->order->cap,
                 'provincia' => $this->order->provincia,
