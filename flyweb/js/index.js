@@ -400,7 +400,7 @@ function validationPasswordRepeat(){
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
     var error_id_message=document.getElementById("input_error_data_nascita");
-
+    
     if(dataNascita){
         if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
@@ -425,8 +425,20 @@ function validationDataNascita(){
 
 
 function getAge(data_nascita){
-    now = new Date();
-    split=data_nascita.split('-');
+    var now = new Date();
+    var needReverse=false;
+    //alert(data_nascita);
+    if(data_nascita.includes('/')){
+        data_nascita=data_nascita.replace(/\//g,"-");
+        needReverse=true;
+    }
+    
+    var split=data_nascita.split('-');
+
+    if(needReverse){
+        split.reverse();
+    }
+    
     var diff = now.getTime() - new Date(split[0],split[1]-1,split[2]).getTime();
     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }

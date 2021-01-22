@@ -90,6 +90,7 @@
             array_push ( $error , "Campo Cognome: deve contenere almeno delle lettere");
         }
 
+        print($data_nascita);
         $data = new DateTime($data_nascita); // Your date of birth
         $today = new Datetime(date('Y-m-d'));
         $diff = $today->diff($data);
