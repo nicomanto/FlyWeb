@@ -20,7 +20,7 @@ class BoxRelated extends baseComponent {
         $this->id_tag=$id_tag;
         $this->id_viaggio=$id_viaggio;
         $this->num_sugg=$num_sugg;
-        $this->controller = new  \controllers\BoxRelatedController($this->id_tag,$this->id_viaggio, $this->img);
+        $this->controller = new BoxRelatedController($this->id_tag,$this->id_viaggio, $this->img);
         $this->addTag();
 
     }
@@ -29,7 +29,7 @@ class BoxRelated extends baseComponent {
         $lista_sugg="";
         foreach ($this->controller->get_related() as $i){
             $continua = '<a href="./travel.php?id='.$i['ID_Viaggio'].'">...continua </a>';
-            $lista_sugg.=new relatedItem($i['ID_Viaggio'],$i['Titolo'], (substr($i['DescrizioneBreve'],0,150)." ".$continua), "./uploads/".$i['Immagine'], $i['AltImmagine']);
+            $lista_sugg.=new RelatedItem($i['ID_Viaggio'],$i['Titolo'], (substr($i['DescrizioneBreve'],0,150)." ".$continua), "./uploads/".$i['Immagine'], $i['AltImmagine']);
         }
 
         $this->replaceTag('SUGGERIMENTO', $lista_sugg);

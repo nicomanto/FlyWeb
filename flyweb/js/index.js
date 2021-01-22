@@ -260,13 +260,6 @@ function checkCAP(){
 }
 
 
-function eliminazioneProfilo(){
-    $popup_conferma = confirm("vuoi davvero davvero eliminare il tuo profilo? :( :(")
-    if ($popup_conferma === true) {
-        location.href = 'eliminazione_profilo.php'; }
-}
-
-
 //#endregion
 
 
@@ -317,7 +310,7 @@ function validationUsername(){
         if( username.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("username").style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi da 4 a 15 caratteri totali con # - _ @";
+            error_id_message.innerHTML = "Permessi da 4 a 15 caratteri totali, permessi i caratteri # - _ @";
             return false;
         }
         else if(no_only_special.test(username)){
@@ -492,31 +485,6 @@ function titoloEDescrizioneRecensione(id,Element){
 
     return true;
 }
-
-function valutazioneRecensione(){
-    var valutazione  = document.getElementById("valutazione").value;
-    var error_id_message=document.getElementById("input_error_valutazione");
-
-    if(valutazione){
-        if(valutazione<0 || valutazione>5){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("valutazione").style.border = "2px solid red";
-            error_id_message.innerHTML = "La valutazione deve essere compresa fra 0 e 5";
-            return false;
-        }
-        else{
-            error_id_message.style.visibility = 'hidden';
-            document.getElementById("valutazione").style.border = "2px solid #0a3150";
-        }
-    }
-    else{
-        error_id_message.style.visibility = 'hidden';
-        document.getElementById("valutazione").style.border = "2px solid #0a3150";
-    }
-
-    return true;
-}
-
 
 
 /* hamburger menu */
