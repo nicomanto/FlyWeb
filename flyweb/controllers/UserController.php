@@ -72,17 +72,17 @@ class UserController extends BaseController {
     }
 
     public function getViaggiCarrello(){
-        $query='SELECT Viaggio.* FROM Viaggio, CarrelloViaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = CarrelloViaggio.ID_Viaggio AND CarrelloViaggio.ID_Carrello = Carrello.ID_Carrello;';
+        $query='SELECT Carrello.ID_Carrello, Viaggio.* FROM Viaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = Carrello.ID_Viaggio;';
         return($this->db->runQuery($query, $this->user->id_utente));
     }
 
     public function getIDViaggiCarrello(){
-        $query='SELECT Viaggio.ID_Viaggio FROM Viaggio, CarrelloViaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = CarrelloViaggio.ID_Viaggio AND CarrelloViaggio.ID_Carrello = Carrello.ID_Carrello;';
+        $query='SELECT Viaggio.ID_Viaggio FROM Viaggio, Carrello WHERE Carrello.ID_Utente =? AND Viaggio.ID_Viaggio = Carrello.ID_Viaggio;';
         return($this->db->runQuery($query, $this->user->id_utente));
     }
 
     public function deleteViaggioCarrello($id) {
-        $query = 'DELETE FROM CarrelloViaggio WHERE ID_Viaggio = ?;';
+        $query = 'DELETE FROM Carrello WHERE ID_Carrello = ?;';
         return $this->db->runQuery($query, $id);
     }
 
