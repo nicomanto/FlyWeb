@@ -5,10 +5,6 @@ namespace html\components;
 use controllers\ImagesController;
 use html\components\baseComponent;
 use model\Travel;
-<<<<<<< HEAD
-
-=======
->>>>>>> 66109ab8a5257fe1917b11574792732be14e41d5
 
 class CarrelloElementi extends baseComponent {
 
@@ -48,13 +44,8 @@ class CarrelloElementi extends baseComponent {
                 'country' => $this->travel->stato,
                 'city' => $this->travel->citta,
                 'location' => $this->travel->localita,
-<<<<<<< HEAD
-                'travel_image' => $imageController->getImagePath($this->travel->immagine),
-                'travel_image_name' => $imageController->getImageName($this->travel->immagine)
-=======
                 'travel_image' => $imagesController->getImagePath($this->travel->immagine),
                 'travel_image_name' => $this->travel->altImmagine
->>>>>>> 66109ab8a5257fe1917b11574792732be14e41d5
             ]
         );
         
