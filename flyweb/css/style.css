@@ -1596,3 +1596,11 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 30%;
     margin: 2em;
 }
+
+/*Valutazione inserimento review*/
+.radio_valutazione{
+    display: inline-flex;
+}
+.radio_valutazione > label{
+    margin: 1em;
+}

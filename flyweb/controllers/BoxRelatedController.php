@@ -20,7 +20,7 @@ class BoxRelatedController extends BaseController {
     }
 
     public function get_RandomElements() {
-        $query = "SELECT ID_Viaggio, Titolo, DescrizioneBreve, Immagine FROM Viaggio WHERE ID_Viaggio IN (SELECT ID_Viaggio FROM TagViaggio WHERE ID_Tag=? OR ID_Tag=? OR ID_Tag=? OR ID_Tag=?) AND ID_Viaggio!=? ORDER BY RAND() LIMIT ?";
+        $query = "SELECT ID_Viaggio, Titolo, DescrizioneBreve, Immagine, AltImmagine FROM Viaggio WHERE ID_Viaggio IN (SELECT ID_Viaggio FROM TagViaggio WHERE ID_Tag=? OR ID_Tag=? OR ID_Tag=? OR ID_Tag=?) AND ID_Viaggio!=? ORDER BY RAND() LIMIT ?";
 
         $rand_keys=array();
         for($i=0;$i<4;$i++){
