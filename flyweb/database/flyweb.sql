@@ -6,10 +6,10 @@ use flyweb;
 
 create or replace table Carrello
 (
-	ID_Carrello int auto_increment,
+	ID_Carrello int auto_increment
+		primary key,
 	ID_Utente int not null,
-	ID_Viaggio int not null,
-	primary key ID_Carrello,
+	ID_Viaggio int not null
 );
 
 create or replace table Utente
@@ -26,13 +26,8 @@ create or replace table Utente
 	DataRegistrazione timestamp not null default current_timestamp(),
 	Admin TINYINT(1) default 0 null,
 	EvilBit TINYINT(1) default 0 null,
-	ID_Preferiti int null,
-	constraint Utente_ID_Preferiti_uindex
-		unique (ID_Preferiti),
 	constraint Utente_Username_uindex
-		unique (Username),
-	constraint Utente_ibfk_2
-		foreign key (ID_Preferiti) references Preferiti (ID_Preferiti) ON DELETE CASCADE
+		unique (Username)
 );
 
 create or replace table Ordine
@@ -60,12 +55,6 @@ create or replace table Tag
 	Immagine TEXT,
 	AltImmagine VARCHAR(50) not null
 );
-
-alter table Carrello
-	add constraint Carrello_ibfk_1
-		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE;
-	add constraint Carrello_ibfk_1
-		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE;
 
 create or replace table Recensione
 (
@@ -98,6 +87,13 @@ create or replace table Viaggio
 	Immagine TEXT,
 	AltImmagine VARCHAR(50) not null
 );
+
+alter table Carrello
+	add constraint Carrello_ibfk_1
+		foreign key (ID_Utente) references Utente (ID_Utente) ON DELETE CASCADE,
+	add constraint Carrello_ibfk_2
+		foreign key (ID_Viaggio) references Viaggio (ID_Viaggio) ON DELETE CASCADE;
+
 
 create or replace table OrdineViaggio
 (
@@ -138,9 +134,6 @@ create or replace index ID_Utente
 
 create or replace index ID_Utente
 	on Recensione (ID_Utente);
-
-create or replace index ID_Viaggio
-	on CarrelloViaggio (ID_Viaggio);
 
 create or replace index ID_Viaggio
 	on OrdineViaggio (ID_Viaggio);
