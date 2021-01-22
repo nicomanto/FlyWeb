@@ -48,8 +48,9 @@
 
     if(!$_POST['btn_approva']){
 
-        $review = new Review($_POST['titolo'],(int)$_POST['valutazione'],$_POST['descrizione'],(int)$userController->user->id_utente,$_POST['lingua']);
+        $review = new Review($_POST['titolo'],(int)$_POST['Valutazione'],$_POST['descrizione'],(int)$userController->user->id_utente,$_POST['lingua']);
 
+        
         //check param like js
         if(!preg_match("/^[\w\s\.]*$/",$review->titolo)){
             array_push ( $error , "Campo Titolo: Permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio");
@@ -65,10 +66,6 @@
 
         if(preg_match("/^(\.|_|\s)*$/",$review->descrizione)){
             array_push ( $error , "Campo Descrizione: deve contenere almeno delle lettere o numeri");
-        }
-
-        if($review->valutazione<0 || $review->valutazione>5){
-            array_push ( $error , "Campo Valutazione: deve essere compresa fra 0 e 5");
         }
 
 

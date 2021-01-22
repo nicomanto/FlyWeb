@@ -3,16 +3,10 @@
     use controllers\RouteController;
     use controllers\TravelController;
     use controllers\UserController;
-    use html\components\BoxRelated;
-    use html\components\BoxSuggerimenti;
     use html\components\Breadcrumb;
     use html\components\Footer;
     use html\components\Head;
-    use html\components\Integrazione;
-    use html\components\NoReviews;
     use html\components\PrincipalMenu;
-    use html\components\TravelDetails;
-    use html\components\TravelReviews;
     use html\components\ResponseMessage;
     use html\Template;
     use model\BreadcrumbItem;
@@ -24,6 +18,14 @@
     // Load request's data
     extract($_POST, EXTR_SKIP);
 
+    // If id_viaggio was not provided in $_POST try getting it from $_SESSION
+    if (!((int)$id_viaggio) && $_SESSION['redirect_body']['id_viaggio']) {
+        $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
+        unset($_SESSION['redirect_body']);
+    } else {
+        header('Location: ./index.html');
+    }
+
     $travelController = new TravelController((int)$id_viaggio);
     $userController = new UserController();
 
@@ -32,7 +34,7 @@
     }
 
     $id_carrello= $userController->getID_Carrello()['ID_Carrello'];
-    $userController->addToCart($id_carrello, $id_viaggio);
+    $userController->addToCart($id_viaggio);
   
 
     // Loading travel detail template
@@ -60,7 +62,7 @@
 
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb))); 
 
-    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, esegui il <a class=\"upper_link\" lang=\"en\" href=\"./carrello.php\">checkout</a> o continua la <a class=\"upper_link\" href=\"././search.php?search_key=&search_button=CERCA&search_start_date=&search_end_date=&search_end_price=&search_start_price=&search_by_option=Citta&search_order_by=Prezzo&search_order_by_mode=Ascendente\">ricerca</a>")));
+    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, prosegui al <a class=\"upper_link\" lang=\"en\" href=\"./carrello.php\">carrello</a> o continua la <a class=\"upper_link\" href=\"././search.php?search_key=&search_button=CERCA&search_start_date=&search_end_date=&search_end_price=&search_start_price=&search_by_option=Citta&search_order_by=Prezzo&search_order_by_mode=Ascendente\">ricerca</a>")));
     // Set footer
     $_page->replaceTag('FOOTER', (new Footer));
 

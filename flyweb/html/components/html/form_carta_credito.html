@@ -10,23 +10,23 @@
 
 
             <label for="codiceCarta">Codice carta:</label>
-            <input type="text" class="input input-carta" tabindex="2" name="codiceCarta" id="codiceCarta" required="required"  placeholder="Es. 12345678901123" autocomplete="off" onblur="checkCartaCredito()"/>
+            <input type="number" class="input input-carta" patttabindex="2" name="codiceCarta" id="codiceCarta" required="required"  placeholder="Es. 12345678901123" autocomplete="off" onblur="checkCartaCredito()"/>
             
             <p id="input_error_carta_codice" class="p_input_error"> testo errore </p>
 
 
             <label for="scadenza_mese">Mese di scadenza:</label>
-            <input type="text" class="input input-carta" tabindex="3" name="scadenza_mese" id="scadenza_mese" required="required"  placeholder="Es. 01" autocomplete="off" onblur="checkMonthCarta()"/>
+            <input type="number" class="input input-carta" tabindex="3" min="1" max="12" name="scadenza_mese" id="scadenza_mese" required="required"  placeholder="Es. 01" autocomplete="off" onblur="checkMonthCarta()"/>
             
             <p id="input_error_carta_mese" class="p_input_error"> testo errore </p>
 
             <label for="scadenza_anno">Anno di scadenza:</label>
-            <input type="text" class="input" tabindex="4" name="scadenza_anno"  id="scadenza_anno" required="required" placeholder="Es. 21" autocomplete="off" onblur="checkYearCarta()"/>
+            <input type="number" class="input" tabindex="4" name="scadenza_anno" min="0" max="99" id="scadenza_anno" required="required" placeholder="Es. 21" autocomplete="off" onblur="checkYearCarta()"/>
             
             <p id="input_error_carta_anno" class="p_input_error"> testo errore </p>
 
             <label for="cvv"><abbr lang="en" title="card security code">CVV:</abbr></label>
-            <input type="text" class="input" tabindex="5" name="cvv" id="cvv" required="required" autocomplete="off" placeholder="Es. 989" onblur="checkCVV()"/>
+            <input type="number" class="input" tabindex="5" name="cvv" id="cvv" max="999" required="required" autocomplete="off" placeholder="Es. 989" onblur="checkCVV()"/>
             
             <p id="input_error_carta_cvv" class="p_input_error"> testo errore </p>
 

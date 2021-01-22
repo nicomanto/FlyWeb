@@ -28,7 +28,7 @@
 
     if(!empty($_POST)){
         if($_POST['btn_elimina']){
-            $userController->deleteViaggioCarrello($id_viaggio);
+            $userController->deleteViaggioCarrello($id_elemento_carrello);
         }
     }
 
@@ -56,8 +56,10 @@
 
     $results = '';
     
-    foreach ($paginatedViaggiCarrello['elements'] as $viaggio) {
-        $results .= new CarrelloElementi($viaggio);
+    foreach ($paginatedViaggiCarrello['elements'] as $elementoCarrello) {
+        $id_elemento_carrello = $elementoCarrello['ID_Carrello'];
+        unset($elementoCarrello['ID_Carrello']);
+        $results .= new CarrelloElementi($elementoCarrello, $id_elemento_carrello);
     }
 
     if (empty($results)) {

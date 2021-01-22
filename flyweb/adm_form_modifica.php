@@ -92,7 +92,7 @@
         
         
         if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
-            array_push ( $error , "Campo descrizione breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
+            array_push ( $error , "Campo descrizione breve - la descrizione deve avere un massimo di 200 caratteri");
         }
 
         if(strlen($viaggio['altImmagine'])<5 || strlen($viaggio['altImmagine'])>50){

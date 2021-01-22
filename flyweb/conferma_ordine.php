@@ -55,7 +55,7 @@ use html\Template;
 	$userController->addOrder($ordine);
 
 	$userController->addViaggiOrdine($userController->getID_Order(), $userController->getIDViaggiCarrello());
-	$userController->eliminaCarrello($userController->getID_Carrello());
+	$userController->eliminaCarrello();
 
 	$_page->replaceTag('DATI-INSERITI', '');
 
