@@ -32,7 +32,7 @@
     }
 
     $id_carrello= $userController->getID_Carrello()['ID_Carrello'];
-    $userController->addToCart($id_carrello, $id_viaggio);
+    $userController->addToCart($id_viaggio);
   
 
     // Loading travel detail template
