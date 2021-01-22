@@ -40,10 +40,39 @@ class SearchController extends BaseController {
         // Include all records that have $general on their name
         $general = '%' . $general . '%';
 
-        // TODO: Remove this line: debug only
-        //echo $queryGeneral['query'];
+        // Build params list
+        array_unshift($queryGeneral['params'], $general);
 
-        $travels = $this->db->runQuery($queryGeneral['query'], $general, ...$queryGeneral['params']);
+        $query = 'SELECT * FROM Viaggio WHERE ID_Viaggio IN (SELECT ID_Viaggio FROM TagViaggio WHERE ID_Tag IN (SELECT ID_Tag FROM Tag WHERE Nome LIKE ?))';
+        $queryByTag = $this->buildQuery($query, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode);
+
+        // Concat queries (removing 'order by ... ;')
+        $words = explode( " ", $queryGeneral['query'] );
+        $queryGeneral['query'] = implode(' ', array_splice( $words, 0, -4)) . ' UNION ' .$queryByTag['query'];
+        // Concat params
+        array_push($queryGeneral['params'], $general, $queryByTag['params']); 
+
+        $query = 'SELECT * FROM Viaggio WHERE (Stato LIKE ? OR Citta LIKE ? OR Localita LIKE ?)';
+        $queryByCity = $this->buildQuery($query, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode);
+
+        // Concat queries (removing 'order by ... ;')
+        $words = explode( " ", $queryGeneral['query'] );
+        $queryGeneral['query'] = implode(' ', array_splice( $words, 0, -4)) . ' UNION ' .$queryByCity['query'];
+        // Concat params
+        array_push($queryGeneral['params'], $general, $queryByCity['params']); 
+
+        // TODO: Remove this line: debug only
+        echo $queryGeneral['query'];
+
+        $travels = $this->db->runQuery($queryGeneral['query'], ...$queryGeneral['params']);
+        print_r($travels);
+
+
+        // Get all travels that have $general in places informations
+        array_merge($travels, $this->searchByPlace($general, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode));
+
+        // Get all travels that have $general as a tag
+        array_merge($travels, $this->searchByTag($general, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode));
 
         return $travels;
     }
@@ -73,7 +102,8 @@ class SearchController extends BaseController {
             $query .= ' AND (DataInizio > ?)';
             array_push($params, $start_date);
         } else if (!empty($end_date)) {
-            $query .= ' AND (DataFine < ?)';
+            $query .= ' AND (DataInizio > ?) AND (DataFine < ?)';
+            array_push($params, date("Y-m-d"));
             array_push($params, $end_date);
         }
 
