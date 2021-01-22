@@ -28,9 +28,9 @@ class CarrelloElementi extends baseComponent {
 
         // Load travel properties into template
         $st = $this->travel->id_viaggio;
-        $imagesController = new ImagesController();
+        $imageController = new ImagesController();
 
-        $imagesController = new ImagesController();
+        
 
         // TODO: modificare il modifica
         $this->replaceValues([
