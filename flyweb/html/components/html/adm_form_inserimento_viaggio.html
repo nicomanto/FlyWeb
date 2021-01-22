@@ -1,7 +1,7 @@
 <h1 class="adm-titolo">%TYPE% VIAGGIO</h1>
 
 <ERROR_BOX/>
-<form enctype="multipart/form-data" action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
+<form enctype="multipart/form-data" action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit=" (conferma() && validationData() && validationPrz())">
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
 
@@ -90,7 +90,7 @@
      
      <div>
           <input type="hidden" name="id" id="id" value="%ID%">
-          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" value="INVIA">
+          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" aria-haspopup="dialog" value="INVIA">
           <input class="btn-reset bottoneform" tabindex="14" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
      </div>
  </form>
