@@ -5,7 +5,6 @@ namespace html\components;
 use controllers\ImagesController;
 use html\components\baseComponent;
 use model\Travel;
-use controllers\ImagesController;
 
 class CarrelloElementi extends baseComponent {
 
