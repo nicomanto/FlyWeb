@@ -56,8 +56,10 @@
 
     $results = '';
     
-    foreach ($paginatedViaggiCarrello['elements'] as [$id_elemento_carrello, $viaggio]) {
-        $results .= new CarrelloElementi($viaggio, $id_elemento_carrello);
+    foreach ($paginatedViaggiCarrello['elements'] as $elementoCarrello) {
+        $id_elemento_carrello = $elementoCarrello['ID_Carrello'];
+        unset($elementoCarrello['ID_Carrello']);
+        $results .= new CarrelloElementi($elementoCarrello, $id_elemento_carrello);
     }
 
     if (empty($results)) {
