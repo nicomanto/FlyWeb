@@ -80,7 +80,7 @@ create or replace table Viaggio
 	DataFine date null,
 	Prezzo int default 0 null,
 	Descrizione TEXT null,
-	DescrizioneBreve TEXT null,
+	DescrizioneBreve VARCHAR(200) null,
 	Stato TEXT,
 	Localita TEXT,
 	Citta TEXT,
