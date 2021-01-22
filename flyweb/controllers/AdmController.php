@@ -117,22 +117,6 @@ class AdmController extends BaseController {
         $this->db->runQuery($query, $id)[0];
     }
 
-    //crea relazione integrazione-viaggio (relazione n-n scomposta in 1-n-n-1)
-    public function setIntegrazioniViaggio($id_viaggio, $integrazioni){
-        if(! empty($integrazioni)){
-            foreach(($integrazioni) as $i) {
-                $query_tag= 'INSERT INTO ViaggioIntegrazione(ID_Integrazione,ID_Viaggio) VALUES(?,?);';
-                $this->db->runQuery($query_tag, (int)$i, (int)$id_viaggio);
-            }
-        }
-    }
-
-    //resetta le relazioni tra il viaggio che corrisponde a $id e tutte le integrazioni a lui associate
-    public function resetIntegrazioneViaggio($id){
-        $query = 'DELETE FROM ViaggioIntegrazione WHERE ID_Viaggio = ?;';
-        $this->db->runQuery($query, $id)[0];
-    }
-
 
     public function getTravelIdByTitle($titolo){
         $query = 'SELECT ID_Viaggio FROM Viaggio WHERE Titolo=?';

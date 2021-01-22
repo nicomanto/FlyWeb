@@ -55,26 +55,6 @@ function validationPrz(){
         }
 }
 
-
-function validationDurata(){
-    var d  = document.getElementById("durata_integrazione").value;
-
-
-    if(d!=null && d < 0){
-        document.getElementById("durata_integrazione").style.border = "2px solid red";
-
-    
-        document.getElementById("input_error_durata").style.color = 'red';
-            document.getElementById("input_error_durata").style.visibility = 'visible';
-            document.getElementById("input_error_durata").innerHTML = "errore: durata dev'essere maggiore o uguale a zero";
-            return false;
-        }else{
-            document.getElementById("durata_integrazione").style.border = "2px solid #0a3150";
-            document.getElementById("input_error_durata").style.visibility = 'hidden';
-            return true;
-        }
-}
-
 //#endregion
 
 
@@ -517,7 +497,7 @@ function scrollFunction() {
 
 window.onscroll = function() {scrollFunction()};
 
-checkboxintegrazione();
+/*checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();
-aggiungiTag();
+aggiungiTag();*/

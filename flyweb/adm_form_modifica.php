@@ -104,12 +104,10 @@
         if(empty($error)){
             $str= "aggiornamento";
             $admController->resetTagViaggio($viaggio['id']);
-            $admController->resetIntegrazioneViaggio($viaggio['id']);
             $admController->aggiornaViaggio($viaggio);
             if(! empty($viaggio['tag'])){
                 $admController->setTagViaggio($viaggio['id'],$viaggio['tag']);
             }
-            $admController->setIntegrazioniViaggio($viaggio['id'],$viaggio['integrazioni']);
 
             $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($t,$str)));
 
