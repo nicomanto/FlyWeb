@@ -65,7 +65,7 @@ class SearchController extends BaseController {
         echo $queryGeneral['query'];
 
         $travels = $this->db->runQuery($queryGeneral['query'], ...$queryGeneral['params']);
-        print_r($travels);
+        // print_r($travels);
 
 
         // Get all travels that have $general in places informations
