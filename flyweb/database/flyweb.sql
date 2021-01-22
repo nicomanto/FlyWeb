@@ -97,9 +97,9 @@ alter table Carrello
 
 create or replace table OrdineViaggio
 (
+	ID int auto_increment primary key,
 	ID_Ordine int not null,
 	ID_Viaggio int not null,
-	primary key (ID_Ordine, ID_Viaggio),
 	constraint OrdineViaggio_ibfk_1
 		foreign key (ID_Ordine) references Ordine (ID_Ordine) ON DELETE CASCADE,
 	constraint OrdineViaggio_ibfk_2
