@@ -29,6 +29,10 @@ class RouteController {
 
     public static function loggedRoute(): void {
         if (!$_SESSION['logged_in']) {
+            
+            // Store request for after-login redirect
+            $_SESSION['redirect_uri'] = $_SERVER['REQUEST_URI'];
+
             header('location:./login.php');
             exit;
         }

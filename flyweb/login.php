@@ -75,11 +75,23 @@
                 if ($loggedIn['Admin']) {
                     // Redirect to Administration page
                     $_SESSION['admin'] = true;
+
+                    unset($_SESSION['redirect_uri']);
+                    unset($_SESSION['redirect_body']);
+
+                    // Redirect to admin home
                     header('location:./adm_index.php');
                 } else {
-                    // Redirect to home page
                     $_SESSION['admin'] = false;
-                    header('location:./index.php');
+
+                    // Check if redirection is needed
+                    if (!empty($_SESSION['redirect_uri'])) {
+                        // redirect to previously requested page
+                        header('location:' . $_SESSION['redirect_uri']);
+                    } else {
+                        // Redirect to home page
+                        header('location:./index.php');
+                    }
                 }
     
                 exit();
