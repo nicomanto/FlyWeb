@@ -23,7 +23,11 @@ use controllers\UserController;
 
 	$userController = new UserController();
 
-	//$_SESSION['metodopagamento'] = $_POST['metodopagamento'];
+	$_SESSION['metodopagamento']=$_POST['metodopagamento'];
+	
+	echo($_SESSION['metodopagamento']);
+	echo("!!!");
+	echo($_POST['metodopagamento']);
 	
 	$_page= new Template('procedura_acquisto');
 
