@@ -11,8 +11,8 @@ class SearchController extends BaseController {
         $place = '%' . $place . '%';
 
         // TODO: Remove this line: debug only
-        echo $queryByCity['query'];
-        print_r($queryByCity['params']);
+        // echo $queryByCity['query'];
+        // print_r($queryByCity['params']);
 
         $travels = $this->db->runQuery($queryByCity['query'], $place, $place, $place, ...$queryByCity['params']);
 
@@ -26,8 +26,8 @@ class SearchController extends BaseController {
         $tag = '%' . $tag . '%';
 
         // TODO: Remove this line: debug only
-        echo $queryByTag['query'];
-        print_r($queryByTag['params']);
+        // echo $queryByTag['query'];
+        // print_r($queryByTag['params']);
 
         $travels = $this->db->runQuery($queryByTag['query'], $tag, ...$queryByTag['params']);
 
@@ -64,8 +64,8 @@ class SearchController extends BaseController {
         array_push($queryGeneral['params'], $general, $general, $general, ...$queryByCity['params']); 
 
         // TODO: Remove this line: debug only
-        echo $queryGeneral['query'];
-        print_r($queryGeneral['params']);
+        // echo $queryGeneral['query'];
+        // print_r($queryGeneral['params']);
 
         $travels = $this->db->runQuery($queryGeneral['query'], ...$queryGeneral['params']);
         // print_r($travels);
