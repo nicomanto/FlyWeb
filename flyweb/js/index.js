@@ -85,7 +85,7 @@ function checkCartaCredito(){
     return true;
 }
 
-function checkMonthCarta(){
+/*function checkMonthCarta(){
     var mese_carta  = document.getElementById("scadenza_mese").value;
     var error_id_message=document.getElementById("input_error_carta_mese");
     var reg_expr= /^[\d]{1,2}$/;
@@ -114,43 +114,28 @@ function checkMonthCarta(){
     }
 
     return true;
-}
+}*/
 
-function checkYearCarta(){
-    var anno_carta  = document.getElementById("scadenza_anno").value;
-    var mese_carta  = document.getElementById("scadenza_mese").value;
-    var error_id_message=document.getElementById("input_error_carta_anno");
-    var reg_expr= /^[\d]{2}$/;
-    var today= new Date();
-    //alert(today.getFullYear().toString().slice(2));
+function checkScadenzaCarta(){
+    var scadenza_carta  = document.getElementById("scadenza_carta").value;
+    var error_id_message=document.getElementById("input_error_scadenza_carta");
+    var today= new Date().toISOString().slice(0,7);
 
-    if(anno_carta){
-        if(anno_carta<0){
+    if(scadenza_carta){
+        if(today > scadenza_carta){
             error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve essere maggiore di 0";
-            return false;
-        }
-        else if((anno_carta.search(reg_expr) !=0)){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve avere due cifre (es. 21 per 2021)";
-            return false;
-        }
-        else if(mese_carta && (today.getFullYear().toString().slice(2)> anno_carta || (today.getFullYear().toString().slice(2)== anno_carta && today.getMonth()> mese_carta))){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
+            document.getElementById("scadenza_carta").style.border = "2px solid red";
             error_id_message.innerHTML = "La tua carta è scaduta";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
-            document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+            document.getElementById("scadenza_carta").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
-        document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+        document.getElementById("scadenza_carta").style.border = "2px solid #0a3150";
     }
 
     return true;
