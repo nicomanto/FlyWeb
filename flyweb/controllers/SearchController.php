@@ -62,7 +62,7 @@ class SearchController extends BaseController {
         array_push($queryGeneral['params'], $general, $queryByCity['params']); 
 
         // TODO: Remove this line: debug only
-        echo $queryGeneral['query'];
+        // echo $queryGeneral['query'];
 
         $travels = $this->db->runQuery($queryGeneral['query'], ...$queryGeneral['params']);
         // print_r($travels);

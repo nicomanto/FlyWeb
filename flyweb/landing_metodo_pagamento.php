@@ -18,6 +18,10 @@
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
+    echo($_SESSION['metodopagamento']);
+	echo("!!!");
+	echo($_POST['metodopagamento']);
+  
     $userController=new UserController();
 
     $_page= new Template('procedura_acquisto');
@@ -37,30 +41,46 @@
 
     $_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
-    extract($_POST, EXTR_SKIP);
-   // $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-    echo($_SESSION['metodopagamento']);
+  
+
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
     $_page->replaceTag('INSERIMENTO-DATI', '');
 
     $_page->replaceTag('TOTALE', '');
+    
+   
+    if (!(isset($_POST['metodopagamento']))){
+        $_POST['metodopagamento'] = $_SESSION['metodopagamento']; }
+        $_SESSION['metodopagamento'] = $_POST['metodopagamento'] ;
+    
+
+    if(isset($_SESSION['metodopagamento'])){
+        // $variabile=$_SESSION['metodopagamento'];
+        // $_POST['metodopagamento'] = $variabile;
+             if ($_SESSION['metodopagamento'] == 'paypal'){
+                 $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
+         }else if ($_SESSION['metodopagamento'] == 'carta'){
+             $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));
+     }
+ }
+
+ $_SESSION['metodopagamento'] = $_POST['metodopagamento'] ;
 
     if ($_POST['metodopagamento'] == 'paypal') {
         $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
     }else if ($_POST['metodopagamento'] == 'carta'){
         $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));}
 
-    if(isset($_SESSION['metodopagamento'])){
-        $variabile=$_SESSION['metodopagamento'];
-        $_POST['metodopagamento'] = $variabile;
-            if ($variabile == 'paypal'){
-                $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormPaypal()));
-        }else if ($variabile == 'carta'){
-            $_page->replaceTag('INSERIMENTO-METODO-PAGAMENTO', (new FormCartaCredito()));
-    }
-} 
+
+        
+    
+    // };
+
+ 
+
+
 
 
     $_page->replaceTag('FOOTER', (new Footer));
