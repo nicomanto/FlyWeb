@@ -442,7 +442,6 @@ function hamb() {
         menu.classList.add("show-menumobile");
         hmb.setAttribute("aria-label", "Chiudi il menù");
         hmb.setAttribute("aria-expanded", "true");
-        navmenu.classList.add("fixheight");
         menu.classList.remove("hide-menumobile");
 
         document.getElementById("menu").focus();
