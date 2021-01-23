@@ -725,6 +725,21 @@ input[type=number]::-webkit-outer-spin-button {
     outline: none;
     box-shadow: none;
 }
+.board-contenuto .search-key{
+    width: 90%;
+
+}
+.board-contenuto .search-input-field span{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.board-contenuto .search-submit-field, .board-contenuto .search-input-field{
+    display: block;
+    margin: 0.5em 0 0.5em 0;
+    width: 100%;
+}
 
 /* === adattamento form alla dash di amministrazione === */
 .board-flex-container .search-box{
@@ -1735,6 +1750,7 @@ input[type=number]::-webkit-outer-spin-button {
       .board-menu  .mm-hamburger{
         display: none;
       }
+
 }
 @media only screen and (max-width: 768px){
 
