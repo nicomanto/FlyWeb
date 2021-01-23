@@ -197,18 +197,6 @@ button a{
 }
 /* === DASHBOARD MENU === */
 
-.board-flex-container .hide-menumobile, .board-flex-container .display-menumobile{
-    display: block;
-}
-
-.board-flex-container .mm-logo{
-    width: fit-content;
-}
-
-.board-flex-container .main-menu, .board-flex-container .mm-item{
-    background-color: #0a3150;
-}
-
 .menu-dashboard{
     background-color: #0a3150;
     text-align: center;
