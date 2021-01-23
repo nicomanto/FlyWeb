@@ -34,10 +34,17 @@ class Travel {
      * Maps values from array (used to convert db associative arrays into Travel objects)
      */
     public function __construct1(array $travel) {
+        $timestamp = strtotime($travel['DataInizio']);
+        $data_inizio = date("d/m/Y", $timestamp);
+
+        $timestamp = strtotime($travel['DataFine']);
+        $data_fine = date("d/m/Y", $timestamp);
+
+
         $this->id_viaggio = $travel['ID_Viaggio'];
         $this->titolo = $travel['Titolo'];
-        $this->data_inizio = $travel['DataInizio'];
-        $this->data_fine = $travel['DataFine'];
+        $this->data_inizio = $data_inizio;
+        $this->data_fine = $data_fine;
         $this->prezzo = $travel['Prezzo'];
         $this->descrizione = $travel['Descrizione'];
         $this->descrizioneBreve = $travel['DescrizioneBreve'];

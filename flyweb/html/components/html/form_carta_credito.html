@@ -1,6 +1,6 @@
 <h1 class="titolo-pagina">Inserimento carta di credito</h1>
 <div class="inserimento-dati-carta">
-    <form  method="POST" class="dash-form form-registrazione" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit="return (checkCartaCredito() && validationTipoNome('input_error_carta_nome','titolareCarta') && checkMonthCarta() && checkYearCarta() && checkCVV())">
+    <form  method="POST" class="dash-form form-registrazione" name="form_carta_credito" id="form_carta_credito" action="./dati_fatturazione.php" onsubmit=" (checkCartaCredito() && validationTipoNome('input_error_carta_nome','titolareCarta') && checkScadenzaCarta() && checkCVV())">
         <fieldset>
             <legend>Inserire il metodo di pagamento</legend>
             <label for="titolareCarta">Titolare carta:</label>
@@ -14,25 +14,18 @@
             
             <p id="input_error_carta_codice" class="p_input_error"> testo errore </p>
 
-
-            <label for="scadenza_mese">Mese di scadenza:</label>
-            <input type="number" class="input input-carta" tabindex="3" min="1" max="12" name="scadenza_mese" id="scadenza_mese" required="required"  placeholder="Es. 01" autocomplete="off" onblur="checkMonthCarta()"/>
-            
-            <p id="input_error_carta_mese" class="p_input_error"> testo errore </p>
-
-            <label for="scadenza_anno">Anno di scadenza:</label>
-            <input type="number" class="input" tabindex="4" name="scadenza_anno" min="0" max="99" id="scadenza_anno" required="required" placeholder="Es. 21" autocomplete="off" onblur="checkYearCarta()"/>
-            
-            <p id="input_error_carta_anno" class="p_input_error"> testo errore </p>
+            <label for="scadenza_carta">Scadenza carta:</label>
+            <input type="month" class="input input-carta" pattern="(\d{4})-(0?[1-9]|1[0-2])" tabindex="3" name="scadenza_carta" id="scadenza_carta" required="required"  placeholder="yyyy-mm" autocomplete="off" onblur="checkScadenzaCarta()"/>
+            <p id="input_error_scadenza_carta" class="p_input_error"> testo errore </p>
 
             <label for="cvv"><abbr lang="en" title="card security code">CVV:</abbr></label>
-            <input type="number" class="input" tabindex="5" name="cvv" id="cvv" max="999" required="required" autocomplete="off" placeholder="Es. 989" onblur="checkCVV()"/>
+            <input type="number" class="input" tabindex="4" name="cvv" id="cvv" max="999" required="required" autocomplete="off" placeholder="Es. 989" onblur="checkCVV()"/>
             
             <p id="input_error_carta_cvv" class="p_input_error"> testo errore </p>
 
             <input type="hidden" name="metodopagamento" value="%METODOPAGAMENTO%">
 
-            <input type="submit" class="adm-bottone-modifica-card" tabindex="6"  id="submit" value="Avanti">
+            <input type="submit" class="adm-bottone-modifica-card" tabindex="5"  id="submit" value="Avanti">
         </fieldset>
     </form>
 </div>

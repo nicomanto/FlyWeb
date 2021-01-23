@@ -1,7 +1,7 @@
 <h1 class="adm-titolo">%TYPE% VIAGGIO</h1>
 
 <ERROR_BOX/>
-<form enctype="multipart/form-data" action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit="return (conferma() && validationData() && validationPrz())">
+<form enctype="multipart/form-data" action='%LINK_ACTION%' method="POST" class="dash-form" id="form_inserimento_viaggio" onsubmit=" (conferma() && validationData() && validationPrz())">
           <fieldset id="fieldTitoloDescrizioni">
                <legend>Titolo e descrizioni</legend>
 
@@ -43,10 +43,10 @@
                <legend>Date temporali del viaggio</legend>
 
                <label for="datainizio"><strong>DATA INIZIO VIAGGIO</strong></label>
-               <input type="date" class="input input-date" tabindex="7" name="datainizio" id="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%"> 
+               <input type="date" class="input input-date" tabindex="7" name="datainizio" id="datainizio" onblur="validationData()"  pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" required="required" placeholder="dd/mm/aaaa" value="%DATAINIZIO%"> 
 
                <label for="datafine"><strong>DATA FINE VIAGGIO</strong></label>
-                    <input type="date" class="input input-date" tabindex="8" name="datafine" id="datafine" onblur="validationData()" required="required" value="%DATAFINE%">
+                    <input type="date" class="input input-date" tabindex="8" name="datafine" id="datafine" onblur="validationData()" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" required="required" placeholder="dd/mm/aaaa" value="%DATAFINE%">
 
                <p id="input_error_datafine" class="p_input_error"> testo errore </p>
           </fieldset>
@@ -77,7 +77,7 @@
 
      
         <fieldset>
-          <legend>Tag e integrazioni</legend>
+          <legend>Tag</legend>
 
           <div class="miscellanea">
 
@@ -90,7 +90,7 @@
      
      <div>
           <input type="hidden" name="id" id="id" value="%ID%">
-          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" value="INVIA">
+          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" aria-haspopup="dialog" value="INVIA">
           <input class="btn-reset bottoneform" tabindex="14" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
      </div>
  </form>

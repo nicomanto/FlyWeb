@@ -29,6 +29,11 @@ class Review {
      * Maps values from array (used to convert db associative arrays into Review objects)
      */
     public function __construct1(array $review) {
+
+        
+        $timestamp = strtotime($review['Data']);
+        $data_recensione = date("d/m/Y", $timestamp);
+
         $this->id_recensione = $review['ID_Recensione'];
         $this->titolo = $review['Titolo'];
         $this->valutazione = $review['Valutazione'];
@@ -36,7 +41,7 @@ class Review {
         $this->mod = $review['Mod'];
         $this->id_utente = $review['ID_Utente'];
         $this->mod= $review['Mod'];
-        $this->data=$review['Data'];
+        $this->data=$data_recensione;
         $this->lingua=$review['Lingua'];
     }
 

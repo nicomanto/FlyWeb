@@ -90,6 +90,19 @@
             array_push ( $error , "Campo Cognome: deve contenere almeno delle lettere");
         }
 
+        /*Reverse date for Safary users*/
+        if(strpos($data_nascita, '/') !== false){
+            $data=explode( '/', $data_nascita );
+            $data= array_reverse($data);
+            $data_nascita="";
+            
+            foreach($data as $i){
+                $data_nascita.=$i.'-';
+            }
+
+            $data_nascita=rtrim($data_nascita, '-');
+        }
+        
         $data = new DateTime($data_nascita); // Your date of birth
         $today = new Datetime(date('Y-m-d'));
         $diff = $today->diff($data);

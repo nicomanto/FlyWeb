@@ -11,14 +11,14 @@ function conferma(){
 
 //#region       - - -  VALIDAZIONE FORM  - - -
 
-function validationDataInizio(){
-    document.getElementById("p").textContent += " this has just been added";
-}
 
 function validationData(){
     
     var dataInizio  = document.getElementById("datainizio").value;
     var dataFine    = document.getElementById("datafine").value;
+
+    dataInizio=dataInizio.replace(/\//g,"-");
+    dataFine=dataFine.replace(/\//g,"-");
 
     if(dataInizio && dataFine){
         if(dataInizio > dataFine){
@@ -55,26 +55,6 @@ function validationPrz(){
         }
 }
 
-
-function validationDurata(){
-    var d  = document.getElementById("durata_integrazione").value;
-
-
-    if(d!=null && d < 0){
-        document.getElementById("durata_integrazione").style.border = "2px solid red";
-
-    
-        document.getElementById("input_error_durata").style.color = 'red';
-            document.getElementById("input_error_durata").style.visibility = 'visible';
-            document.getElementById("input_error_durata").innerHTML = "errore: durata dev'essere maggiore o uguale a zero";
-            return false;
-        }else{
-            document.getElementById("durata_integrazione").style.border = "2px solid #0a3150";
-            document.getElementById("input_error_durata").style.visibility = 'hidden';
-            return true;
-        }
-}
-
 //#endregion
 
 
@@ -105,72 +85,26 @@ function checkCartaCredito(){
     return true;
 }
 
-function checkMonthCarta(){
-    var mese_carta  = document.getElementById("scadenza_mese").value;
-    var error_id_message=document.getElementById("input_error_carta_mese");
-    var reg_expr= /^[\d]{1,2}$/;
+function checkScadenzaCarta(){
+    var scadenza_carta  = document.getElementById("scadenza_carta").value;
+    var error_id_message=document.getElementById("input_error_scadenza_carta");
+    var today= new Date().toISOString().slice(0,7);
 
-    if(mese_carta){
-        if(mese_carta > 12 || mese_carta < 1){
+    if(scadenza_carta){
+        if(today > scadenza_carta){
             error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_mese").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve essere compreso fra 1 e 12";
-            return false;
-        }
-        else if(mese_carta.search(reg_expr) !=0){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_mese").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 01 o 1 per Gennaio)";
-            return false;
-        }
-        else{
-            error_id_message.style.visibility = 'hidden';
-            document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
-        }
-    }
-    else{
-        error_id_message.style.visibility = 'hidden';
-        document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
-    }
-
-    return true;
-}
-
-function checkYearCarta(){
-    var anno_carta  = document.getElementById("scadenza_anno").value;
-    var mese_carta  = document.getElementById("scadenza_mese").value;
-    var error_id_message=document.getElementById("input_error_carta_anno");
-    var reg_expr= /^[\d]{2}$/;
-    var today= new Date();
-    //alert(today.getFullYear().toString().slice(2));
-
-    if(anno_carta){
-        if(anno_carta<0){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve essere maggiore di 0";
-            return false;
-        }
-        else if((anno_carta.search(reg_expr) !=0)){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve avere due cifre (es. 21 per 2021)";
-            return false;
-        }
-        else if(mese_carta && (today.getFullYear().toString().slice(2)> anno_carta || (today.getFullYear().toString().slice(2)== anno_carta && today.getMonth()> mese_carta))){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_anno").style.border = "2px solid red";
+            document.getElementById("scadenza_carta").style.border = "2px solid red";
             error_id_message.innerHTML = "La tua carta è scaduta";
             return false;
         }
         else{
             error_id_message.style.visibility = 'hidden';
-            document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+            document.getElementById("scadenza_carta").style.border = "2px solid #0a3150";
         }
     }
     else{
         error_id_message.style.visibility = 'hidden';
-        document.getElementById("scadenza_anno").style.border = "2px solid #0a3150";
+        document.getElementById("scadenza_carta").style.border = "2px solid #0a3150";
     }
 
     return true;
@@ -420,7 +354,7 @@ function validationPasswordRepeat(){
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
     var error_id_message=document.getElementById("input_error_data_nascita");
-
+    
     if(dataNascita){
         if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
@@ -445,8 +379,20 @@ function validationDataNascita(){
 
 
 function getAge(data_nascita){
-    now = new Date();
-    split=data_nascita.split('-');
+    var now = new Date();
+    var needReverse=false;
+    //alert(data_nascita);
+    if(data_nascita.includes('/')){
+        data_nascita=data_nascita.replace(/\//g,"-");
+        needReverse=true;
+    }
+    
+    var split=data_nascita.split('-');
+
+    if(needReverse){
+        split.reverse();
+    }
+    
     var diff = now.getTime() - new Date(split[0],split[1]-1,split[2]).getTime();
     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }
@@ -517,7 +463,7 @@ function scrollFunction() {
 
 window.onscroll = function() {scrollFunction()};
 
-checkboxintegrazione();
+/*checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();
-aggiungiTag();
+aggiungiTag();*/

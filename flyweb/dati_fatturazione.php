@@ -49,17 +49,11 @@ use controllers\UserController;
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: deve contenere almeno delle lettere, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if (!preg_match("/^[\d]{13,16}$/", $_POST['codiceCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La carta di credito è formata da 13 a 16 numeri, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if ((int)$_POST['scadenza_mese'] > 12 || (int)$_POST['scadenza_mese'] < 1) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il mese di scadenza deve essere compreso fra 1 e 12, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (!preg_match("/^[\d]{1,2}$/",(int)$_POST['scadenza_mese'])) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il mese di scadenza deve avere al massimo due cifre (es. 01 o 1 per Gennaio), riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if ((int)$_POST['scadenza_anno'] < 0) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: L\'anno di scadenza deve essere positivo, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if (!preg_match("/^[\d]{2}$/",(int)$_POST['scadenza_anno'])) {
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: L\'anno di scadenza deve avere due cifre (es. 21 per 2021), riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
+		} else if($_POST['scadenza_carta']==''){
+			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: scadenza della carta di credito mancante', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if (!preg_match("/^[\d]{3}$/",$_POST['cvv'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il codice CVV deve avere al massimo 3 cifre, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if(date('y')>(int)$_POST['scadenza_anno'] || (date('m')>(int)$_POST['scadenza_mese'] && date('y')==(int)$_POST['scadenza_anno'])){
+		} else if(date('Y-m')>$_POST['scadenza_carta']){
         	$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La tua carta è scaduta, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else {
 			if(isset($_SESSION['fatturazione'])){
