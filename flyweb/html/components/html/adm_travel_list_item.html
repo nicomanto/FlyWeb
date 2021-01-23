@@ -9,7 +9,7 @@
             <input type="submit" class="adm-bottone-modifica-card" name="modifica" value="MODIFICA" title="modifica viaggio %TRAVEL_TITLE%">
         </form>
         <form action="./adm_landing_form_eliminazione.php" method="get" aria-haspopup="dialog" class="adm-form-card"
-            onsubmit="ConfermaEliminazione()">
+            onsubmit="return ConfermaEliminazione()">
             <input type="hidden" name="par_id" value="%ST%">
             <input type="submit" class="adm-bottone-elimina-card" name="elimina" value="ELIMINA" aria-haspopup="dialog" title="elimina viaggio %TRAVEL_TITLE%">
         </form>

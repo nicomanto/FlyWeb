@@ -56,26 +56,29 @@
             array_push ( $error , "Campo Cognome: deve contenere almeno delle lettere");
         }
 
-
-        /*Reverse date for Safary users*/
-        if(strpos($data_nascita, '/') !== false){
-            $data=explode( '/', $data_nascita );
-            $data= array_reverse($data);
-            $data_nascita="";
-            
-            foreach($data as $i){
-                $data_nascita.=$i.'-';
-            }
-
-            $data_nascita=rtrim($data_nascita, '-');
+        if(!preg_match("/(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/",$data_nascita)){
+            array_push ( $error , "Campo Data di nascita: non è scritto nel formato richiesto");
         }
+        else{
+            /*Reverse date*/
+            if(strpos($data_nascita, '/') !== false){
+                $data=explode( '/', $data_nascita );
+                $data= array_reverse($data);
+                $data_nascita="";
+                
+                foreach($data as $i){
+                    $data_nascita.=$i.'-';
+                }
 
-        $data = new DateTime($data_nascita); // Your date of birth
-        $today = new Datetime(date('Y-m-d'));
-        $diff = $today->diff($data);
+                $data_nascita=rtrim($data_nascita, '-');
+            }
+            $data = new DateTime($data_nascita); // Your date of birth
+            $today = new Datetime(date('Y-m-d'));
+            $diff = $today->diff($data);
 
-        if($diff->y<14){
-            array_push ( $error , "Campo Data di nascita: devi avere almeno 14 anni per registrarti");
+            if($diff->y<14){
+                array_push ( $error , "Campo Data di nascita: devi avere almeno 14 anni per registrarti");
+            }
         }
 
         if(!preg_match("/^[\w@#-]{4,15}$/",$username)){
