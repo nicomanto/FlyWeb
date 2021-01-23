@@ -39,7 +39,7 @@
 
     extract($_POST, EXTR_SKIP);
    // $_SESSION['metodopagamento'] = $_POST['metodopagamento'];
-    //echo($_SESSION['metodopagamento']);
+    echo($_SESSION['metodopagamento']);
 
     $_page->replaceTag('VIAGGI-DA-ACQUISTARE', '');
 
