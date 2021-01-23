@@ -11,14 +11,14 @@ function conferma(){
 
 //#region       - - -  VALIDAZIONE FORM  - - -
 
-function validationDataInizio(){
-    document.getElementById("p").textContent += " this has just been added";
-}
 
 function validationData(){
     
     var dataInizio  = document.getElementById("datainizio").value;
     var dataFine    = document.getElementById("datafine").value;
+
+    dataInizio=dataInizio.replace(/\//g,"-");
+    dataFine=dataFine.replace(/\//g,"-");
 
     if(dataInizio && dataFine){
         if(dataInizio > dataFine){
