@@ -52,7 +52,7 @@ class SearchController extends BaseController {
         $words = explode( " ", $queryGeneral['query'] );
         $queryGeneral['query'] = implode(' ', array_splice( $words, 0, -4)) . ' UNION ' .$queryByTag['query'];
         // Concat params
-        array_push($queryGeneral['params'], $general, $queryByTag['params']); 
+        array_push($queryGeneral['params'], $general, ...$queryByTag['params']); 
 
         $query = 'SELECT * FROM Viaggio WHERE (Stato LIKE ? OR Citta LIKE ? OR Localita LIKE ?)';
         $queryByCity = $this->buildQuery($query, $start_date, $end_date, $start_price, $end_price, $order_by, $order_by_mode);
@@ -61,7 +61,7 @@ class SearchController extends BaseController {
         $words = explode( " ", $queryGeneral['query'] );
         $queryGeneral['query'] = implode(' ', array_splice( $words, 0, -4)) . ' UNION ' .$queryByCity['query'];
         // Concat params
-        array_push($queryGeneral['params'], $general, $queryByCity['params']); 
+        array_push($queryGeneral['params'], $general, $general, $general, ...$queryByCity['params']); 
 
         // TODO: Remove this line: debug only
         echo $queryGeneral['query'];
@@ -108,6 +108,9 @@ class SearchController extends BaseController {
             $query .= ' AND (DataInizio > ?) AND (DataFine < ?)';
             array_push($params, date("Y-m-d"));
             array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $end_date))));
+        } else {
+            $query .= ' AND (DataInizio > ?)';
+            array_push($params, date("Y-m-d"));
         }
 
         // Eventually add price filter
