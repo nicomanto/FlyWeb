@@ -741,12 +741,12 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight     : bold;
 }
 
-.checkboxes-integrazioni{
+.checkboxes-pagamento{
     text-align: left;
     padding: 0 0 0 25%;
 }
 
-.checkboxes-integrazioni input[type=checkbox]{
+.checkboxes-pagamento input[type=checkbox]{
     height          : 2em;
     width           : 2em;
     vertical-align  : middle;

@@ -93,6 +93,9 @@
             array_push ( $error , "Campi data - data di inizio dev'essere antecedente alla data di fine");
         }
 
+        if($viaggio['descrizioneBreve']==''){
+            array_push ( $error , "Campo descrizione breve mancante");
+        }
 
         if($viaggio['prezzo']<0){
             array_push ( $error , "Campo prezzo - Il prezzo non può essere negativo");
@@ -102,8 +105,8 @@
 
         
         
-        if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
-            array_push ( $error , "Campo descrizione breve - la descrizione deve avere un minimo di 100 caratteri ed un massimo di 300 caratteri");
+        if(strlen($viaggio['descrizioneBreve'])>200){
+            array_push ( $error , "Campo descrizione breve - la descrizione deve avere un massimo di 200 caratteri");
         }
 
         if(strlen($viaggio['altImmagine'])<5 || strlen($viaggio['altImmagine'])>50){
@@ -119,7 +122,6 @@
             if(!empty($viaggio['tag'])){
                 $admController->setTagViaggio($v_id,$viaggio['tag']);
             }
-            $admController->setIntegrazioniViaggio($v_id,$viaggio['integrazioni']);
 
 
             $page->replaceTag('ADM-CONTENUTO', (new AdmSuccesso($t,$str)));

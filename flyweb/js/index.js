@@ -55,26 +55,6 @@ function validationPrz(){
         }
 }
 
-
-function validationDurata(){
-    var d  = document.getElementById("durata_integrazione").value;
-
-
-    if(d!=null && d < 0){
-        document.getElementById("durata_integrazione").style.border = "2px solid red";
-
-    
-        document.getElementById("input_error_durata").style.color = 'red';
-            document.getElementById("input_error_durata").style.visibility = 'visible';
-            document.getElementById("input_error_durata").innerHTML = "errore: durata dev'essere maggiore o uguale a zero";
-            return false;
-        }else{
-            document.getElementById("durata_integrazione").style.border = "2px solid #0a3150";
-            document.getElementById("input_error_durata").style.visibility = 'hidden';
-            return true;
-        }
-}
-
 //#endregion
 
 
@@ -420,7 +400,7 @@ function validationPasswordRepeat(){
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
     var error_id_message=document.getElementById("input_error_data_nascita");
-
+    
     if(dataNascita){
         if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
@@ -445,8 +425,20 @@ function validationDataNascita(){
 
 
 function getAge(data_nascita){
-    now = new Date();
-    split=data_nascita.split('-');
+    var now = new Date();
+    var needReverse=false;
+    //alert(data_nascita);
+    if(data_nascita.includes('/')){
+        data_nascita=data_nascita.replace(/\//g,"-");
+        needReverse=true;
+    }
+    
+    var split=data_nascita.split('-');
+
+    if(needReverse){
+        split.reverse();
+    }
+    
     var diff = now.getTime() - new Date(split[0],split[1]-1,split[2]).getTime();
     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
 }
@@ -517,7 +509,7 @@ function scrollFunction() {
 
 window.onscroll = function() {scrollFunction()};
 
-checkboxintegrazione();
+/*checkboxintegrazione();
 checkboxformviaggio();
 forminserimento();
-aggiungiTag();
+aggiungiTag();*/

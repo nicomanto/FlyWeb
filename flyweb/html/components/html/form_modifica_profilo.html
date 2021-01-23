@@ -27,7 +27,7 @@
             <p id="input_error_cognome" class="p_input_error"> testo errore </p>
 
             <label for="data_nascita">Data di nascita:</label>
-            <input type="date" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%" onblur="validationDataNascita()">
+            <input type="date" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%" placeholder="dd/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" onblur="validationDataNascita()">
             <p id="input_error_data_nascita" class="p_input_error"> testo errore </p>
         
             <input type="submit" class="adm-bottone-modifica-card" name="submit" tabindex="6" id="submit" value="Salva i nuovi dati">

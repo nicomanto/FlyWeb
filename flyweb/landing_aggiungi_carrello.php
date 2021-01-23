@@ -23,7 +23,7 @@
         $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
         unset($_SESSION['redirect_body']);
     } else {
-        header('Location: ./index.html');
+        header('Location: ./index.php');
     }
 
     $travelController = new TravelController((int)$id_viaggio);
@@ -62,7 +62,7 @@
 
     $_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb))); 
 
-    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, prosegui al <a class=\"upper_link\" lang=\"en\" href=\"./carrello.php\">carrello</a> o continua la <a class=\"upper_link\" href=\"././search.php?search_key=&search_button=CERCA&search_start_date=&search_end_date=&search_end_price=&search_start_price=&search_by_option=Citta&search_order_by=Prezzo&search_order_by_mode=Ascendente\">ricerca</a>")));
+    $_page->replaceTag('AGGIUNGI-CARRELLO', (new ResponseMessage("Hai inserito il viaggio nel carrello, prosegui al <a class=\"upper_link\" lang=\"en\" href=\"./carrello.php\">carrello</a> o continua la <a class=\"upper_link\" href=\"./search.php?search_key=&search_button=CERCA&search_start_date=&search_end_date=&search_end_price=&search_start_price=&search_by_option=Citta&search_order_by=Prezzo&search_order_by_mode=Ascendente\">ricerca</a>")));
     // Set footer
     $_page->replaceTag('FOOTER', (new Footer));
 

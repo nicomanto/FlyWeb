@@ -107,7 +107,7 @@ class FormViaggio extends baseComponent
             'prezzo' => $_POST['prezzo'],
             'id' => $_POST['id'],
             'tag' => isset($_POST['tag']) ? $_POST['tag'] : array(),
-            'integrazioni' => $_POST['integrazioni'],
+            //'integrazioni' => $_POST['integrazioni'],
             'altImmagine' => $_POST['altImmagine']
         ];
 
