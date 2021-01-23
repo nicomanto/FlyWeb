@@ -82,7 +82,7 @@
     }
     else{
         $_page->replaceTag('RISULTATI_SEARCH', 
-        '<h1 class="titolo-pagina">Risultati della ricerca: </h1>
+        '<h1 class="titolo-pagina risultati-ricerca">Risultati della ricerca: </h1>
         <ul class="travels-list" title="lista dei viaggi risultanti dalla ricerca">' 
         . $searchResults .
         '</ul>');

@@ -23,10 +23,10 @@ class PageSelectorItem extends baseComponent {
     public function render(): string {
         // Select class based on if the page is the current page or not
         if ($this->isCurrentPage) {
-            $element = "<span class=\"button-selector-page disabled\">$this->pageNumber</span>";
+            $element = "<span class=\"button-selector-page disabled\" aria-label=\"Sei nella pagina $this->pageNumber\" aria-current=\"page\">$this->pageNumber</span>";
         } else {
             $this->url = $this->buildPageUrl($this->pageNumber);
-            $element = "<a href=\"$this->url\" class=\"button-selector-page\">$this->pageNumber<\a>";
+            $element = "<a href=\"$this->url\" class=\"button-selector-page\" aria-label=\"Vai alla pagina $this->pageNumber\" aria-current=\"false\">$this->pageNumber</a>";
         }
         
         $this->replaceValue('ELEMENT', $element);

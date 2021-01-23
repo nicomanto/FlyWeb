@@ -30,8 +30,6 @@ class CarrelloElementi extends baseComponent {
         $st = $this->travel->id_viaggio;
         $imageController = new ImagesController();
 
-        
-
         // TODO: modificare il modifica
         $this->replaceValues([
                 'id_viaggio' => $this->travel->id_viaggio,

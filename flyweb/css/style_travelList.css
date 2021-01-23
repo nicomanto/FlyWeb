@@ -1,4 +1,7 @@
 /* === TRAVELS LIST === */
+.risultati-ricerca{
+    background-color: #ffd394;
+}
 
 .travels-list{
     display: flex;
@@ -8,6 +11,7 @@
     width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-top: -1em;
     background-color: #ffd394;
     order:3;
     list-style-type: none;
