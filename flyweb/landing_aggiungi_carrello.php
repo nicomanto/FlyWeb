@@ -25,7 +25,7 @@
             $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
             unset($_SESSION['redirect_body']);
         } else {
-            header('Location: ./index.html');
+            header('Location: ./index.php');
         }
     }
 
