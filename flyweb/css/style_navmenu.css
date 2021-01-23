@@ -20,13 +20,13 @@
     display: inline-block;
 }
 
-.main-menu img{
+.mm-logo{
   float: left;
   left: 0;
   height: 66px;
-  min-width: 5%;
   background-color: #FF8C00;
 }
+
 .main-menu  .menuPage{
     padding         : 0.3em;
     padding-left    : 1em;
@@ -38,7 +38,7 @@
     width: 100%;
 }
 
-.main-menu  .menuPageDisabled {
+.main-menu  .menuPageDisabled{
   padding         : 0.3em;
   padding-left    : 1em;
   padding-right   : 1em;
@@ -54,9 +54,15 @@
     box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }
 
+
 /* === MOBILE  MENU === */
 .mm-hamburger{
   display: none;
+}
+@media only screen and (max-width: 1024px){
+  .mm-logo{
+    width: 8%;
+  }
 }
 
 @media only screen and (max-width: 868px) {
@@ -79,7 +85,7 @@
 
 
         .mm-logo{   
-          width: 80%;
+          width: 30%;
         }
 
         .mm-hamburger{

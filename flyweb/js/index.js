@@ -465,12 +465,14 @@ function filters(){
         filtri.classList.add ("filtri-si");
         btn.setAttribute("aria-label", "Chiudi la sezione di filtri di ricerca");
         btn.setAttribute("aria-expanded", "true");
+        btn.setAttribute("value", "NASCONDI FILTRI DI RICERCA AGGIUNTIVI");
         document.filtri.focus();
     } else {
         filtri.classList.remove("filtri-si");
         filtri.classList.add ("filtri-no");
         btn.setAttribute("aria-label", "Apri la sezione di filtri di ricerca");
         btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("value", "NASCONDI FILTRI DI RICERCA AGGIUNTIVI");
         document.btn-filtri.focus();
     }
 }
