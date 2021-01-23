@@ -20,6 +20,10 @@
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
+    echo($_SESSION['metodopagamento']);
+    echo("!!!");
+    echo($_POST['metodopagamento']);
+
     $userController=new UserController();
 
     $items = $userController->getViaggiCarrello(); 
@@ -55,7 +59,7 @@
     $_SESSION['fatturazione'] = array ('via' => $_POST['via'], 'comune' => $_POST['comune'], 'provincia' =>$_POST['provincia'], 'cap' => $_POST['cap'] );
 
     $fatturazione=$_SESSION['fatturazione'];
-    $_POST['metodopagamento'] = $_SESSION['metodopagamento'];
+   // $_POST['metodopagamento'] = $_SESSION['metodopagamento'];
 
 
     if(!preg_match("/^[\w\s\.]*$/",$fatturazione['via'])){
