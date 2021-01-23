@@ -493,4 +493,21 @@ function scrollFunction() {
     }
 }
 
+
+/*Validazione data*/
+
+function validationSearchDate(){
+    var start_date  = document.getElementById("search_start_date");
+    alert("ciao");
+
+    
+    var today= new Date().toISOString().slice(0,7);
+
+
+    if(today>start_date.value){
+        start_date.value="Data già passata";
+    }
+    
+}
+
 window.onscroll = function() {scrollFunction()};
