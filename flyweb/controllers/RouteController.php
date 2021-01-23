@@ -38,6 +38,17 @@ class RouteController {
 
             header('location:./login.php');
             exit;
+        } else {
+            // eventually load redirect uri 
+            $GLOBAL['redirect_uri'] = $_SESSION['redirect_uri'];
+
+            // Eventually load redirect body;
+            $GLOBAL['redirect_body'] = $_SESSION['redirect_body'];   
+
+            // unset redirect uri
+            unset($_SESSION['redirect_uri']);
+            // unset redirect body
+            unset($_SESSION['redirect_body']);
         }
     }
 
