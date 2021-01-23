@@ -78,6 +78,10 @@
             array_push ( $error , 'Campo <abbr title="Testo alternativo">alt</abbr> immagine mancante');
         }
 
+        if($viaggio['descrizioneBreve']==''){
+            array_push ( $error , "Campo descrizione breve mancante");
+        }
+
         if($viaggio['datafine']<$viaggio['datainizio']){
             array_push ( $error , "Campi data - data di inizio dev'essere antecedente alla data di fine");
         }
@@ -91,7 +95,7 @@
 
         
         
-        if(strlen($viaggio['descrizioneBreve'])<100 || strlen($viaggio['descrizioneBreve'])>300){
+        if(strlen($viaggio['descrizioneBreve'])>200){
             array_push ( $error , "Campo descrizione breve - la descrizione deve avere un massimo di 200 caratteri");
         }
 

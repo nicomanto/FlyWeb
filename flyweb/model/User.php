@@ -36,14 +36,21 @@ class User {
      * Maps values from array (used to convert db associative arrays into User objects)
      */
     public function __construct1(array $user) {
+
+        $timestamp = strtotime($user['DataNascita']);
+        $data_nascita = date("d/m/Y", $timestamp);
+
+        $timestamp = strtotime($user['DataRegistrazione']);
+        $data_registrazione = date("d/m/Y", $timestamp);
+
         $this->id_utente = $user['ID_Utente'];
         $this->username = $user['Username'];
         $this->password = $user['Password'];
         $this->nome = $user['Nome'];
         $this->cognome = $user['Cognome'];
         $this->email = $user['Email'];
-        $this->data_nascita = $user['DataNascita'];
-        $this->data_registrazione = $user['DataRegistrazione'];
+        $this->data_nascita = $data_nascita;
+        $this->data_registrazione = $data_registrazione;
         $this->admin = $user['Admin'];
         $this->evil_bit = $user['EvilBit'];
         $this->id_carrello = $user['ID_Carrello'];

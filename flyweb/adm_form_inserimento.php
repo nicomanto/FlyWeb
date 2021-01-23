@@ -104,7 +104,6 @@
         #print_r($_FILES);
 
         
-        
         if(strlen($viaggio['descrizioneBreve'])>200){
             array_push ( $error , "Campo descrizione breve - la descrizione deve avere un massimo di 200 caratteri");
         }

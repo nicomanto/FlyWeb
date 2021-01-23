@@ -38,6 +38,12 @@ class FormViaggio extends baseComponent
     {
         $imagesController = new ImagesController();
         //echo "debug";
+        
+        $timestamp = strtotime(str_replace('/', '-', $this->travel_loc->data_inizio));
+        $data_inizio = date("Y-m-d", $timestamp);
+
+        $timestamp = strtotime(str_replace('/', '-', $this->travel_loc->data_fine));
+        $data_fine = date("Y-m-d", $timestamp);
 
         //print_r($this->travel_loc);
         $this->replaceValues([
@@ -49,8 +55,8 @@ class FormViaggio extends baseComponent
             'stato' => (empty($this->travel_loc)) ? '' : $this->travel_loc->stato,
             'citta' => (empty($this->travel_loc)) ? '' : $this->travel_loc->citta,
             'localita' => (empty($this->travel_loc)) ? '' : $this->travel_loc->localita,
-            'datainizio' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_inizio,
-            'datafine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->data_fine,
+            'datainizio' => (empty($this->travel_loc)) ? '' : $data_inizio,
+            'datafine' => (empty($this->travel_loc)) ? '' : $data_fine,
             'prezzo' => (empty($this->travel_loc) || $this->travel_loc->prezzo==0) ? '' : $this->travel_loc->prezzo,
             'altImmagine' => (empty($this->travel_loc)) ? '' : $this->travel_loc->altImmagine,
             'id' => (empty($this->travel_loc)) ? '' : $this->travel_loc->id_viaggio,  

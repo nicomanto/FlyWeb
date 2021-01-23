@@ -76,7 +76,10 @@ class TravelOrder extends baseComponent {
     }
 
     public function checkDateForReview($end_date){
-        $today = new Datetime(date('Y-m-d'));
+        $timestamp = strtotime(str_replace('/', '-', $end_date));
+        $end_date=date("Y-m-d", $timestamp);
+
+        $today = new Datetime();
         return $today>new Datetime($end_date);
     }
 }

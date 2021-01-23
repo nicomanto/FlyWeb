@@ -32,6 +32,9 @@ class Order {
      * Maps values from array (used to convert db associative arrays into Order objects)
      */
     public function __construct1(array $order) {
+        $timestamp = strtotime($order['DataOrdine']);
+        $data_ordine = date("d/m/Y H:i:s", $timestamp);
+
         $this->id_ordine = $order['ID_Ordine'];
         $this->id_utente = $order['ID_Utente'];
         $this->via = $order['Via'];
@@ -41,7 +44,7 @@ class Order {
         $this->comune = $order['Comune'];
         $this->metodopagamento = $order['MetodoPagamento'];
         $this->totale = $order['Totale'];
-        $this->dataordine = $order['DataOrdine'];
+        $this->dataordine = $data_ordine;
     }
 
 
