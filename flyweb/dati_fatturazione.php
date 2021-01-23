@@ -49,8 +49,8 @@ use controllers\UserController;
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: deve contenere almeno delle lettere, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if (!preg_match("/^[\d]{13,16}$/", $_POST['codiceCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La carta di credito è formata da 13 a 16 numeri, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else if($_POST['scadenza_carta']==''){
-			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: scadenza della carta di credito mancante', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
+		} else if(!preg_match("/^(\d{4})-(0[1-9]|1[0-2])$/",$_POST['scadenza_carta'])){
+			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La scadenza della carta di credito non è nel formato richiesto', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if (!preg_match("/^[\d]{3}$/",$_POST['cvv'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il codice CVV deve avere al massimo 3 cifre, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if(date('Y-m')>$_POST['scadenza_carta']){
