@@ -21,9 +21,9 @@
 
     // If id_viaggio was not provided in $_POST try getting it from $_SESSION
     if (!((int)$id_viaggio)) {
-        if($_SESSION['redirect_body']['id_viaggio']) {
-            $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
-            unset($_SESSION['redirect_body']);
+        if($GLOBALS['redirect_body']['id_viaggio']) {
+            $id_viaggio = $GLOBAL['redirect_body']['id_viaggio'];
+            unset($GLOBALS['redirect_body']);
         } else {
             header('Location: ./index.php');
         }
