@@ -6,6 +6,7 @@ use controllers\TravelController;
 use controllers\UserController;
 use controllers\ImagesController;
 use html\components\baseComponent;
+use html\components\ButtonReview;
 use model\Travel;
 use model\User;
 
@@ -53,18 +54,13 @@ class TravelOrder extends baseComponent {
         );
 
         if($this->travel_controller->haveUserReview((int)$this->userController->user->id_utente)){
-            $this->replaceTag('BOTTONE_RECENSIONE','<p class="no-rec">Recensione già lasciata</p>');
+            $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Recensione già lasciata</em>');
         }
         else if($this->checkDateForReview($this->travel->data_fine)){
-            $this->replaceTag('BOTTONE_RECENSIONE',
-            '<form action="./inserimento_recensione.php" method="POST">
-                <input type="hidden" name="id_viaggio" value="'.$this->travel->id_viaggio.'">
-
-                <input type="submit" class="adm-bottone-approva-recensione" name="btn_approva" value="Lascia una recensione" >
-            </form>');
+            $this->replaceTag('BOTTONE_RECENSIONE', new ButtonReview($this->travel->id_viaggio));
         }
         else{
-            $this->replaceTag('BOTTONE_RECENSIONE','<p class="no-rec">Potrai lasciare una recensione solo dopo aver terminato il viaggio!</p>');
+            $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Potrai lasciare una recensione solo dopo aver terminato il viaggio!</em>');
         }
 
         
