@@ -85,37 +85,6 @@ function checkCartaCredito(){
     return true;
 }
 
-/*function checkMonthCarta(){
-    var mese_carta  = document.getElementById("scadenza_mese").value;
-    var error_id_message=document.getElementById("input_error_carta_mese");
-    var reg_expr= /^[\d]{1,2}$/;
-
-    if(mese_carta){
-        if(mese_carta > 12 || mese_carta < 1){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_mese").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve essere compreso fra 1 e 12";
-            return false;
-        }
-        else if(mese_carta.search(reg_expr) !=0){
-            error_id_message.style.visibility = 'visible';
-            document.getElementById("scadenza_mese").style.border = "2px solid red";
-            error_id_message.innerHTML = "Il numero deve avere al massimo due cifre (es. 01 o 1 per Gennaio)";
-            return false;
-        }
-        else{
-            error_id_message.style.visibility = 'hidden';
-            document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
-        }
-    }
-    else{
-        error_id_message.style.visibility = 'hidden';
-        document.getElementById("scadenza_mese").style.border = "2px solid #0a3150";
-    }
-
-    return true;
-}*/
-
 function checkScadenzaCarta(){
     var scadenza_carta  = document.getElementById("scadenza_carta").value;
     var error_id_message=document.getElementById("input_error_scadenza_carta");
