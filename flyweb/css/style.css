@@ -210,7 +210,6 @@ button a{
     order: 1;
     background-color: #0a3150;
     text-align: center;
-    min-height: 100%;
 }
 
 .board-contenuto{
@@ -1719,6 +1718,23 @@ input[type=number]::-webkit-outer-spin-button {
       .main-menu ul li a:active{
         border-bottom: 3px solid #0a3150;
       }  
+
+      /* === MENU ADM === */
+      .board-menu .hide-menumobile{
+        display: block;
+      }
+  
+      .board-menu  .show-menumobile{
+        display: block;
+      }
+
+      .board-menu .hide-menumobile{
+        display: block;
+      }
+  
+      .board-menu  .mm-hamburger{
+        display: none;
+      }
 }
 @media only screen and (max-width: 768px){
 

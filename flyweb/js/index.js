@@ -472,7 +472,7 @@ function filters(){
         filtri.classList.add ("filtri-no");
         btn.setAttribute("aria-label", "Apri la sezione di filtri di ricerca");
         btn.setAttribute("aria-expanded", "false");
-        btn.setAttribute("value", "NASCONDI FILTRI DI RICERCA AGGIUNTIVI");
+        btn.setAttribute("value", "VISUALIZZA FILTRI DI RICERCA AGGIUNTIVI");
         document.btn-filtri.focus();
     }
 }
