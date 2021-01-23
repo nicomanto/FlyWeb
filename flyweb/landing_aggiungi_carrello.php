@@ -22,7 +22,7 @@
     // If id_viaggio was not provided in $_POST try getting it from $_SESSION
     if (!((int)$id_viaggio)) {
         if($GLOBALS['redirect_body']['id_viaggio']) {
-            $id_viaggio = $GLOBAL['redirect_body']['id_viaggio'];
+            $id_viaggio = $GLOBALS['redirect_body']['id_viaggio'];
             unset($GLOBALS['redirect_body']);
         } else {
             header('Location: ./index.php');
@@ -32,11 +32,6 @@
     $travelController = new TravelController((int)$id_viaggio);
     $userController = new UserController();
 
-    if (empty($userController->getID_Carrello())){
-        $userController->newCart();
-    }
-
-    $id_carrello= $userController->getID_Carrello()['ID_Carrello'];
     $userController->addToCart($id_viaggio);
   
 

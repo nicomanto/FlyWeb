@@ -40,10 +40,10 @@ class RouteController {
             exit;
         } else {
             // eventually load redirect uri 
-            $GLOBAL['redirect_uri'] = $_SESSION['redirect_uri'];
+            $GLOBALS['redirect_uri'] = $_SESSION['redirect_uri'];
 
             // Eventually load redirect body;
-            $GLOBAL['redirect_body'] = $_SESSION['redirect_body'];   
+            $GLOBALS['redirect_body'] = $_SESSION['redirect_body'];   
 
             // unset redirect uri
             unset($_SESSION['redirect_uri']);
