@@ -37,16 +37,18 @@ use html\Template;
 	$_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
 	// Set breadcrumb
-	$breadcrumb = array(
-		new BreadcrumbItem("./carrello.php", "Carrello"),
-		new BreadcrumbItem("./metodopagamento.php", "Metodo di pagamento"),
-		new BreadcrumbItem("./landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
-		new BreadcrumbItem("./dati_fatturazione.php", "Inserisci dati di fatturazione"),
-		new BreadcrumbItem("./landing_riepilogo.php", "Riepilogo ordine"),
-		new BreadcrumbItem("#", "Ordine confermato")
-	);
+//	$breadcrumb = array(
+//		new BreadcrumbItem("./carrello.php", "Carrello"),
+//		new BreadcrumbItem("./metodopagamento.php", "Metodo di pagamento"),
+//		new BreadcrumbItem("./landing_metodo_pagamento.php", "Inserisci dati di pagamento"),
+//		new BreadcrumbItem("./dati_fatturazione.php", "Inserisci dati di fatturazione"),
+//		new BreadcrumbItem("./landing_riepilogo.php", "Riepilogo ordine"),
+//		new BreadcrumbItem("#", "Ordine confermato")
+//	);
 
-	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
+//	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
+
+$_page->replaceTag('BREADCRUMB', "");
 
 	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 

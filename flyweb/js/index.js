@@ -28,6 +28,7 @@ function validationData(){
 
             document.getElementById("input_error_datafine").style.visibility = 'visible';
             document.getElementById("input_error_datafine").innerHTML = "errore: data di inizio dev'essere antecedente alla data di fine";
+            
             return false;
         }else{
             document.getElementById("datainizio").style.border = "2px solid #0a3150";
@@ -492,3 +493,7 @@ function scrollFunction() {
 }
 
 window.onscroll = function() {scrollFunction()};
+<<<<<<< HEAD
+
+=======
+>>>>>>> d0a18ee0017d6ba91d475fea36bee44829a67146
