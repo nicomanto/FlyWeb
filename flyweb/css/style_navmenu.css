@@ -3,43 +3,26 @@
   background-color: #FF8C00;
   width          : 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.24);
-  max-height: 4em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  min-height: 66px;
 }
 
-.mm-item{
-  order: 1;
-  background-color: #FF8C00;
-  max-width: 80%;
+.main-menu ul {
+    font-size      : 1em;
+    float: right;
+    background-color: #FF8C00;
+}
+
+.main-menu  ul li {
+    list-style-type: none;
+    margin         : 1em;
+    display: inline-block;
 }
 
 .mm-logo{
-  width: 80%;
-  min-height: fit-content;
-}
-
-.mm-menu{
-  order: 2;
-}
-
-.menumobile {
-  display: none;
-}
-
-.show-menumobile{
-  display: flex;
-}
-
-.hide-menumobile{
-  display: flex;
-}
-
-.menumobile li {
-    list-style-type: none;
-    margin         : 1em;
+  float: left;
+  left: 0;
+  height: 66px;
+  background-color: #FF8C00;
 }
 
 .main-menu  .menuPage{
@@ -53,7 +36,7 @@
     width: 100%;
 }
 
-.main-menu  .menuPageDisabled {
+.main-menu  .menuPageDisabled{
   padding         : 0.3em;
   padding-left    : 1em;
   padding-right   : 1em;
@@ -69,9 +52,22 @@
     box-shadow: 0 6px 10px rgba(0,0,0,0), 0 6px 10px rgba(0,0,0,0.23);
 }
 
+
 /* === MOBILE  MENU === */
 .mm-hamburger{
   display: none;
+}
+.hide-menumobile{
+  display: block;
+}
+.show-menumobile{
+  display: block;
+}
+
+@media only screen and (max-width: 1024px){
+  .mm-logo{
+    width: 5%;
+  }
 }
 
 @media only screen and (max-width: 868px) {
@@ -79,35 +75,33 @@
         .main-menu{
             min-width: 100%;
             padding: 0;
-            flex-direction:column;
-            justify-content: flex-start;
-        }
-
-        .fixheight{
-          min-height: 38em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .hide-menumobile{
           display: none;
         }
-        
+
+        .show-menumobile{
+          display: inline-block;
+        }
+
 
         .mm-item{
-          order: 1;
-          min-width: 100%;
+          width: 100%;
           display: flex;
           flex-direction: row;
-          flex-wrap: nowrap;
           justify-content: space-between;
         }
 
-        .mm-logo{
-          order: 1;
-          width: 20%;
+
+        .mm-logo{   
+          width: 30%;
         }
 
         .mm-hamburger{
-          order:2;
           background-color: #0a3150;
           margin-left: 1em;
           color:#fff;
@@ -121,10 +115,15 @@
           border-radius: 10px;
         }
 
-        .mm-menu{
-          order: 2;
-          min-width: 100%;
-        }
+        .mm-logo .logo{
+          width: 100%;
+          font-size: xx-large;
+          vertical-align: top;
+          margin-left: 1em;
+          color: #fff;
+          text-decoration: none;
+          width: fit-content;
+      }
 
         .main-menu  .menuPage{
             padding: 0;
@@ -136,38 +135,40 @@
           margin: 0 auto;
       }
       
-        .menumobile{
+        .main-menu ul{
+            height:100%;
             width: 100%;
             background-color: #0a3150;
+            box-shadow: 0;
             border-top: 2px solid #fff;
             border-bottom: 2px solid #fff;
+            width: 20%;
             padding-top: 1em;
+            width: 100%;
             text-align: center;
             margin: 0 auto;
-            order: 2;
-            flex-direction: column;
-            min-height: 400px
         }
 
+          .main-menu ul li{
+            width: 90%;
+            padding: 0;
+            margin: 0 auto;
+            margin-bottom: 1em;
+            min-height: 48px;
+          }  
 
-        .menumobile li{
-          width: 100%;
-          padding: 0;
-          margin: 0 auto;
-          margin-bottom: 1em;
-          min-height: 48px;
-        }  
-
-          .menumobile li a{
-            display: block;
+          .main-menu ul li a{
+            display: inline-block;
             max-width: 90%;
+            vertical-align: middle;
             margin: 0 auto;
             font-size: 30px;
           }   
 
-          .menumobile li span{
-            display: block;
+          .main-menu ul li span{
+            display: inline-block;
             max-width: 90%;
+            vertical-align: middle;
             margin: 0 auto;
             font-size: 30px;
           } 
