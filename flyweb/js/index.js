@@ -497,17 +497,21 @@ function scrollFunction() {
 /*Validazione data*/
 
 function validationSearchDate(){
-    var start_date  = document.getElementById("search_start_date");
-    alert("ciao");
+    var start_date  = new Date(document.getElementById("search_start_date").value);
+    var end_date  = new Date(document.getElementById("search_end_date").value);
+    var today = new Date();
 
-    
-    var today= new Date().toISOString().slice(0,7);
-
-
-    if(today>start_date.value){
-        start_date.value="Data già passata";
+    if(today > start_date){
+        // Show error on start_date
     }
-    
+
+    if (today > end_date) {
+        // Show error on end_date
+    }
+
+    if (start_date > end_date) {
+        // show error on end_date
+    }
 }
 
 window.onscroll = function() {scrollFunction()};
