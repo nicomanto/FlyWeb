@@ -11,7 +11,8 @@ class SearchController extends BaseController {
         $place = '%' . $place . '%';
 
         // TODO: Remove this line: debug only
-        // echo $queryByCity['query'];
+        echo $queryByCity['query'];
+        print_r($queryByCity['params']);
 
         $travels = $this->db->runQuery($queryByCity['query'], $place, $place, $place, ...$queryByCity['params']);
 
@@ -25,7 +26,8 @@ class SearchController extends BaseController {
         $tag = '%' . $tag . '%';
 
         // TODO: Remove this line: debug only
-        //echo $queryByTag['query'];
+        echo $queryByTag['query'];
+        print_r($queryByTag['params']);
 
         $travels = $this->db->runQuery($queryByTag['query'], $tag, ...$queryByTag['params']);
 
@@ -62,7 +64,8 @@ class SearchController extends BaseController {
         array_push($queryGeneral['params'], $general, $queryByCity['params']); 
 
         // TODO: Remove this line: debug only
-        // echo $queryGeneral['query'];
+        echo $queryGeneral['query'];
+        print_r($queryGeneral['params']);
 
         $travels = $this->db->runQuery($queryGeneral['query'], ...$queryGeneral['params']);
         // print_r($travels);
@@ -96,15 +99,15 @@ class SearchController extends BaseController {
         // Eventally add date filter
         if (!empty($start_date) && !empty($end_date)) {
             $query .= ' AND (DataInizio > ? AND DataFine < ?)';
-            array_push($params, $start_date);
-            array_push($params, $end_date);
+            array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $start_date))));
+            array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $end_date))));
         } else if (!empty($start_date)) {
             $query .= ' AND (DataInizio > ?)';
-            array_push($params, $start_date);
+            array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $start_date))));
         } else if (!empty($end_date)) {
             $query .= ' AND (DataInizio > ?) AND (DataFine < ?)';
             array_push($params, date("Y-m-d"));
-            array_push($params, $end_date);
+            array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $end_date))));
         }
 
         // Eventually add price filter
