@@ -1,13 +1,13 @@
 <div class="content-search-box">
     <TITOLO />
-    <form action="%URL%" method="get" class="form-search filtri" id="form_search">
+    <form action="%URL%" method="get" class="form-search filtri" id="form_search" role="search">
         <fieldset id="fieldset_search">
             <legend class="aiuti-alla-navigazione">Cerca un viaggio</legend>
 
             <div class="search-box-div search-box" id="search_box_input">
                 <label class="search-input-field" for="search_key">
                     <span>CERCA</span>
-                    <input type="text" class="search-key" tabindex="9" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
+                    <input type="text" class="search-key src-input" tabindex="9" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
                 </label>
 
                 <label class="search-submit-field" for="search_button">
@@ -28,18 +28,19 @@
             </div>
         </fieldset>
         
-        <fieldset class="%FILTRI%">
+
+        <fieldset class="%FILTRI%" id="filtri">
             <legend class="aiuti-alla-navigazione">Filtri aggiuntivi per ricerca viaggio</legend>
 
             <div class="search-box-div" id="search_box_div_filtri">
                     <label for="search_end_price" class="search-label">
                         <span>Prezzo massimo</span>
-                        <input type="number" tabindex="4" name="search_end_price" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" >    
+                        <input type="number" tabindex="4" name="search_end_price" class="src-input" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" >    
                     </label>
 
                     <label for="search_start_price" class="search-label">
                         <span>Prezzo minimo</span>
-                        <input type="number" tabindex="5" name="search_start_price" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
+                        <input type="number" tabindex="5" name="search_start_price" class="src-input" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
                     </label>
 
                     <label for="search_by_option" class="search-label">
@@ -74,6 +75,13 @@
 
 
         </fieldset>
+
+        <div>
+            <label for="filtri"></label>
+            <input type="button" value="FILTRI DI RICERCA AGGIUNTIVI" name="filtri" class="btn-filtri" id="btn-filtri" onclick="filters()" aria-label="Apri la sezione di filtri di ricerca" aria-expanded="false">
+        </div>
+
+        <a href="#form_search" class="aiuti-alla-navigazione">Ritorna all'inizio del <span lang="en">searchbox</span></a>
         
     </form>
 </div>

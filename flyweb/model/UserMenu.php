@@ -6,7 +6,7 @@
         function __construct() {
             $this->MenuItem= array (
                 "home"  => new MenuItem("./index.php","Home",array("NotLoggedUser", "LoggedAdmin","LoggedUser"),"en"),
-                "aboutUs" => new MenuItem("./aboutUs.php","About us",array("NotLoggedUser", "LoggedAdmin","LoggedUser"),"en"),
+                "aboutUs" => new MenuItem("./aboutUs.php","About",array("NotLoggedUser", "LoggedAdmin","LoggedUser"),"en"),
                 "profilo"   => new MenuItem("./datipersonali.php","Profilo",array("LoggedAdmin","LoggedUser")),
                 "carrello" => new MenuItem("./carrello.php","Carrello",array("LoggedUser")),
                 "ordini" => new MenuItem("./ordiniProfilo.php","Ordini",array("LoggedUser")),

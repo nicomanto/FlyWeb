@@ -53,7 +53,7 @@ class TravelOrder extends baseComponent {
         );
 
         if($this->travel_controller->haveUserReview((int)$this->userController->user->id_utente)){
-            $this->replaceTag('BOTTONE_RECENSIONE','<p>Recensione già lasciata</p>');
+            $this->replaceTag('BOTTONE_RECENSIONE','<p class="no-rec">Recensione già lasciata</p>');
         }
         else if($this->checkDateForReview($this->travel->data_fine)){
             $this->replaceTag('BOTTONE_RECENSIONE',
@@ -64,7 +64,7 @@ class TravelOrder extends baseComponent {
             </form>');
         }
         else{
-            $this->replaceTag('BOTTONE_RECENSIONE','<h2>Potrai lasciare una recensione dopo aver terminato il viaggio.</h2>');
+            $this->replaceTag('BOTTONE_RECENSIONE','<p class="no-rec">Potrai lasciare una recensione solo dopo aver terminato il viaggio!</p>');
         }
 
         

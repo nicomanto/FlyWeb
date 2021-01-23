@@ -436,12 +436,42 @@ function titoloEDescrizioneRecensione(id,Element){
 /* hamburger menu */
 function hamb() {
     var menu = document.getElementById("menu");
-    if (menu.style.display == "none" || !menu.style.display) {
-      menu.style.display = "block";
-      document.getElementById("menu").focus();
+    var navmenu = document.getElementById("navmenu");
+    var hmb = document.getElementById("hambuger");
+    if (menu.classList.contains("hide-menumobile")) {   //se è chiuso si apre
+        menu.classList.add("show-menumobile");
+        hmb.setAttribute("aria-label", "Chiudi il menù");
+        hmb.setAttribute("aria-expanded", "true");
+        navmenu.classList.add("fixheight");
+        menu.classList.remove("hide-menumobile");
+
+        document.getElementById("menu").focus();
+    } else {                                            //altrimenti si chiude
+        menu.classList.remove("show-menumobile");
+        menu.classList.add("hide-menumobile");
+        hmb.setAttribute("aria-label", "Apri il menù");
+        hmb.setAttribute("aria-expanded", "false");
+        navmenu.classList.remove("fixheight");
+        document.body.focus();
+    }
+}
+
+/* filtri searchbox */
+function filters(){
+    var filtri = document.getElementById("filtri");
+    var btn = document.getElementById("btn-filtri");
+    if (filtri.classList.contains("filtri-no")){
+        filtri.classList.remove("filtri-no");
+        filtri.classList.add ("filtri-si");
+        btn.setAttribute("aria-label", "Chiudi la sezione di filtri di ricerca");
+        btn.setAttribute("aria-expanded", "true");
+        document.filtri.focus();
     } else {
-      menu.style.display = "none";
-      document.body.focus();
+        filtri.classList.remove("filtri-si");
+        filtri.classList.add ("filtri-no");
+        btn.setAttribute("aria-label", "Apri la sezione di filtri di ricerca");
+        btn.setAttribute("aria-expanded", "false");
+        document.btn-filtri.focus();
     }
 }
 
@@ -462,8 +492,3 @@ function scrollFunction() {
 }
 
 window.onscroll = function() {scrollFunction()};
-
-/*checkboxintegrazione();
-checkboxformviaggio();
-forminserimento();
-aggiungiTag();*/
