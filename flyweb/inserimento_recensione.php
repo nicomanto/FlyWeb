@@ -37,8 +37,8 @@
     $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
     $breadcrumb=array(
-        new BreadcrumbItem("./datipersonali.php","Profilo"),
-        new BreadcrumbItem("./ordiniprofilo.php","Ordini effettuati"),
+        new BreadcrumbItem("./datiPersonali.php","Profilo"),
+        new BreadcrumbItem("./ordiniProfilo.php","Ordini effettuati"),
         new BreadcrumbItem("#", "Inserire recensione"),
     );
 

@@ -34,12 +34,9 @@ input{
 }
 
 .breadcrumb{
+    min-width: 100%;
     border: 1px solid #ddd;
     background-color: #fff;
-}
-
-.breadcrumb a{
-    color: #000;
 }
 
 .content-search-box{

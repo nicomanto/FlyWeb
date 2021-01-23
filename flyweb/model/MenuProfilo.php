@@ -7,9 +7,9 @@
         
         function __construct() {
             $this->MenuItem= array (
-                "dati"  => new MenuItem("datipersonali.php","Dati Personali",array("LoggedUser")),
-                "ordini" => new MenuItem("ordiniprofilo.php","Ordini",array("LoggedUser")),
-                "recensioni" => new MenuItem("recensioniprofilo.php","Recensioni",array("LoggedUser"))
+                "dati"  => new MenuItem("datiPersonali.php","Dati Personali",array("LoggedUser")),
+                "ordini" => new MenuItem("ordiniProfilo.php","Ordini",array("LoggedUser")),
+                "recensioni" => new MenuItem("recensioniProfilo.php","Recensioni",array("LoggedUser"))
             );    
         }
 

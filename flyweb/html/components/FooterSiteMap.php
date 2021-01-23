@@ -2,10 +2,7 @@
 
 namespace html\components;
 
-use PrincipalMenu;
-
 use \model\UserMenu;
-
 
 class FooterSiteMap extends NavMenu {
 
@@ -14,7 +11,7 @@ class FooterSiteMap extends NavMenu {
     }
 
     public function BuildMenuItem(){
-        return (new \model\UserMenu())->build_menu($this->user);
+        return (new UserMenu())->build_menu($this->user);
     }
 
     public function TemplateMenuItem(): string{
