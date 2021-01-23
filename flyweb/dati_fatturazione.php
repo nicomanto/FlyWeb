@@ -41,6 +41,13 @@ use controllers\UserController;
 	$_page->replaceTag('BREADCRUMB', (new Breadcrumb($breadcrumb)));
 	$_page->replaceTag('PROFILOMENU', (new ProfiloMenu));
 
+	if(isset($_SESSION['fatturazione'])){
+		$datifatturazione=$_SESSION['fatturazione'];
+		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($datifatturazione)));
+	  }else{
+		$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
+	  }
+
 	if ($_POST['metodopagamento'] != 'paypal') {
 		if (!preg_match("/^[A-Za-zÀ-ú\s]{2,30}$/", $_POST['titolareCarta'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento titolare carta: permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
@@ -55,25 +62,12 @@ use controllers\UserController;
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: Il codice CVV deve avere al massimo 3 cifre, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
 		} else if(date('Y-m')>$_POST['scadenza_carta']){
         	$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore: La tua carta è scaduta, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else {
-			if(isset($_SESSION['fatturazione'])){
-				$mario=$_SESSION['fatturazione'];
-				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
-			  }else{
-				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
-			  }
-		}
+		} 
+		
 	} else {
 		if (!preg_match("/^(([\w.-]{4,20})+)@(([A-Za-z.]{4,20})+)\.([A-Za-z]{2,3})$/", $_POST['email'])) {
 			$_page->replaceTag('INSERIMENTO-DATI', (new ResponseMessage('Errore inserimento <span lang=\'en\'>email</span> paypal: non è in un formato standard come esempio@esempio.com, riprova...', "./metodopagamento.php", "Seleziona metodo di pagamento", false)));
-		} else {
-			if(isset($_SESSION['fatturazione'])){
-				$mario=$_SESSION['fatturazione'];
-				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione($mario)));
-			  }else{
-				$_page->replaceTag('INSERIMENTO-DATI', (new \html\components\FormInserimentoDatiFatturazione()));
-			  }
-		}
+		} 
 	}
 
 	$_page->replaceTag('TOTALE', '');

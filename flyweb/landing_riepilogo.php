@@ -54,9 +54,8 @@
     extract($_POST, EXTR_SKIP);
     $_SESSION['fatturazione'] = array ('via' => $_POST['via'], 'comune' => $_POST['comune'], 'provincia' =>$_POST['provincia'], 'cap' => $_POST['cap'] );
 
-   // $form1 = new FormInserimentoDatiFatturazione();
-   // $fatturazione = $form1->estraiDatiFatturazione();
-   $fatturazione=$_SESSION['fatturazione'];
+    $fatturazione=$_SESSION['fatturazione'];
+    $_POST['metodopagamento'] = $_SESSION['metodopagamento'];
 
 
     if(!preg_match("/^[\w\s\.]*$/",$fatturazione['via'])){
@@ -105,8 +104,6 @@
       $_page->replaceTag('TOTALE', (new Totale($risultato)));
 
       $_SESSION['totale']=$risultato;
-
-      $fatturazione['metodopagamento'] = $_SESSION['metodopagamento'];
     }
 
     $_page->replaceTag('FOOTER', (new Footer));
