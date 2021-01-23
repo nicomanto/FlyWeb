@@ -17,6 +17,18 @@ input{
     display: none;
 }
 
+form{
+    display: none;
+}
+
+.p_input_error{
+    display: none;
+}
+
+fieldset{
+    border: 0;
+}
+
 .response-message img{
     display: none;
 }
@@ -26,6 +38,10 @@ input{
 }
 
 .main-menu{
+    display: none;
+}
+
+.mm-logo{
     display: none;
 }
 
@@ -166,4 +182,11 @@ input{
 
 .form-registrazione input{
     display:none;
+}
+
+/*  === ADM === */
+.adm-card{
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
 }
