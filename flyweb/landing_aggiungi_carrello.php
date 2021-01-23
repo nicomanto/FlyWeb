@@ -20,13 +20,6 @@
 
 
     // If id_viaggio was not provided in $_POST try getting it from $_SESSION
-<<<<<<< Updated upstream
-    if (!((int)$id_viaggio) && $_SESSION['redirect_body']['id_viaggio']) {
-        $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
-        unset($_SESSION['redirect_body']);
-    } else {
-        header('Location: ./index.php');
-=======
     if (!((int)$id_viaggio)) {
         if($_SESSION['redirect_body']['id_viaggio']) {
             $id_viaggio = $_SESSION['redirect_body']['id_viaggio'];
@@ -34,7 +27,6 @@
         } else {
             header('Location: ./index.html');
         }
->>>>>>> Stashed changes
     }
 
     $travelController = new TravelController((int)$id_viaggio);
