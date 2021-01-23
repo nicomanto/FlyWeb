@@ -493,7 +493,3 @@ function scrollFunction() {
 }
 
 window.onscroll = function() {scrollFunction()};
-<<<<<<< HEAD
-
-=======
->>>>>>> d0a18ee0017d6ba91d475fea36bee44829a67146
