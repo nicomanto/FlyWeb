@@ -46,18 +46,14 @@
                     <label for="search_by_option" class="search-label">
                         <span>Cerca per</span>
                         <select class="lista" tabindex="6" id="search_by_option" name ="search_by_option">
-                            <option value="Tutto">Tutto</option>
-                            <option value="Citta">Città</option>
-                            <option value="Tag">Tag</option>
+                            %SEARCH_TYPE_OPTIONS%
                         </select>
                     </label>
 
                     <label for="search_order_by" class="search-label">
                         <span>Ordina per</span>
                         <select class="lista" tabindex="7" name="search_order_by" id="search_order_by" >
-                            <option value="Prezzo"> Prezzo </option>
-                            <option value="Data Inizio"> Data Inizio </option>
-                            <option value="Data Fine"> Data Fine </option>
+                            %ORDER_TYPE_OPTIONS%
                         </select>
                     </label>
 
@@ -67,7 +63,7 @@
                         <span>Ordina in modo</span>
                         <select class="lista" tabindex="8" id="search_order_by_mode" name ="search_order_by_mode">
                             <option value="Ascendente">Ascendente</option>
-                            <option value="Discendente">Discendente</option>
+                            %ORDER_BY_OPTIONS%
                         </select>
                     </label>
 

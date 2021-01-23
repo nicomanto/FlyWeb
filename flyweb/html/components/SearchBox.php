@@ -45,9 +45,55 @@ class SearchBox extends baseComponent {
             $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
         }
 
+        // Populate form
         foreach ($this->values as $key => $value) {
             $values[$key] = $_GET[$key] ? $_GET[$key] : '';
         }
+
+        // Build search type options list
+        $search_type_options = ['Tutto', 'Citta', 'Tag'];
+        $search_type_options_html = '';
+        foreach ($search_type_options as $option) {
+            $search_type_options_html .= "<option value=\"$option\"";
+            
+            if ($_GET['search_by_option'] == $option) {
+                $search_type_options_html .= "selected=\"selected\"";
+            }
+
+            $search_type_options_html .= ">$option</option>";
+        }
+
+        $values['SEARCH_TYPE_OPTIONS'] = $search_type_options_html;
+
+        // Build order type options list
+        $order_type_options = ['Prezzo', 'Data inizio', 'Data fine'];
+        $order_type_options_html = '';
+        foreach ($order_type_options as $option) {
+            $order_type_options_html .= "<option value=\"$option\"";
+            
+            if ($_GET['search_order_by'] == $option) {
+                $order_type_options_html .= "selected=\"selected\"";
+            }
+
+            $order_type_options_html .= ">$option</option>";
+        }
+
+        $values['ORDER_TYPE_OPTIONS'] = $order_type_options_html;
+
+        // Build order options list
+        $order_by_options = ['Ascendente', 'Discendente']; 
+        $order_by_options_html = '';
+        foreach ($order_by_options as $option) {
+            $order_by_options_html .= "<option value=\"$option\"";
+            
+            if ($_GET['search_order_by_mode'] == $option) {
+                $order_by_options_html .= "selected=\"selected\"";
+            }
+
+            $order_by_options_html .= ">$option</option>";
+        }
+
+        $values['ORDER_BY_OPTIONS'] = $order_by_options_html;
 
         $this->replaceValues($values);
         return $this;
