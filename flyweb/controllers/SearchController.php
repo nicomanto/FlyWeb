@@ -96,12 +96,30 @@ class SearchController extends BaseController {
         $query = $query;
         $params = [];
 
-        // Eventally add date filter
+        // Eventually add date filter
         if (!empty($start_date) && !empty($end_date)) {
+            // Check if dates are valid
+
+            // If provided start_date is before than today and user is not admin set it to today
+            if (strtotime($start_date) < strtotime(date('Y-m-d')) && !$_SESSION['admin']) {
+                $start_date = date('Y-m-d');
+            }
+
+            // If provided end_date is before than start_date, set end date to start_date + 1year
+            if (strtotime($start_date) > strtotime($end_date)) {
+                $end_date = date("Y-m-d", strtotime(date("Y-m-d", strtotime($start_date)) . " + 1 year"));
+            }
+
             $query .= ' AND (DataInizio > ? AND DataFine < ?)';
             array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $start_date))));
             array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $end_date))));
         } else if (!empty($start_date)) {
+
+            // If provided start_date is before than today and user is not admin set it to today
+            if (strtotime($start_date) < strtotime(date('Y-m-d')) && !$_SESSION['admin']) {
+                $start_date = date('Y-m-d');
+            }
+
             $query .= ' AND (DataInizio > ?)';
             array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $start_date))));
         } else if (!empty($end_date)) {
@@ -115,13 +133,28 @@ class SearchController extends BaseController {
 
         // Eventually add price filter
         if (!empty($start_price) && !empty($end_price)) {
+
+            $start_price = $start_price >= 0 ? $start_price : 0;
+            $end_price = $end_price >= 0 ? $end_price : 0;
+
+            // Check if prices are valid
+            if ($start_price > $end_price) {
+                $end_price = $start_price + 1000;
+            }
+
             $query .= ' AND (Prezzo > ? AND Prezzo < ?)';
             array_push($params, $start_price);
             array_push($params, $end_price);
         } else if (!empty($start_price)) {
+
+            $start_price = $start_price >= 0 ? $start_price : 0;
+
             $query .= ' AND (Prezzo > ?)';
             array_push($params, $start_price);
         } else if (!empty($end_price)) {
+
+            $end_price = $end_price >= 0 ? $end_price : 0;
+
             $query .= ' AND (Prezzo < ?)';
             array_push($params, $end_price);
         }
