@@ -27,7 +27,14 @@ class BoxRelatedController extends BaseController {
             array_push($rand_keys,array_rand($this->id_tag));
         }
         
-        return $this->db->runQuery($query,$this->id_tag[$rand_keys[0]],$this->id_tag[$rand_keys[1]],$this->id_tag[$rand_keys[2]],$this->id_tag[$rand_keys[3]],$this->id_viaggio,$this->num_sugg);
+        if(! empty($this->db->runQuery($query,$this->id_tag[$rand_keys[0]],$this->id_tag[$rand_keys[1]],$this->id_tag[$rand_keys[2]],$this->id_tag[$rand_keys[3]],$this->id_viaggio,$this->num_sugg))){
+            return $this->db->runQuery($query,$this->id_tag[$rand_keys[0]],$this->id_tag[$rand_keys[1]],$this->id_tag[$rand_keys[2]],$this->id_tag[$rand_keys[3]],$this->id_viaggio,$this->num_sugg);
+        }
+        else{
+            $query = "SELECT ID_Viaggio, Titolo, DescrizioneBreve, Immagine, AltImmagine FROM Viaggio WHERE ID_VIAGGIO!=? ORDER BY RAND() LIMIT ?";
+            return $this->db->runQuery($query,$this->id_viaggio,$this->num_sugg);
+        
+        }
     }
 
     public function get_related(){
