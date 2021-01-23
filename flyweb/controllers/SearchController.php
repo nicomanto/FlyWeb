@@ -108,6 +108,9 @@ class SearchController extends BaseController {
             $query .= ' AND (DataInizio > ?) AND (DataFine < ?)';
             array_push($params, date("Y-m-d"));
             array_push($params, date("Y-m-d", strtotime(str_replace('/', '-', $end_date))));
+        } else {
+            $query .= ' AND (DataInizio > ?)';
+            array_push($params, date("Y-m-d"));
         }
 
         // Eventually add price filter
