@@ -1,41 +1,35 @@
 /*GENERAL CSS*/
 :root {
-    --primary  : #0a3150;
-    --secondary: #FF8C00;
+    --primary   : #0a3150;
+    --secondary : #FF8C00;
     --secondary_lighter: #ff9e14;
     --secondaty_lighter2: #ffd394;
-    --primary_ligher: #60AAE6; /*#1B88E0 , #11568F*/
+    --blue1     : #60AAE6;
+    --blue2     : #1B88E0;
+    --blue3     : #11568F;
 }
 
 * {
     padding: 0em;
     margin : 0em;
-    line-height: 150%;
-    /* letter-spacing: 12%;
-    word-spacing: 16%; */
-    font-family: 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
 }
 
 body {
-    /* font-family: 'Lato'; */
-    /* max-width       : 70rem; */
     max-width          : 1024px;
     margin             : auto;
     height             : 100%;
     width              : 100%;
     background-color   : #fff;
     color              : #0a3150;
-
+    font-family         : 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
+    line-height: 200%;
+    letter-spacing: 15%;
+    word-spacing: 18%;
 }
 
 label{
     display: block;
 }
-
-/* p{
-    font-size: 16px;
-    line-height:200%
-} */
 
 strong{
     font-weight: 900;
