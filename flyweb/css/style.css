@@ -25,7 +25,7 @@ body {
     line-height: 2;
 }
 
-p,a,h1,h2,h3,h4{
+p,a,h1,h2,h3,h4,input,label{
     letter-spacing: .03em;
     word-spacing:   .08em;
 }
