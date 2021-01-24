@@ -102,6 +102,11 @@ button a{
     display: block;
 }
 
+.response-message a{
+    font-size: 1em;
+}
+
+
 /* === ERROR BOX === */
 .error-box{
     width: 100%;
@@ -824,7 +829,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .travel-goto{
     padding:0.5em;
-    background-color: #00ACFF;
+    background-color: #11568F;
     color: #fff;
     border: 0;
     font-size: large;
@@ -959,9 +964,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.reviews-list{
-    margin-left: -1em;
-}
 
 .header-review{
     display: inline-flex;
@@ -1028,7 +1030,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .related-travels .travels-list{
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .related-list li{
@@ -1071,6 +1073,10 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-size: 1.4em;
     margin: 1em;
+}
+
+.sotto-form-reg-acc a{
+    font-size: 1em;
 }
 
 .titolo-pagina{
@@ -1331,10 +1337,13 @@ caption{
     width: 100%;
 }
 
+.carrello-flex-container .titolo-pagina{
+    order: 3;
+}
 .carrello-flex-container .carrello-contenuto{
     margin-left: 1%;
     width: 70%;
-    order: 3;
+    order: 4;
     display: inline;
 }
 
@@ -1343,11 +1352,11 @@ caption{
     width: 25%;
     margin-top: 1em;
     margin-bottom: 1em;
-    order: 4;
+    order: 5;
 }
 
 .carrello-flex-container .footer{
-    order: 5;
+    order: 6;
 }
 
 .carrello-item{
@@ -1528,25 +1537,17 @@ caption{
     background-color: #0a3150;
 }
 
-.button-selector-page:disabled{
-    opacity: 0.6;
-}
-
-.button-selector-page:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.button-selector-page:disabled{
-    cursor: auto;
-}
-
 .page-selector{
     width: 100%;
     background-color: #0a3150;;
     display: flex;
     justify-content: center;
     padding: 1em 0 1em 0;   
+}
+
+.disabled{
+    background-color: #FF8C00;
+    color: #0a3150;;
 }
 
 /* === MAIN MENU === */
