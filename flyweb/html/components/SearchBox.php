@@ -33,16 +33,29 @@ class SearchBox extends baseComponent {
             $values['filtri'] = 'filtri-si';
             $this->replaceTag('TITOLO', '');
 
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '',
+                'VALIDATION_DATE' => ''
+            ]);
+
         }else if($this->tipo == "searchbox"){
             $values['url'] = './search.php';
             $values['titolo'] = '';
             $values['filtri'] = 'filtri-no';
             $this->replaceTag('TITOLO', '');
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '&& validationSearchDate()',
+                'VALIDATION_DATE' => 'validationSearchDate()'
+            ]);
 
         }else{  //index searchbox
             $values['url'] = './search.php';
             $values['filtri'] = 'filtri-no';
             $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '&& validationSearchDate()',
+                'VALIDATION_DATE' => 'validationSearchDate()'
+            ]);
         }
 
         // Populate form
