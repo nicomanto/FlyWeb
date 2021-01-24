@@ -10,7 +10,9 @@
 * {
     padding: 0em;
     margin : 0em;
-    line-height: 1.5em;
+    line-height: 150%;
+    /* letter-spacing: 12%;
+    word-spacing: 16%; */
     font-family: 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
 }
 
@@ -30,9 +32,10 @@ label{
     display: block;
 }
 
-p{
+/* p{
     font-size: 16px;
-}
+    line-height:200%
+} */
 
 strong{
     font-weight: 900;
@@ -1144,6 +1147,11 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     background-color: #0a3150;
     color: #fff;
+}
+
+caption{
+    font-size: larger;
+    margin: 0.5em 0 0.5em 0;
 }
 
 /* === PROFILO  MENU === */
