@@ -7,23 +7,23 @@
             <div class="search-box-div search-box" id="search_box_input">
                 <label class="search-input-field" for="search_key">
                     <span>CERCA</span>
-                    <input type="text" class="search-key src-input"  name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
+                    <input type="text" class="search-key src-input" tabindex="9" name="search_key" id="search_key" value="%SEARCH_KEY%" placeholder="Dove vuoi andare?"/>
                 </label>
 
                 <label class="search-submit-field" for="search_button">
-                    <input type="submit"  class="search-submit"  name="search_button" value="CERCA" id="search_button"/>
+                    <input type="submit"  class="search-submit" tabindex="1" name="search_button" value="CERCA" id="search_button"/>
                 </label>
             </div>
 
             <div class="search-box-div">
                 <label  class="search-label" for="search_start_date">
                     <span>Data inizio viaggio </span>
-                    <input type="text" placeholder="gg/mm/aaaa" name="search_start_date" id="search_start_date" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_START_DATE%">
+                    <input type="text" placeholder="gg/mm/aaaa" tabindex="2" %VALIDATION_DATE% name="search_start_date" id="search_start_date" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_START_DATE%">
                 </label>
 
                 <label class="search-label" for="search_end_date">
                     <span>Data fine viaggio</span>
-                    <input type="text" placeholder="gg/mm/aaaa"  name="search_end_date" id="search_end_date" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_END_DATE%" >
+                    <input type="text" placeholder="gg/mm/aaaa" tabindex="3" name="search_end_date" id="search_end_date"  %VALIDATION_DATE% pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_END_DATE%" >
                 </label>
             </div>
         </fieldset>
@@ -36,24 +36,24 @@
 
                     <label for="search_start_price" class="search-label">
                         <span>Prezzo minimo</span>
-                        <input type="number"  name="search_start_price" class="src-input" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
+                        <input type="number" tabindex="5" name="search_start_price" class="src-input" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
                     </label>
                     
                     <label for="search_end_price" class="search-label">
                         <span>Prezzo massimo</span>
-                        <input type="number"  name="search_end_price" class="src-input" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" >    
+                        <input type="number" tabindex="4" name="search_end_price" class="src-input" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" onblur="validationSearchPrice()">    
                     </label>
 
                     <label for="search_by_option" class="search-label">
                         <span>Cerca per</span>
-                        <select class="lista"  id="search_by_option" name ="search_by_option">
+                        <select class="lista" tabindex="6" id="search_by_option" name ="search_by_option">
                             %SEARCH_TYPE_OPTIONS%
                         </select>
                     </label>
 
                     <label for="search_order_by" class="search-label">
                         <span>Ordina per</span>
-                        <select class="lista"  name="search_order_by" id="search_order_by" >
+                        <select class="lista" tabindex="7" name="search_order_by" id="search_order_by" >
                             %ORDER_TYPE_OPTIONS%
                         </select>
                     </label>
@@ -62,7 +62,7 @@
 
                     <label for="search_order_by_mode" class="search-label">
                         <span>Ordina in modo</span>
-                        <select class="lista"  id="search_order_by_mode" name ="search_order_by_mode">
+                        <select class="lista" tabindex="8" id="search_order_by_mode" name ="search_order_by_mode">
                             <option value="Ascendente">Ascendente</option>
                             %ORDER_BY_OPTIONS%
                         </select>
@@ -74,8 +74,8 @@
         </fieldset>
 
         <div>
-            <label for="filtri"></label>
-            <input type="button" value="VISUALIZZA FILTRI DI RICERCA AGGIUNTIVI" name="filtri" class="btn-filtri" id="btn-filtri" onclick="filters()" aria-label="Apri la sezione di filtri di ricerca" aria-expanded="false">
+            <label for="btn-filtri"></label>
+            <input type="button" value="VISUALIZZA FILTRI DI RICERCA AGGIUNTIVI" name="btn-filtri" class="btn-filtri" id="btn-filtri" onclick="filters()" aria-label="Apri la sezione di filtri di ricerca" aria-expanded="false">
         </div>
 
         <a href="#form_search" class="aiuti-alla-navigazione">Ritorna all'inizio del <span lang="en">searchbox</span></a>
