@@ -1028,7 +1028,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .related-travels .travels-list{
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .related-list li{
