@@ -15,9 +15,10 @@ class TravelOrder extends baseComponent {
     const _templateName = 'travel_order';
     public $travel;
     public $travel_controller;
+    public $isRiepilogo;
     public $userController;
 
-    public function __construct($travel) {
+    public function __construct($travel,$isRiepilogo=false) {
         // Call BaseComponent constructor
         parent::__construct(self::_templateName);
 
@@ -25,6 +26,8 @@ class TravelOrder extends baseComponent {
         $this->travel = new Travel($travel);
         $this->travel_controller=new TravelController((int)$this->travel->id_viaggio);
         $this->userController= new UserController();
+
+        $this->isRiepilogo=$isRiepilogo;
 
 
         // Render page
@@ -53,15 +56,23 @@ class TravelOrder extends baseComponent {
             ]
         );
 
-        if($this->travel_controller->haveUserReview((int)$this->userController->user->id_utente)){
-            $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Recensione già lasciata</em>');
-        }
-        else if($this->checkDateForReview($this->travel->data_fine)){
-            $this->replaceTag('BOTTONE_RECENSIONE', new ButtonReview($this->travel->id_viaggio));
+
+        if(!$this->isRiepilogo){
+            if($this->travel_controller->haveUserReview((int)$this->userController->user->id_utente)){
+                $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Recensione già lasciata</em>');
+            }
+            else if($this->checkDateForReview($this->travel->data_fine)){
+                $this->replaceTag('BOTTONE_RECENSIONE', new ButtonReview($this->travel->id_viaggio));
+            }
+            else{
+                $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Potrai lasciare una recensione solo dopo aver terminato il viaggio!</em>');
+            }
         }
         else{
-            $this->replaceTag('BOTTONE_RECENSIONE','<em class="no-rec">Potrai lasciare una recensione solo dopo aver terminato il viaggio!</em>');
+            $this->replaceTag('BOTTONE_RECENSIONE','');
+            
         }
+        
 
         
         

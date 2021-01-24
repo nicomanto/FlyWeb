@@ -20,9 +20,9 @@
     // Load request's data
     extract($_GET, EXTR_SKIP);
 
-    echo($_SESSION['metodopagamento']);
-    echo("!!!");
-    echo($_POST['metodopagamento']);
+    //echo($_SESSION['metodopagamento']);
+    //echo("!!!");
+    //echo($_POST['metodopagamento']);
 
     $userController=new UserController();
 
@@ -52,7 +52,7 @@
     
     $searchResults = '';
     foreach ($items as $li) {
-        $searchResults .= new TravelOrder($li);
+        $searchResults .= new TravelOrder($li,true);
     }
 
     extract($_POST, EXTR_SKIP);

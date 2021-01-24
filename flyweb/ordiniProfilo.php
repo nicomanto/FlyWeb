@@ -58,7 +58,7 @@
 
 
     else {
-        $_page->replaceTag('ORDINI-PROFILO', $searchResults);
+        $_page->replaceTag('ORDINI-PROFILO', "<ul>".$searchResults."</ul>");
         $_page->replaceTag('PAGE_SELECTOR', (new PageSelector($paginatedOrders)));
 
     }
