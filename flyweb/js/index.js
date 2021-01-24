@@ -147,13 +147,13 @@ function checkIndirizzi(id,Element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
+            error_id_message.innerHTML = "errore: sono permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Deve contenere almeno delle lettere o numeri";
+            error_id_message.innerHTML = "errore: deve contenere almeno delle lettere o numeri";
             return false;
         }
         else{
@@ -178,7 +178,7 @@ function checkCAP(){
         if( cap.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("cap").style.border = "2px solid red";
-            error_id_message.innerHTML = "Si devono inserire 5 numeri";
+            error_id_message.innerHTML = "errore: nel cap si devono inserire esattamente 5 numeri";
             return false;
         }
         else{
@@ -213,13 +213,13 @@ function validationTipoNome(id,Element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
+            error_id_message.innerHTML = "errore: nel nome permessi da 2 a 30 caratteri totali fra A-Z, a-z, lettere accentate e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Deve contenere almeno delle lettere";
+            error_id_message.innerHTML = "errore: il nome deve contenere almeno delle lettere";
             return false;
         }
         else{
@@ -245,13 +245,13 @@ function validationUsername(){
         if( username.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("username").style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi da 4 a 15 caratteri totali, permessi i caratteri # - _ @";
+            error_id_message.innerHTML = "errore: nell' <span lang=\"en\">username</span> sono permessi da 4 a 15 caratteri totali, permessi i caratteri # - _ @";
             return false;
         }
         else if(no_only_special.test(username)){
            error_id_message.style.visibility = 'visible';
            document.getElementById("username").style.border = "2px solid red";
-           error_id_message.innerHTML = "Deve contenere almeno delle lettere";
+           error_id_message.innerHTML = "errore: l' <span lang=\"en\">username</span> deve contenere almeno delle lettere";
            return false;
         }
         else{
@@ -278,7 +278,7 @@ function validationEmail(){
         if( email.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("email").style.border = "2px solid red";
-            error_id_message.innerHTML = "Non è in un formato standard come esempio@esempio.com";
+            error_id_message.innerHTML = "errore: l' <span lang=\"en\">email</span> non è in un formato standard come esempio@esempio.com";
             return false;
         }
         else{
@@ -305,7 +305,7 @@ function validationPassword(){
         if( password.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("password").style.border = "2px solid red";
-            error_id_message.innerHTML = "La <span lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
+            error_id_message.innerHTML = "errore: la <span lang='en'>password</span> deve essere lunga almeno 8, contenere almeno un carattere maiuscolo, uno minuscolo ed un numero";
             return false;
         }
         else{
@@ -332,7 +332,7 @@ function validationPasswordRepeat(){
         if( password_ripetuta!=password){
             error_id_message.style.visibility = 'visible';
             document.getElementById("password_ripetuta").style.border = "2px solid red";
-            error_id_message.innerHTML = "Le <span lang='en'>password</span> non corrispondono";
+            error_id_message.innerHTML = "errore: le <span lang='en'>password</span> non corrispondono";
             return false;
         }
         else{
@@ -360,7 +360,7 @@ function validationDataNascita(){
         if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
             document.getElementById("data_nascita").style.border = "2px solid red";
-            error_id_message.innerHTML = "Devi avere almeno 14 anni per registrarti";
+            error_id_message.innerHTML = "errore: devi avere almeno 14 anni per registrarti";
             return false;
         }
         else{
@@ -411,13 +411,13 @@ function titoloEDescrizioneRecensione(id,Element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
+            error_id_message.innerHTML = "errore: nella descrizione sono permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "Deve contenere almeno delle lettere o numeri";
+            error_id_message.innerHTML = "errore: la descrizione deve contenere almeno delle lettere o numeri";
             return false;
         }
         else{
