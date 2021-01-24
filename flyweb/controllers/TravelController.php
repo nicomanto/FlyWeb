@@ -95,9 +95,9 @@ class TravelController extends BaseController {
     }
 
     public function haveRelatedTravel(){
-        $query = 'SELECT ID_Viaggio FROM TagViaggio WHERE ID_Viaggio!= ? AND ID_Tag IN (SELECT ID_Tag FROM TagViaggio WHERE ID_Viaggio = ?);';
+        $query = 'SELECT ID_Viaggio, Titolo, DescrizioneBreve, Immagine, AltImmagine FROM Viaggio WHERE DataInizio >= CURDATE() AND ID_VIAGGIO!=? ORDER BY RAND() LIMIT ?';
 
-        return ! empty($this->db->runQuery($query, $this->travel->id_viaggio, $this->travel->id_viaggio));
+        return ! empty($this->db->runQuery($query, $this->travel->id_viaggio,4));
     }
 
 
