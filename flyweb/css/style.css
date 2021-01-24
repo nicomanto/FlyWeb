@@ -1537,25 +1537,16 @@ caption{
     background-color: #0a3150;
 }
 
-.button-selector-page:disabled{
-    opacity: 0.6;
-}
-
-.button-selector-page:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.button-selector-page:disabled{
-    cursor: auto;
-}
-
 .page-selector{
     width: 100%;
     background-color: #0a3150;;
     display: flex;
     justify-content: center;
     padding: 1em 0 1em 0;   
+}
+
+.disabled{
+    opacity: 0.5;
 }
 
 /* === MAIN MENU === */
