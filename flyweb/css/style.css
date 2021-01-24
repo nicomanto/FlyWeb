@@ -4,7 +4,7 @@
     --secondary: #FF8C00;
     --secondary_lighter: #ff9e14;
     --secondaty_lighter2: #ffd394;
-    --primary_ligher: #1B88E0;
+    --primary_ligher: #60AAE6; /*#1B88E0*/
 }
 
 * {
@@ -106,7 +106,7 @@ button a{
 .error-box{
     width: 100%;
     text-align: center;
-    color: #ff0000;
+    color: #b60000;
 }
 
 .error-box ul{
@@ -375,7 +375,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .p_input_error{
     visibility: hidden;
-    color: #ff0000;
+    color: #b60000;
 }
 
 .bottoneform{
