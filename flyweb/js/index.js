@@ -493,4 +493,70 @@ function scrollFunction() {
     }
 }
 
+
+/*Validazione data*/
+
+function validationSearchDate(){
+
+    var start_date  = document.getElementById("search_start_date").value;
+    var end_date  = document.getElementById("search_end_date").value;
+    
+    start_date=start_date.replace(/\//g,"-");
+    var split=start_date.split('-');
+    split.reverse();
+    start_date=new Date(split[0],split[1]-1,split[2]);
+
+    end_date=end_date.replace(/\//g,"-");
+    split=end_date.split('-');
+    split.reverse();
+    end_date=new Date(split[0],split[1]-1,split[2]);
+
+    var today = new Date();
+
+    document.getElementById("search_start_date").setCustomValidity("");
+    document.getElementById("search_end_date").setCustomValidity("");
+    
+    if(start_date && today > start_date){
+        // Show error on start_date
+        document.getElementById("search_start_date").setCustomValidity("Viaggio già iniziato");
+        document.getElementById("search_start_date").reportValidity();
+        return false;
+    }
+
+    if (end_date && today > end_date) {
+        // Show error on end_date
+        document.getElementById("search_end_date").setCustomValidity("Viaggio già terminato");
+        document.getElementById("search_end_date").reportValidity();
+        return false;
+    }
+
+    if (start_date && end_date && start_date > end_date) {
+        // show error on end_date
+        document.getElementById("search_end_date").setCustomValidity("Deve essere successiva all'inizio del viaggio");
+        document.getElementById("search_end_date").reportValidity();
+        return false;
+    }
+
+    return true;
+}
+
+
+/*Validazione prezzo*/
+function validationSearchPrice(){
+
+    var start_price  = document.getElementById("search_start_price").value;
+    var end_price  = document.getElementById("search_end_price").value;
+
+    document.getElementById("search_end_price").setCustomValidity("");
+    
+    if (start_price && end_price && parseInt(start_price) > parseInt(end_price)) {
+        // show error on end_date
+        document.getElementById("search_end_price").setCustomValidity("Deve essere superiore al prezzo minimo");
+        document.getElementById("search_end_price").reportValidity();
+        return false;
+    }
+
+    return true;
+}
+
 window.onscroll = function() {scrollFunction()};
