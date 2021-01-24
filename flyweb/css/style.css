@@ -102,6 +102,11 @@ button a{
     display: block;
 }
 
+.response-message a{
+    font-size: 1em;
+}
+
+
 /* === ERROR BOX === */
 .error-box{
     width: 100%;
@@ -1068,6 +1073,10 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-size: 1.4em;
     margin: 1em;
+}
+
+.sotto-form-reg-acc a{
+    font-size: 1em;
 }
 
 .titolo-pagina{
