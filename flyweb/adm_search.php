@@ -30,7 +30,7 @@
 
 
     // Set search box form
-    $page->replaceTag('ADM-CONTENUTO', (new SearchBox("searchbox")));
+    $page->replaceTag('ADM-CONTENUTO', (new SearchBox("adm-searchbox")));
     
     $page->replaceTag('PAGE-SELECTOR', '');
 

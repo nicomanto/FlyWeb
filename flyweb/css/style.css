@@ -376,6 +376,7 @@ input[type=number]::-webkit-outer-spin-button {
 .p_input_error{
     visibility: hidden;
     color: #b60000;
+    margin-bottom: 1em;
 }
 
 .bottoneform{
