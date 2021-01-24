@@ -1,37 +1,37 @@
 /*GENERAL CSS*/
 :root {
-    --primary  : #0a3150;
-    --secondary: #FF8C00;
+    --primary   : #0a3150;
+    --secondary : #FF8C00;
     --secondary_lighter: #ff9e14;
     --secondaty_lighter2: #ffd394;
-    --primary_ligher: #1B88E0;
+    --blue1     : #60AAE6;
+    --blue2     : #1B88E0;
+    --blue3     : #11568F;
 }
 
 * {
     padding: 0em;
     margin : 0em;
-    line-height: 1.5em;
-    font-family: 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
 }
 
 body {
-    /* font-family: 'Lato'; */
-    /* max-width       : 70rem; */
     max-width          : 1024px;
     margin             : auto;
     height             : 100%;
     width              : 100%;
     background-color   : #fff;
     color              : #0a3150;
+    font-family         : 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
+    line-height: 2;
+}
 
+p,a,h1,h2,h3,h4,input,label{
+    letter-spacing: .03em;
+    word-spacing:   .08em;
 }
 
 label{
     display: block;
-}
-
-p{
-    font-size: 16px;
 }
 
 strong{
@@ -102,11 +102,16 @@ button a{
     display: block;
 }
 
+.response-message a{
+    font-size: 1em;
+}
+
+
 /* === ERROR BOX === */
 .error-box{
     width: 100%;
     text-align: center;
-    color: #ff0000;
+    color: #b60000;
 }
 
 .error-box ul{
@@ -210,7 +215,6 @@ button a{
     order: 1;
     background-color: #0a3150;
     text-align: center;
-    min-height: 100%;
 }
 
 .board-contenuto{
@@ -376,7 +380,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .p_input_error{
     visibility: hidden;
-    color: #ff0000;
+    color: #b60000;
+    margin-bottom: 1em;
 }
 
 .bottoneform{
@@ -499,8 +504,8 @@ input[type=number]::-webkit-outer-spin-button {
 .adm-bottone-modifica-card{
     border-radius: 5px;
     color:#fff;
-    background-color: #1B88E0;
-    border: 3px solid #1B88E0;
+    background-color: #11568F;
+    border: 3px solid #11568F;
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     outline: none;
     padding: 10px;
@@ -599,7 +604,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .form-search{
     background-color: #0a3150;
-    color:#fff;
+    color:#000;
     margin: 0 auto;
     width: 90%;
     border-radius: 30px;
@@ -726,6 +731,21 @@ input[type=number]::-webkit-outer-spin-button {
     outline: none;
     box-shadow: none;
 }
+.board-contenuto .search-key{
+    width: 90%;
+
+}
+.board-contenuto .search-input-field span{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.board-contenuto .search-submit-field, .board-contenuto .search-input-field{
+    display: block;
+    margin: 0.5em 0 0.5em 0;
+    width: 100%;
+}
 
 /* === adattamento form alla dash di amministrazione === */
 .board-flex-container .search-box{
@@ -809,7 +829,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .travel-goto{
     padding:0.5em;
-    background-color: #00ACFF;
+    background-color: #11568F;
     color: #fff;
     border: 0;
     font-size: large;
@@ -944,9 +964,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.reviews-list{
-    margin-left: -1em;
-}
 
 .header-review{
     display: inline-flex;
@@ -1013,7 +1030,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .related-travels .travels-list{
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .related-list li{
@@ -1056,6 +1073,10 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-size: 1.4em;
     margin: 1em;
+}
+
+.sotto-form-reg-acc a{
+    font-size: 1em;
 }
 
 .titolo-pagina{
@@ -1130,6 +1151,11 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     background-color: #0a3150;
     color: #fff;
+}
+
+caption{
+    font-size: larger;
+    margin: 0.5em 0 0.5em 0;
 }
 
 /* === PROFILO  MENU === */
@@ -1311,10 +1337,13 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
+.carrello-flex-container .titolo-pagina{
+    order: 3;
+}
 .carrello-flex-container .carrello-contenuto{
     margin-left: 1%;
     width: 70%;
-    order: 3;
+    order: 4;
     display: inline;
 }
 
@@ -1323,11 +1352,11 @@ input[type=number]::-webkit-outer-spin-button {
     width: 25%;
     margin-top: 1em;
     margin-bottom: 1em;
-    order: 4;
+    order: 5;
 }
 
 .carrello-flex-container .footer{
-    order: 5;
+    order: 6;
 }
 
 .carrello-item{
@@ -1492,33 +1521,20 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: middle;
 }
 
-/* === Page selector ===*/
+/* === PAGE SELECTOR ===*/
 .button-selector-page{
     font-size: larger;
     font-weight: 700;
     width: 2em;
     height: 2em;
     border: 2px solid #FF8C00;
-    color: #FF8C00;
+    color: #FFD394;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     margin: 0.2em;
     vertical-align: middle;
     text-align: center;
-}
-
-
-.button-selector-page:disabled{
-    opacity: 0.6;
-}
-
-.button-selector-page:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.button-selector-page:disabled{
-    cursor: auto;
+    background-color: #0a3150;
 }
 
 .page-selector{
@@ -1527,6 +1543,11 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     justify-content: center;
     padding: 1em 0 1em 0;   
+}
+
+.disabled{
+    background-color: #FF8C00;
+    color: #0a3150;;
 }
 
 /* === MAIN MENU === */
@@ -1670,7 +1691,6 @@ input[type=number]::-webkit-outer-spin-button {
         height:100%;
         width: 100%;
         background-color: #0a3150;
-        box-shadow: 0;
         border-top: 2px solid #fff;
         border-bottom: 2px solid #fff;
         width: 20%;
@@ -1719,6 +1739,24 @@ input[type=number]::-webkit-outer-spin-button {
       .main-menu ul li a:active{
         border-bottom: 3px solid #0a3150;
       }  
+
+      /* === MENU ADM === */
+      .board-menu .hide-menumobile{
+        display: block;
+      }
+  
+      .board-menu  .show-menumobile{
+        display: block;
+      }
+
+      .board-menu .hide-menumobile{
+        display: block;
+      }
+  
+      .board-menu  .mm-hamburger{
+        display: none;
+      }
+
 }
 @media only screen and (max-width: 768px){
 

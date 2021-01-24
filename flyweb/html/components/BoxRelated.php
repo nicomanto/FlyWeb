@@ -3,6 +3,7 @@
 namespace html\components;
 
 use \controllers\BoxRelatedController;
+use controllers\BoxSuggerimentiController;
 use \model\Travel;
 
 class BoxRelated extends baseComponent {

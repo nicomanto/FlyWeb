@@ -30,19 +30,32 @@ class SearchBox extends baseComponent {
     
         if($this->tipo == "adm-searchbox"){
             $values['url'] = './adm_search_landing.php';
-            $values['filtri'] = 'filtri-si';
+            $values['filtri'] = 'filtri-no';
             $this->replaceTag('TITOLO', '');
+
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '',
+                'VALIDATION_DATE' => ''
+            ]);
 
         }else if($this->tipo == "searchbox"){
             $values['url'] = './search.php';
             $values['titolo'] = '';
             $values['filtri'] = 'filtri-no';
             $this->replaceTag('TITOLO', '');
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '&& validationSearchDate()',
+                'VALIDATION_DATE' => 'onblur="validationSearchDate()"'
+            ]);
 
         }else{  //index searchbox
             $values['url'] = './search.php';
             $values['filtri'] = 'filtri-no';
             $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
+            $this->replaceValues([
+                'USER_CHECK_ONSUBMIT' => '&& validationSearchDate()',
+                'VALIDATION_DATE' => 'onblur="validationSearchDate()'
+            ]);
         }
 
         // Populate form
@@ -54,7 +67,7 @@ class SearchBox extends baseComponent {
         $search_type_options = ['Tutto', 'Citta', 'Tag'];
         $search_type_options_html = '';
         foreach ($search_type_options as $option) {
-            $search_type_options_html .= "<option value=\"$option\"";
+            $search_type_options_html .= "<option value=\"$option\" ";
             
             if ($_GET['search_by_option'] == $option) {
                 $search_type_options_html .= "selected=\"selected\"";
@@ -69,7 +82,7 @@ class SearchBox extends baseComponent {
         $order_type_options = ['Prezzo', 'Data inizio', 'Data fine'];
         $order_type_options_html = '';
         foreach ($order_type_options as $option) {
-            $order_type_options_html .= "<option value=\"$option\"";
+            $order_type_options_html .= "<option value=\"$option\" ";
             
             if ($_GET['search_order_by'] == $option) {
                 $order_type_options_html .= "selected=\"selected\"";
@@ -84,7 +97,7 @@ class SearchBox extends baseComponent {
         $order_by_options = ['Ascendente', 'Discendente']; 
         $order_by_options_html = '';
         foreach ($order_by_options as $option) {
-            $order_by_options_html .= "<option value=\"$option\"";
+            $order_by_options_html .= "<option value=\"$option\" ";
             
             if ($_GET['search_order_by_mode'] == $option) {
                 $order_by_options_html .= "selected=\"selected\"";

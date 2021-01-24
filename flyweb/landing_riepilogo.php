@@ -48,7 +48,7 @@
     
     $searchResults = '';
     foreach ($items as $li) {
-        $searchResults .= new TravelOrder($li);
+        $searchResults .= new TravelOrder($li,true);
     }
 
     extract($_POST, EXTR_SKIP);

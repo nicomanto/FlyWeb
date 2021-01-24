@@ -54,7 +54,7 @@ require_once('./autoload.php');
             $searchResults.= (new AdmTravelReviewItem((new Review($element))));
         }
 
-        $page->replaceTag('ADM-CONTENUTO',"<ul>".$searchResults."</ul>");
+        $page->replaceTag('ADM-CONTENUTO',"<h1 class='titolo-pagina'> MODERA RECENSIONI</h1> <ul>".$searchResults."</ul>");
 
         $page->replaceTag('PAGE-SELECTOR',(new \html\components\PageSelector($paginatedReview)));
     }else{

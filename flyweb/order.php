@@ -46,7 +46,7 @@
         $viaggio.= new TravelOrder($li);
     }
 
-    $_page->replaceTag('CONTENUTO', $viaggio);
+    $_page->replaceTag('CONTENUTO', "<ul>".$viaggio."</ul>");
 
     $_page->replaceTag('PAGE_SELECTOR', '');
 

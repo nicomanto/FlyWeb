@@ -17,6 +17,13 @@
 
     // Load request's data
     extract($_GET, EXTR_SKIP);
+<<<<<<< HEAD
+=======
+
+    //echo($_SESSION['metodopagamento']);
+	//echo("!!!");
+	//echo($_POST['metodopagamento']);
+>>>>>>> 07a6c2f913c1d8497e8c5e74da91031730700eb2
   
     $userController=new UserController();
 

@@ -1,12 +1,12 @@
-<h1 class="titolo-pagina">Inserimento credenziali <span lang="en">Paypal</span></h1>
-
+<h1 class="titolo-pagina">Procedura di acquisto </h1>
+<h2 class="titolo-pagina">Inerisci credenziali <span lang="en">Paypal</span></h2>
 <div class="form-paypal">
     <form  method="POST" name="form_paypal" id="form_paypal" action="./dati_fatturazione.php" onsubmit="return validationEmail()" class="dash-form form-registrazione">
         <fieldset>
             <legend>Inserisci la tua <span lang="en">email</span> associata a Paypal</legend>
 
             <label for="email"><span lang="en">Email</span> associata a <span lang="en">Paypal</span>:</label>
-                <input type="text" class="input" tabindex="1" name="email" id="email" required="required" placeholder="email" onblur="validationEmail()">
+                <input type="email" class="input" tabindex="1" name="email" id="email" required="required" placeholder="email" onblur="validationEmail()">
             
             <p id="input_error_email" class="p_input_error"> testo errore </p>
             
