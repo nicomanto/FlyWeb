@@ -78,7 +78,7 @@
     // Set search result travels
     if($searchResults == ''){
         $_page->replaceTag('RISULTATI_SEARCH', new ResponseMessage("Nessun viaggio corrisponde alla ricerca effettuata..."));
-        $_page->replaceTag('PAGE-SELECTOR', "");
+        $_page->replaceTag('PAGE_SELECTOR', "");
     }
     else{
         $_page->replaceTag('RISULTATI_SEARCH', 
