@@ -4,7 +4,7 @@
     --secondary: #FF8C00;
     --secondary_lighter: #ff9e14;
     --secondaty_lighter2: #ffd394;
-    --primary_ligher: #60AAE6; /*#1B88E0*/
+    --primary_ligher: #60AAE6; /*#1B88E0 , #11568F*/
 }
 
 * {
@@ -498,8 +498,8 @@ input[type=number]::-webkit-outer-spin-button {
 .adm-bottone-modifica-card{
     border-radius: 5px;
     color:#fff;
-    background-color: #1B88E0;
-    border: 3px solid #1B88E0;
+    background-color: #11568F;
+    border: 3px solid #11568F;
     box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
     outline: none;
     padding: 10px;
