@@ -22,9 +22,12 @@ body {
     background-color   : #fff;
     color              : #0a3150;
     font-family         : 'Roboto' ,sans-serif, Arial, Helvetica, sans-serif;
-    line-height: 200%;
-    letter-spacing: 15%;
-    word-spacing: 18%;
+    line-height: 2;
+}
+
+p,a,h1,h2,h3,h4{
+    letter-spacing: .03em;
+    word-spacing:   .08em;
 }
 
 label{
@@ -1686,7 +1689,6 @@ caption{
         height:100%;
         width: 100%;
         background-color: #0a3150;
-        box-shadow: 0;
         border-top: 2px solid #fff;
         border-bottom: 2px solid #fff;
         width: 20%;
