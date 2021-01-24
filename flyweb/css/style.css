@@ -959,9 +959,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.reviews-list{
-    margin-left: -1em;
-}
 
 .header-review{
     display: inline-flex;
@@ -1331,10 +1328,13 @@ caption{
     width: 100%;
 }
 
+.carrello-flex-container .titolo-pagina{
+    order: 3;
+}
 .carrello-flex-container .carrello-contenuto{
     margin-left: 1%;
     width: 70%;
-    order: 3;
+    order: 4;
     display: inline;
 }
 
@@ -1343,11 +1343,11 @@ caption{
     width: 25%;
     margin-top: 1em;
     margin-bottom: 1em;
-    order: 4;
+    order: 5;
 }
 
 .carrello-flex-container .footer{
-    order: 5;
+    order: 6;
 }
 
 .carrello-item{
