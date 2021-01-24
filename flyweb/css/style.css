@@ -1546,7 +1546,8 @@ caption{
 }
 
 .disabled{
-    opacity: 0.5;
+    background-color: #FF8C00;
+    color: #0a3150;;
 }
 
 /* === MAIN MENU === */
