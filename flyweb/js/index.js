@@ -497,21 +497,41 @@ function scrollFunction() {
 /*Validazione data*/
 
 function validationSearchDate(){
-    var start_date  = new Date(document.getElementById("search_start_date").value);
-    var end_date  = new Date(document.getElementById("search_end_date").value);
+
+    var start_date  = document.getElementById("search_start_date").value;
+    var end_date  = document.getElementById("search_end_date").value;
+    
+    start_date=start_date.replace(/\//g,"-");
+    var split=start_date.split('-');
+    split.reverse();
+    start_date=new Date(split[0],split[1]-1,split[2]);
+
+    end_date=end_date.replace(/\//g,"-");
+    split=end_date.split('-');
+    split.reverse();
+    end_date=new Date(split[0],split[1]-1,split[2]);
+
     var today = new Date();
-
-    if(today > start_date){
+    
+    if(start_date && today > start_date){
         // Show error on start_date
+        document.getElementById("search_start_date").value="Viaggio già iniziato";
+        return false;
     }
 
-    if (today > end_date) {
+    if (end_date && today > end_date) {
         // Show error on end_date
+        document.getElementById("search_end_date").value="Viaggio già terminato";
+        return false;
     }
 
-    if (start_date > end_date) {
+    if (start_date && end_date && start_date > end_date) {
         // show error on end_date
+        document.getElementById("search_end_date").value="Deve finire dopo l'inizio";
+        return false;
     }
+
+    return true;
 }
 
 window.onscroll = function() {scrollFunction()};
