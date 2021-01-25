@@ -1089,6 +1089,10 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
 }
 
+.form-registrazione span{
+    padding: 0;
+}
+
 /* === ABOUT US === */
 
 .about-us-container{
@@ -1828,9 +1832,6 @@ caption{
         display: block;
     }
 
-    .form-registrazione span{
-        margin-left: 1em;
-    }
     .form-registrazione li{
         margin-bottom: 1em;
     }
@@ -1878,7 +1879,7 @@ caption{
     }
 
     .form-registrazione,.form-registrazione fieldset{
-        padding: 0;
+        padding: 0; 
     }
 
     /* == SEARH BOX == */
@@ -2090,7 +2091,8 @@ caption{
     bottom: 1em;
     width: 4em; 
     height: 4em;
-    
+    min-height: 48px;
+    min-width: 48px;
 }
 
 .hide {
