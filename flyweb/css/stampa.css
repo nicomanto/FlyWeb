@@ -66,6 +66,10 @@ fieldset{
     visibility: hidden;
 }
 
+.boxSuggerimenti img{
+    display: none;
+}
+
 .page-selector input[type=button]:disabled{
     opacity: 1;
     border: 1px solid #000;
@@ -127,6 +131,10 @@ fieldset{
 }
 
 /* === ORDERS, ORDER ITEM, CARRELLO, ORDER DETAIL === */
+
+.order-form{
+    display: block;
+}
 
 .order-form fieldset, .carrello-item, .subtotale, .order-item{
     padding: 0.5cm;
