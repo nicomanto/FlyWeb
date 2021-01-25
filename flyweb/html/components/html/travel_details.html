@@ -6,14 +6,13 @@
 
         <div class="travel-details-info">
                 <h1>%NAME%</h1>
-                <!-- alt vuoto è voluto-->
                 <p><img alt="" role="presentation" src="./img/place.svg" class="travel-details-icon"/><span><strong>%COUNTRY%, %CITY% - %LOCATION%</strong></span> </p>
                 <p><img alt="" role="presentation" src="./img/clock.svg" class="travel-details-icon"/><span>Data partenza: <strong>%START_DATE%</strong></span></p>
                 <p><img alt="" role="presentation" src="./img/clock.svg" class="travel-details-icon"/><span>Data ritorno: <strong>%END_DATE%</strong></span></p>
                 <p class="price"><strong>%PRICE% &euro; </strong> </p>
                 <form action="./landing_aggiungi_carrello.php" method="post">
-                    <input type="hidden" name="id_viaggio" value="%ID_VIAGGIO%">
-                    <input type="submit" class="adm-bottone-modifica-card btn-add" name="btn_aggiungi" value="Aggiungi al carrello">
+                    <input type="hidden" name="id_viaggio" value="%ID_VIAGGIO%" />
+                    <input type="submit" class="adm-bottone-modifica-card btn-add" name="btn_aggiungi" value="Aggiungi al carrello" />
                 </form>
                
         </div>

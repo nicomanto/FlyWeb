@@ -1,33 +1,32 @@
 <h1 class="titolo-pagina">Procedura di acquisto </h1>
 <h2 class="titolo-pagina">Inserisci dati di fatturazione</h2>
 <div class="inserimento-dati-fatturazione">
-    <!-- <input type="button" value="Indietro" onClick="javascript:history.back()" name="button"> -->
     <form action="./landing_riepilogo.php" method="post" class="dash-form form-registrazione" onsubmit="return (checkCAP() && checkIndirizzi('input_error_via','via') && checkIndirizzi('input_error_comune','comune') && checkIndirizzi('input_error_provincia','provincia'))">
         <fieldset>
             <legend>Inserisci indirizzo di fatturazione</legend>
 
             <label for="via">Via:</label>
-            <input type="text" class="input" tabindex="1" id="via" name="via" required="required" placeholder="Inserisci via" value="%VIA%" onblur="checkIndirizzi('input_error_via','via')">
+            <input type="text" class="input" tabindex="1" id="via" name="via" required="required" placeholder="Inserisci via" value="%VIA%" onblur="checkIndirizzi('input_error_via','via')" />
             
             <p id="input_error_via" class="p_input_error"> testo errore </p>
 
             <label for="comune">Comune:</label>
-            <input type="text" class="input"  tabindex="2" id="comune" name="comune" required="required" placeholder="Inserisci comune" value="%COMUNE%" onblur="checkIndirizzi('input_error_comune','comune')">
+            <input type="text" class="input"  tabindex="2" id="comune" name="comune" required="required" placeholder="Inserisci comune" value="%COMUNE%" onblur="checkIndirizzi('input_error_comune','comune')" />
             
             <p id="input_error_comune" class="p_input_error"> testo errore </p>
 
             <label for="cap"><abbr title="codice avviamento postale">CAP:</abbr></label>
-            <input type="text" class="input" tabindex="3" id="cap" name="cap" required="required" placeholder="Inserisci CAP" value="%CAP%" onblur="checkCAP()">
+            <input type="text" class="input" tabindex="3" id="cap" name="cap" required="required" placeholder="Inserisci CAP" value="%CAP%" onblur="checkCAP()" />
             <p id="input_error_cap" class="p_input_error"> testo errore </p>
 
             <label for="provincia">Provincia:</label>
-            <input type="text" class="input" tabindex="4" id="provincia" name="provincia" required="required" placeholder="Inserisci provincia" value="%PROVINCIA%" onblur="checkIndirizzi('input_error_provincia','provincia')">
+            <input type="text" class="input" tabindex="4" id="provincia" name="provincia" required="required" placeholder="Inserisci provincia" value="%PROVINCIA%" onblur="checkIndirizzi('input_error_provincia','provincia')" />
             
             <p id="input_error_provincia" class="p_input_error"> testo errore </p>
 
-            <input type="hidden" name="metodopagamento" value="%METODOPAGAMENTO%">
+            <input type="hidden" name="metodopagamento" value="%METODOPAGAMENTO%" />
 
-            <input class="adm-bottone-modifica-card" tabindex="5"  type="submit" id="submit" value="Avanti">            
+            <input class="adm-bottone-modifica-card" tabindex="5"  type="submit" id="submit" value="Avanti" />            
         </fieldset>
     </form>
 </div>

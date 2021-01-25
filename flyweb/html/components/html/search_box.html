@@ -18,18 +18,22 @@
             <div class="search-box-div">
                 <label  class="search-label" for="search_start_date">
                     <span>Data inizio viaggio </span>
-                    <input type="date" tabindex="2" aria-invalid="false" aria-describedby="start_date_errmsg" %VALIDATION_DATE% name="search_start_date" id="search_start_date" value="%SEARCH_START_DATE%">
+                    <input type="date" tabindex="2" aria-invalid="false" aria-describedby="start_date_errmsg" %VALIDATION_DATE% name="search_start_date" id="search_start_date" value="%SEARCH_START_DATE%" />
                     <span id="start_date_errmsg">Nessun errore</span>
                 </label>
 
                 <label class="search-label" for="search_end_date">
                     <span>Data fine viaggio</span>
-                    <input type="date" tabindex="3" aria-invalid="false" aria-describedby="end_date_errmsg" name="search_end_date" id="search_end_date"  %VALIDATION_DATE%  value="%SEARCH_END_DATE%" >
+                    <input type="date" tabindex="3" aria-invalid="false" aria-describedby="end_date_errmsg" name="search_end_date" id="search_end_date"  %VALIDATION_DATE%  value="%SEARCH_END_DATE%" />
                     <span id="end_date_errmsg">Nessun errore</span>
                 </label>
             </div>
         </fieldset>
         
+        <div>
+            <label for="btn-filtri"></label>
+            <input type="button" value="FILTRI DI RICERCA" name="btn-filtri" class="btn-filtri" id="btn-filtri" onclick="filters()" aria-label="Apri la sezione di filtri di ricerca" aria-expanded="false" />
+        </div>
 
         <fieldset class="%FILTRI%" id="filtri" >
             <legend class="aiuti-alla-navigazione">Filtri aggiuntivi per ricerca viaggio</legend>
@@ -38,12 +42,12 @@
 
                     <label for="search_start_price" class="search-label">
                         <span>Prezzo minimo</span>
-                        <input type="number" tabindex="5" name="search_start_price" class="src-input" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" >
+                        <input type="number" tabindex="5" name="search_start_price" class="src-input" id="search_start_price" placeholder="Seleziona il prezzo minimo" value="%SEARCH_START_PRICE%" min="0" />
                     </label>
                     
                     <label for="search_end_price" class="search-label">
                         <span>Prezzo massimo</span>
-                        <input type="number" tabindex="4" name="search_end_price" class="src-input" aria-invalid="false" aria-describedby="end_price_errmsg" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" onblur="validationSearchPrice()">    
+                        <input type="number" tabindex="4" name="search_end_price" class="src-input" aria-invalid="false" aria-describedby="end_price_errmsg" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" onblur="validationSearchPrice()" />    
                         <span id="end_price_errmsg">Nessun errore</span>
                     </label>
 
@@ -75,11 +79,6 @@
 
 
         </fieldset>
-
-        <div>
-            <label for="btn-filtri"></label>
-            <input type="button" value="VISUALIZZA FILTRI DI RICERCA AGGIUNTIVI" name="btn-filtri" class="btn-filtri" id="btn-filtri" onclick="filters()" aria-label="Apri la sezione di filtri di ricerca" aria-expanded="false">
-        </div>
 
         <a href="#form_search" class="aiuti-alla-navigazione">Ritorna all'inizio del <span lang="en">searchbox</span></a>
         

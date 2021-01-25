@@ -6,7 +6,7 @@
                <legend>Titolo e descrizioni</legend>
 
                <label for="titolo"><strong>TITOLO DEL VIAGGIO</strong></label>
-                    <input type="text" class="input" tabindex="1" id="titolo" name="titolo" required="required" placeholder="Inserisci titolo" value="%TITOLO%" autocomplete="off">
+                    <input type="text" class="input" tabindex="1" id="titolo" name="titolo" required="required" placeholder="Inserisci titolo" value="%TITOLO%" autocomplete="off" />
                <p id="input_error_titolo" class="p_input_error"> testo errore </p>
 
                <label for="descrizione"><strong>DESCRIZIONE DETTAGLIATA</strong></label>
@@ -23,17 +23,17 @@
                <legend>Informazioni geografiche del viaggio</legend>
 
                <label for="stato"><strong>STATO</strong></label>
-               <input type="text" class="input" tabindex="4" id="stato" name="stato"  required="required" placeholder="Inserisci stato" autocomplete="off" value="%STATO%">
+               <input type="text" class="input" tabindex="4" id="stato" name="stato"  required="required" placeholder="Inserisci stato" autocomplete="off" value="%STATO%" />
                
                <p id="input_error_stato" class="p_input_error"> testo errore </p>
      
                <label for="citta"><strong>CITTA'</strong></label>
-               <input type="text" class="input" tabindex="5" id="citta" name="citta" required="required" placeholder="Inserisci città" autocomplete="off" value="%CITTA%">
+               <input type="text" class="input" tabindex="5" id="citta" name="citta" required="required" placeholder="Inserisci città" autocomplete="off" value="%CITTA%" />
      
                <p id="input_error_citta" class="p_input_error"> testo errore </p>
      
                <label for="localita"><strong>LOCALITA'</strong></label>
-               <input type="text" class="input" tabindex="6" id="localita" name="localita" placeholder="Inserisci località" autocomplete="off" value="%LOCALITA%">
+               <input type="text" class="input" tabindex="6" id="localita" name="localita" placeholder="Inserisci località" autocomplete="off" value="%LOCALITA%" />
                
                <p id="input_error_localita" class="p_input_error"> testo errore </p>
           </fieldset>
@@ -43,10 +43,10 @@
                <legend>Date temporali del viaggio</legend>
 
                <label for="datainizio"><strong>DATA INIZIO VIAGGIO</strong></label>
-               <input type="date" class="input input-date" tabindex="7" name="datainizio" id="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%"> 
+               <input type="date" class="input input-date" tabindex="7" name="datainizio" id="datainizio" onblur="validationData()" required="required" value="%DATAINIZIO%" /> 
 
                <label for="datafine"><strong>DATA FINE VIAGGIO</strong></label>
-                    <input type="date" class="input input-date" tabindex="8" name="datafine" id="datafine" onblur="validationData()" required="required" value="%DATAFINE%">
+                    <input type="date" class="input input-date" tabindex="8" name="datafine" id="datafine" onblur="validationData()" required="required" value="%DATAFINE%" />
 
                <p id="input_error_datafine" class="p_input_error"> testo errore </p>
           </fieldset>
@@ -56,7 +56,7 @@
 
                <div class="miscellanea">
                     <label for="prezzo"><strong>PREZZO</strong></label>
-                         <input type="number" class="input" tabindex="9" id="prezzo" name="prezzo" placeholder="Inserisci un prezzo"  onblur="validationPrz()" min="0" required="required" value="%PREZZO%">
+                         <input type="number" class="input" tabindex="9" id="prezzo" name="prezzo" placeholder="Inserisci un prezzo"  onblur="validationPrz()" min="0" required="required" value="%PREZZO%" />
                     <p id="input_error_prezzo" class="p_input_error"> testo errore </p>
                </div>
 
@@ -66,11 +66,11 @@
                     <IMAGE_INSERT_TRAVEL/>
                     
                     <label for="immagine"><strong>INSERISCI IMMAGINI</strong></label>
-                    <input type="file" class="input input-file" tabindex="10" id="immagine" accept="image/*" name="immagine" %IMAGE_REQUIRED%>
+                    <input type="file" class="input input-file" tabindex="10" id="immagine" accept="image/*" name="immagine" %IMAGE_REQUIRED% />
                     <p id="input_error_immagini" class="p_input_error"> testo errore </p>
                     
                     <label for="altImmagine"><strong><abbr title="Testo alternativo">ALT</abbr> IMMAGINE (minimo 5 massimo 50 caratteri)</strong></label>
-                    <input type="text" class="input" tabindex="11" id="altImmagine" name="altImmagine" maxlength='50' minlength="5" required="required" placeholder="Inserisci una breve descrizione dell'immagine" value="%ALTIMMAGINE%" autocomplete="off">
+                    <input type="text" class="input" tabindex="11" id="altImmagine" name="altImmagine" maxlength='50' minlength="5" required="required" placeholder="Inserisci una breve descrizione dell'immagine" value="%ALTIMMAGINE%" autocomplete="off" />
                     <p id="input_error_alt_immagine" class="p_input_error"> testo errore </p>
                </div>
           </fieldset>
@@ -89,8 +89,8 @@
 
      
      <div>
-          <input type="hidden" name="id" id="id" value="%ID%">
-          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" aria-haspopup="dialog" value="INVIA">
-          <input class="btn-reset bottoneform" tabindex="14" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM">     
+          <input type="hidden" name="id" id="id" value="%ID%" />
+          <input class="btn-submit bottoneform" tabindex="13" type="submit" id="submitForm" aria-haspopup="dialog" value="INVIA" />
+          <input class="btn-reset bottoneform" tabindex="14" type="reset" id="resetForm" value="CANCELLA CONTENUTO FORM" />     
      </div>
  </form>

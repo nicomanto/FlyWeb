@@ -151,6 +151,7 @@ button a{
     order: 4;
     background-color: #d7ecff;
     padding: 2em 0 6em 0;
+    margin-bottom: 2em;
 }
 
 .contenuto-home .footer{
@@ -363,19 +364,6 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
     -webkit-appearance: none;
     margin: 0;
-}
-
-.input-date::-webkit-calendar-picker-indicator{
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid #aaa;
-    border-radius: 5px;
-}
-.input-date::-webkit-calendar-picker-indicator:hover{
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid #0a3150;
-    border-radius: 5px;
 }
 
 .p_input_error{
@@ -643,13 +631,13 @@ input[type=number]::-webkit-outer-spin-button {
     border: 0;
 }
 
-.form-search .src-input:hover, .lista:hover{
+.form-search .src-input:hover, .lista:hover , .src-data{
     background-color: #d3e2f8;
     border:  2px solid #d3e2f8;
 }
-.form-search .src-input:focus, .lista:focus{
-    background-color: #91bcfd;
-    border:  2px solid #91bcfd;
+.form-search .src-input:focus, .lista:focus, .src-data{
+    border:  2px solid #1B88E0;
+    box-shadow: 0;
 }
 
 .form-search span{
@@ -710,10 +698,11 @@ input[type=number]::-webkit-outer-spin-button {
     width: 90%;
     background-color: #1B88E0;
     border: 2px solid #d3e2f8;
+    font-weight: bold;
 }
 #btn-filtri:hover{
     border: 2px solid #1B88E0;
-    color: #fff;
+    font-weight: bolder;
 }
 
 .form-search .filtri-si{
@@ -1086,6 +1075,10 @@ input[type=number]::-webkit-outer-spin-button {
     letter-spacing: 2px;
     width: 100%;
     display: block;
+}
+
+.form-registrazione span{
+    padding: 0;
 }
 
 /* === ABOUT US === */
@@ -1778,6 +1771,11 @@ caption{
     .footer{
         height: 100vh;
     }
+
+    .boxSuggerimenti ul li{
+        margin-bottom: 4em;
+    }
+    
     /* === SEARCH BOX === */
 
     .form-search span{
@@ -1804,20 +1802,14 @@ caption{
 
     /* ===  ACCEDI, REGISTRATI   === */
     .form-registrazione{
-        width: 80%;
+        max-width: 90%;
+        margin: 0 auto;
     }
     .form-registrazione .input{
         width: 100%;
     }
 
     /* === PROFILO ===*/
-
-    .form-registrazione fieldset{
-        display: block;
-        padding: 0;
-        padding-top: 1em;
-        width: 95%;
-    }
 
     .form-registrazione input{
         margin: 0 auto;
@@ -1828,9 +1820,6 @@ caption{
         display: block;
     }
 
-    .form-registrazione span{
-        margin-left: 1em;
-    }
     .form-registrazione li{
         margin-bottom: 1em;
     }
@@ -1845,7 +1834,7 @@ caption{
     /* === FORM AMMINISTRAZIONE === */
 
     .dash-form{
-        margin: 0;
+        margin: 0 auto;
         margin-bottom: 3em;
         padding: 0;
         width: 95%;
@@ -1875,6 +1864,10 @@ caption{
 
     .dash-form .input[type="text"], .dash-form textarea{
         padding-left: 1em;
+    }
+
+    .form-registrazione,.form-registrazione fieldset{
+        padding: 0; 
     }
 
     /* == SEARH BOX == */
@@ -1925,7 +1918,6 @@ caption{
         height: 150px;
     }
 
-    
     /* === TRAVEL DETAILS  === */
 
     .travel-details-container {
@@ -2087,7 +2079,8 @@ caption{
     bottom: 1em;
     width: 4em; 
     height: 4em;
-    
+    min-height: 48px;
+    min-width: 48px;
 }
 
 .hide {

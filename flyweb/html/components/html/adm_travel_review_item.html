@@ -1,19 +1,19 @@
 <li class="adm-card">
     <h2>Recensione numero %ID% : <span lang='%LINGUA%'>%TITOLO%</span></h2>
-    <div><h3>Data rilascio:</h3><span>%DATA% </span></div>
+    <div><h3>Data pubblicazione:</h3><span>%DATA% </span></div>
     <div><h3>Valutazione: </h3> <span>%VALUTAZIONE% su 5 </span></div>
     <div><h3>Generalità scrittore:</h3> <span>%NOME_UTENTE%</span> <span>%COGNOME_UTENTE%</span></div>
     <div><h3>Contenuto :</h3> <span lang='%LINGUA%'>%DESCRIZIONE%</span></div>
     <div class="adm-bottoni-recensione">
         <div class="adm-card-rev">
             <form action="./adm_moderazione_recensioni.php" method="post">
-                <input type="hidden" name="id_review" value="%ID%">
+                <input type="hidden" name="id_review" value="%ID%" />
 
                 <input type="submit" class="adm-bottone-approva-recensione" name="btn_approva"
-                 value="APPROVA" title="approva recensione %ID%">
+                 value="APPROVA" title="approva recensione %ID%" />
 
                 <input type="submit" class="adm-bottone-elimina-recensione" name="btn_elimina"
-                 value="ELIMINA" aria-haspopup="dialog" onclick="ConfermaEliminazione()" title="elimina recensione %ID%">
+                 value="ELIMINA" aria-haspopup="dialog" onclick="ConfermaEliminazione()" title="elimina recensione %ID%" />
             </form>
         </div>
     </div>

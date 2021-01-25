@@ -10,17 +10,17 @@
             <legend>Modifica la tua <span lang="en">password</span></legend>
             
             <label for ="password_corrente"><span lang="en">Password</span> corrente:</label>
-                <input type="password" class="input" tabindex="1" name ="password_corrente" id="password_corrente" required='required'>
+                <input type="password" class="input" tabindex="1" name ="password_corrente" id="password_corrente" required='required' />
 
             <label for="password">Nuova <span lang="en">password</span>:</label>
-                <input type="password" class="input" tabindex="2" name="password" id="password" required='required' onblur="validationPassword()">
+                <input type="password" class="input" tabindex="2" name="password" id="password" required='required' onblur="validationPassword()" />
             <p id="input_error_password" class="p_input_error"> testo errore </p>
 
             <label for="password_ripetuta">Ripeti nuova <span lang="en">password</span>:</label>
-                <input type="password" class="input" tabindex="3" name="password_ripetuta" id="password_ripetuta" required='required' onblur="validationPasswordRepeat()">
+                <input type="password" class="input" tabindex="3" name="password_ripetuta" id="password_ripetuta" required='required' onblur="validationPasswordRepeat()" />
             <p id="input_error_password_repeated" class="p_input_error"> testo errore </p>
 
-            <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" name='submit' value="Salva nuova password">
+            <input class="adm-bottone-modifica-card" tabindex="4" type="submit" id="submit" name='submit' value="Salva nuova password" />
         </fieldset>
     </form>
 </div>
