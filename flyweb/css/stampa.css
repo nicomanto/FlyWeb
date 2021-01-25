@@ -66,6 +66,10 @@ fieldset{
     visibility: hidden;
 }
 
+.boxSuggerimenti img{
+    display: none;
+}
+
 .page-selector input[type=button]:disabled{
     opacity: 1;
     border: 1px solid #000;
