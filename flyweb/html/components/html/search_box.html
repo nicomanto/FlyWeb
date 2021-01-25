@@ -18,12 +18,14 @@
             <div class="search-box-div">
                 <label  class="search-label" for="search_start_date">
                     <span>Data inizio viaggio </span>
-                    <input type="text" class="src-data" placeholder="gg/mm/aaaa" tabindex="2" %VALIDATION_DATE% name="search_start_date" id="search_start_date" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_START_DATE%">
+                    <input type="text" placeholder="gg/mm/aaaa" tabindex="2" aria-invalid="false" aria-describedby="start_date_errmsg" %VALIDATION_DATE% name="search_start_date" id="search_start_date" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_START_DATE%">
+                    <span id="start_date_errmsg">Nessun errore</span>
                 </label>
 
                 <label class="search-label" for="search_end_date">
                     <span>Data fine viaggio</span>
-                    <input type="text" class="src-data" placeholder="gg/mm/aaaa" tabindex="3" name="search_end_date" id="search_end_date"  %VALIDATION_DATE% pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_END_DATE%" >
+                    <input type="text" placeholder="gg/mm/aaaa" tabindex="3" aria-invalid="false" aria-describedby="end_date_errmsg" name="search_end_date" id="search_end_date"  %VALIDATION_DATE% pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" value="%SEARCH_END_DATE%" >
+                    <span id="end_date_errmsg">Nessun errore</span>
                 </label>
             </div>
         </fieldset>
@@ -45,7 +47,8 @@
                     
                     <label for="search_end_price" class="search-label">
                         <span>Prezzo massimo</span>
-                        <input type="number" tabindex="4" name="search_end_price" class="src-input" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" onblur="validationSearchPrice()">    
+                        <input type="number" tabindex="4" name="search_end_price" class="src-input" aria-invalid="false" aria-describedby="end_price_errmsg" id="search_end_price" placeholder="Scrivi il prezzo massimo" value="%SEARCH_END_PRICE%" min="0" onblur="validationSearchPrice()">    
+                        <span id="end_price_errmsg">Nessun errore</span>
                     </label>
 
                     <label for="search_by_option" class="search-label">

@@ -42,6 +42,8 @@
     // Set nav menu
     $_page->replaceTag('NAV-MENU', (new PrincipalMenu));
 
+    $_page->replaceTag('AGGIUNGI-CARRELLO', '');
+
     // Set breadcrumb
     // Da vedere come fare serach.php perchè reindirizza a index.php perchè mancano gli elementi per la get
     $breadcrumb=array(

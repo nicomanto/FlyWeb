@@ -2123,3 +2123,9 @@ caption{
     color: orange;
     font-size: 2em;
 }
+
+
+/*SPAN ERRORE MSG FOR SCREEN READER*/
+#start_date_errmsg, #end_date_errmsg ,#end_price_errmsg{
+    display: none;
+}
