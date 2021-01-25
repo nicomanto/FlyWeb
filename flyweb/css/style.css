@@ -366,19 +366,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.input-date::-webkit-calendar-picker-indicator{
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid #aaa;
-    border-radius: 5px;
-}
-.input-date::-webkit-calendar-picker-indicator:hover{
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid #0a3150;
-    border-radius: 5px;
-}
-
 .p_input_error{
     visibility: hidden;
     color: #b60000;
@@ -644,13 +631,13 @@ input[type=number]::-webkit-outer-spin-button {
     border: 0;
 }
 
-.form-search .src-input:hover, .lista:hover{
+.form-search .src-input:hover, .lista:hover , .src-data{
     background-color: #d3e2f8;
     border:  2px solid #d3e2f8;
 }
-.form-search .src-input:focus, .lista:focus{
-    background-color: #91bcfd;
-    border:  2px solid #91bcfd;
+.form-search .src-input:focus, .lista:focus, .src-data{
+    border:  2px solid #1B88E0;
+    box-shadow: 0;
 }
 
 .form-search span{
