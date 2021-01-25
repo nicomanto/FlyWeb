@@ -69,7 +69,7 @@ class PageSelector extends BaseComponent {
 
         // Anchor for first page
         if ($show_first) {
-            $pages_list = $pages_list . new PageSelectorItem(1, false) . '<span class="page_selector_dots">&nbsp;...&nbsp;<span>';
+            $pages_list = $pages_list . new PageSelectorItem(1, false) . '<span class="page_selector_dots">&nbsp;...&nbsp;</span>';
         }
 
         for ($i = $start_counter; $i <= $end_counter; $i++) {
