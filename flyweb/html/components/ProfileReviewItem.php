@@ -50,7 +50,7 @@ class ProfileReviewItem extends baseComponent {
             $this->replaceTag('IS_MOD',"");
         }
         else{
-            $this->replaceTag('IS_MOD',"<p>Recensione ancora da moderare</p>");
+            $this->replaceTag('IS_MOD',"<em class=\"no-rec\">Recensione ancora da moderare</p>");
         }
         
 
