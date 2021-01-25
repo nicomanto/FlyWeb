@@ -2125,3 +2125,8 @@ caption{
 .radio_valutazione > label{
     margin: 1em;
 }
+
+.page_selector_dots {
+    color: orange;
+    font-size: 2em;
+}
