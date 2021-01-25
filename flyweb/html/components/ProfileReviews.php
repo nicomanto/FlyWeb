@@ -29,7 +29,7 @@ class ProfileReviews extends baseComponent {
 
         foreach($this->Reviews as $i){
             $review= new Review($i);
-            $li.= new profileReviewItem($review);
+            $li.= new ProfileReviewItem($review);
             
         }
         
