@@ -52,11 +52,11 @@
 
         
         //check param like js
-        if(!preg_match("/^[\w\s\.(À-ȕ)]*$/",$review->titolo)){
-            array_push ( $error , "Campo Titolo: Permessi i caratteri da A-Z, a-z, À-ȕ, 0-9, _ e il carattere spazio");
+        if(!preg_match("/^[\w\s\.(À-ȕ),!;\"\?']*$/",$review->titolo)){
+            array_push ( $error , "Campo Titolo: Permessi i caratteri da A-Z, a-z, À-ȕ, 0-9, punteggiatura, _ e il carattere spazio");
         }
 
-        if(preg_match("/^(\.|_|\s)*$/",$review->titolo)){
+        if(preg_match("/^(\.|_|\s|,|!|\?|;|\"|')*$/",$review->titolo)){
             array_push ( $error , "Campo Titolo: deve contenere almeno delle lettere o numeri");
         }
 
