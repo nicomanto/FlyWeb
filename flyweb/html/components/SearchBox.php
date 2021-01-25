@@ -54,7 +54,7 @@ class SearchBox extends baseComponent {
             $this->replaceTag('TITOLO', '<h1 class="titolo-pagina"><em>Benvenuto in flyweb, inizia qui il tuo viaggio!</em></h1>');
             $this->replaceValues([
                 'USER_CHECK_ONSUBMIT' => '&& validationSearchDate()',
-                'VALIDATION_DATE' => 'onblur="validationSearchDate()'
+                'VALIDATION_DATE' => 'onblur="validationSearchDate()"'
             ]);
         }
 
