@@ -69,7 +69,7 @@ class PageSelector extends BaseComponent {
 
         // Anchor for first page
         if ($show_first) {
-            $pages_list = $pages_list . new PageSelectorItem(1, false) . '<span>&nbsp;...&nbsp;<spanp>';
+            $pages_list = $pages_list . new PageSelectorItem(1, false) . '<span>&nbsp;...&nbsp;<span>';
         }
 
         for ($i = $start_counter; $i <= $end_counter; $i++) {
@@ -78,7 +78,7 @@ class PageSelector extends BaseComponent {
 
         // Anchor for last page
         if ($show_last) {
-            $pages_list = $pages_list . '<spanp>&nbsp;...&nbsp;</span>' . new PageSelectorItem($this->totalPages, false);
+            $pages_list = $pages_list . '<span>&nbsp;...&nbsp;</span>' . new PageSelectorItem($this->totalPages, false);
         }
         
         // Replace value in template with generated html
