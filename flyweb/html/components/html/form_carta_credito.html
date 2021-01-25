@@ -16,7 +16,7 @@
             <p id="input_error_carta_codice" class="p_input_error"> testo errore </p>
 
             <label for="scadenza_carta">Scadenza carta:</label>
-            <input type="text" class="input input-carta" pattern="^(\d{4})-(0[1-9]|1[0-2])$" tabindex="3" name="scadenza_carta" id="scadenza_carta" required="required"  placeholder="aaaa-mm" autocomplete="off" onblur="checkScadenzaCarta()"/>
+            <input type="month" class="input input-carta" tabindex="3" name="scadenza_carta" id="scadenza_carta" required="required" autocomplete="off" onblur="checkScadenzaCarta()"/>
             <p id="input_error_scadenza_carta" class="p_input_error"> testo errore </p>
 
             <label for="cvv"><abbr lang="en" title="codice di sicurezza della carta">CVV:</abbr></label>

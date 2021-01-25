@@ -89,13 +89,16 @@ function checkCartaCredito(){
 function checkScadenzaCarta(){
     var scadenza_carta  = document.getElementById("scadenza_carta").value;
     var error_id_message=document.getElementById("input_error_scadenza_carta");
+    var reg_expr=/^(\d{4})-(0[1-9]|1[0-2])$/;
+
+    //alert(scadenza_carta);
     var today= new Date().toISOString().slice(0,7);
 
     if(scadenza_carta){
-        if(!document.getElementById("scadenza_carta").checkValidity()){
+        if(scadenza_carta.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("scadenza_carta").style.border = "2px solid red";
-            error_id_message.innerHTML = "Rispetta il formato yyyy-mm";
+            error_id_message.innerHTML = "Rispetta il formato aaaa-mm";
         }
         else if(today > scadenza_carta){
             error_id_message.style.visibility = 'visible';
@@ -360,12 +363,14 @@ function validationPasswordRepeat(){
 function validationDataNascita(){
     var dataNascita  = document.getElementById("data_nascita").value;
     var error_id_message=document.getElementById("input_error_data_nascita");
+
+    var reg_expr=/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
     
     if(dataNascita){
-        if(!document.getElementById("data_nascita").checkValidity()){
+        if(dataNascita.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById("data_nascita").style.border = "2px solid red";
-            error_id_message.innerHTML = "errore: rispetta il fomato gg/mm/aaaa";
+            error_id_message.innerHTML = "errore: rispetta il fomato aaaa-mm-gg";
         }
         else if(getAge(dataNascita)<14){
             error_id_message.style.visibility = 'visible';
@@ -508,46 +513,18 @@ function scrollFunction() {
 
 function validationSearchDate(){
 
+    var start_date_string  = document.getElementById("search_start_date").value;
+    var end_date_string  = document.getElementById("search_end_date").value;
 
-    document.getElementById("search_start_date").setCustomValidity("");
-    document.getElementById("search_end_date").setCustomValidity("");
-    
     document.getElementById("search_start_date").setAttribute("aria-invalid", "false");
     document.getElementById("search_end_date").setAttribute("aria-invalid", "false");
 
-    if(!document.getElementById("search_start_date").checkValidity()){
-        //for screen-readers
-        document.getElementById("search_start_date").setAttribute("aria-invalid", "true");
-        document.getElementById("start_date_errmsg").innerHTML="Rispetta il formato gg/mm/aaaa";
-
-        return false;
-    }
-
-    if(!document.getElementById("search_end_date").checkValidity()){
-        //for screen-readers
-        document.getElementById("search_end_date").setAttribute("aria-invalid", "true");
-        document.getElementById("end_date_errmsg").innerHTML="Rispetta il formato gg/mm/aaaa";
-        return false;
-    }
-
-    var start_date  = document.getElementById("search_start_date").value;
-    var end_date  = document.getElementById("search_end_date").value;
-    
-    start_date=start_date.replace(/\//g,"-");
-    var split=start_date.split('-');
-    split.reverse();
-    start_date=new Date(split[0],split[1]-1,split[2]);
-
-    end_date=end_date.replace(/\//g,"-");
-    split=end_date.split('-');
-    split.reverse();
-    end_date=new Date(split[0],split[1]-1,split[2]);
+    start_date=new Date(start_date_string);
+    end_date=new Date(end_date_string);
 
     var today = new Date();
 
-    
-    
-    if(start_date && today > start_date){
+    if(start_date_string && today > start_date){
         // Show error on start_date
         document.getElementById("search_start_date").setCustomValidity("Viaggio già iniziato");
         document.getElementById("search_start_date").reportValidity();
@@ -555,10 +532,21 @@ function validationSearchDate(){
         //for screen-readers
         document.getElementById("search_start_date").setAttribute("aria-invalid", "true");
         document.getElementById("start_date_errmsg").innerHTML="Viaggio già iniziato";
+        
+        return false;
+    }
+    else if(start_date_string && isNaN(start_date)){
+        document.getElementById("search_start_date").setCustomValidity("La data va scritta nel formato aaaa-mm-dd");
+        document.getElementById("search_start_date").reportValidity();
+
+        //for screen-readers
+        document.getElementById("search_start_date").setAttribute("aria-invalid", "true");
+        document.getElementById("start_date_errmsg").innerHTML="La data va scritta nel formato aaaa-mm-dd";
+        
         return false;
     }
 
-    if (end_date && today > end_date) {
+    if (end_date_string && today > end_date) {
         // Show error on end_date
         document.getElementById("search_end_date").setCustomValidity("Viaggio già terminato");
         document.getElementById("search_end_date").reportValidity();
@@ -568,8 +556,18 @@ function validationSearchDate(){
         document.getElementById("end_date_errmsg").innerHTML="Viaggio già terminato";
         return false;
     }
+    else if(end_date_string && isNaN(end_date)){
+        document.getElementById("search_end_date").setCustomValidity("La data va scritta nel formato aaaa-mm-dd");
+        document.getElementById("search_end_date").reportValidity();
 
-    if (start_date && end_date && start_date > end_date) {
+        //for screen-readers
+        document.getElementById("search_end_date").setAttribute("aria-invalid", "true");
+        document.getElementById("end_date_errmsg").innerHTML="La data va scritta nel formato aaaa-mm-dd";
+        
+        return false;
+    }
+
+    if (start_date_string && end_date_string && start_date > end_date) {
         // show error on end_date
         document.getElementById("search_end_date").setCustomValidity("Deve essere successiva all'inizio del viaggio");
         document.getElementById("search_end_date").reportValidity();
