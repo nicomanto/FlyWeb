@@ -419,14 +419,14 @@ function getAge(data_nascita){
 function titoloEDescrizioneRecensione(id,Element){
     var element  = document.getElementById(Element).value;
     var error_id_message=document.getElementById(id);
-    var reg_expr= /^[\w\s\.]*$/;
+    var reg_expr= /^[\w\s\.(À-ȕ)]*$/;
     var no_only_special=/^(\.|_|\s)*$/;
 
     if(element){
         if( element.search(reg_expr) !=0){
             error_id_message.style.visibility = 'visible';
             document.getElementById(Element).style.border = "2px solid red";
-            error_id_message.innerHTML = "errore: nella descrizione sono permessi i caratteri da A-Z, a-z, 0-9, _ e il carattere spazio";
+            error_id_message.innerHTML = "errore: nella descrizione sono permessi i caratteri da A-Z, a-z, À-ȕ, 0-9, _  e il carattere spazio";
             return false;
         }
         else if(no_only_special.test(element)){
