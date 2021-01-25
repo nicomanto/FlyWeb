@@ -4,7 +4,7 @@ namespace html\components;
 
 use html\components\baseComponent;
 
-use html\components\profileReviewItem;
+use html\components\ProfileReviewItem;
 
 use model\Review;
 
