@@ -710,10 +710,11 @@ input[type=number]::-webkit-outer-spin-button {
     width: 90%;
     background-color: #1B88E0;
     border: 2px solid #d3e2f8;
+    font-weight: bold;
 }
 #btn-filtri:hover{
     border: 2px solid #1B88E0;
-    color: #fff;
+    font-weight: bolder;
 }
 
 .form-search .filtri-si{
