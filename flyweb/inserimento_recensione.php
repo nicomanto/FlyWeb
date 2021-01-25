@@ -60,11 +60,11 @@
             array_push ( $error , "Campo Titolo: deve contenere almeno delle lettere o numeri");
         }
 
-        if(!preg_match("/^[\w\s\.(À-ȕ)]*$/",$review->descrizione)){
-            array_push ( $error , "Campo Descrizione: Permessi i caratteri da A-Z, a-z, À-ȕ, 0-9, _ e il carattere spazio");
+        if(!preg_match("/^[\w\s\.(À-ȕ),!;\"\?']*$/",$review->descrizione)){
+            array_push ( $error , "Campo Descrizione: Permessi i caratteri da A-Z, a-z, À-ȕ, 0-9, punteggiatura, _ e il carattere spazio");
         }
 
-        if(preg_match("/^(\.|_|\s)*$/",$review->descrizione)){
+        if(preg_match("/^(\.|_|\s|,|!|\?|;|\"|')*$/",$review->descrizione)){
             array_push ( $error , "Campo Descrizione: deve contenere almeno delle lettere o numeri");
         }
 

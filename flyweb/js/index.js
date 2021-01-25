@@ -419,8 +419,8 @@ function getAge(data_nascita){
 function titoloEDescrizioneRecensione(id,Element){
     var element  = document.getElementById(Element).value;
     var error_id_message=document.getElementById(id);
-    var reg_expr= /^[\w\s\.(À-ȕ)]*$/;
-    var no_only_special=/^(\.|_|\s)*$/;
+    var reg_expr= /^[\w\s\.(À-ȕ),!;"\?']*$/;
+    var no_only_special=/^(\.|_|\s|,|!|\?|;|"|')*$/;
 
     if(element){
         if( element.search(reg_expr) !=0){
