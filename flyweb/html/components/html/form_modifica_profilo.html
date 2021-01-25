@@ -9,30 +9,30 @@
             <legend>Modifica dati personali utente</legend>
 
             <label for="username"><span lang="en">Username</span>:</label>
-            <input type="text" class="input" tabindex="1" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%" onblur="validationUsername()">
+            <input type="text" class="input" tabindex="1" id="username" name="username" required="required" placeholder="inserisci username" value="%USERNAME%" onblur="validationUsername()" />
             
             <p id="input_error_username" class="p_input_error"> testo errore </p>
 
 
             <label for="email" lang="en"><span lang="en">Email</span>:</label>
-            <input type="text" class="input" tabindex="2" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%" onblur="validationEmail()">
+            <input type="text" class="input" tabindex="2" id="email" name="email" required="required" placeholder="inserisci email" value="%EMAIL%" onblur="validationEmail()" />
             
             <p id="input_error_email" class="p_input_error"> testo errore </p>
             
             <label for="nome">Nome:</label>
-            <input type="text" class="input" tabindex="3" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%" onblur="validationTipoNome('input_error_nome','nome')">
+            <input type="text" class="input" tabindex="3" id="nome" name="nome" required="required" placeholder="inserisci nome" value="%NOME%" onblur="validationTipoNome('input_error_nome','nome')" />
             
             <p id="input_error_nome" class="p_input_error"> testo errore </p>
 
             <label for="cognome">Cognome:</label>
-            <input type="text" class="input" tabindex="4" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%" onblur="validationTipoNome('input_error_cognome','cognome')">
+            <input type="text" class="input" tabindex="4" id="cognome" name="cognome" required="required" placeholder="inserisci cognome" value="%COGNOME%" onblur="validationTipoNome('input_error_cognome','cognome')" />
             <p id="input_error_cognome" class="p_input_error"> testo errore </p>
 
             <label for="data_nascita">Data di nascita:</label>
-            <input type="text" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%" placeholder="gg/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" onblur="validationDataNascita()">
+            <input type="text" class="input" tabindex="5" id="data_nascita" name="data_nascita" required="required" value="%DATA_NASCITA%" placeholder="gg/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" onblur="validationDataNascita()" />
             <p id="input_error_data_nascita" class="p_input_error"> testo errore </p>
         
-            <input type="submit" class="adm-bottone-modifica-card" name="submit" tabindex="6" id="submit" value="Salva i nuovi dati">
+            <input type="submit" class="adm-bottone-modifica-card" name="submit" tabindex="6" id="submit" value="Salva i nuovi dati" />
         </fieldset>
     </form>
 
