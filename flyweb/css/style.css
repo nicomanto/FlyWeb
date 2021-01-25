@@ -1778,6 +1778,11 @@ caption{
     .footer{
         height: 100vh;
     }
+
+    .boxSuggerimenti ul li{
+        margin-bottom: 4em;
+    }
+    
     /* === SEARCH BOX === */
 
     .form-search span{
@@ -1804,20 +1809,14 @@ caption{
 
     /* ===  ACCEDI, REGISTRATI   === */
     .form-registrazione{
-        width: 80%;
+        max-width: 90%;
+        margin: 0 auto;
     }
     .form-registrazione .input{
         width: 100%;
     }
 
     /* === PROFILO ===*/
-
-    .form-registrazione fieldset{
-        display: block;
-        padding: 0;
-        padding-top: 1em;
-        width: 95%;
-    }
 
     .form-registrazione input{
         margin: 0 auto;
@@ -1845,7 +1844,7 @@ caption{
     /* === FORM AMMINISTRAZIONE === */
 
     .dash-form{
-        margin: 0;
+        margin: 0 auto;
         margin-bottom: 3em;
         padding: 0;
         width: 95%;
@@ -1875,6 +1874,10 @@ caption{
 
     .dash-form .input[type="text"], .dash-form textarea{
         padding-left: 1em;
+    }
+
+    .form-registrazione,.form-registrazione fieldset{
+        padding: 0;
     }
 
     /* == SEARH BOX == */
@@ -1925,7 +1928,6 @@ caption{
         height: 150px;
     }
 
-    
     /* === TRAVEL DETAILS  === */
 
     .travel-details-container {
