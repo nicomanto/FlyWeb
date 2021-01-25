@@ -5,10 +5,8 @@
         <div><h3>Luogo</h3>:<span class="adr"> %COUNTRY%, %CITY%, %LOCATION%</span></div>
         <div><h3>Date</h3>:<span> dal %START_DATE% al %END_DATE%</span></div>
         <form action="./carrello.php" method="post">
-            <!-- id="id_viaggio" è stato toldo: vi erano duplicati-->
             <input type="hidden" name="id_elemento_carrello" value="%ID_ELEMENTO_CARRELLO%">
 
-            <!-- id="btn_elimina" è stato toldo: vi erano duplicati-->
             <input type="submit" class="adm-bottone-elimina-card" name="btn_elimina" value="Rimuovi dal carrello" title="rimuovi dal carrello il viaggio %NAME%">
         </form>
 
